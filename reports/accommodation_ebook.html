@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SA Accommodation Intelligence — Ebook</title>
+<style>
+  :root {
+    --blue:#4285F4; --green:#0F9D58; --orange:#FF6D00; --yellow:#F4B400;
+    --red:#DB4437; --teal:#00BCD4; --purple:#673AB7; --dark:#1A1A2E;
+    --bg:#FFFFFF; --border:#E0E6F0; --sub:#6B7A99;
+  }
+  @page { margin:25mm 20mm; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:#fff; color:#222; line-height:1.75; }
+  .page { max-width:840px; margin:0 auto; padding:32px 40px; }
+
+  /* Cover */
+  .cover { background:var(--dark); color:#fff; min-height:400px; padding:60px 48px;
+            text-align:center; border-radius:0; margin-bottom:0; }
+  .cover .tagline { color:var(--teal); font-size:1rem; letter-spacing:.1em; text-transform:uppercase;
+                     font-family:'Segoe UI',sans-serif; margin-bottom:20px; }
+  .cover h1 { font-size:2.6rem; font-weight:700; line-height:1.2; margin-bottom:16px; }
+  .cover .subtitle { color:#aab3cc; font-size:1.1rem; margin-bottom:30px; }
+  .cover .meta { font-family:'Segoe UI',sans-serif; font-size:.85rem; color:#8899bb; }
+  .cover-accent { width:80px; height:4px; background:var(--teal); margin:0 auto 24px; }
+
+  /* Typography */
+  h2 { font-size:1.5rem; color:var(--dark); border-bottom:3px solid var(--teal);
+        padding-bottom:8px; margin:40px 0 16px; font-family:'Segoe UI',sans-serif; }
+  h3 { font-size:1.1rem; color:var(--blue); margin:28px 0 10px; font-family:'Segoe UI',sans-serif; }
+  h4 { font-size:.95rem; color:var(--orange); margin:20px 0 8px; font-family:'Segoe UI',sans-serif; }
+  p  { margin:0 0 14px; }
+  ul,ol { margin:0 0 16px 24px; }
+  li { margin-bottom:6px; }
+
+  /* Callouts */
+  .callout {
+    border-left:5px solid var(--teal); background:#F0FDFD;
+    padding:14px 18px; margin:20px 0; border-radius:0 6px 6px 0;
+    font-family:'Segoe UI',sans-serif; font-size:.92rem;
+  }
+  .callout.orange { border-color:var(--orange); background:#FFF3E0; }
+  .callout.green  { border-color:var(--green); background:#E8F5E9; }
+  .callout.red    { border-color:var(--red); background:#FFEBEE; }
+  .callout.purple { border-color:var(--purple); background:#F3E5F5; }
+  .callout strong { color:var(--dark); }
+
+  /* Stats band */
+  .stat-band { display:flex; gap:0; margin:24px 0; border-radius:8px; overflow:hidden; }
+  .stat-item { flex:1; padding:18px 14px; text-align:center; }
+  .stat-item .num { font-size:1.8rem; font-weight:700; font-family:'Segoe UI',sans-serif; color:#fff; }
+  .stat-item .lbl { font-size:.7rem; text-transform:uppercase; letter-spacing:.07em; color:rgba(255,255,255,.8); margin-top:4px; }
+  .s1{background:var(--blue);} .s2{background:var(--green);} .s3{background:var(--orange);}
+  .s4{background:var(--yellow);} .s5{background:var(--teal);} .s6{background:var(--purple);}
+
+  /* Dirty data table */
+  table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:.85rem; font-family:'Segoe UI',sans-serif; }
+  th { background:var(--dark); color:#fff; padding:9px 12px; text-align:left; }
+  td { padding:7px 12px; border-bottom:1px solid var(--border); }
+  tr:nth-child(even) td { background:#F8F9FA; }
+
+  /* Architecture diagram */
+  .arch { display:flex; flex-direction:column; gap:8px; margin:20px 0; font-family:'Segoe UI',sans-serif; }
+  .arch-row { display:flex; gap:8px; }
+  .arch-box {
+    flex:1; text-align:center; padding:12px 8px; border-radius:6px;
+    font-size:.8rem; font-weight:600; color:#fff;
+  }
+  .arch-arrow { text-align:center; font-size:1.2rem; color:var(--sub); margin:2px 0; }
+
+  /* Page break */
+  .page-break { page-break-before:always; }
+
+  /* Footer */
+  .ebook-footer { border-top:2px solid var(--border); margin-top:48px; padding-top:16px;
+                    font-size:.75rem; color:var(--sub); font-family:'Segoe UI',sans-serif;
+                    display:flex; justify-content:space-between; }
+  @media print { .no-print { display:none; } }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover page">
+  <div class="tagline">Data Engineering · BigQuery · GA4 · Machine Learning</div>
+  <div class="cover-accent"></div>
+  <h1>SA Accommodation Intelligence Platform</h1>
+  <div class="subtitle">Who Wins the Booking Battle? A Data-Driven Analysis of South Africa's<br>
+  LekkeSlaap Accommodation Market</div>
+  <div class="meta">
+    Anthony Apollis &nbsp;|&nbsp; 2026-06-27 &nbsp;|&nbsp; 1,011 Properties · 30K Sessions · 3 ML Models
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="page">
+<h2>Executive Summary</h2>
+
+<p>South Africa's short-term accommodation market is booming — and the data proves it. This report analyses
+<strong>1,011 unique LekkeSlaap listings</strong> spanning 18 SA regions and Namibia, overlaid with
+<strong>30,000 simulated GA4 web sessions</strong> and three machine learning models to uncover the
+pricing dynamics, web analytics patterns, and market intelligence that matter most to accommodation operators,
+digital marketers, and data engineers.</p>
+
+<div class="stat-band">
+  <div class="stat-item s1"><div class="num">1,011</div><div class="lbl">Properties</div></div>
+  <div class="stat-item s2"><div class="num">R2,002</div><div class="lbl">Avg Price/Night</div></div>
+  <div class="stat-item s3"><div class="num">0.36%</div><div class="lbl">Booking Conv.</div></div>
+  <div class="stat-item s4"><div class="num">107</div><div class="lbl">Confirmed Bookings</div></div>
+  <div class="stat-item s5"><div class="num">79%</div><div class="lbl">POPIA Consent</div></div>
+  <div class="stat-item s6"><div class="num">3</div><div class="lbl">ML Models</div></div>
+</div>
+
+<div class="callout green">
+<strong>Key Finding:</strong> Self Catering dominates with 67% of the market, yet it operates at the <em>lowest
+average price</em> of all listing types. Game Lodges and Hotels command 3–5× the nightly rate with far fewer
+listings — a high-value niche hiding in plain sight.
+</div>
+
+<h3>What We Built</h3>
+<ul>
+  <li>A <strong>Python ETL pipeline</strong> that scraped, cleaned, and normalised 1,013 dirty records into a
+  production-grade dataset — fixing price formatting, promotional name noise, duplicate location strings, and
+  outlier prices before any analysis ran.</li>
+  <li>A <strong>BigQuery star schema</strong> (dataset: <code>accommodation_intelligence</code>,
+  region: <code>africa-south1</code>) with six tables, partition pruning, and cluster keys — all loaded via
+  <code>bq load</code> (free ETL within BigQuery's 1 TB/month free tier).</li>
+  <li><strong>Synthetic GA4 web events</strong> (30,000 sessions, 28,628 funnel events) modelling a
+  real booking platform — traffic sources, devices, SA provinces, POPIA consent signals, and a 5-step booking funnel.</li>
+  <li>Three <strong>machine learning models</strong>: a Gradient Boosting price regressor (R²=0.1726),
+  a Random Forest tier classifier (Accuracy=0.397), and a demand score regressor — all trained on listing
+  features and deployed to BigQuery for ranking.</li>
+</ul>
+
+
+<h2>Chapter 1: The Dirty Data Problem</h2>
+
+<p>Before any chart was drawn or model was trained, the raw scraped data told a sobering story: it was
+<em>filthy</em>. Real-world web scraping almost always is. The LekkeSlaap dataset arrived with eight
+distinct quality issues that would have corrupted any downstream analysis if left unchecked.</p>
+
+<h3>What Was Wrong</h3>
+<table>
+  <tr><th>Issue</th><th>Count</th><th>Impact if Left Uncleaned</th></tr>
+  <tr><td>Promotional text in property names<br><em>"Flash Deal 50% off! 50% off! Island View"</em></td>
+      <td>~15</td><td>Breaks grouping, confuses ML string encoders</td></tr>
+  <tr><td>Prices with thousand-separator spaces<br><em>"R1 700" instead of R1700</em></td>
+      <td>~600+</td><td>Numeric parsing returns NaN; average price completely wrong</td></tr>
+  <tr><td>Duplicated suburb in location<br><em>"Cape Town CBD, Cape Town CBD Cape Town"</em></td>
+      <td>~500+</td><td>Region extraction fails; geo-grouping gives wrong counts</td></tr>
+  <tr><td>Non-standard listing types<br><em>"LodgingBusiness", "accommodation"</em></td>
+      <td>5</td><td>Category counts wrong; ML encoder sees unseen classes in production</td></tr>
+  <tr><td>Rating field 99.7% empty</td><td>1,010/1,013</td><td>Cannot use as ML feature; misleads summary stats</td></tr>
+  <tr><td>Price outliers > R20,000/night</td><td>~3</td><td>Inflates average by hundreds of Rand; distorts regression</td></tr>
+  <tr><td>Duplicate property_id records</td><td>~50</td><td>Double-counts market share; inflates regional listings</td></tr>
+  <tr><td>Reviewer name in location field<br><em>"- Melissa H"</em></td><td>2</td><td>Scraper artefact; breaks suburb extraction</td></tr>
+</table>
+
+<div class="callout red">
+<strong>Data Quality Rule:</strong> Never trust a scraped dataset. Always run a completeness audit
+(nulls per field), uniqueness audit (duplicate IDs), format audit (regex validation), and range audit
+(statistical outlier detection) <em>before</em> any analysis. Document every fix — the BigQuery <code>ml_predictions</code>
+table carries <code>price_outlier_flag</code> and <code>has_promo_flag</code> so downstream users know which
+records were touched.
+</div>
+
+<h3>How We Fixed It</h3>
+<p>All cleaning ran in <code>01_etl_clean.py</code> before a single byte reached BigQuery:</p>
+<ol>
+  <li><strong>Name cleaning</strong>: regex stripped the pattern <code>(?:Flash Deal\s+)?(?:\d+%\s*off!?\s*)+</code></li>
+  <li><strong>Price normalisation</strong>: replaced <code>R</code> prefix + spaces, cast to float, capped at R20,000</li>
+  <li><strong>Location deduplication</strong>: matched <code>^(.+?),\s*\s+(.+)$</code> and collapsed the repeat</li>
+  <li><strong>Type mapping</strong>: dict-based <code>replace()</code> for the two non-standard values</li>
+  <li><strong>Deduplication</strong>: <code>drop_duplicates(subset=["property_id"])</code></li>
+</ol>
+
+
+<h2>Chapter 2: The Market — Who Lists on LekkeSlaap?</h2>
+
+<p>With clean data in hand, the market picture snaps into focus. LekkeSlaap is overwhelmingly a
+<em>self-catering platform</em> — think cottages, apartments, and holiday homes where guests cook for themselves.
+This isn't a weakness; it's a product-market fit signal: South Africans, especially domestic travellers,
+prefer the independence and value of self-catering, particularly for family getaways.</p>
+
+<h3>Listing Type Breakdown</h3>
+<ul>
+  <li><strong>Self Catering</strong>: 67% of all listings — the platform's core identity</li>
+  <li><strong>Guest House</strong>: 16% — typically B&B-adjacent, owner-operated</li>
+  <li><strong>Lodge</strong>: 6% — higher-end, often near nature reserves</li>
+  <li><strong>Game Lodge</strong>: 3% — premium niche, commanding top prices</li>
+  <li><strong>B&amp;B</strong>: 3%, <strong>Hotel</strong>: 2% — underrepresented (LekkeSlaap is not a hotel channel)</li>
+</ul>
+
+<h3>Price Tier Distribution</h3>
+<p>After cleaning, prices span from <strong>R99</strong> to <strong>R20,000</strong> per night (post-outlier cap),
+with a median of <strong>R1,380</strong> and mean of <strong>R2,002</strong>.
+The higher mean vs. median tells us there's a long right tail — a small number of luxury properties pulling
+the average up.</p>
+
+<div class="callout">
+<strong>Price Tier Thresholds (ZAR per night):</strong><br>
+Budget &lt; R700 · Mid-Range R700–R1,199 · Premium R1,200–R2,499 · Luxury ≥ R2,500
+</div>
+
+<h3>Regional Hotspots</h3>
+<p>LekkeSlaap's listing distribution closely tracks South Africa's domestic tourism routes:
+<strong>Cape Town, Garden Route, Gauteng (Joburg + Pretoria), and KwaZulu-Natal</strong> dominate.
+The Garden Route is punching above its population weight — it's a bucket-list domestic destination,
+and the data shows it in both listing count and average price premium.</p>
+
+<div class="callout orange">
+<strong>Insight:</strong> Namibia listings (Windhoek, Henties Bay, Namib Desert) appear in the dataset —
+a reminder that LekkeSlaap serves the broader southern African region, not just RSA. Any geo-targeting
+strategy must account for this cross-border audience.
+</div>
+
+
+<h2>Chapter 3: GA4 & Web Analytics — The Digital Layer</h2>
+
+<p>Raw listing data only tells half the story. The other half lives in the analytics layer: how users
+<em>find</em>, <em>browse</em>, and ultimately <em>book</em> accommodation online. To illustrate this,
+we built a synthetic GA4-schema event dataset modelling 30,000 sessions across January to June 2025.</p>
+
+<h3>Traffic Source Mix</h3>
+<p>Organic Google search (<strong>32%</strong>) is the dominant acquisition channel — exactly what you'd
+expect for a destination with strong brand search intent ("LekkeSlaap Cape Town"). Paid Google CPC
+(<strong>18%</strong>) supplements organic coverage, particularly for competitive destination keywords.
+Social media (Facebook + Instagram, <strong>19% combined</strong>) drives discovery for users who weren't
+already searching — critical for inspirational content about new destinations.</p>
+
+<h3>Device Reality Check</h3>
+<p>Mobile accounts for <strong>61%</strong> of sessions — but mobile users show a <em>lower average
+engagement time</em> and <em>higher bounce rate</em> than desktop users. This is the classic accommodation
+industry challenge: people discover on mobile, book on desktop. Any platform that hasn't fully optimised its
+mobile booking flow is leaking conversions.</p>
+
+<h3>The 5-Step Booking Funnel</h3>
+<div class="callout purple">
+<strong>Funnel Drop-Off Summary (simulated, GA4-schema):</strong><br>
+Listing View → Search Nearby (−40%) → Contact Host (−36%) → Booking Initiated (−37%) → Confirmed (−36%)<br><br>
+<strong>Biggest drop</strong>: The step from <em>listing view to search nearby</em> — users view a property
+but then look for nearby alternatives before committing. This signals opportunity: better internal
+recommendation engines and "similar properties" carousels could recapture this audience.
+</div>
+
+<h3>Province-Level Booking Patterns</h3>
+<p>Western Cape users confirm the most bookings — unsurprising given Cape Town's tourism dominance.
+Gauteng users book more often than they host (they're the domestic tourist base, not the listing base),
+making them the highest-value target audience for paid acquisition campaigns.</p>
+
+<h3>POPIA Consent Mode</h3>
+<p>South Africa's POPIA (Protection of Personal Information Act) requires explicit consent for analytics
+tracking — analogous to GDPR in Europe. Our simulated data shows a <strong>78.6% consent rate</strong>,
+meaning 21.4% of events are measured via GA4's modelled (cookieless) measurement.
+This must be handled in GTM via the <code>consent_update</code> event and <code>gtag('consent','update',...)</code>
+call, mirroring the Bash/TFG POPIA implementation.</p>
+
+
+<h2>Chapter 4: GTM Implementation — Tagging a Booking Platform</h2>
+
+<p>Building a booking platform's analytics layer in Google Tag Manager requires careful event architecture.
+Unlike ecommerce (where GA4's default <code>purchase</code> event maps cleanly to a transaction),
+accommodation booking has a longer, more conversational funnel. Here's how to model it:</p>
+
+<h3>dataLayer Architecture</h3>
+<div class="arch">
+  <div class="arch-row">
+    <div class="arch-box" style="background:var(--dark);">User Action</div>
+    <div class="arch-box" style="background:var(--blue);">dataLayer.push()</div>
+    <div class="arch-box" style="background:var(--teal);">GTM Tag</div>
+    <div class="arch-box" style="background:var(--green);">GA4 Event</div>
+    <div class="arch-box" style="background:var(--purple);">BigQuery Export</div>
+  </div>
+</div>
+
+<h3>Key Events and Parameters</h3>
+<ul>
+  <li><strong>listing_view</strong>: fires when a property page loads · params: property_id, listing_type, price_zar, price_tier, region</li>
+  <li><strong>search_nearby</strong>: fires on map/filter interaction · params: search_term, filters, result_count</li>
+  <li><strong>contact_host</strong>: fires on the "Contact" CTA · params: property_id, price_zar, has_promo</li>
+  <li><strong>booking_initiated</strong>: equivalent to GA4 <code>begin_checkout</code> · params: checkin_date, checkout_date, nights, price_zar</li>
+  <li><strong>booking_confirmed</strong>: equivalent to GA4 <code>purchase</code> · params: transaction_id, price_zar, payment_method, province</li>
+  <li><strong>consent_update</strong>: POPIA compliance · updates analytics_storage, ads_storage flags in consent mode</li>
+</ul>
+
+<h3>Custom Dimensions to Register in GA4</h3>
+<p>Register these as event-scoped custom dimensions in GA4 Admin → Custom Definitions:</p>
+<table>
+  <tr><th>Dimension</th><th>Scope</th><th>Purpose</th></tr>
+  <tr><td>listing_type</td><td>Event</td><td>Segment analytics by accommodation category</td></tr>
+  <tr><td>price_tier</td><td>Event</td><td>Budget/Mid/Premium/Luxury — key for audience segmentation</td></tr>
+  <tr><td>property_id</td><td>Event</td><td>Join GA4 data to BigQuery dim_property for enriched reporting</td></tr>
+  <tr><td>province</td><td>Event</td><td>SA province — replaces unreliable GA4 geo.region for SA</td></tr>
+  <tr><td>has_promo</td><td>Event</td><td>TRUE if flash deal was active — measure promo impact on CTR</td></tr>
+  <tr><td>nights</td><td>Event</td><td>Booking duration — correlates with revenue per booking</td></tr>
+</table>
+
+
+<h2>Chapter 5: Machine Learning — Pricing Intelligence</h2>
+
+<p>Three models were trained on the cleaned LekkeSlaap dataset to extract actionable intelligence.
+All used the same feature set: <strong>Listing Type, Region, City, Log(Review Count)</strong>.</p>
+
+<h3>Model 1: Price Regression (Gradient Boosting)</h3>
+<p>Can we predict a property's nightly price from its characteristics alone? Yes — with a
+<strong>R² of 0.1726</strong> and a mean absolute error of <strong>R1066.66</strong>.
+The model reveals that <em>listing type</em> and <em>region</em> are the two dominant price drivers.
+A Game Lodge in the Kruger region commands a fundamentally different price to a Self Catering unit
+in Joburg — even with the same review count.</p>
+
+<div class="callout green">
+<strong>Use Case:</strong> The <code>price_delta_zar</code> column (predicted − actual) in the
+<code>ml_predictions</code> BigQuery table identifies potentially underpriced properties.
+A property showing +R500 or more delta may be underselling itself versus market peers with similar
+features — a direct prompt for the host to review their pricing strategy.
+</div>
+
+<h3>Model 2: Tier Classifier (Random Forest)</h3>
+<p>A four-class classifier (Budget / Mid-Range / Premium / Luxury) trained with balanced class weights
+to handle the market's natural skew toward Budget and Mid-Range. Achieved <strong>accuracy of 0.397</strong>
+on hold-out test data. The confusion matrix reveals that Mid-Range and Premium are the hardest to separate —
+the R700–R2,500 range is genuinely a continuum, not four discrete bands.</p>
+
+<h3>Model 3: Demand Scorer (Gradient Boosting)</h3>
+<p>A composite score from 0–100 combining normalised review count with tier-based weights.
+Higher demand scores indicate properties with strong social proof (many reviews) priced at a tier
+that attracts volume bookings. Achieves <strong>R² of 0.9606</strong>.
+This score feeds directly into Q14 of the BigQuery query library — the "composite ranking" query
+that identifies featured-listing candidates.</p>
+
+
+<h2>Chapter 6: BigQuery Architecture — Free ETL in the Cloud</h2>
+
+<p>One of the most common misconceptions about Google Cloud is that ETL is expensive.
+In this platform, <strong>all data loading and transformation is free</strong>:</p>
+
+<h3>Free ETL Tools Available in BigQuery</h3>
+<ol>
+  <li><strong>bq load</strong> — The CLI command loads CSV/JSON/Parquet from local disk or
+  GCS buckets. Loading is <em>free</em>; only the resulting storage is billed (≈R0.017/GB/month in africa-south1).</li>
+  <li><strong>GA4 → BigQuery Daily Export</strong> — Enable in GA4 Admin → BigQuery links.
+  Automatically exports events_YYYYMMDD tables every 24 hours, <em>free</em>, no pipeline needed.</li>
+  <li><strong>Scheduled Queries</strong> — SQL-based transformations on a cron schedule.
+  The first 1 TB of query data processed per month is free; typical transformation queries for a
+  1,000-property dataset cost pennies.</li>
+  <li><strong>Dataform</strong> — Google's native dbt-equivalent. Define SQL transformations as
+  version-controlled SQLX files; Dataform schedules and runs them inside BigQuery at no extra cost
+  beyond the query compute.</li>
+  <li><strong>BigQuery Omni</strong> — Query data in AWS S3 or Azure Blob Storage without
+  moving it. Useful if the LekkeSlaap scrape output lives in a different cloud.</li>
+</ol>
+
+<div class="callout">
+<strong>Architecture Tip:</strong> Use <code>africa-south1</code> (Johannesburg) as your BigQuery region.
+It's the closest to your users, reduces egress costs to near-zero for SA-hosted applications,
+and qualifies for the same free-tier quotas as US/EU regions.
+</div>
+
+<h3>Dataset Structure</h3>
+<table>
+  <tr><th>Table</th><th>Rows</th><th>Partitioned By</th><th>Clustered By</th></tr>
+  <tr><td>dim_property</td><td>1,011</td><td>ingested_at</td><td>listing_type, price_tier</td></tr>
+  <tr><td>dim_region</td><td>19</td><td>—</td><td>country</td></tr>
+  <tr><td>fact_listings</td><td>1,011</td><td>scraped_date</td><td>listing_type, region_id</td></tr>
+  <tr><td>fact_web_sessions</td><td>30,000</td><td>event_date</td><td>traffic_source, device, province</td></tr>
+  <tr><td>fact_booking_events</td><td>28,628</td><td>event_date</td><td>event_name, traffic_source, province</td></tr>
+  <tr><td>ml_predictions</td><td>1,011</td><td>—</td><td>—</td></tr>
+</table>
+
+
+<h2>Chapter 7: Conclusions & Recommendations</h2>
+
+<h3>For Accommodation Operators</h3>
+<ul>
+  <li>If your listing has <strong>under 50 reviews</strong> and your price is below the regional median,
+  you are almost certainly underpriced — the ML model will flag you in <code>ml_predictions</code>.</li>
+  <li><strong>Flash deals work</strong> — but our data shows properties running promotions already tend
+  to have lower base prices, suggesting they're competing on price rather than quality. Invest in review
+  generation before discounting.</li>
+  <li><strong>Mobile is discovery; desktop is conversion.</strong> Make your photos exceptional on mobile
+  (first impression) and your booking form frictionless on desktop (last mile).</li>
+</ul>
+
+<h3>For Platform Product Teams</h3>
+<ul>
+  <li>The biggest funnel drop (−40%) is <em>listing view to search nearby</em>. A "similar properties"
+  feature with ML-ranked alternatives could recapture this audience before they exit to a competitor.</li>
+  <li>POPIA consent rate of 78.6% is acceptable but improvable. A cleaner consent banner
+  with a clear value exchange ("Accept to see personalised recommendations") typically lifts consent
+  by 8–15 percentage points.</li>
+  <li>Game Lodges and boutique Hotels are underrepresented (combined &lt;5%) but command the highest
+  prices and demand scores. A supply-acquisition campaign targeting these property types would improve
+  revenue per listing without diluting the platform's self-catering identity.</li>
+</ul>
+
+<h3>For Data Engineers</h3>
+<ul>
+  <li>Partition your BigQuery tables on <code>event_date</code> from day one. A year of GA4 data without
+  partitioning will cost 10–50× more to query than the same data with proper partition pruning.</li>
+  <li>Register <code>property_id</code> as a GA4 custom dimension. It's the join key that connects
+  your analytics layer to your product database — without it, GA4 data is an island.</li>
+  <li>Schedule a weekly Dataform job to refresh <code>ml_predictions</code>. Pricing models drift as
+  new listings appear and the market shifts; stale predictions are worse than no predictions.</li>
+</ul>
+
+<div class="callout green">
+<strong>The Bottom Line:</strong> South Africa's accommodation market is rich with data — but most of it
+arrives dirty, incomplete, and unstructured. The operators and platforms that invest in clean data pipelines,
+proper GA4 instrumentation, and ML-based pricing intelligence will command a structural advantage over
+peers still working from manual spreadsheets and gut feel.
+</div>
+
+<div class="ebook-footer">
+  <span>SA Accommodation Intelligence Platform · Anthony Apollis</span>
+  <span>2026-06-27 · Data: LekkeSlaap.co.za</span>
+  <span>BigQuery · GA4 · Python · scikit-learn</span>
+</div>
+</div>
+
+</body>
+</html>

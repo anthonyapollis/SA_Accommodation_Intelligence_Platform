@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market Opportunity | SA Accommodation Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;
+      --cyan:#00bcd4;--lekke:#FF6C00;--orange:#ff9800;--red:#f44336;--green:#4caf50;--blue:#2196f3}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;min-height:100vh}
+nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0.75rem 1.5rem;
+     display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:0.35rem 0.75rem;border-radius:6px;
+       font-size:0.8rem;transition:all 0.2s}
+nav a:hover,nav a.active{background:rgba(0,188,212,0.15);color:var(--cyan)}
+.page-header{padding:2rem 1.5rem 1rem;border-bottom:1px solid var(--border)}
+.page-header h1{font-size:1.6rem;color:var(--cyan);margin-bottom:0.3rem}
+.page-header p{color:var(--muted);font-size:0.9rem}
+.content{padding:1.5rem;max-width:1400px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1rem}
+.card h2{font-size:1rem;color:var(--cyan);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em}
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{background:rgba(0,188,212,0.1);color:var(--cyan);padding:0.5rem 0.75rem;text-align:left;
+    border-bottom:1px solid var(--border)}
+td{padding:0.45rem 0.75rem;border-bottom:1px solid rgba(48,54,61,0.5);color:var(--text)}
+tr:hover td{background:rgba(255,255,255,0.03)}
+.badge{display:inline-block;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.7rem;font-weight:600}
+.badge-cyan{background:rgba(0,188,212,0.15);color:var(--cyan)}
+.badge-green{background:rgba(76,175,80,0.15);color:var(--green)}
+.badge-orange{background:rgba(255,152,0,0.15);color:var(--orange)}
+.badge-red{background:rgba(244,67,54,0.15);color:var(--red)}
+.badge-blue{background:rgba(33,150,243,0.15);color:var(--blue)}
+
+.formula-box{background:rgba(0,188,212,0.08);border:1px solid rgba(0,188,212,0.25);border-radius:8px;
+             padding:1rem;font-size:0.85rem;overflow-x:auto}
+.formula-box code{color:var(--cyan)}
+.filter-bar{display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;margin-bottom:1rem}
+.filter-input{background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--text);
+              padding:0.4rem 0.75rem;border-radius:6px;font-size:0.83rem;width:200px}
+.filter-check{display:flex;align-items:center;gap:0.35rem;font-size:0.83rem;color:var(--muted);cursor:pointer}
+.opp-bar{background:rgba(0,188,212,0.15);border-radius:3px;height:6px;margin-top:4px}
+.opp-fill{background:var(--cyan);border-radius:3px;height:6px}
+
+
+/* ── Context cards ──────────────────────────────────────────── */
+.ctx-card{background:rgba(255,108,0,0.05);border-left:4px solid #FF6C00;
+          border-radius:0 8px 8px 0;padding:0.85rem 1.1rem;margin-bottom:1.1rem;
+          font-size:0.82rem;line-height:1.6;color:#c9d1d9}
+.ctx-card .ctx-row{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:0.55rem}
+.ctx-item{flex:1;min-width:160px}
+.ctx-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;
+           letter-spacing:0.08em;color:#FF6C00;margin-bottom:0.2rem}
+.ctx-text{font-size:0.8rem;color:#8b949e}
+.ctx-text strong{color:#e6edf3}
+/* Column hint tooltips */
+.col-hint{font-size:0.65rem;color:#8b949e;display:block;margin-top:1px;font-weight:400}
+
+
+.chart-explain{background:rgba(255,255,255,0.03);border:1px solid #30363d;
+               border-radius:6px;padding:0.6rem 0.85rem;margin-bottom:0.75rem;
+               font-size:0.78rem;color:#8b949e;line-height:1.55}
+.chart-explain strong{color:#e6edf3}
+.chart-explain .how{display:inline-block;background:rgba(255,108,0,0.12);
+                    color:#FF6C00;border-radius:3px;padding:0.1rem 0.35rem;
+                    font-size:0.68rem;font-weight:700;margin-right:0.35rem}
+
+</style>
+</head>
+<body>
+<nav>
+      <a href="index.html">Map</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="recommendations.html">Recommendations</a>
+      <a href="data-model.html">Data Model</a>
+      <a href="seasonality.html">Seasonality</a>
+      <a href="ml-features.html">ML Features</a>
+      <a href="market-opportunity.html">Market Opp.</a>
+      <a href="mobile-attribution.html">Mobile</a>
+      <a href="seo-audit.html">SEO Audit</a>
+      <a href="seo-pages.html">SEO Pages</a>
+      <a href="site-audit.html">Site Audit</a>
+      <a href="gtm-demo/">GTM Demo</a>
+      <a href="ebook.html">Ebook</a>
+</nav>
+
+<div class="page-header">
+  <h1>Market Opportunity</h1>
+  <p>Regional opportunity scores across 114 regions — ranked by demand, supply gap, and reviews</p>
+</div>
+<div class="content">
+<div class="ctx-card">
+  <strong style="color:#FF6C00">What you are looking at</strong>
+  <div class="ctx-row">
+    <div class="ctx-item">
+      <div class="ctx-label">What</div>
+      <div class="ctx-text">A composite <strong>Opportunity Score (0–100)</strong> for each of the 114 SA regions,
+        calculated from demand score, price accessibility, and review volume.
+        Higher score = region with strong demand, accessible pricing, and proven guest satisfaction.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">Why</div>
+      <div class="ctx-text">Not all high-demand regions are good investment opportunities — some are already
+        saturated with premium listings. This score surfaces <strong>underserved regions</strong> where
+        demand is high but supply is limited or prices are still accessible,
+        meaning there is room to enter the market profitably.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">So What</div>
+      <div class="ctx-text">Sort by Opportunity Score and filter by Coastal / Game / Wine to find the
+        <strong>highest-return niches</strong> for a new property listing. Regions scoring above 60 with
+        fewer than 10 listings are the strongest supply gaps. Cross-reference with the Seasonality page
+        to time any launch for peak demand.</div>
+    </div>
+  </div>
+</div>
+  <div class="card">
+    <h2>Opportunity Score Formula</h2>
+    <div class="formula-box">
+      <code>opportunity_score = 0.4 × (avg_demand / max_demand) + 0.3 × (1 − avg_price / max_price) + 0.3 × (avg_reviews / max_reviews)</code>
+    </div>
+    <p style="color:var(--muted);font-size:0.83rem;margin-top:0.75rem">
+      Higher demand + accessible pricing + strong reviews = high opportunity. Scaled 0–100.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Top 30 Regions by Opportunity Score</h2>
+<div class="chart-explain">The <strong>mini bar under each score</strong> visualises the score relative to the top-ranked region. <span class="how">How to use this table</span>Regions with a <strong>high score + few listings</strong> are the most interesting: demand exists but supply has not caught up yet — ideal for a new property or investment. Use the <strong>filters</strong> to narrow by geography type (Coastal, Game, Wine). The <strong>Tags column</strong> shows geographic flags — a blue Y means coastal, green Y means game reserve, orange Y means wine region. Cross-reference the top regions with the <strong>Seasonality page</strong> to understand which season drives that demand, then time your listing or campaign accordingly.</div>
+    <div class="filter-bar">
+      <input type="text" id="srch" placeholder="Filter region..." class="filter-input">
+      <label class="filter-check"><input type="checkbox" id="chkCoastal"> Coastal only</label>
+      <label class="filter-check"><input type="checkbox" id="chkGame"> Game / Safari</label>
+      <label class="filter-check"><input type="checkbox" id="chkWine"> Wine region</label>
+    </div>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr>
+        <th>#</th><th>Region</th><th>Listings</th><th>Avg Price</th>
+        <th>Avg Demand<span class="col-hint">Mean demand score across all listings in the region. Scale 0–100; platform avg = ~6.</span></th><th>Reviews</th><th>Tags</th><th>Cluster</th><th>Opp. Score<span class="col-hint">0–100. Higher = bigger growth opportunity. Bar shows score relative to top region.</span></th>
+      </tr></thead>
+      <tbody id="oppTbody"></tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const OPP = [{"region": "Gariep Dam", "listing_count": 10, "avg_price": 1037.0, "avg_demand": 43.7, "avg_reviews": 456.0, "coastal": false, "game": false, "wine": false, "cluster_label": "High-Demand Hotspot", "opp_score": 98.1}, {"region": "Beaufort West", "listing_count": 10, "avg_price": 1367.0, "avg_demand": 30.69, "avg_reviews": 285.1, "coastal": false, "game": false, "wine": false, "cluster_label": "High-Demand Hotspot", "opp_score": 74.4}, {"region": "Garden Route", "listing_count": 10, "avg_price": 1003.0, "avg_demand": 21.85, "avg_reviews": 227.7, "coastal": true, "game": false, "wine": false, "cluster_label": "High-Demand Hotspot", "opp_score": 63.2}, {"region": "Victoria West", "listing_count": 10, "avg_price": 1091.0, "avg_demand": 18.52, "avg_reviews": 207.7, "coastal": false, "game": false, "wine": false, "cluster_label": "High-Demand Hotspot", "opp_score": 58.7}, {"region": "Clarens", "listing_count": 10, "avg_price": 1179.0, "avg_demand": 18.58, "avg_reviews": 187.7, "coastal": false, "game": false, "wine": false, "cluster_label": "High-Demand Hotspot", "opp_score": 57.2}, {"region": "Namaqualand", "listing_count": 10, "avg_price": 1553.0, "avg_demand": 18.26, "avg_reviews": 188.2, "coastal": false, "game": false, "wine": false, "cluster_label": "High-Demand Hotspot", "opp_score": 56.3}, {"region": "Prince Albert", "listing_count": 9, "avg_price": 1855.0, "avg_demand": 16.7, "avg_reviews": 154.33333333333334, "coastal": false, "game": false, "wine": false, "cluster_label": "High-Demand Hotspot", "opp_score": 52.1}, {"region": "Parys", "listing_count": 7, "avg_price": 975.0, "avg_demand": 13.52, "avg_reviews": 141.71428571428572, "coastal": false, "game": false, "wine": false, "cluster_label": "Value Volume Leader", "opp_score": 49.9}, {"region": "Middelburg Karoo", "listing_count": 10, "avg_price": 1074.0, "avg_demand": 13.74, "avg_reviews": 140.3, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 49.9}, {"region": "Kalahari", "listing_count": 10, "avg_price": 1241.0, "avg_demand": 13.17, "avg_reviews": 143.1, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 49.2}, {"region": "Kimberley", "listing_count": 10, "avg_price": 984.0, "avg_demand": 12.8, "avg_reviews": 135.4, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 48.9}, {"region": "Bela Bela", "listing_count": 10, "avg_price": 2842.0, "avg_demand": 12.74, "avg_reviews": 150.1, "coastal": false, "game": true, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 46.4}, {"region": "Vanrhynsdorp", "listing_count": 10, "avg_price": 1074.0, "avg_demand": 11.05, "avg_reviews": 124.4, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 46.4}, {"region": "Sutherland", "listing_count": 10, "avg_price": 1940.0, "avg_demand": 12.65, "avg_reviews": 119.0, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 45.9}, {"region": "Saldanha", "listing_count": 10, "avg_price": 1203.0, "avg_demand": 11.01, "avg_reviews": 117.9, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 45.7}, {"region": "Escape From Cape Town", "listing_count": 4, "avg_price": 1448.0, "avg_demand": 11.42, "avg_reviews": 106.75, "coastal": true, "game": false, "wine": false, "cluster_label": "Value Volume Leader", "opp_score": 44.9}, {"region": "Jacobs Bay", "listing_count": 10, "avg_price": 2068.0, "avg_demand": 11.71, "avg_reviews": 111.9, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 44.4}, {"region": "Clanwilliam", "listing_count": 10, "avg_price": 1920.0, "avg_demand": 12.0, "avg_reviews": 103.3, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 44.3}, {"region": "Oudtshoorn", "listing_count": 3, "avg_price": 1071.0, "avg_demand": 10.32, "avg_reviews": 101.66666666666667, "coastal": false, "game": false, "wine": false, "cluster_label": "Value Volume Leader", "opp_score": 44.2}, {"region": "Willowmore", "listing_count": 10, "avg_price": 864.0, "avg_demand": 9.38, "avg_reviews": 104.7, "coastal": false, "game": true, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 43.9}, {"region": "Escape From Johannesburg", "listing_count": 8, "avg_price": 1062.0, "avg_demand": 9.45, "avg_reviews": 104.0, "coastal": false, "game": true, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 43.6}, {"region": "Hartbeespoort", "listing_count": 10, "avg_price": 2027.0, "avg_demand": 10.42, "avg_reviews": 98.7, "coastal": false, "game": true, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 42.4}, {"region": "Tankwa Karoo", "listing_count": 7, "avg_price": 2021.0, "avg_demand": 10.02, "avg_reviews": 101.57142857142857, "coastal": false, "game": false, "wine": false, "cluster_label": "Value Volume Leader", "opp_score": 42.2}, {"region": "Karoo", "listing_count": 6, "avg_price": 1575.0, "avg_demand": 9.74, "avg_reviews": 88.0, "coastal": false, "game": false, "wine": false, "cluster_label": "Value Volume Leader", "opp_score": 41.9}, {"region": "St Helena Bay", "listing_count": 7, "avg_price": 1641.0, "avg_demand": 9.47, "avg_reviews": 91.0, "coastal": true, "game": false, "wine": false, "cluster_label": "Value Volume Leader", "opp_score": 41.7}, {"region": "Skeerpoort", "listing_count": 10, "avg_price": 1687.0, "avg_demand": 9.56, "avg_reviews": 90.7, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 41.7}, {"region": "Nieu Bethesda", "listing_count": 7, "avg_price": 1409.0, "avg_demand": 7.9, "avg_reviews": 81.71428571428571, "coastal": false, "game": false, "wine": false, "cluster_label": "Value Volume Leader", "opp_score": 40.1}, {"region": "Nieuwoudtville", "listing_count": 10, "avg_price": 1278.0, "avg_demand": 7.63, "avg_reviews": 80.5, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 40.0}, {"region": "Gansbaai", "listing_count": 9, "avg_price": 1912.0, "avg_demand": 8.0, "avg_reviews": 91.33333333333333, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 39.9}, {"region": "Still Bay", "listing_count": 10, "avg_price": 1565.0, "avg_demand": 7.78, "avg_reviews": 80.2, "coastal": false, "game": false, "wine": false, "cluster_label": "Emerging Gem", "opp_score": 39.6}];
+const CL_COLOR = {"High-Demand Hotspot": "badge-red", "Established Premium": "badge-orange", "Value Volume Leader": "badge-blue", "Emerging Gem": "badge-green"};
+function yn2(v,col){return v?`<span class="badge" style="background:${col}22;color:${col};font-size:0.65rem">Y</span>`:''}
+function render(data){
+  const tbody = document.getElementById('oppTbody');
+  tbody.innerHTML='';
+  data.forEach((r,i)=>{
+    const tags = [yn2(r.coastal,'#2196f3'),yn2(r.game,'#4caf50'),yn2(r.wine,'#ff9800')].join(' ');
+    const bar  = `<div class="opp-bar"><div class="opp-fill" style="width:${r.opp_score}%"></div></div>`;
+    tbody.insertAdjacentHTML('beforeend',`<tr>
+      <td style="color:var(--muted)">${i+1}</td>
+      <td><strong>${r.region}</strong></td>
+      <td>${r.listing_count}</td>
+      <td>R${Number(r.avg_price).toLocaleString()}</td>
+      <td style="color:var(--cyan)">${r.avg_demand.toFixed(2)}</td>
+      <td>${Number(r.avg_reviews).toFixed(0)}</td>
+      <td>${tags}</td>
+      <td><span class="badge ${CL_COLOR[r.cluster_label]||'badge-cyan'}" style="font-size:0.65rem">${r.cluster_label}</span></td>
+      <td><strong style="color:var(--cyan)">${r.opp_score}</strong>${bar}</td>
+    </tr>`);
+  });
+}
+function filter(){
+  const q = document.getElementById('srch').value.toLowerCase();
+  const coast = document.getElementById('chkCoastal').checked;
+  const game  = document.getElementById('chkGame').checked;
+  const wine  = document.getElementById('chkWine').checked;
+  render(OPP.filter(r=>(
+    r.region.toLowerCase().includes(q) &&
+    (!coast || r.coastal) &&
+    (!game  || r.game)    &&
+    (!wine  || r.wine)
+  )));
+}
+document.getElementById('srch').addEventListener('input',filter);
+document.getElementById('chkCoastal').addEventListener('change',filter);
+document.getElementById('chkGame').addEventListener('change',filter);
+document.getElementById('chkWine').addEventListener('change',filter);
+render(OPP);
+</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Model | SA Accommodation Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;
+      --cyan:#00bcd4;--lekke:#FF6C00;--orange:#ff9800;--red:#f44336;--green:#4caf50;--blue:#2196f3}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;min-height:100vh}
+nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0.75rem 1.5rem;
+     display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:0.35rem 0.75rem;border-radius:6px;
+       font-size:0.8rem;transition:all 0.2s}
+nav a:hover,nav a.active{background:rgba(0,188,212,0.15);color:var(--cyan)}
+.page-header{padding:2rem 1.5rem 1rem;border-bottom:1px solid var(--border)}
+.page-header h1{font-size:1.6rem;color:var(--cyan);margin-bottom:0.3rem}
+.page-header p{color:var(--muted);font-size:0.9rem}
+.content{padding:1.5rem;max-width:1400px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1rem}
+.card h2{font-size:1rem;color:var(--cyan);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em}
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{background:rgba(0,188,212,0.1);color:var(--cyan);padding:0.5rem 0.75rem;text-align:left;
+    border-bottom:1px solid var(--border)}
+td{padding:0.45rem 0.75rem;border-bottom:1px solid rgba(48,54,61,0.5);color:var(--text)}
+tr:hover td{background:rgba(255,255,255,0.03)}
+.badge{display:inline-block;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.7rem;font-weight:600}
+.badge-cyan{background:rgba(0,188,212,0.15);color:var(--cyan)}
+.badge-green{background:rgba(76,175,80,0.15);color:var(--green)}
+.badge-orange{background:rgba(255,152,0,0.15);color:var(--orange)}
+.badge-red{background:rgba(244,67,54,0.15);color:var(--red)}
+.badge-blue{background:rgba(33,150,243,0.15);color:var(--blue)}
+
+.schema-grid{display:flex;flex-wrap:wrap;gap:1rem;align-items:flex-start}
+.schema-layer{display:flex;flex-direction:column;gap:0.4rem;min-width:140px}
+.layer-title{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;padding:0.3rem 0.5rem;border-radius:4px;text-align:center}
+.layer-title.raw{background:rgba(244,67,54,0.2);color:var(--red)}
+.layer-title.dim{background:rgba(0,188,212,0.2);color:var(--cyan)}
+.layer-title.fact{background:rgba(255,152,0,0.2);color:var(--orange)}
+.layer-title.mart{background:rgba(76,175,80,0.2);color:var(--green)}
+.schema-table{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;
+              padding:0.3rem 0.6rem;font-size:0.75rem;font-family:monospace;color:var(--muted)}
+.schema-arrow{color:var(--cyan);font-size:1.5rem;align-self:center}
+.tab-buttons{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem}
+.tab-btn{background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--muted);
+         padding:0.3rem 0.7rem;border-radius:6px;cursor:pointer;font-size:0.78rem;transition:all 0.2s}
+.tab-btn.active,.tab-btn:hover{background:rgba(0,188,212,0.15);color:var(--cyan);border-color:var(--cyan)}
+.kpi-box{background:rgba(0,188,212,0.08);border:1px solid rgba(0,188,212,0.2);border-radius:8px;
+         padding:0.8rem;text-align:center}
+.kpi-val{font-size:1.3rem;font-weight:700;color:var(--cyan)}
+.kpi-lbl{font-size:0.75rem;color:var(--muted);margin-top:0.2rem}
+
+
+/* ── Context cards ──────────────────────────────────────────── */
+.ctx-card{background:rgba(255,108,0,0.05);border-left:4px solid #FF6C00;
+          border-radius:0 8px 8px 0;padding:0.85rem 1.1rem;margin-bottom:1.1rem;
+          font-size:0.82rem;line-height:1.6;color:#c9d1d9}
+.ctx-card .ctx-row{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:0.55rem}
+.ctx-item{flex:1;min-width:160px}
+.ctx-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;
+           letter-spacing:0.08em;color:#FF6C00;margin-bottom:0.2rem}
+.ctx-text{font-size:0.8rem;color:#8b949e}
+.ctx-text strong{color:#e6edf3}
+/* Column hint tooltips */
+.col-hint{font-size:0.65rem;color:#8b949e;display:block;margin-top:1px;font-weight:400}
+
+
+.chart-explain{background:rgba(255,255,255,0.03);border:1px solid #30363d;
+               border-radius:6px;padding:0.6rem 0.85rem;margin-bottom:0.75rem;
+               font-size:0.78rem;color:#8b949e;line-height:1.55}
+.chart-explain strong{color:#e6edf3}
+.chart-explain .how{display:inline-block;background:rgba(255,108,0,0.12);
+                    color:#FF6C00;border-radius:3px;padding:0.1rem 0.35rem;
+                    font-size:0.68rem;font-weight:700;margin-right:0.35rem}
+
+</style>
+</head>
+<body>
+<nav>
+      <a href="index.html">Map</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="recommendations.html">Recommendations</a>
+      <a href="data-model.html">Data Model</a>
+      <a href="seasonality.html">Seasonality</a>
+      <a href="ml-features.html">ML Features</a>
+      <a href="market-opportunity.html">Market Opp.</a>
+      <a href="mobile-attribution.html">Mobile</a>
+      <a href="seo-audit.html">SEO Audit</a>
+      <a href="seo-pages.html">SEO Pages</a>
+      <a href="site-audit.html">Site Audit</a>
+      <a href="gtm-demo/">GTM Demo</a>
+      <a href="ebook.html">Ebook</a>
+</nav>
+
+<div class="page-header">
+  <h1>Data Model</h1>
+  <p>Warehouse schema — BigQuery star schema in <code>africa-south1.accommodation_intelligence</code></p>
+</div>
+<div class="content">
+  <div class="card">
+    <h2>Schema Overview</h2>
+    <div class="schema-grid">
+      <div class="schema-layer">
+        <div class="layer-title raw">RAW LAYER</div>
+        <div class="schema-table">raw_listings</div>
+        <div class="schema-table">raw_web_sessions</div>
+      </div>
+      <div class="schema-arrow">&#8594;</div>
+      <div class="schema-layer">
+        <div class="layer-title dim">DIMENSIONS</div>
+        <div class="schema-table">dim_property</div>
+        <div class="schema-table">dim_region</div>
+        <div class="schema-table">dim_date</div>
+        <div class="schema-table">dim_listing_type</div>
+        <div class="schema-table">dim_price_tier</div>
+        <div class="schema-table">dim_device</div>
+        <div class="schema-table">dim_traffic_source</div>
+        <div class="schema-table">dim_geography</div>
+        <div class="schema-table">dim_consent</div>
+      </div>
+      <div class="schema-arrow">&#8594;</div>
+      <div class="schema-layer">
+        <div class="layer-title fact">FACTS</div>
+        <div class="schema-table">fact_listings</div>
+        <div class="schema-table">fact_booking_events</div>
+        <div class="schema-table">fact_web_sessions</div>
+      </div>
+      <div class="schema-arrow">&#8594;</div>
+      <div class="schema-layer">
+        <div class="layer-title mart">MART / ML</div>
+        <div class="schema-table">mart_ml_features</div>
+        <div class="schema-table">mart_regional_summary</div>
+        <div class="schema-table">mart_seo_pages</div>
+        <div class="schema-table">mart_gtm_tags</div>
+        <div class="schema-table">vw_regional_opportunity</div>
+        <div class="schema-table">vw_consent_compliance</div>
+        <div class="schema-table">vw_channel_performance</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Table Details — click to expand</h2>
+    <div id="table-explorer">
+      <div class="tab-buttons" id="tabBtns"></div>
+      <div id="tabContent"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Key Metrics</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem">
+      <div class="kpi-box"><div class="kpi-val">25+</div><div class="kpi-lbl">Tables & Views</div></div>
+      <div class="kpi-box"><div class="kpi-val">1,011</div><div class="kpi-lbl">Listings</div></div>
+      <div class="kpi-box"><div class="kpi-val">28,628</div><div class="kpi-lbl">Booking Events</div></div>
+      <div class="kpi-box"><div class="kpi-val">30,000</div><div class="kpi-lbl">Web Sessions</div></div>
+      <div class="kpi-box"><div class="kpi-val">114</div><div class="kpi-lbl">Regions</div></div>
+      <div class="kpi-box"><div class="kpi-val">africa-south1</div><div class="kpi-lbl">BigQuery Region</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const TABLES = {
+  dim_property: [
+    ["property_id","STRING","PK — unique listing hash"],
+    ["property_name","STRING","Listing title"],
+    ["listing_type","STRING","Accommodation category"],
+    ["suburb","STRING","Suburb"],
+    ["city","STRING","City / town"],
+    ["url","STRING","Source URL"],
+    ["created_at","TIMESTAMP","First scraped"],
+    ["updated_at","TIMESTAMP","Last updated"],
+    ["is_active","BOOL","Active listing flag"]
+  ],
+  dim_region: [
+    ["region_id","STRING","PK"],
+    ["region","STRING","Region name"],
+    ["country","STRING","Default: South Africa"],
+    ["province","STRING","SA province"],
+    ["latitude","FLOAT64","Centroid lat"],
+    ["longitude","FLOAT64","Centroid lon"],
+    ["is_coastal","BOOL","Within 50 km coast"],
+    ["is_urban","BOOL","Metro area"],
+    ["is_game_reserve","BOOL","Game reserve area"],
+    ["is_wine_region","BOOL","Cape Winelands"]
+  ],
+  fact_listings: [
+    ["listing_id","STRING","PK"],
+    ["property_id","STRING","FK → dim_property"],
+    ["region_id","STRING","FK → dim_region"],
+    ["price_zar","FLOAT64","Nightly price (ZAR)"],
+    ["review_count","INT64","Guest reviews"],
+    ["demand_score","FLOAT64","Composite demand 0–100"],
+    ["listing_type","STRING","Accommodation type"],
+    ["price_tier","STRING","Budget/Mid/Premium/Luxury"],
+    ["has_promo_flag","BOOL","Promotion active"],
+    ["discount_pct","FLOAT64","Discount %"],
+    ["price_outlier_flag","BOOL","IQR outlier"],
+    ["scraped_date","DATE","Scrape date"]
+  ],
+  fact_booking_events: [
+    ["event_id","STRING","PK — GA4 event"],
+    ["session_id","STRING","Browser session"],
+    ["user_pseudo_id","STRING","Pseudonymised user"],
+    ["event_date","DATE","Event date"],
+    ["event_name","STRING","GA4 event type"],
+    ["property_id","STRING","FK → dim_property"],
+    ["price_zar","FLOAT64","Price at event time"],
+    ["device_category","STRING","desktop/mobile/tablet"],
+    ["province","STRING","User province"],
+    ["traffic_source","STRING","utm_source"],
+    ["traffic_medium","STRING","utm_medium"],
+    ["analytics_consent","STRING","POPIA consent status"]
+  ],
+  mart_ml_features: [
+    ["property_id","STRING","PK"],
+    ["coastal_flag","BOOL","Near coastline"],
+    ["urban_flag","BOOL","Metro area"],
+    ["game_lodge_flag","BOOL","Game/safari property"],
+    ["wine_region_flag","BOOL","Cape Winelands"],
+    ["scrape_quality_score","FLOAT64","Data completeness 0–1"],
+    ["season_id","STRING","SA season at scrape"],
+    ["ml_cluster","INT64","K-Means cluster 0–3"],
+    ["cluster_label","STRING","High-Demand/Premium/Volume/Emerging"],
+    ["predicted_demand","FLOAT64","RF predicted demand"],
+    ["anomaly_flag","BOOL","Isolation Forest flag"]
+  ]
+};
+const names = Object.keys(TABLES);
+const btns = document.getElementById('tabBtns');
+const content = document.getElementById('tabContent');
+function showTable(name) {
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.t===name));
+  const rows = TABLES[name];
+  content.innerHTML = '<table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody>'
+    + rows.map(r=>`<tr><td style="font-family:monospace;color:var(--cyan)">${r[0]}</td><td><span class="badge badge-cyan">${r[1]}</span></td><td>${r[2]}</td></tr>`).join('')
+    + '</tbody></table>';
+}
+names.forEach(n=>{
+  const b = document.createElement('button');
+  b.className='tab-btn'; b.dataset.t=n; b.textContent=n;
+  b.onclick=()=>showTable(n);
+  btns.appendChild(b);
+});
+showTable(names[0]);
+</script>
+</body>
+</html>

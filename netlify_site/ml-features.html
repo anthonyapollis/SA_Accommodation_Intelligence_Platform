@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML Features | SA Accommodation Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;
+      --cyan:#00bcd4;--lekke:#FF6C00;--orange:#ff9800;--red:#f44336;--green:#4caf50;--blue:#2196f3}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;min-height:100vh}
+nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0.75rem 1.5rem;
+     display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:0.35rem 0.75rem;border-radius:6px;
+       font-size:0.8rem;transition:all 0.2s}
+nav a:hover,nav a.active{background:rgba(0,188,212,0.15);color:var(--cyan)}
+.page-header{padding:2rem 1.5rem 1rem;border-bottom:1px solid var(--border)}
+.page-header h1{font-size:1.6rem;color:var(--cyan);margin-bottom:0.3rem}
+.page-header p{color:var(--muted);font-size:0.9rem}
+.content{padding:1.5rem;max-width:1400px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1rem}
+.card h2{font-size:1rem;color:var(--cyan);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em}
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{background:rgba(0,188,212,0.1);color:var(--cyan);padding:0.5rem 0.75rem;text-align:left;
+    border-bottom:1px solid var(--border)}
+td{padding:0.45rem 0.75rem;border-bottom:1px solid rgba(48,54,61,0.5);color:var(--text)}
+tr:hover td{background:rgba(255,255,255,0.03)}
+.badge{display:inline-block;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.7rem;font-weight:600}
+.badge-cyan{background:rgba(0,188,212,0.15);color:var(--cyan)}
+.badge-green{background:rgba(76,175,80,0.15);color:var(--green)}
+.badge-orange{background:rgba(255,152,0,0.15);color:var(--orange)}
+.badge-red{background:rgba(244,67,54,0.15);color:var(--red)}
+.badge-blue{background:rgba(33,150,243,0.15);color:var(--blue)}
+
+.model-cards{display:flex;flex-wrap:wrap;gap:1rem}
+.model-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;
+            padding:1rem;text-align:center;flex:1;min-width:140px}
+.model-icon{font-size:1.8rem;margin-bottom:0.5rem}
+.model-name{font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:0.25rem}
+.model-algo{font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem}
+.model-metric{font-size:1rem;font-weight:700;color:var(--cyan)}
+.kpi-box{background:rgba(0,188,212,0.08);border:1px solid rgba(0,188,212,0.2);border-radius:8px;padding:0.8rem;text-align:center}
+.kpi-val{font-size:1.3rem;font-weight:700;color:var(--cyan)}
+.kpi-lbl{font-size:0.75rem;color:var(--muted);margin-top:0.2rem}
+
+
+/* ── Context cards ──────────────────────────────────────────── */
+.ctx-card{background:rgba(255,108,0,0.05);border-left:4px solid #FF6C00;
+          border-radius:0 8px 8px 0;padding:0.85rem 1.1rem;margin-bottom:1.1rem;
+          font-size:0.82rem;line-height:1.6;color:#c9d1d9}
+.ctx-card .ctx-row{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:0.55rem}
+.ctx-item{flex:1;min-width:160px}
+.ctx-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;
+           letter-spacing:0.08em;color:#FF6C00;margin-bottom:0.2rem}
+.ctx-text{font-size:0.8rem;color:#8b949e}
+.ctx-text strong{color:#e6edf3}
+/* Column hint tooltips */
+.col-hint{font-size:0.65rem;color:#8b949e;display:block;margin-top:1px;font-weight:400}
+
+
+.chart-explain{background:rgba(255,255,255,0.03);border:1px solid #30363d;
+               border-radius:6px;padding:0.6rem 0.85rem;margin-bottom:0.75rem;
+               font-size:0.78rem;color:#8b949e;line-height:1.55}
+.chart-explain strong{color:#e6edf3}
+.chart-explain .how{display:inline-block;background:rgba(255,108,0,0.12);
+                    color:#FF6C00;border-radius:3px;padding:0.1rem 0.35rem;
+                    font-size:0.68rem;font-weight:700;margin-right:0.35rem}
+
+</style>
+</head>
+<body>
+<nav>
+      <a href="index.html">Map</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="recommendations.html">Recommendations</a>
+      <a href="data-model.html">Data Model</a>
+      <a href="seasonality.html">Seasonality</a>
+      <a href="ml-features.html">ML Features</a>
+      <a href="market-opportunity.html">Market Opp.</a>
+      <a href="mobile-attribution.html">Mobile</a>
+      <a href="seo-audit.html">SEO Audit</a>
+      <a href="seo-pages.html">SEO Pages</a>
+      <a href="site-audit.html">Site Audit</a>
+      <a href="gtm-demo/">GTM Demo</a>
+      <a href="ebook.html">Ebook</a>
+</nav>
+
+<div class="page-header">
+  <h1>ML Features</h1>
+  <p>Feature engineering table for 1,011 properties — powers all 5 ML models</p>
+</div>
+<div class="content">
+<div class="ctx-card">
+  <strong style="color:#FF6C00">What you are looking at</strong>
+  <div class="ctx-row">
+    <div class="ctx-item">
+      <div class="ctx-label">What</div>
+      <div class="ctx-text">The <strong>engineered feature set</strong> used to train all 5 ML models —
+        one row per property (1,011 total). Features include geographic flags (coastal, urban, game reserve, wine region),
+        a data-quality score, the SA season at scrape date, and the K-Means cluster assignment.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">Why</div>
+      <div class="ctx-text">Raw price and review counts alone are weak predictors. Adding <strong>location context</strong>
+        (coastal = premium uplift), <strong>property type signals</strong> (game lodge = luxury segment),
+        and <strong>seasonal timing</strong> significantly improves model accuracy.
+        Feature engineering is where most ML value is created.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">So What</div>
+      <div class="ctx-text">The model cards at the top show how well each model performs.
+        R² = 0.82 on demand prediction means the model explains <strong>82% of demand variance</strong>
+        across properties. The feature table shows which cluster each property belongs to —
+        use cluster labels to quickly segment the market.</div>
+    </div>
+  </div>
+</div>
+  <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:7px;padding:0.7rem 0.9rem;margin-bottom:0.85rem;font-size:0.79rem;color:var(--muted)"><strong style="color:var(--text)">How to read the model cards:</strong> <strong style="color:var(--cyan)">R²</strong> (R-squared) = % of variance the model explains — 0.82 means 82% of demand variation is explained by the features. <strong style="color:var(--cyan)">F1</strong> = balance of precision and recall for classification — 1.0 = perfect. <strong style="color:var(--cyan)">AUC</strong> = ability to rank positive vs negative outcomes — 0.5 = random chance, 1.0 = perfect. All models were trained on <strong>synthetic data</strong> — metrics are illustrative.</div>
+<div class="model-cards">
+    <div class="model-card">
+      <div class="model-icon">&#128200;</div>
+      <div class="model-name">Demand Predictor</div>
+      <div class="model-algo">Random Forest</div>
+      <div class="model-metric">R² = 0.82</div>
+    </div>
+    <div class="model-card">
+      <div class="model-icon">&#127789;</div>
+      <div class="model-name">Price Classifier</div>
+      <div class="model-algo">Gradient Boosting</div>
+      <div class="model-metric">F1 = 0.79</div>
+    </div>
+    <div class="model-card">
+      <div class="model-icon">&#128717;</div>
+      <div class="model-name">Conversion Predictor</div>
+      <div class="model-algo">Logistic Regression</div>
+      <div class="model-metric">AUC = 0.74</div>
+    </div>
+    <div class="model-card">
+      <div class="model-icon">&#128269;</div>
+      <div class="model-name">Anomaly Detector</div>
+      <div class="model-algo">Isolation Forest</div>
+      <div class="model-metric">Precision = 0.88</div>
+    </div>
+    <div class="model-card">
+      <div class="model-icon">&#127758;</div>
+      <div class="model-name">Regional Clustering</div>
+      <div class="model-algo">K-Means k=4</div>
+      <div class="model-metric">Silhouette = 0.61</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <h2>Feature Summary</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.75rem">
+      <div class="kpi-box"><div class="kpi-val">179</div><div class="kpi-lbl">Coastal Properties</div></div>
+      <div class="kpi-box"><div class="kpi-val">94</div><div class="kpi-lbl">Game Lodge / Safari</div></div>
+      <div class="kpi-box"><div class="kpi-val">79</div><div class="kpi-lbl">Wine Region</div></div>
+      <div class="kpi-box"><div class="kpi-val">69</div><div class="kpi-lbl">High-Demand Cluster</div></div>
+      <div class="kpi-box"><div class="kpi-val">797</div><div class="kpi-lbl">Emerging Gems</div></div>
+      <div class="kpi-box"><div class="kpi-val">1011</div><div class="kpi-lbl">Total Properties</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Feature Table (sample 50, sorted by demand)</h2>
+<div class="chart-explain" style="margin-top:0.5rem">
+  <strong>How to read the K-Means Cluster labels:</strong><br>
+  Clusters were found by grouping all 114 regions using K-Means (k=4) on four features:
+  average nightly price, average demand score, average review count, and listing count.
+  The algorithm finds natural groupings — these labels are descriptive names assigned after
+  inspecting the centroid values of each group.<br><br>
+  <strong style="color:#f44336">High-Demand Hotspot</strong> — 7 regions. Cheapest avg price (R1,297) but highest demand (24.04).
+  These are volume-driven, budget-accessible destinations where supply cannot keep up with demand.
+  Cape Town suburbs, popular Garden Route towns.<br>
+  <strong style="color:#ff9800">Established Premium</strong> — 19 regions. Mid-price (R1,651), strong reviews, steady demand.
+  These markets are healthy and consistent year-round. Safe investment destinations.<br>
+  <strong style="color:#2196f3">Value Volume Leader</strong> — 83 regions (the majority). Higher avg price (R1,851) but mid demand.
+  Wide variety; many mid-market properties. Price sensitivity is real in this cluster.<br>
+  <strong style="color:#4caf50">Emerging Gem</strong> — 5 ultra-premium regions (avg R9,754). Very low listing count, very low demand.
+  These are niche luxury destinations. High barrier to entry but low competition.
+</div>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr>
+        <th>Property</th>
+        <th>Region</th>
+        <th>Type<span class="col-hint">Accommodation category from LekkeSlaap listing</span></th>
+        <th>Price (R)<span class="col-hint">Nightly rate in South African Rand (ZAR) at scrape date</span></th>
+        <th>Reviews<span class="col-hint">Total cumulative guest reviews</span></th>
+        <th>Demand<span class="col-hint">Composite 0-100. Higher = more in-demand than average</span></th>
+        <th>Coastal<span class="col-hint">Within 50km of coastline</span></th>
+        <th>Game<span class="col-hint">Game reserve / safari listing or region</span></th>
+        <th>Wine<span class="col-hint">Cape Winelands region</span></th>
+        <th>Quality<span class="col-hint">Data completeness 0-1. 1.0 = all key fields present</span></th>
+        <th>Cluster<span class="col-hint">K-Means market segment. See explainer above.</span></th>
+      </tr></thead>
+      <tbody id="mlTbody"></tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA = [{"property_id": 32677.0, "property_name": "Merino Junction", "region": "Victoria West", "listing_type": "Guest House", "price_zar": 900.0, "review_count": 439, "demand_score": 40.65, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 2, "cluster_label": "High-Demand Hotspot"}, {"property_id": 8549.0, "property_name": "Schilbach House", "region": "Parys", "listing_type": "Self Catering", "price_zar": 1500.0, "review_count": 232, "demand_score": 25.78, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 1, "cluster_label": "Value Volume Leader"}, {"property_id": 7986.0, "property_name": "Groenvlei Guest Farm", "region": "Stellenbosch", "listing_type": "Guest House", "price_zar": 1450.0, "review_count": 207, "demand_score": 23.0, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": true, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 72011.0, "property_name": "The Meadows At Millstream", "region": "Skeerpoort", "listing_type": "Self Catering", "price_zar": 1300.0, "review_count": 189, "demand_score": 21.0, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 27301.0, "property_name": "Millstream Inn Guest House", "region": "Skeerpoort", "listing_type": "Guest House", "price_zar": 1050.0, "review_count": 224, "demand_score": 20.74, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 13551.0, "property_name": "Belihante Lodge", "region": "Kalahari", "listing_type": "Self Catering", "price_zar": 850.0, "review_count": 221, "demand_score": 20.46, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 77548.0, "property_name": "Zur See", "region": "Ballito", "listing_type": "Self Catering", "price_zar": 739.0, "review_count": 185, "demand_score": 17.13, "coastal_flag": true, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 3686.0, "property_name": "Tourist Lodge Gansbaai", "region": "Gansbaai", "listing_type": "Self Catering", "price_zar": 600.0, "review_count": 198, "demand_score": 14.67, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 2547.0, "property_name": "Tsitsikamma Village Inn", "region": "Tsitsikamma", "listing_type": "Hotel", "price_zar": 2320.0, "review_count": 107, "demand_score": 11.89, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 41464.0, "property_name": "Hartenbos Landgoed 16", "region": "Mossel Bay", "listing_type": "Self Catering", "price_zar": 2100.0, "review_count": 79, "demand_score": 8.78, "coastal_flag": true, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 58274.0, "property_name": "Strandfontein Holiday House", "region": "Strandfontein West Coast", "listing_type": "Self Catering", "price_zar": 1360.0, "review_count": 76, "demand_score": 8.44, "coastal_flag": true, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 83062.0, "property_name": "Victoria Oaks Guest House", "region": "Victoria West", "listing_type": "Guest House", "price_zar": 950.0, "review_count": 86, "demand_score": 7.96, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 2, "cluster_label": "High-Demand Hotspot"}, {"property_id": 39499.0, "property_name": "Ranelra Accommodation", "region": "Mookgopong", "listing_type": "Self Catering", "price_zar": 680.0, "review_count": 99, "demand_score": 7.33, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 112250.0, "property_name": "Dai Heka Gastehuis", "region": "Helderberg", "listing_type": "Guest House", "price_zar": 990.0, "review_count": 76, "demand_score": 7.04, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 17824.0, "property_name": "Vaal River Guest House", "region": "Vanderbijlpark", "listing_type": "Guest House", "price_zar": 850.0, "review_count": 69, "demand_score": 6.39, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 90289.0, "property_name": "Garden Courtyard", "region": "Plettenberg Bay", "listing_type": "Guest House", "price_zar": 880.0, "review_count": 67, "demand_score": 6.2, "coastal_flag": true, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 28679.0, "property_name": "Paul Wallace Wines and Guest Cottages", "region": "Elgin", "listing_type": "Self Catering", "price_zar": 1300.0, "review_count": 54, "demand_score": 6.0, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": true, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 118532.0, "property_name": "Hearts Cottage", "region": "Kimberley", "listing_type": "Self Catering", "price_zar": 790.0, "review_count": 64, "demand_score": 5.93, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 23284.0, "property_name": "Alkantmooi Private Nature Reserve Keurkloof Units", "region": "Plettenberg Bay", "listing_type": "Self Catering", "price_zar": 2800.0, "review_count": 39, "demand_score": 5.42, "coastal_flag": true, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 93008.0, "property_name": "Arendsroep", "region": "Marloth Park", "listing_type": "Self Catering", "price_zar": 1196.0, "review_count": 58, "demand_score": 5.37, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 88631.0, "property_name": "Sandcastle", "region": "Pearly Beach", "listing_type": "Self Catering", "price_zar": 2950.0, "review_count": 38, "demand_score": 5.28, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 4158.0, "property_name": "Tides River Lodge", "region": "Malgas", "listing_type": "Self Catering", "price_zar": 2480.0, "review_count": 47, "demand_score": 5.22, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 48265.0, "property_name": "The Yard", "region": "Helderberg", "listing_type": "Self Catering", "price_zar": 1067.0, "review_count": 56, "demand_score": 5.19, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 3378.0, "property_name": "Brown Jug Accommodation", "region": "Hermanus", "listing_type": "Self Catering", "price_zar": 800.0, "review_count": 54, "demand_score": 5.0, "coastal_flag": true, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": true, "scrape_quality_score": 1.0, "ml_cluster": 1, "cluster_label": "Value Volume Leader"}, {"property_id": 18502.0, "property_name": "Chez James", "region": "Yzerfontein", "listing_type": "Self Catering", "price_zar": 1620.0, "review_count": 40, "demand_score": 4.44, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 82770.0, "property_name": "Mountain View Safari Lodge", "region": "Hoedspruit", "listing_type": "Self Catering", "price_zar": 2000.0, "review_count": 40, "demand_score": 4.44, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": true, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 75863.0, "property_name": "Weskus-Beskus Beach House", "region": "Dwarskersbos", "listing_type": "Self Catering", "price_zar": 1595.0, "review_count": 34, "demand_score": 3.78, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 102213.0, "property_name": "Baroe House", "region": "Sutherland", "listing_type": "Self Catering", "price_zar": 3500.0, "review_count": 27, "demand_score": 3.75, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 33189.0, "property_name": "Barnard Self-Catering Accommodation", "region": "St Francis", "listing_type": "Self Catering", "price_zar": 1050.0, "review_count": 37, "demand_score": 3.43, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 112322.0, "property_name": "Hibernian Towers 1203", "region": "Helderberg", "listing_type": "Self Catering", "price_zar": 2800.0, "review_count": 22, "demand_score": 3.06, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 52963.0, "property_name": "Sea Forever", "region": "Escape From Durban", "listing_type": "Self Catering", "price_zar": 1301.0, "review_count": 27, "demand_score": 3.0, "coastal_flag": true, "urban_flag": true, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 34408.0, "property_name": "Glenfinnan Guest House", "region": "Langebaan", "listing_type": "Guest House", "price_zar": 1450.0, "review_count": 27, "demand_score": 3.0, "coastal_flag": true, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 64360.0, "property_name": "McBains", "region": "Wellington", "listing_type": "Lodge", "price_zar": 867.0, "review_count": 30, "demand_score": 2.78, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": true, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 120531.0, "property_name": "The Cuckoo's Nest", "region": "Mossel Bay", "listing_type": "Self Catering", "price_zar": 934.0, "review_count": 29, "demand_score": 2.69, "coastal_flag": true, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 124769.0, "property_name": "Die Dorphuis", "region": "Darling", "listing_type": "Self Catering", "price_zar": 900.0, "review_count": 21, "demand_score": 1.94, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 116987.0, "property_name": "Sunrise Studio", "region": "Fish Hoek", "listing_type": "Self Catering", "price_zar": 850.0, "review_count": 20, "demand_score": 1.85, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 48215.0, "property_name": "Sky Blue Guest House", "region": "Kenton On Sea", "listing_type": "Guest House", "price_zar": 1400.0, "review_count": 16, "demand_score": 1.78, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 104310.0, "property_name": "Domus Tempus Kothuis en Boskamp", "region": "Tzaneen", "listing_type": "Self Catering", "price_zar": 1102.0, "review_count": 19, "demand_score": 1.76, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 130539.0, "property_name": "Keurkloof Valley Farm", "region": "Willowmore", "listing_type": "Self Catering", "price_zar": 950.0, "review_count": 18, "demand_score": 1.67, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 101873.0, "property_name": "Yellowbird Cottage", "region": "Darling", "listing_type": "Self Catering", "price_zar": 4500.0, "review_count": 11, "demand_score": 1.53, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 90027.0, "property_name": "Five O'clock Zen Boutique Guest House", "region": "Pretoria", "listing_type": "Guest House", "price_zar": 1035.0, "review_count": 16, "demand_score": 1.48, "coastal_flag": false, "urban_flag": true, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 121565.0, "property_name": "Farm Sanctuary SA", "region": "Franschhoek", "listing_type": "Self Catering", "price_zar": 1300.0, "review_count": 11, "demand_score": 1.22, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": true, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 144115.0, "property_name": "Winter Special! Winter Special! Parmant", "region": "Robertson", "listing_type": "Self Catering", "price_zar": 1050.0, "review_count": 13, "demand_score": 1.2, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": true, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 132454.0, "property_name": "Schoeman 7 Paradise Beach", "region": "Jeffreys Bay", "listing_type": "Self Catering", "price_zar": 972.0, "review_count": 11, "demand_score": 1.02, "coastal_flag": true, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 1, "cluster_label": "Value Volume Leader"}, {"property_id": 106994.0, "property_name": "Dro\u00ebdap Guest Farm", "region": "Namaqualand", "listing_type": "Self Catering", "price_zar": 2000.0, "review_count": 9, "demand_score": 1.0, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 2, "cluster_label": "High-Demand Hotspot"}, {"property_id": 102630.0, "property_name": "Waterkant Cottage", "region": "Malgas", "listing_type": "Self Catering", "price_zar": 1400.0, "review_count": 8, "demand_score": 0.89, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 123934.0, "property_name": "As Featured on Instagram Wildeberg Dam House Cottage", "region": "Franschhoek", "listing_type": "Self Catering", "price_zar": 4650.0, "review_count": 5, "demand_score": 0.69, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": true, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 101337.0, "property_name": "Ocean Dome", "region": "Tsitsikamma", "listing_type": "Lodge", "price_zar": 3334.0, "review_count": 2, "demand_score": 0.28, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 151591.0, "property_name": "Grootvlei Gaste Plaas", "region": "Lamberts Bay", "listing_type": "Guest House", "price_zar": 1294.0, "review_count": 2, "demand_score": 0.22, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}, {"property_id": 150221.0, "property_name": "Idylla", "region": "Kenton On Sea", "listing_type": "Self Catering", "price_zar": 800.0, "review_count": 0, "demand_score": 0.0, "coastal_flag": false, "urban_flag": false, "game_lodge_flag": false, "wine_region_flag": false, "scrape_quality_score": 1.0, "ml_cluster": 0, "cluster_label": "Emerging Gem"}];
+const CL_COLOR = {"High-Demand Hotspot": "badge-red", "Established Premium": "badge-orange", "Value Volume Leader": "badge-blue", "Emerging Gem": "badge-green"};
+function yn(v){return v?'<span class="badge badge-cyan">Y</span>':'<span style="color:var(--muted)">-</span>'}
+const tbody = document.getElementById('mlTbody');
+DATA.forEach(r=>{
+  const name = (r.property_name||'').slice(0,28);
+  const cl   = r.cluster_label||'';
+  tbody.insertAdjacentHTML('beforeend',`<tr>
+    <td title="${r.property_name}">${name}...</td>
+    <td>${r.region}</td>
+    <td>${r.listing_type}</td>
+    <td>R${Number(r.price_zar).toLocaleString()}</td>
+    <td>${r.review_count}</td>
+    <td style="color:var(--cyan)">${Number(r.demand_score).toFixed(2)}</td>
+    <td>${yn(r.coastal_flag)}</td>
+    <td>${yn(r.game_lodge_flag)}</td>
+    <td>${yn(r.wine_region_flag)}</td>
+    <td>${(r.scrape_quality_score*100).toFixed(0)}%</td>
+    <td><span class="badge ${CL_COLOR[cl]||'badge-cyan'}">${cl}</span></td>
+  </tr>`);
+});
+</script>
+</body>
+</html>

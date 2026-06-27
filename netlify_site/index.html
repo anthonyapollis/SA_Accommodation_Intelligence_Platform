@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SA Accommodation Intelligence Platform</title>
+<style>
+  :root {
+    --blue:#4285F4; --green:#0F9D58; --orange:#FF6D00; --yellow:#F4B400;
+    --teal:#00BCD4; --purple:#673AB7; --dark:#1A1A2E; --bg:#F4F6FB;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--bg); color:#333; }
+
+  header {
+    background:var(--dark); color:#fff; padding:0 32px;
+    display:flex; align-items:center; height:64px;
+    box-shadow:0 2px 12px rgba(0,0,0,.4); position:sticky; top:0; z-index:100;
+  }
+  .logo { font-size:1.15rem; font-weight:700; color:var(--teal); }
+  .logo span { color:#fff; font-weight:400; }
+  nav { margin-left:auto; display:flex; gap:8px; }
+  nav a {
+    color:#aab3cc; text-decoration:none; padding:8px 16px;
+    border-radius:6px; font-size:.85rem; font-weight:600;
+    transition:background .15s, color .15s;
+  }
+  nav a:hover, nav a.active { background:rgba(255,255,255,.1); color:#fff; }
+
+  .hero {
+    background:linear-gradient(135deg, var(--dark) 0%, #16213E 60%, #0F3460 100%);
+    color:#fff; padding:72px 40px 56px; text-align:center;
+  }
+  .hero .chip {
+    display:inline-block; background:var(--teal); color:var(--dark);
+    font-size:.7rem; font-weight:800; letter-spacing:.1em;
+    padding:4px 14px; border-radius:20px; text-transform:uppercase; margin-bottom:20px;
+  }
+  .hero h1 { font-size:2.4rem; line-height:1.2; margin-bottom:16px; }
+  .hero h1 em { color:var(--teal); font-style:normal; }
+  .hero p { font-size:1rem; color:#aab3cc; max-width:580px; margin:0 auto 32px; }
+  .hero-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .btn {
+    padding:12px 28px; border-radius:8px; text-decoration:none; font-weight:700;
+    font-size:.9rem; transition:transform .1s, box-shadow .1s;
+  }
+  .btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.25); }
+  .btn-primary { background:var(--teal); color:var(--dark); }
+  .btn-secondary { background:rgba(255,255,255,.1); color:#fff; border:1px solid rgba(255,255,255,.2); }
+  .btn-orange { background:var(--orange); color:#fff; }
+
+  .stats-bar {
+    background:#fff; border-bottom:1px solid #E0E6F0;
+    display:flex; justify-content:center; flex-wrap:wrap; gap:0;
+  }
+  .stat {
+    padding:18px 32px; text-align:center; border-right:1px solid #E0E6F0;
+    min-width:130px;
+  }
+  .stat:last-child { border-right:none; }
+  .stat .num { font-size:1.5rem; font-weight:700; color:var(--dark); }
+  .stat .lbl { font-size:.7rem; text-transform:uppercase; letter-spacing:.07em; color:#888; margin-top:2px; }
+
+  main { max-width:1100px; margin:0 auto; padding:40px 24px; }
+  h2 { font-size:1.3rem; color:var(--dark); margin-bottom:20px;
+       border-left:4px solid var(--teal); padding-left:12px; }
+  .card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; margin-bottom:40px; }
+  .card {
+    background:#fff; border-radius:12px; overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.08); transition:transform .15s, box-shadow .15s;
+    display:flex; flex-direction:column;
+  }
+  .card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,.14); }
+  .card-accent { height:4px; }
+  .card img { width:100%; height:200px; object-fit:cover; display:block; }
+  .card-body { padding:18px 20px; flex:1; display:flex; flex-direction:column; gap:8px; }
+  .card-tag {
+    display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.07em;
+    text-transform:uppercase; padding:3px 10px; border-radius:12px; margin-bottom:4px;
+    background:#E3F2FD; color:var(--blue);
+  }
+  .card-tag.green  { background:#E8F5E9; color:var(--green); }
+  .card-tag.orange { background:#FFF3E0; color:var(--orange); }
+  .card-tag.purple { background:#F3E5F5; color:var(--purple); }
+  .card-tag.teal   { background:#E0F7FA; color:#00838F; }
+  .card h3 { font-size:1rem; color:var(--dark); }
+  .card p  { font-size:.82rem; color:#666; line-height:1.6; flex:1; }
+  .card-link {
+    display:inline-flex; align-items:center; gap:6px;
+    color:var(--blue); font-size:.82rem; font-weight:700; text-decoration:none; margin-top:8px;
+  }
+  .card-link:hover { color:var(--teal); }
+
+  .section-deliverables { margin-bottom:48px; }
+  .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+  .dl-item {
+    background:#fff; border-radius:10px; padding:16px 18px;
+    box-shadow:0 1px 4px rgba(0,0,0,.07);
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .dl-icon { font-size:1.5rem; line-height:1; }
+  .dl-text h4 { font-size:.88rem; color:var(--dark); margin-bottom:3px; }
+  .dl-text p  { font-size:.75rem; color:#888; line-height:1.5; }
+
+  .pipeline {
+    background:#fff; border-radius:12px; padding:28px 32px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08); margin-bottom:40px;
+  }
+  .pipe-steps { display:flex; align-items:center; flex-wrap:wrap; gap:0; margin-top:16px; }
+  .pipe-step {
+    flex:1; min-width:120px; text-align:center; padding:14px 10px;
+    border-radius:8px; font-size:.8rem; font-weight:700; color:#fff;
+    position:relative;
+  }
+  .pipe-arrow { color:#ccc; font-size:1.4rem; padding:0 4px; flex-shrink:0; }
+  .ps1{background:var(--blue);} .ps2{background:var(--green);} .ps3{background:var(--orange);}
+  .ps4{background:var(--teal);} .ps5{background:var(--purple);} .ps6{background:#E91E63;}
+  .pipe-sub { font-size:.68rem; font-weight:400; margin-top:3px; opacity:.85; }
+
+  .tech-pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill {
+    background:#F0F4FF; color:var(--blue); padding:5px 14px;
+    border-radius:20px; font-size:.78rem; font-weight:600;
+  }
+  .pill.green  { background:#E8F5E9; color:var(--green); }
+  .pill.orange { background:#FFF3E0; color:var(--orange); }
+  .pill.purple { background:#F3E5F5; color:var(--purple); }
+  .pill.dark   { background:#E8EAF6; color:#3949AB; }
+
+  footer {
+    text-align:center; padding:32px 20px; color:#888; font-size:.78rem;
+    border-top:1px solid #E0E6F0; margin-top:20px;
+  }
+  footer a { color:var(--blue); text-decoration:none; }
+  @media(max-width:600px){
+    .hero h1{font-size:1.7rem;} .stats-bar{gap:0;} .stat{min-width:100px;padding:12px 16px;}
+    .pipe-steps{flex-direction:column;} .pipe-arrow{transform:rotate(90deg);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">SA Accommodation<span> Intelligence Platform</span></div>
+  <nav>
+      <a href="index.html">Map</a>
+      <a href="dashboard.html">Dashboard</a>
+    <a href="recommendations.html">Recommendations</a>
+      <a href="data-model.html">Data Model</a>
+      <a href="seasonality.html">Seasonality</a>
+      <a href="ml-features.html">ML Features</a>
+      <a href="market-opportunity.html">Market Opp.</a>
+      <a href="seo-pages.html">SEO Pages</a>
+      <a href="mobile-attribution.html">Mobile</a>
+      <a href="seo-audit.html">SEO Audit</a>
+      <a href="site-audit.html">Site Audit</a>
+      <a href="gtm-demo/">GTM Demo</a>
+      <a href="ebook.html">Ebook</a>
+</nav>
+</header>
+
+<div class="hero">
+  <div class="chip">BigQuery + GA4 + Machine Learning</div>
+  <h1>Who Wins the<br><em>Booking Battle?</em></h1>
+  <p>A data-driven analysis of South Africa's short-term accommodation market —
+  1,011 LekkeSlaap listings, 30K GA4 sessions, 3 ML models, and a complete
+  BigQuery analytics stack.</p>
+  <div class="hero-btns">
+    <a href="dashboard.html" class="btn btn-primary">View Dashboard</a>
+    <a href="ebook.html" class="btn btn-secondary">Read the Ebook</a>
+    <a href="assets/eda_01_market_overview.png" class="btn btn-orange" target="_blank">Market Overview</a>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="num">1,011</div><div class="lbl">Properties</div></div>
+  <div class="stat"><div class="num">R2,002</div><div class="lbl">Avg Price/Night</div></div>
+  <div class="stat"><div class="num">30K</div><div class="lbl">GA4 Sessions</div></div>
+  <div class="stat"><div class="num">107</div><div class="lbl">Confirmed Bookings</div></div>
+  <div class="stat"><div class="num">0.36%</div><div class="lbl">Conv. Rate</div></div>
+  <div class="stat"><div class="num">6</div><div class="lbl">BQ Tables</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">ML Models</div></div>
+  <div class="stat"><div class="num">14</div><div class="lbl">SQL Queries</div></div>
+</div>
+
+<main>
+
+<!-- DATA PIPELINE -->
+<section class="pipeline">
+  <h2>End-to-End Data Pipeline</h2>
+  <div class="pipe-steps">
+    <div class="pipe-step ps1">LekkeSlaap Scrape<div class="pipe-sub">1,013 raw rows</div></div>
+    <div class="pipe-arrow">&#8594;</div>
+    <div class="pipe-step ps2">ETL & Clean<div class="pipe-sub">8 issues fixed</div></div>
+    <div class="pipe-arrow">&#8594;</div>
+    <div class="pipe-step ps3">Synthetic GA4<div class="pipe-sub">30K sessions</div></div>
+    <div class="pipe-arrow">&#8594;</div>
+    <div class="pipe-step ps4">BigQuery<div class="pipe-sub">africa-south1</div></div>
+    <div class="pipe-arrow">&#8594;</div>
+    <div class="pipe-step ps5">ML Models<div class="pipe-sub">Price + Tier + Demand</div></div>
+    <div class="pipe-arrow">&#8594;</div>
+    <div class="pipe-step ps6">Insights<div class="pipe-sub">Ebook + Dashboard</div></div>
+  </div>
+  <div class="tech-pills">
+    <span class="pill">Python 3.11</span>
+    <span class="pill dark">pandas 3.0</span>
+    <span class="pill green">scikit-learn 1.9</span>
+    <span class="pill green">Gradient Boosting</span>
+    <span class="pill green">Random Forest</span>
+    <span class="pill orange">BigQuery (africa-south1)</span>
+    <span class="pill orange">GA4 Events Schema</span>
+    <span class="pill purple">GTM dataLayer</span>
+    <span class="pill purple">POPIA Consent Mode</span>
+    <span class="pill">Faker synthetic data</span>
+    <span class="pill">openpyxl Excel</span>
+    <span class="pill">Chart.js Dashboard</span>
+  </div>
+</section>
+
+<!-- VISUALS -->
+<section>
+  <h2>Analysis Visuals</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-accent" style="background:var(--blue)"></div>
+      <img src="assets/eda_01_market_overview.png" alt="Market Overview" loading="lazy">
+      <div class="card-body">
+        <span class="card-tag">EDA</span>
+        <h3>SA Accommodation Market Overview</h3>
+        <p>Price distribution by listing type, tier breakdown, top regions, and price vs review count scatter — the complete market picture.</p>
+        <a href="assets/eda_01_market_overview.png" class="card-link" target="_blank">Full size &#8599;</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-accent" style="background:var(--green)"></div>
+      <img src="assets/ga4_01_web_analytics.png" alt="GA4 Analytics" loading="lazy">
+      <div class="card-body">
+        <span class="card-tag green">GA4 + Web Analytics</span>
+        <h3>Platform Web Analytics</h3>
+        <p>Traffic source split, device breakdown (61% mobile), 5-step booking funnel with drop-off rates, and confirmed bookings by SA province.</p>
+        <a href="assets/ga4_01_web_analytics.png" class="card-link" target="_blank">Full size &#8599;</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-accent" style="background:var(--purple)"></div>
+      <img src="assets/ml_01_price_regression.png" alt="Price Regression" loading="lazy">
+      <div class="card-body">
+        <span class="card-tag purple">ML Model 1</span>
+        <h3>Price Regression (GBR)</h3>
+        <p>Gradient Boosting predicts nightly price from listing type, region, city, and review count. Feature importance shows region is the dominant signal.</p>
+        <a href="assets/ml_01_price_regression.png" class="card-link" target="_blank">Full size &#8599;</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-accent" style="background:var(--orange)"></div>
+      <img src="assets/ml_02_tier_classifier.png" alt="Tier Classifier" loading="lazy">
+      <div class="card-body">
+        <span class="card-tag orange">ML Model 2</span>
+        <h3>Tier Classifier (Random Forest)</h3>
+        <p>4-class classifier (Budget/Mid-Range/Premium/Luxury) with confusion matrix. Balanced class weights handle the market's natural skew.</p>
+        <a href="assets/ml_02_tier_classifier.png" class="card-link" target="_blank">Full size &#8599;</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-accent" style="background:var(--teal)"></div>
+      <img src="assets/region_tier_stacked.png" alt="Region Tier" loading="lazy">
+      <div class="card-body">
+        <span class="card-tag teal">Regional</span>
+        <h3>Price Tier by Region</h3>
+        <p>Stacked bar showing how Budget/Mid/Premium/Luxury inventory is distributed across SA's top 8 accommodation regions.</p>
+        <a href="assets/region_tier_stacked.png" class="card-link" target="_blank">Full size &#8599;</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-accent" style="background:#E91E63"></div>
+      <img src="assets/monthly_trend.png" alt="Monthly Trend" loading="lazy">
+      <div class="card-body">
+        <span class="card-tag" style="background:#FCE4EC;color:#C2185B;">Seasonality</span>
+        <h3>Monthly Sessions & Booking Trend</h3>
+        <p>Sessions (line) overlaid with confirmed bookings (bars) across Jan–Jun 2025. SA tourism seasonality clearly visible.</p>
+        <a href="assets/monthly_trend.png" class="card-link" target="_blank">Full size &#8599;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="section-deliverables">
+  <h2>Project Deliverables</h2>
+  <div class="dl-grid">
+    <div class="dl-item">
+      <div class="dl-icon">&#128202;</div>
+      <div class="dl-text">
+        <h4>Interactive Dashboard</h4>
+        <p>Chart.js — 9 live KPIs, 6 interactive charts, GA4 funnel, POPIA consent metrics</p>
+      </div>
+    </div>
+    <div class="dl-item">
+      <div class="dl-icon">&#128218;</div>
+      <div class="dl-text">
+        <h4>Analytics Ebook</h4>
+        <p>7-chapter narrative — dirty data, market analysis, GA4, GTM, ML, BigQuery, recommendations</p>
+      </div>
+    </div>
+    <div class="dl-item">
+      <div class="dl-icon">&#128196;</div>
+      <div class="dl-text">
+        <h4>Excel Workbook (8 sheets)</h4>
+        <p>Cover, dirty data audit, clean data, regional analysis, GA4, ML results, predictions, GTM guide</p>
+      </div>
+    </div>
+    <div class="dl-item">
+      <div class="dl-icon">&#128200;</div>
+      <div class="dl-text">
+        <h4>3 ML Models</h4>
+        <p>Price regression · Tier classifier · Demand scorer — 995 properties scored, predictions in BQ</p>
+      </div>
+    </div>
+    <div class="dl-item">
+      <div class="dl-icon">&#9729;</div>
+      <div class="dl-text">
+        <h4>BigQuery Star Schema</h4>
+        <p>6 tables, africa-south1, partition + cluster optimised, 14 analytics SQL queries included</p>
+      </div>
+    </div>
+    <div class="dl-item">
+      <div class="dl-icon">&#127988;</div>
+      <div class="dl-text">
+        <h4>GA4 + GTM Implementation Guide</h4>
+        <p>5-step booking funnel events, 7 custom dimensions, POPIA consent mode dataLayer spec</p>
+      </div>
+    </div>
+    <div class="dl-item">
+      <div class="dl-icon">&#128736;</div>
+      <div class="dl-text">
+        <h4>ETL Pipeline (Python)</h4>
+        <p>Dirty → clean → BigQuery upload. Free ETL via bq load, Dataform, Scheduled Queries</p>
+      </div>
+    </div>
+    <div class="dl-item">
+      <div class="dl-icon">&#128203;</div>
+      <div class="dl-text">
+        <h4>Dirty Data Audit</h4>
+        <p>8 documented issues: promo names, price formatting, duplicate locations, outliers, dupes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  SA Accommodation Intelligence Platform &nbsp;|&nbsp; Anthony Apollis &nbsp;|&nbsp; 2026-06-27<br>
+  Data: <a href="https://www.lekkeslaap.co.za" target="_blank">LekkeSlaap.co.za</a> &nbsp;·&nbsp;
+  Stack: Python · BigQuery · GA4 · scikit-learn · Netlify
+</footer>
+
+</body>
+</html>
+

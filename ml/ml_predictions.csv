@@ -1,0 +1,996 @@
+property_id,property_name,listing_type,region,price_zar,predicted_price_zar,price_delta_zar,price_tier,predicted_tier,demand_score,predicted_demand,review_count
+74554.0,At Kronenhof Lodge,Lodge,Namibia,800.0,1621.0,821.0,Mid-Range,Mid-Range,1.11,1.32,12.0
+81473.0,Bly in Styl,Self Catering,Namibia,1700.0,1321.0,-379.0,Premium,Premium,6.67,6.39,60.0
+45350.0,Conductors Inn,B&B,Namibia,893.0,1220.0,327.0,Mid-Range,Premium,1.11,1.31,12.0
+105074.0,Tree Top View Selfsorg,Self Catering,Namibia,1215.0,1387.0,172.0,Premium,Premium,5.56,5.97,50.0
+56678.0,FG Desert Rose,Self Catering,Namibia,1858.0,1762.0,-96.0,Premium,Premium,1.44,1.42,13.0
+101231.0,On The Beach No.4,Self Catering,Namibia,2000.0,2435.0,435.0,Premium,Premium,1.89,1.75,17.0
+73886.0,Carmiya Garden Studio,Self Catering,Namibia,1250.0,1795.0,545.0,Premium,Premium,4.0,3.81,36.0
+109943.0,Casa Blanca Boutique Hotel,Hotel,Namibia,1755.0,1814.0,59.0,Premium,Luxury,0.22,0.27,2.0
+72706.0,On The Beach 11,Self Catering,Namibia,4500.0,2618.0,-1882.0,Luxury,Luxury,5.42,4.14,39.0
+40980.0,Kamaku Guesthouse,Guest House,Namibia,1150.0,1333.0,183.0,Mid-Range,Mid-Range,4.07,4.32,44.0
+113273.0,Bree Street Apartment,Self Catering,Cape Town,1300.0,1999.0,699.0,Premium,Luxury,1.11,1.29,10.0
+15888.0,Simon's Town Penthouse,Self Catering,Cape Town,2750.0,1008.0,-1742.0,Luxury,Premium,2.22,1.77,16.0
+80060.0,Grandview Guesthouse,Guest House,Cape Town,825.0,1184.0,359.0,Mid-Range,Mid-Range,9.72,10.61,105.0
+50220.0,Two Bedroom @ Cape Town Beachfront Apartments,Self Catering,Cape Town,2360.0,1701.0,-659.0,Premium,Premium,5.0,4.94,45.0
+129211.0,Selah Farm,Self Catering,Cape Town,966.0,1140.0,174.0,Mid-Range,Mid-Range,1.11,1.28,12.0
+15376.0,4 on Varneys,Guest House,Cape Town,2200.0,1405.0,-795.0,Premium,Premium,3.89,3.81,35.0
+136239.0,Bikini Beach House,Self Catering,Cape Town,2334.0,1375.0,-959.0,Premium,Premium,2.56,2.55,23.0
+30395.0,"Son, See, en Sundowners",Self Catering,Cape Town,1500.0,1241.0,-259.0,Premium,Budget,13.78,11.87,124.0
+251.0,Antrim Villa,Guest House,Cape Town,920.0,1608.0,688.0,Mid-Range,Premium,4.35,5.04,47.0
+93962.0,9 on Winkle Boutique Guesthouse,Guest House,Cape Town,1101.0,1020.0,-81.0,Mid-Range,Mid-Range,14.07,14.02,152.0
+1654.0,Old Mill Lodge & Restaurant,Lodge,Garden Route,810.0,845.0,35.0,Mid-Range,Budget,100.0,99.21,1080.0
+45652.0,'n Gatvol,Self Catering,Garden Route,1645.0,1253.0,-392.0,Premium,Mid-Range,8.22,7.82,74.0
+3028.0,De Oude Meul Country Lodge and Restaurant,Guest House,Garden Route,732.0,833.0,101.0,Mid-Range,Mid-Range,41.39,41.15,447.0
+120997.0,Cloverleigh Guest House,Guest House,Garden Route,840.0,1690.0,850.0,Mid-Range,Mid-Range,2.96,3.43,32.0
+126570.0,Garden Route Trail House,Self Catering,Garden Route,1680.0,1309.0,-371.0,Premium,Mid-Range,1.44,1.41,13.0
+110959.0,Karoo Retreat Gastehuis,Guest House,Garden Route,1085.0,1011.0,-74.0,Mid-Range,Mid-Range,11.48,11.77,124.0
+116547.0,Ria's Rest Self Catering Cottage,Self Catering,Garden Route,853.0,1557.0,704.0,Mid-Range,Luxury,1.11,1.3,12.0
+107930.0,Island View,Self Catering,Garden Route,625.0,1142.0,517.0,Budget,Mid-Range,1.26,1.76,17.0
+85285.0,Outentique Accommodation,Guest House,Garden Route,563.0,1208.0,645.0,Budget,Budget,4.89,6.19,66.0
+10720.0,Brenton on Sea Cottages,Self Catering,Garden Route,1200.0,923.0,-277.0,Premium,Budget,45.78,46.55,412.0
+103032.0,Serenity Dome @ Pom' Gratz,Self Catering,Overberg,1234.0,1562.0,328.0,Premium,Premium,4.0,3.8,36.0
+12777.0,High Season Farm Luxury Cottages & Venue,Self Catering,Overberg,2400.0,1429.0,-971.0,Premium,Premium,6.78,6.39,61.0
+113116.0,WildWood Ocean Cabin,Self Catering,Overberg,2700.0,1977.0,-723.0,Luxury,Premium,3.61,2.85,26.0
+140322.0,Coastline Serenity Hump Back,Self Catering,Overberg,754.0,1495.0,741.0,Mid-Range,Premium,1.39,1.47,15.0
+85215.0,The Heidelberger Self-catering Guest Suite,Self Catering,Overberg,1305.0,1347.0,42.0,Premium,Premium,7.89,7.34,71.0
+97526.0,Jock's View,Self Catering,Overberg,2200.0,1647.0,-553.0,Premium,Premium,2.56,2.44,23.0
+139700.0,Coastline Serenity Southern Star,Self Catering,Overberg,1005.0,1630.0,625.0,Mid-Range,Premium,2.04,2.44,22.0
+20233.0,The Blue Cow Barn – Boutique Farm Accommodation,B&B,Overberg,959.0,1085.0,126.0,Mid-Range,Mid-Range,15.83,15.88,171.0
+113213.0,FynBossies,Self Catering,Overberg,1575.0,1918.0,343.0,Premium,Premium,3.33,3.35,30.0
+78862.0,18 Storm Sea,Self Catering,Overberg,1466.0,1347.0,-119.0,Premium,Premium,8.44,7.85,76.0
+78025.0,MINT Hotel 84 on Katherine,Self Catering,Johannesburg,910.0,1546.0,636.0,Mid-Range,Mid-Range,4.81,5.61,52.0
+73543.0,Lekkerrus Gastehuis,Guest House,Johannesburg,765.0,1431.0,666.0,Mid-Range,Mid-Range,3.7,4.15,40.0
+53692.0,Kyalami Creek Luxury Apartments,Self Catering,Johannesburg,1360.0,1892.0,532.0,Premium,Premium,3.11,3.14,28.0
+693.0,No 5 on Franschoek,B&B,Johannesburg,969.0,1264.0,295.0,Mid-Range,Premium,3.7,4.2,40.0
+7215.0,Agterplaas,Guest House,Johannesburg,1402.0,1258.0,-144.0,Premium,Premium,1.78,1.57,16.0
+1077.0,Cherry Tree Cottage Linden B&B,Guest House,Johannesburg,1112.0,1449.0,337.0,Mid-Range,Mid-Range,3.61,4.15,39.0
+2566.0,Afrique Boutique Hotel OR Tambo,Hotel,Johannesburg,2295.0,1547.0,-748.0,Premium,Budget,6.56,6.42,59.0
+388.0,Woodpecker's Inn Guest House,Guest House,Johannesburg,1530.0,1363.0,-167.0,Premium,Premium,1.44,1.34,13.0
+28625.0,Belvedere Estate Nomad Lodge,B&B,Johannesburg,1290.0,224.0,-1066.0,Premium,Premium,1.56,1.48,14.0
+80845.0,Bosveld In Die Stad 2 Guesthouse,Guest House,Johannesburg,650.0,1320.0,670.0,Budget,Budget,5.93,8.68,80.0
+11326.0,Boord Gastehuis,B&B,Cape Winelands,1188.0,1371.0,183.0,Mid-Range,Mid-Range,11.3,11.6,122.0
+112376.0,Pearl of the Paarl,Self Catering,Cape Winelands,1360.0,1664.0,304.0,Premium,Premium,3.0,3.12,27.0
+61545.0,Vlettershof Guest House,Guest House,Cape Winelands,846.0,1127.0,281.0,Mid-Range,Mid-Range,10.0,10.35,108.0
+117990.0,Kloofhuis,Self Catering,Cape Winelands,950.0,1521.0,571.0,Mid-Range,Mid-Range,5.19,5.6,56.0
+78011.0,Wildeberg Elephants Trail Cottage,Self Catering,Cape Winelands,2650.0,1624.0,-1026.0,Luxury,Premium,7.22,5.6,52.0
+100381.0,The Botanical House,Self Catering,Cape Winelands,1260.0,1282.0,22.0,Premium,Premium,1.56,1.46,14.0
+27958.0,Domaine Coutelier,Self Catering,Cape Winelands,468.0,1120.0,652.0,Budget,Budget,11.78,14.27,159.0
+72266.0,Lank-gewag Cottages,Self Catering,Cape Winelands,1565.0,1184.0,-381.0,Premium,Budget,13.67,11.58,123.0
+141744.0,Kleine Nest@Foxglove,Self Catering,Cape Winelands,734.0,1922.0,1188.0,Mid-Range,Luxury,0.74,0.87,8.0
+65888.0,Uitkyk House,Self Catering,Karoo,2990.0,1414.0,-1576.0,Luxury,Budget,14.31,11.34,103.0
+127244.0,Le Petit Karoo,Guest House,Karoo,867.0,1255.0,388.0,Mid-Range,Mid-Range,3.06,3.45,33.0
+35579.0,2-Bedroom Chalet,Self Catering,Karoo,1400.0,2041.0,641.0,Premium,Premium,3.56,3.54,32.0
+94765.0,Stonebreaker Country Lodge,Lodge,Karoo,850.0,1348.0,498.0,Mid-Range,Budget,12.5,12.7,135.0
+4559.0,Schulteheim Hotel,Hotel,Karoo,1200.0,1245.0,45.0,Premium,Budget,17.56,16.14,158.0
+6096.0,Berluda Farmhouse and Cottages,Guest House,Karoo,2142.0,1447.0,-695.0,Premium,Budget,7.44,7.34,67.0
+45361.0,The Kliphuis,Self Catering,Cape Route 62,2550.0,1689.0,-861.0,Luxury,Budget,6.67,5.48,48.0
+101392.0,Sands Beach Breaks Manors,Self Catering,Ballito,2023.0,1820.0,-203.0,Premium,Premium,2.33,2.38,21.0
+61039.0,205 Les Mouettes,Self Catering,Ballito,2233.0,1946.0,-287.0,Premium,Premium,5.33,5.41,48.0
+73058.0,La Ballito Apartment,Self Catering,Ballito,950.0,1557.0,607.0,Mid-Range,Mid-Range,1.39,1.63,15.0
+17773.0,Sands Beach Breaks Ballito,Self Catering,Ballito,2018.0,1624.0,-394.0,Premium,Premium,7.89,7.53,71.0
+77548.0,Zur See,Self Catering,Ballito,739.0,2375.0,1636.0,Mid-Range,Premium,17.13,17.93,185.0
+109662.0,Zimbali Boulevard Suites,Self Catering,Ballito,1275.0,1982.0,707.0,Premium,Premium,0.56,0.73,5.0
+26245.0,Ruby Sands,Self Catering,Ballito,3600.0,3236.0,-364.0,Luxury,Luxury,3.75,3.28,27.0
+123905.0,4 Chaka's Rocks Chalets - The Beach Cottage,Self Catering,Ballito,2100.0,1982.0,-118.0,Premium,Premium,0.56,0.73,5.0
+15600.0,La Montagne,Self Catering,Ballito,1935.0,1549.0,-386.0,Premium,Premium,12.22,11.28,110.0
+137426.0,Little Sea Salt,Self Catering,Ballito,750.0,1824.0,1074.0,Mid-Range,Mid-Range,1.3,1.63,14.0
+90027.0,Five O'clock Zen Boutique Guest House,Guest House,Pretoria,1035.0,879.0,-156.0,Mid-Range,Budget,1.48,1.55,16.0
+111408.0,Castle Home,B&B,Pretoria,1350.0,1366.0,16.0,Premium,Premium,3.56,3.51,32.0
+60664.0,Biki-Biki Gasteverblyf,Guest House,Pretoria,274.0,1113.0,839.0,Budget,Budget,4.52,6.06,61.0
+25653.0,The Aviary,Self Catering,Pretoria,1035.0,814.0,-221.0,Mid-Range,Budget,17.04,17.75,184.0
+15860.0,Centurion Golf Suites Boca Walk,Guest House,Pretoria,1365.0,988.0,-377.0,Premium,Budget,9.33,8.35,84.0
+135405.0,Baobab Guesthouse,Guest House,Pretoria,630.0,846.0,216.0,Budget,Budget,1.11,1.38,15.0
+149717.0,458 on Manitoba,Self Catering,Pretoria,880.0,1735.0,855.0,Mid-Range,Luxury,1.02,1.25,11.0
+109776.0,GaDuTe gastehuis,Self Catering,Pretoria,1350.0,1245.0,-105.0,Premium,Premium,3.78,3.63,34.0
+126727.0,Woodhill Silo On 14th,Self Catering,Pretoria,1190.0,1535.0,345.0,Mid-Range,Premium,2.96,3.53,32.0
+15027.0,Brooklyn Manor,Guest House,Pretoria,1105.0,893.0,-212.0,Mid-Range,Budget,9.07,9.4,98.0
+10862.0,La Granja,Self Catering,Panorama Route,1445.0,1084.0,-361.0,Premium,Budget,17.67,15.65,159.0
+90402.0,DullVino Cottage 15 Critchley,Self Catering,Panorama Route,1947.0,1325.0,-622.0,Premium,Premium,8.0,7.34,72.0
+47440.0,The Browns' - Luxury Suites,Guest House,Panorama Route,1425.0,1276.0,-149.0,Premium,Premium,7.44,7.27,67.0
+32850.0,Thokozani Lodge,Guest House,Panorama Route,840.0,1283.0,443.0,Mid-Range,Mid-Range,4.07,4.41,44.0
+74390.0,The Loft,Self Catering,Panorama Route,1200.0,1531.0,331.0,Premium,Premium,2.11,2.04,19.0
+103947.0,Gwenyn,Self Catering,Panorama Route,2240.0,1531.0,-709.0,Premium,Premium,2.0,1.89,18.0
+109699.0,Idlewood 2,Self Catering,Panorama Route,2261.0,1665.0,-596.0,Premium,Premium,1.56,1.47,14.0
+47546.0,Hobbiton Cottage @ Rivendell Trout Estate,Self Catering,Panorama Route,3740.0,1572.0,-2168.0,Luxury,Premium,2.92,2.22,21.0
+84552.0,DullVino First House,Self Catering,Panorama Route,2247.0,1387.0,-860.0,Premium,Premium,6.11,5.64,55.0
+69991.0,Rozelee Rest,Self Catering,Panorama Route,550.0,1179.0,629.0,Budget,Budget,8.22,10.49,111.0
+41464.0,Hartenbos Landgoed 16,Self Catering,Mossel Bay,2100.0,1429.0,-671.0,Premium,Premium,8.78,8.96,79.0
+78973.0,Beacon Wharf Selfsorg Seefront Akkommodasie,Self Catering,Mossel Bay,1560.0,1261.0,-299.0,Premium,Budget,13.67,12.42,123.0
+16424.0,The Bay Lodge,B&B,Mossel Bay,1829.0,1240.0,-589.0,Premium,Premium,14.11,13.16,127.0
+29186.0,Hartenbos Landgoed 7,Self Catering,Mossel Bay,2520.0,1423.0,-1097.0,Luxury,Premium,8.89,6.71,64.0
+120537.0,Lekke By Die See,Self Catering,Mossel Bay,740.0,1738.0,998.0,Mid-Range,Premium,3.7,4.43,40.0
+120531.0,The Cuckoo's Nest,Self Catering,Mossel Bay,934.0,1855.0,921.0,Mid-Range,Premium,2.69,3.21,29.0
+102612.0,60 Estoril Villas,Self Catering,Mossel Bay,1040.0,1855.0,815.0,Mid-Range,Premium,2.69,3.21,29.0
+128012.0,Lekker Leef Cottage,Self Catering,Mossel Bay,895.0,1405.0,510.0,Mid-Range,Premium,6.02,6.6,65.0
+2142.0,African Oceans Manor on the Beach,Guest House,Mossel Bay,2520.0,1572.0,-948.0,Luxury,Premium,2.78,2.22,20.0
+102889.0,GreenHouse Apartment,Self Catering,Gqeberha Port Elizabeth,850.0,1421.0,571.0,Mid-Range,Mid-Range,3.8,4.3,41.0
+1258.0,Eden Road Guest Suites,Guest House,Gqeberha Port Elizabeth,1100.0,928.0,-172.0,Mid-Range,Mid-Range,16.48,16.7,178.0
+99365.0,Dolphins Stay,Self Catering,Gqeberha Port Elizabeth,1530.0,1418.0,-112.0,Premium,Mid-Range,2.33,2.22,21.0
+134513.0,Gazania Cottage,Self Catering,Gqeberha Port Elizabeth,1088.0,1552.0,464.0,Mid-Range,Mid-Range,1.3,1.47,14.0
+5102.0,Beachwalk Bed and Breakfast,B&B,Gqeberha Port Elizabeth,1696.0,1361.0,-335.0,Premium,Premium,5.56,5.32,50.0
+37933.0,RElaxed City Living,Self Catering,Gqeberha Port Elizabeth,960.0,1363.0,403.0,Mid-Range,Mid-Range,5.0,5.56,54.0
+129303.0,The Little Lorraine Loft,Self Catering,Gqeberha Port Elizabeth,990.0,1316.0,326.0,Mid-Range,Mid-Range,1.2,1.41,13.0
+126104.0,Seaview Sunsets,Self Catering,Gqeberha Port Elizabeth,912.0,1167.0,255.0,Mid-Range,Mid-Range,1.57,1.76,17.0
+143675.0,27 on Brunswick,Self Catering,Gqeberha Port Elizabeth,711.0,1472.0,761.0,Mid-Range,Mid-Range,2.13,2.42,23.0
+100503.0,Cozy Townhouse,Self Catering,Gqeberha Port Elizabeth,1100.0,1421.0,321.0,Mid-Range,Mid-Range,3.8,4.3,41.0
+100168.0,Point Waterfront Apartments,Self Catering,Durban,1200.0,1526.0,326.0,Premium,Premium,5.0,4.71,45.0
+101447.0,Buckingham Place,Self Catering,Durban,800.0,1326.0,526.0,Mid-Range,Mid-Range,6.39,7.12,69.0
+80001.0,Anne's Cottage,Self Catering,Durban,720.0,1638.0,918.0,Mid-Range,Mid-Range,1.11,1.28,12.0
+2840.0,Ammazulu African Palace,Guest House,Durban,1500.0,1417.0,-83.0,Premium,Premium,1.33,1.19,12.0
+135739.0,Oyster Tide B&B and Self-Catering,B&B,Durban,1300.0,1455.0,155.0,Premium,Premium,1.22,1.25,11.0
+113835.0,3 on Rockhaven,Self Catering,Durban,850.0,1654.0,804.0,Mid-Range,Mid-Range,2.59,3.1,28.0
+2286.0,Centre Court B&B,B&B,Durban,1500.0,1555.0,55.0,Premium,Premium,4.11,4.12,37.0
+9241.0,Terebinte,Guest House,Durban,1600.0,1526.0,-74.0,Premium,Premium,4.44,4.17,40.0
+47669.0,35 on Fairview,Self Catering,Durban,900.0,1463.0,563.0,Mid-Range,Mid-Range,1.85,2.2,20.0
+101880.0,Huntley Cottage & Northway Cabin,Self Catering,Durban,850.0,1611.0,761.0,Mid-Range,Mid-Range,3.15,3.6,34.0
+133149.0,Beachbreak Cottages,Self Catering,Umhlanga,1100.0,1781.0,681.0,Mid-Range,Premium,1.94,2.34,21.0
+99131.0,67 The Shades,Self Catering,Umhlanga,2750.0,2031.0,-719.0,Luxury,Luxury,1.94,1.58,14.0
+134840.0,7 Cormoran,Self Catering,Umhlanga,1318.0,3222.0,1904.0,Premium,Luxury,1.0,1.2,9.0
+2740.0,Shelbourne Boutique Lodge,B&B,Umhlanga,3800.0,2165.0,-1635.0,Luxury,Luxury,11.11,9.33,80.0
+11046.0,Cowrie Cove Guest House,Guest House,Umhlanga,2542.0,2308.0,-234.0,Luxury,Luxury,4.31,3.56,31.0
+49782.0,202 Ben Siesta,Self Catering,Umhlanga,2050.0,1726.0,-324.0,Premium,Premium,1.89,1.88,17.0
+139463.0,Suite Monte Carlo - Beachfront Apartment,Self Catering,Umhlanga,3250.0,4106.0,856.0,Luxury,Luxury,0.0,0.17,0.0
+4188.0,La Lucia BnB,B&B,Umhlanga,1600.0,1745.0,145.0,Premium,Mid-Range,13.33,12.63,120.0
+133183.0,303 Marbella,Self Catering,Umhlanga,3450.0,4243.0,793.0,Luxury,Luxury,0.42,0.44,3.0
+22752.0,La Bri,Self Catering,Clarens,1260.0,1124.0,-136.0,Premium,Budget,42.22,41.03,380.0
+98030.0,Gracie's Cottage,Self Catering,Clarens,867.0,1276.0,409.0,Mid-Range,Mid-Range,9.44,10.1,102.0
+46484.0,Views,Self Catering,Clarens,1120.0,1143.0,23.0,Mid-Range,Budget,38.7,48.02,418.0
+63983.0,Forest Lane,Self Catering,Clarens,667.0,1168.0,501.0,Budget,Budget,10.37,14.36,140.0
+13083.0,Cottage Pie,Self Catering,Clarens,1120.0,1104.0,-16.0,Mid-Range,Budget,21.76,22.74,235.0
+132064.0,Clarens Labelle,Self Catering,Clarens,1900.0,1321.0,-579.0,Premium,Mid-Range,2.22,2.23,20.0
+44809.0,Willow Villas,Self Catering,Clarens,1840.0,1152.0,-688.0,Premium,Budget,19.22,17.56,173.0
+2221.0,The Courtyard Guest House,Guest House,Clarens,1120.0,1044.0,-76.0,Mid-Range,Mid-Range,16.11,17.12,174.0
+60212.0,Stonehaven Clarens,Self Catering,Clarens,1200.0,1118.0,-82.0,Premium,Budget,23.67,22.35,213.0
+132737.0,Jolly Joint Clarens,Self Catering,Clarens,700.0,1358.0,658.0,Mid-Range,Mid-Range,2.04,2.45,22.0
+104497.0,Mountain Canadian Log Home,Self Catering,Hartbeespoort,4320.0,2543.0,-1777.0,Luxury,Luxury,4.17,3.52,30.0
+104472.0,Stone Cottage in Haarties,Self Catering,Hartbeespoort,2700.0,2728.0,28.0,Luxury,Luxury,3.75,3.29,27.0
+105060.0,Bushbaby cottage,Self Catering,Hartbeespoort,1750.0,2362.0,612.0,Premium,Luxury,3.22,3.29,29.0
+15602.0,Magalies Park,Self Catering,Hartbeespoort,2423.0,1277.0,-1146.0,Premium,Mid-Range,34.0,32.02,306.0
+23596.0,Hartbeespoort Country Hotel and Spa,Lodge,Hartbeespoort,900.0,1290.0,390.0,Mid-Range,Mid-Range,23.89,24.29,258.0
+138001.0,Wild Fig Cottage,Self Catering,Hartbeespoort,1750.0,2755.0,1005.0,Premium,Luxury,1.11,1.31,10.0
+5513.0,Annies Boutique Guest House & Garden Spa,Guest House,Hartbeespoort,1200.0,1646.0,446.0,Premium,Premium,2.44,2.47,22.0
+53403.0,Harties Is Africa Safari Lodge,Game Lodge,Hartbeespoort,927.0,1907.0,980.0,Mid-Range,Mid-Range,12.96,14.22,140.0
+1752.0,Galagos Lodge Guest House,Guest House,Hartbeespoort,1300.0,1189.0,-111.0,Premium,Mid-Range,17.11,16.11,154.0
+116565.0,BondMakers @ Kosmos,Self Catering,Hartbeespoort,3000.0,2421.0,-579.0,Luxury,Luxury,1.53,1.37,11.0
+22473.0,Sperrgebiet Lodge,Self Catering,Namaqualand,1035.0,973.0,-62.0,Mid-Range,Budget,55.56,54.65,600.0
+4663.0,Jakkalswater Gasteplaas,Self Catering,Namaqualand,1650.0,1119.0,-531.0,Premium,Budget,24.44,21.38,220.0
+24634.0,SeaSide Self-Catering,Self Catering,Namaqualand,1372.0,1195.0,-177.0,Premium,Budget,20.22,17.59,182.0
+1006.0,Naries Namakwa Retreat,Guest House,Namaqualand,2870.0,1402.0,-1468.0,Luxury,Premium,10.28,8.09,74.0
+106994.0,Droëdap Guest Farm,Self Catering,Namaqualand,2000.0,2628.0,628.0,Premium,Premium,1.0,1.2,9.0
+20240.0,Honne-Pondokkies,Self Catering,Namaqualand,450.0,1032.0,582.0,Budget,Budget,25.85,27.37,349.0
+184.0,Daisy Country Lodge,Guest House,Namaqualand,2400.0,1463.0,-937.0,Premium,Premium,6.89,6.66,62.0
+52845.0,The Dogstone Cottage,Self Catering,Namaqualand,1400.0,1328.0,-72.0,Premium,Budget,10.89,9.97,98.0
+57100.0,Fisherman's Cottage,Self Catering,Namaqualand,1350.0,1583.0,233.0,Premium,Premium,5.0,4.87,45.0
+71888.0,Chef's @ 6 Selfsorg Eenhede,Self Catering,Namaqualand,1000.0,1119.0,119.0,Mid-Range,Budget,22.5,23.27,243.0
+66018.0,Mdluli Safari Lodge,Lodge,Kruger National Park,11844.0,9489.0,-2355.0,Luxury,Luxury,0.28,0.29,2.0
+452.0,River House Guest Lodge,Guest House,Kruger National Park,2875.0,2360.0,-515.0,Luxury,Premium,4.44,3.47,32.0
+107320.0,As Featured on Instagram The Orpen Kruger,Game Lodge,Kruger National Park,6545.0,8657.0,2112.0,Luxury,Luxury,0.0,0.13,0.0
+143885.0,Aha Nkuhlu Tented Camp,Self Catering,Kruger National Park,5500.0,5184.0,-316.0,Luxury,Luxury,0.28,0.29,2.0
+62050.0,Ivory Wilderness River Rock Lodge,Lodge,Kruger National Park,14500.0,13667.0,-833.0,Luxury,Luxury,0.0,0.11,0.0
+80687.0,Bateleur Safari Camp,Lodge,Kruger National Park,16412.0,14962.0,-1450.0,Luxury,Luxury,0.14,0.18,1.0
+64757.0,"Buyskop Lodge, Conference and Spa",Self Catering,Bela Bela,734.0,1075.0,341.0,Mid-Range,Mid-Range,19.54,20.27,211.0
+83465.0,De Kunst Huisje,Guest House,Bela Bela,1100.0,1194.0,94.0,Mid-Range,Mid-Range,9.35,10.06,101.0
+26484.0,Twiga Lodge Mabalingwe,Game Lodge,Bela Bela,2535.0,3385.0,850.0,Luxury,Luxury,10.83,9.46,78.0
+2264.0,Geelhout Guesthouse,Guest House,Bela Bela,820.0,925.0,105.0,Mid-Range,Mid-Range,15.83,15.15,171.0
+84217.0,Loodswaai Boshuisie,Self Catering,Bela Bela,735.0,1489.0,754.0,Mid-Range,Mid-Range,6.57,7.53,71.0
+111894.0,Tamboti Grove,Self Catering,Bela Bela,4171.0,3079.0,-1092.0,Luxury,Luxury,0.56,0.6,4.0
+14006.0,ATKV Klein Kariba,Resort,Bela Bela,269.0,982.0,713.0,Budget,Budget,59.85,60.93,808.0
+136029.0,Lejwe La Metsi Private Reserve,Game Lodge,Bela Bela,17000.0,14802.0,-2198.0,Luxury,Luxury,0.0,0.29,0.0
+55470.0,Shala Mushe Tented Lodge @ Camp,Lodge,Bela Bela,203.0,1996.0,1793.0,Budget,Premium,1.56,2.38,21.0
+114470.0,VlakkiesKraal Guest Farm,Self Catering,Bela Bela,850.0,1776.0,926.0,Mid-Range,Luxury,3.33,3.96,36.0
+101607.0,Roll-Inn@Myrtle,Self Catering,Sarah Baartman District,934.0,1627.0,693.0,Mid-Range,Premium,2.31,2.62,25.0
+95957.0,Oceanview @ Wilgers,Self Catering,Sarah Baartman District,1700.0,1273.0,-427.0,Premium,Premium,7.11,6.67,64.0
+126439.0,Stay At Jbay,Self Catering,Sarah Baartman District,900.0,2307.0,1407.0,Mid-Range,Luxury,1.02,1.29,11.0
+91817.0,Koekeloer Selfsorg Eenhede,Self Catering,Sarah Baartman District,995.0,1336.0,341.0,Mid-Range,Premium,5.74,6.7,62.0
+106140.0,The Hideaway,Self Catering,Sarah Baartman District,1105.0,1864.0,759.0,Mid-Range,Premium,2.41,2.89,26.0
+101338.0,The Stargazing Cube,Self Catering,Sarah Baartman District,3334.0,2692.0,-642.0,Luxury,Luxury,0.28,0.3,2.0
+6707.0,Outsiders B&B,B&B,Sarah Baartman District,1440.0,1809.0,369.0,Premium,Premium,8.89,9.14,80.0
+136227.0,Eseltjiesrus,Self Catering,Sarah Baartman District,2250.0,2730.0,480.0,Premium,Luxury,1.0,1.14,9.0
+28689.0,Draaihoek Lodge & Restaurant,Lodge,Escape From Cape Town,400.0,1108.0,708.0,Budget,Budget,3.04,3.28,41.0
+3092.0,Crystal Lagoon Lodge,Guest House,Escape From Cape Town,1469.0,827.0,-642.0,Premium,Budget,37.67,36.14,339.0
+114784.0,Penguin's at Sea,Self Catering,Escape From Cape Town,2925.0,2432.0,-493.0,Luxury,Luxury,1.81,1.31,13.0
+130437.0,Ocean Views,Self Catering,Escape From Cape Town,1000.0,1415.0,415.0,Mid-Range,Mid-Range,3.15,3.42,34.0
+99627.0,Klipdrift Sands Game Lodge,Lodge,Escape From Johannesburg,1073.0,1126.0,53.0,Mid-Range,Mid-Range,8.8,9.55,95.0
+31733.0,Gegund Gasteverblyf,Guest House,Escape From Johannesburg,360.0,908.0,548.0,Budget,Budget,6.52,7.43,88.0
+60673.0,Abelia Guest Rooms,Guest House,Escape From Johannesburg,644.0,786.0,142.0,Budget,Budget,11.26,13.47,152.0
+76972.0,The Lazy Lapa,Self Catering,Escape From Johannesburg,1170.0,1595.0,425.0,Mid-Range,Mid-Range,4.44,5.11,48.0
+79587.0,Die Wit Hangmat,Self Catering,Escape From Johannesburg,2800.0,1701.0,-1099.0,Luxury,Mid-Range,13.19,11.45,95.0
+28019.0,Rose Acres Guest House,Guest House,Escape From Johannesburg,990.0,747.0,-243.0,Mid-Range,Budget,21.11,20.82,228.0
+33391.0,Stumble Inn Game Lodge,Game Lodge,Escape From Johannesburg,667.0,3560.0,2893.0,Budget,Luxury,5.63,9.87,76.0
+120712.0,Spies Villa,Guest House,Escape From Johannesburg,788.0,1025.0,237.0,Mid-Range,Mid-Range,4.63,5.12,50.0
+10145.0,Thatchings Bed & Breakfast,B&B,Escape From Durban,1734.0,1578.0,-156.0,Premium,Premium,3.22,3.07,29.0
+59636.0,Jakaranda Woonstel 8,Self Catering,Escape From Durban,749.0,1324.0,575.0,Mid-Range,Mid-Range,5.19,5.4,56.0
+85927.0,Juanita 202,Self Catering,Escape From Durban,1254.0,1303.0,49.0,Premium,Premium,2.44,2.43,22.0
+84230.0,Sands Umdloti Beach Front Apartment,Self Catering,Escape From Durban,2632.0,1304.0,-1328.0,Luxury,Luxury,4.72,3.58,34.0
+34260.0,23 Ambleside Retreat,Guest House,Escape From Durban,875.0,1022.0,147.0,Mid-Range,Mid-Range,3.24,3.61,35.0
+52963.0,Sea Forever,Self Catering,Escape From Durban,1301.0,1808.0,507.0,Premium,Premium,3.0,3.11,27.0
+69298.0,3 Umzimkulu,Self Catering,Escape From Durban,1050.0,1148.0,98.0,Mid-Range,Mid-Range,3.98,4.25,43.0
+140459.0,Marina Palms 22,Self Catering,Escape From Durban,1000.0,1572.0,572.0,Mid-Range,Luxury,0.46,0.58,5.0
+7717.0,Surfpoint 9,Self Catering,Jeffreys Bay,1020.0,1156.0,136.0,Mid-Range,Mid-Range,17.69,18.25,191.0
+132454.0,Schoeman 7 Paradise Beach,Self Catering,Jeffreys Bay,972.0,1878.0,906.0,Mid-Range,Luxury,1.02,1.27,11.0
+134059.0,Jeffreys Bay Getaway,Self Catering,Jeffreys Bay,1575.0,1914.0,339.0,Premium,Luxury,1.11,1.21,10.0
+97413.0,Marina View Guest House,Self Catering,Jeffreys Bay,1890.0,1762.0,-128.0,Premium,Premium,2.78,2.59,25.0
+58237.0,RyQ-C@ JBay,Self Catering,Jeffreys Bay,840.0,1545.0,705.0,Mid-Range,Mid-Range,4.44,5.13,48.0
+97802.0,33D Kabeljauws Beach,Self Catering,Jeffreys Bay,1305.0,1833.0,528.0,Premium,Premium,1.56,1.49,14.0
+128027.0,12 Marina Sands,Self Catering,Jeffreys Bay,2380.0,1607.0,-773.0,Premium,Premium,1.67,1.49,15.0
+79191.0,Pyramid House By the Sea,Self Catering,Port Alfred,2200.0,1511.0,-689.0,Premium,Premium,4.44,4.25,40.0
+74679.0,Alfred View Guest House,B&B,Port Alfred,1620.0,1771.0,151.0,Premium,Premium,3.0,3.1,27.0
+125730.0,Granny Reed Cottage,Guest House,Port Alfred,900.0,1095.0,195.0,Mid-Range,Budget,1.85,2.13,20.0
+117036.0,Tumble Inn,Self Catering,Port Alfred,630.0,1283.0,653.0,Budget,Budget,1.41,2.04,19.0
+32957.0,The Spinning Reel,Self Catering,Port Alfred,730.0,1349.0,619.0,Mid-Range,Mid-Range,4.26,4.79,46.0
+1731.0,Villa Majestic for Exclusive Accommodation,Self Catering,Port Alfred,1000.0,1162.0,162.0,Mid-Range,Budget,6.94,7.79,75.0
+56674.0,Kowie River Chalets,Self Catering,Port Alfred,2618.0,1847.0,-771.0,Luxury,Luxury,1.67,1.31,12.0
+35538.0,Kellys Beachfront Apartments,Self Catering,Port Alfred,1062.0,1284.0,222.0,Mid-Range,Budget,5.19,5.59,56.0
+2739.0,Kowie River Guest House,Self Catering,Port Alfred,1600.0,1547.0,-53.0,Premium,Premium,3.22,3.12,29.0
+67873.0,Itongasi Holiday Flat 28,Self Catering,Port Edward,1080.0,1295.0,215.0,Mid-Range,Premium,1.3,1.47,14.0
+31580.0,Deo Gratia Beach House,Self Catering,Port Edward,2000.0,1735.0,-265.0,Premium,Luxury,1.22,1.25,11.0
+120624.0,Milkwood Lodge 12,Self Catering,Port Edward,1300.0,1998.0,698.0,Premium,Luxury,0.22,0.26,2.0
+154819.0,Burnamwood @ Forest Homes,Self Catering,Port Edward,800.0,1501.0,701.0,Mid-Range,Luxury,0.09,0.15,1.0
+62516.0,Eden Wilds 88,Self Catering,Port Edward,525.0,1141.0,616.0,Budget,Budget,4.07,5.59,55.0
+32548.0,Leisure Bay Self-catering,Self Catering,Port Edward,750.0,1206.0,456.0,Mid-Range,Budget,4.07,4.46,44.0
+47466.0,Tuscany By The Sea,Self Catering,Port Edward,4200.0,1942.0,-2258.0,Luxury,Luxury,0.56,0.46,4.0
+63017.0,Umtamvuna View Cabanas,Self Catering,Port Edward,1600.0,1295.0,-305.0,Premium,Premium,1.56,1.47,14.0
+146883.0,Palm Beach Niche,Self Catering,Port Edward,900.0,1456.0,556.0,Mid-Range,Luxury,0.74,0.89,8.0
+65190.0,Salt Therapy,Self Catering,Port Edward,1000.0,2845.0,1845.0,Mid-Range,Luxury,0.28,0.34,3.0
+11561.0,Swept Away Guesthouse,Guest House,Yzerfontein,1395.0,2166.0,771.0,Premium,Premium,14.0,13.53,126.0
+30738.0,Dolfin House,Self Catering,Yzerfontein,2200.0,2437.0,237.0,Premium,Premium,12.22,12.26,110.0
+142137.0,The Audrey Hepburn Suite,Self Catering,Yzerfontein,1440.0,2319.0,879.0,Premium,Luxury,1.33,1.49,12.0
+83331.0,Hemelstoep,Self Catering,Yzerfontein,792.0,2028.0,1236.0,Mid-Range,Luxury,2.22,2.71,24.0
+15553.0,No17 on Mile16,Self Catering,Yzerfontein,2500.0,2546.0,46.0,Luxury,Luxury,12.92,11.39,93.0
+125959.0,Villa Mimosa,Self Catering,Yzerfontein,3000.0,2244.0,-756.0,Luxury,Luxury,2.22,1.89,16.0
+18502.0,Chez James,Self Catering,Yzerfontein,1620.0,2043.0,423.0,Premium,Luxury,4.44,4.59,40.0
+92987.0,Lazy@Yzer - Spectacular Seaview,Self Catering,Yzerfontein,5500.0,2388.0,-3112.0,Luxury,Luxury,3.47,2.92,25.0
+38549.0,Lugkasteel,Self Catering,Yzerfontein,3300.0,2796.0,-504.0,Luxury,Luxury,11.11,10.59,80.0
+88052.0,Mykonos Luxury Beach Accommodation,B&B,St Francis,1440.0,1952.0,512.0,Premium,Premium,1.33,1.39,12.0
+38790.0,Ships Bell Apartments,Self Catering,St Francis,1100.0,1415.0,315.0,Mid-Range,Mid-Range,10.56,12.13,114.0
+33189.0,Barnard Self-Catering Accommodation,Self Catering,St Francis,1050.0,1820.0,770.0,Mid-Range,Mid-Range,3.43,4.26,37.0
+103897.0,Rustgevonden,Self Catering,St Francis,3320.0,2001.0,-1319.0,Luxury,Luxury,1.81,1.5,13.0
+95535.0,Tree Aloe Guest House,Guest House,St Francis,990.0,2067.0,1077.0,Mid-Range,Luxury,1.2,1.41,13.0
+102443.0,Canal Guest House,Guest House,St Francis,2090.0,2360.0,270.0,Premium,Premium,0.67,0.66,6.0
+145607.0,Santareme Breeze,Self Catering,St Francis,3000.0,5933.0,2933.0,Luxury,Luxury,0.14,0.23,1.0
+63451.0,6 La Digue,Self Catering,St Francis,4900.0,3291.0,-1609.0,Luxury,Luxury,0.69,0.69,5.0
+107180.0,Ships Bell 16B,Self Catering,St Francis,1500.0,1716.0,216.0,Premium,Premium,1.78,1.74,16.0
+89875.0,At The Beach Cottage Apartment,Self Catering,St Francis,4000.0,1808.0,-2192.0,Luxury,Luxury,6.53,5.2,47.0
+38302.0,4 Sea Cottage,Self Catering,Langebaan,2207.0,2064.0,-143.0,Premium,Premium,3.44,3.57,31.0
+48801.0,Raaswater,Self Catering,Langebaan,1489.0,1256.0,-233.0,Premium,Mid-Range,24.0,23.08,216.0
+117637.0,The Kite Manor,Self Catering,Langebaan,1040.0,1579.0,539.0,Mid-Range,Premium,3.89,4.37,42.0
+96348.0,38 @ Nivica,Self Catering,Langebaan,1063.0,1881.0,818.0,Mid-Range,Premium,2.22,2.52,24.0
+34408.0,Glenfinnan Guest House,Guest House,Langebaan,1450.0,2135.0,685.0,Premium,Premium,3.0,3.06,27.0
+12986.0,On the Beach 1,Self Catering,Langebaan,1432.0,1853.0,421.0,Premium,Premium,4.22,4.37,38.0
+140467.0,Where Time Stops,Self Catering,Langebaan,1403.0,1292.0,-111.0,Premium,Premium,0.78,0.76,7.0
+112407.0,Lalie Langebaan Akkommodasie,Self Catering,Langebaan,735.0,1682.0,947.0,Mid-Range,Premium,3.06,3.58,33.0
+68628.0,WestBed -The Legend,Guest House,Langebaan,1350.0,1384.0,34.0,Premium,Premium,7.11,6.55,64.0
+61622.0,Oudewerfskloof Olyfplaas,Self Catering,Still Bay,1150.0,1503.0,353.0,Mid-Range,Premium,7.13,8.17,77.0
+19898.0,Beach Castle,Self Catering,Still Bay,1275.0,1324.0,49.0,Premium,Mid-Range,14.33,13.17,129.0
+9384.0,Muir Holiday Apartments,Self Catering,Still Bay,939.0,1203.0,264.0,Mid-Range,Mid-Range,18.8,20.53,203.0
+53471.0,Strandloper,Self Catering,Still Bay,1080.0,1324.0,244.0,Mid-Range,Mid-Range,11.67,12.8,126.0
+95767.0,Beachfront @ Stilbaai,Self Catering,Still Bay,4500.0,2517.0,-1983.0,Luxury,Luxury,1.39,1.28,10.0
+117493.0,32 on Prinsloo,Self Catering,Still Bay,891.0,1804.0,913.0,Mid-Range,Premium,3.7,4.47,40.0
+132611.0,Sarah's Place - Stilbaai,Self Catering,Still Bay,765.0,2504.0,1739.0,Mid-Range,Luxury,0.93,1.28,10.0
+114167.0,Abansi,Self Catering,Still Bay,1260.0,1762.0,502.0,Premium,Luxury,2.22,2.32,20.0
+9676.0,See-Struis,Self Catering,Still Bay,1190.0,1237.0,47.0,Mid-Range,Mid-Range,16.67,18.78,180.0
+125671.0,Grootfontein Plaas,Self Catering,Still Bay,2600.0,1688.0,-912.0,Luxury,Luxury,0.97,0.82,7.0
+149158.0,Our Home By The Sea,Self Catering,Onrus,3500.0,1544.0,-1956.0,Luxury,Budget,0.83,0.66,6.0
+36185.0,Festina Lente in Onrus,Self Catering,Onrus,1755.0,1630.0,-125.0,Premium,Premium,3.89,3.8,35.0
+56106.0,Nerf-af Cottage & Rooms @ Onrusrivier,Self Catering,Onrus,788.0,1384.0,596.0,Mid-Range,Budget,8.43,9.47,91.0
+75956.0,Karibu Self-catering Accommodation,Self Catering,Onrus,998.0,1181.0,183.0,Mid-Range,Budget,13.24,13.63,143.0
+89051.0,La Casa Blanca,Self Catering,Onrus,3600.0,1643.0,-1957.0,Luxury,Premium,2.36,1.77,17.0
+83530.0,River Tree House,Self Catering,Onrus,2250.0,1869.0,-381.0,Premium,Premium,1.33,1.31,12.0
+141837.0,Providence,Self Catering,Onrus,1967.0,3235.0,1268.0,Premium,Luxury,0.0,0.07,0.0
+3258.0,Kennedys Beach Villa,Guest House,Onrus,2080.0,1954.0,-126.0,Premium,Premium,3.33,3.26,30.0
+83228.0,Sonsandsee,Self Catering,Onrus,2500.0,1606.0,-894.0,Luxury,Premium,2.5,1.89,18.0
+82658.0,Grundhoud,Self Catering,Onrus,1500.0,1735.0,235.0,Premium,Premium,4.33,4.21,39.0
+93008.0,Arendsroep,Self Catering,Marloth Park,1196.0,1600.0,404.0,Mid-Range,Premium,5.37,6.3,58.0
+54187.0,Flight of the Eagle @ Kruger,Self Catering,Marloth Park,2470.0,1719.0,-751.0,Premium,Premium,5.78,5.71,52.0
+38421.0,Meerkatgat 3341 Seekoei Road,Self Catering,Marloth Park,2444.0,1267.0,-1177.0,Premium,Budget,20.56,18.57,185.0
+34477.0,Imbube Safari Lodge,Guest House,Marloth Park,1000.0,1767.0,767.0,Mid-Range,Premium,2.31,2.51,25.0
+70947.0,Kudus Crest Bush Retreat,Self Catering,Marloth Park,2000.0,1480.0,-520.0,Premium,Premium,10.78,9.98,97.0
+79698.0,Huis Maroela,Self Catering,Marloth Park,1200.0,1292.0,92.0,Premium,Budget,17.78,16.39,160.0
+57740.0,Ndlovu Rest,Self Catering,Marloth Park,1680.0,1719.0,39.0,Premium,Premium,5.78,5.71,52.0
+20237.0,Umvangazi Rest,Self Catering,Marloth Park,1430.0,1737.0,307.0,Premium,Premium,2.44,2.47,22.0
+27604.0,Bush and Gables House,Self Catering,Marloth Park,5550.0,1588.0,-3962.0,Luxury,Premium,2.08,1.5,15.0
+94565.0,Villa de Leeu,Self Catering,Marloth Park,1796.0,1735.0,-61.0,Premium,Premium,3.78,3.66,34.0
+82770.0,Mountain View Safari Lodge,Self Catering,Hoedspruit,2000.0,1922.0,-78.0,Premium,Luxury,4.44,4.32,40.0
+32225.0,Leadwood Tree Safari Lodge,Self Catering,Hoedspruit,1350.0,1340.0,-10.0,Premium,Mid-Range,22.44,21.09,202.0
+55582.0,Rooibos Luxury Bush Cottage,Self Catering,Hoedspruit,2000.0,1861.0,-139.0,Premium,Luxury,2.56,2.51,23.0
+120498.0,The Eco Hut,Self Catering,Hoedspruit,2700.0,2645.0,-55.0,Luxury,Luxury,1.39,1.26,10.0
+71287.0,Leopard's Lair Bush Lodge,Lodge,Hoedspruit,2800.0,2192.0,-608.0,Luxury,Luxury,4.31,3.62,31.0
+128506.0,Plumtree House,Self Catering,Hoedspruit,5050.0,4936.0,-114.0,Luxury,Luxury,0.14,0.22,1.0
+54113.0,Francines Venue & Farmhouse,Guest House,Hoedspruit,867.0,1503.0,636.0,Mid-Range,Mid-Range,3.43,4.08,37.0
+89518.0,Heartland Self-catering Accommodation,Guest House,Hoedspruit,1089.0,1398.0,309.0,Mid-Range,Mid-Range,3.24,3.72,35.0
+63534.0,Swiblati Lodge,Self Catering,Hoedspruit,3950.0,2527.0,-1423.0,Luxury,Luxury,1.53,1.32,11.0
+56602.0,Blyde River Log House,Self Catering,Hoedspruit,2290.0,1946.0,-344.0,Premium,Luxury,0.78,0.8,7.0
+17367.0,Phakela Private Lodge,Lodge,Thabazimbi,1125.0,1507.0,382.0,Mid-Range,Premium,2.31,2.69,25.0
+106059.0,Seven Olives Guest Rooms,Guest House,Thabazimbi,1050.0,1089.0,39.0,Mid-Range,Luxury,1.76,2.06,19.0
+69134.0,Waterberg Hideaway,Self Catering,Thabazimbi,1890.0,1451.0,-439.0,Premium,Premium,4.44,4.48,40.0
+102167.0,As Featured on Instagram The Pods,Self Catering,Thabazimbi,3450.0,1666.0,-1784.0,Luxury,Premium,4.44,3.63,32.0
+131476.0,Zondereinde Accommodation,Self Catering,Thabazimbi,700.0,1354.0,654.0,Mid-Range,Luxury,0.65,0.83,7.0
+98373.0,As Featured on Instagram The Tented Log Cabin,Game Lodge,Thabazimbi,3850.0,7715.0,3865.0,Luxury,Luxury,0.56,0.6,4.0
+118660.0,Indaka Lodge,Lodge,Thabazimbi,1300.0,1640.0,340.0,Premium,Premium,3.33,3.46,30.0
+134312.0,Netsha Guesthouse,Guest House,Thabazimbi,1095.0,1012.0,-83.0,Mid-Range,Luxury,1.39,1.49,15.0
+94608.0,Vanross Self-Catering Accommodation,Self Catering,Thabazimbi,1100.0,1642.0,542.0,Mid-Range,Luxury,1.3,1.58,14.0
+136832.0,Aloe Lodge,Lodge,Thabazimbi,3500.0,4846.0,1346.0,Luxury,Luxury,0.28,0.36,2.0
+25350.0,Witgatboom Boskamp,Game Lodge,Mookgopong,900.0,2720.0,1820.0,Mid-Range,Mid-Range,13.06,14.29,141.0
+80496.0,Bosveld Wegbreek,Self Catering,Mookgopong,1190.0,1484.0,294.0,Mid-Range,Mid-Range,8.61,9.92,93.0
+134744.0,156 Euphoria Boutique Villa,Guest House,Mookgopong,13500.0,9476.0,-4024.0,Luxury,Luxury,0.0,0.0,0.0
+139853.0,88 on 4th,Self Catering,Mookgopong,850.0,1620.0,770.0,Mid-Range,Premium,0.56,0.64,6.0
+95810.0,Nyala Bush Villa,Self Catering,Mookgopong,3000.0,1484.0,-1516.0,Luxury,Mid-Range,12.64,9.84,91.0
+35505.0,Diamond Creek Bush Lodge,Lodge,Mookgopong,910.0,1495.0,585.0,Mid-Range,Mid-Range,7.87,8.8,85.0
+154098.0,Thaba Tholo Villas,Self Catering,Mookgopong,1590.0,3809.0,2219.0,Premium,Luxury,0.22,0.24,2.0
+39499.0,Ranelra Accommodation,Self Catering,Mookgopong,680.0,1306.0,626.0,Budget,Budget,7.33,9.78,99.0
+20443.0,Die Boer En Die Belg Andante,Self Catering,Mookgopong,400.0,1226.0,826.0,Budget,Budget,14.89,21.1,201.0
+30134.0,AAA Rose Garden Gastehuis,Self Catering,Mookgopong,750.0,1429.0,679.0,Mid-Range,Premium,6.94,7.87,75.0
+104782.0,Die Ou Pastorie,Guest House,Skeerpoort,1955.0,1476.0,-479.0,Premium,Premium,2.0,1.89,18.0
+27301.0,Millstream Inn Guest House,Guest House,Skeerpoort,1050.0,1127.0,77.0,Mid-Range,Mid-Range,20.74,21.47,224.0
+102016.0,Hollybrooke Adventure Farm,Self Catering,Skeerpoort,450.0,1637.0,1187.0,Budget,Budget,1.19,1.73,16.0
+156924.0,Furrow Nest - Skeerpoort,Self Catering,Skeerpoort,711.0,2050.0,1339.0,Mid-Range,Luxury,0.0,0.15,0.0
+151933.0,8 @ Mill Lane,Self Catering,Skeerpoort,3750.0,2050.0,-1700.0,Luxury,Luxury,0.0,0.15,0.0
+11242.0,B'sorah Luxury Tent,Self Catering,Skeerpoort,2300.0,1357.0,-943.0,Premium,Premium,13.44,12.64,121.0
+57185.0,Remhoogte Mountain Lodge,Lodge,Skeerpoort,1685.0,1614.0,-71.0,Premium,Premium,6.33,6.22,57.0
+72011.0,The Meadows At Millstream,Self Catering,Skeerpoort,1300.0,1248.0,-52.0,Premium,Premium,21.0,19.2,189.0
+13042.0,Highlander Trout Lodge,Self Catering,Skeerpoort,2500.0,1412.0,-1088.0,Luxury,Premium,14.31,11.69,103.0
+33129.0,La Bastide,Guest House,Skeerpoort,1170.0,1183.0,13.0,Mid-Range,Mid-Range,16.57,17.44,179.0
+50928.0,Summerplace Game Reserve,Self Catering,Vaalwater,1253.0,1699.0,446.0,Premium,Premium,9.89,9.93,89.0
+8985.0,Cross Pollination Chalets & Camping,Self Catering,Vaalwater,245.0,1699.0,1454.0,Budget,Premium,6.67,9.93,90.0
+89624.0,Groendraai River Cottages,Self Catering,Vaalwater,1180.0,1358.0,178.0,Mid-Range,Mid-Range,24.81,24.75,268.0
+118260.0,Bushwillow at Waterberg Cottages,Self Catering,Vaalwater,5250.0,4080.0,-1170.0,Luxury,Luxury,0.56,0.57,4.0
+69554.0,Wildeman Stories Wildsplaas,Game Lodge,Vaalwater,13000.0,8932.0,-4068.0,Luxury,Luxury,4.17,3.5,30.0
+146175.0,Waterberg Wildlife Sanctuary,Self Catering,Vaalwater,1350.0,3259.0,1909.0,Premium,Luxury,0.67,0.76,6.0
+104389.0,Africamps Waterberg,Self Catering,Vaalwater,1590.0,1822.0,232.0,Premium,Premium,6.11,5.83,55.0
+3104.0,Butterfly at Waterberg Cottages,Self Catering,Vaalwater,2100.0,1951.0,-149.0,Premium,Premium,5.89,5.83,53.0
+104336.0,Royal Morubisi Founder's Lodge,Game Lodge,Vaalwater,4999.0,4432.0,-567.0,Luxury,Luxury,0.0,0.14,0.0
+61312.0,Mashudu Private Game Lodge,Game Lodge,Vaalwater,3550.0,7291.0,3741.0,Luxury,Luxury,2.5,2.05,18.0
+14443.0,21 Hazey River Country Estate,Self Catering,Hazyview,3600.0,2377.0,-1223.0,Luxury,Luxury,4.86,3.97,35.0
+157247.0,Fire Thorn Cottage,Self Catering,Hazyview,788.0,2926.0,2138.0,Mid-Range,Luxury,0.0,0.2,0.0
+136005.0,Kruger Park Lodge Unit 243,Self Catering,Hazyview,3000.0,3163.0,163.0,Luxury,Luxury,0.42,0.46,3.0
+112076.0,Bon Repose Cottage 2,Self Catering,Hazyview,1300.0,2332.0,1032.0,Premium,Luxury,1.44,1.54,13.0
+7141.0,Cambalala Bushveld Retreat,Self Catering,Hazyview,2950.0,2751.0,-199.0,Luxury,Luxury,4.44,3.7,32.0
+17834.0,Kruger Park Lodge Chalet 226A,Self Catering,Hazyview,2900.0,2471.0,-429.0,Luxury,Luxury,5.14,4.34,37.0
+15783.0,Bambuu Lakeside Lodge,Lodge,Hazyview,4960.0,2319.0,-2641.0,Luxury,Luxury,5.56,4.43,40.0
+15788.0,Mackers,Self Catering,Hazyview,765.0,1566.0,801.0,Mid-Range,Mid-Range,11.57,12.33,125.0
+36648.0,Cuckoo Ridge Country Retreat,B&B,Hazyview,1460.0,1110.0,-350.0,Premium,Premium,2.44,2.59,22.0
+104310.0,Domus Tempus Kothuis en Boskamp,Self Catering,Tzaneen,1102.0,1624.0,522.0,Mid-Range,Premium,1.76,2.15,19.0
+66858.0,The Bohemian Boutique Guesthouse,Guest House,Tzaneen,2100.0,1681.0,-419.0,Premium,Premium,5.67,5.77,51.0
+110122.0,Home on a Hill Cottage,Self Catering,Tzaneen,1955.0,1619.0,-336.0,Premium,Premium,1.78,1.75,16.0
+34086.0,Die Stoep,Self Catering,Tzaneen,800.0,1151.0,351.0,Mid-Range,Mid-Range,26.3,23.68,284.0
+49467.0,Forest View Cabins,Self Catering,Tzaneen,980.0,1377.0,397.0,Mid-Range,Mid-Range,11.3,12.48,122.0
+1777.0,Sherwood's Country House,Guest House,Tzaneen,918.0,1759.0,841.0,Mid-Range,Premium,3.61,4.37,39.0
+92895.0,The Pickle Residence,Self Catering,Tzaneen,1225.0,1624.0,399.0,Premium,Premium,2.11,2.15,19.0
+35014.0,"Fairview Hotels, Spa & Golf Resort",Hotel,Tzaneen,1953.0,1307.0,-646.0,Premium,Luxury,0.33,0.45,3.0
+110805.0,The Red Oak Guesthouse,Lodge,Tzaneen,1062.0,2348.0,1286.0,Mid-Range,Luxury,1.11,1.41,12.0
+133036.0,Poeks se Tuiste,Self Catering,Tzaneen,1450.0,1882.0,432.0,Premium,Luxury,1.44,1.52,13.0
+253.0,Umlani Bushcamp,Game Lodge,Timbavati Private Nature Reserve,15522.0,14801.0,-721.0,Luxury,Luxury,0.14,0.28,1.0
+4863.0,Kambaku Safari Lodge,Lodge,Timbavati Private Nature Reserve,17400.0,12572.0,-4828.0,Luxury,Luxury,0.0,0.17,0.0
+72932.0,Simbavati Trails Camp,Self Catering,Timbavati Private Nature Reserve,17150.0,8932.0,-8218.0,Luxury,Luxury,0.0,0.17,0.0
+3696.0,Morokolo Safari Lodge Self-catering,Game Lodge,Pilanesberg National Park,5985.0,7807.0,1822.0,Luxury,Luxury,0.56,0.5,4.0
+125139.0,Pangolin Game Lodge,Lodge,Pilanesberg National Park,17590.0,14390.0,-3200.0,Luxury,Luxury,0.0,0.07,0.0
+94828.0,The Two Wild Olives,Self Catering,Pilanesberg National Park,1250.0,1288.0,38.0,Premium,Budget,11.22,9.91,101.0
+95863.0,As Featured on Instagram Makanyane Lodge,Game Lodge,Pilanesberg National Park,14500.0,11687.0,-2813.0,Luxury,Luxury,1.11,0.92,8.0
+75150.0,Kwa Maritane Bush Lodge,Lodge,Pilanesberg National Park,6080.0,5723.0,-357.0,Luxury,Luxury,0.83,0.66,6.0
+75153.0,Bakubung Bush Lodge,Lodge,Pilanesberg National Park,7020.0,7109.0,89.0,Luxury,Luxury,1.25,1.1,9.0
+149821.0,The Botik Hides,Hotel,Pilanesberg National Park,860.0,5708.0,4848.0,Mid-Range,Luxury,0.0,0.08,0.0
+155200.0,Maison Rosina,Self Catering,Pilanesberg National Park,5500.0,3106.0,-2394.0,Luxury,Luxury,0.0,0.07,0.0
+50183.0,Kingfisher Creek Safari Cottages,Self Catering,Thornybush Game Reserve,3600.0,3351.0,-249.0,Luxury,Luxury,3.33,2.6,24.0
+53975.0,Panzi Lodge,Lodge,Thornybush Game Reserve,4069.0,7179.0,3110.0,Luxury,Luxury,0.0,0.17,0.0
+124242.0,Kusudalweni Safari Lodge and Spa,Lodge,Thornybush Game Reserve,9359.0,9373.0,14.0,Luxury,Luxury,0.0,0.17,0.0
+145711.0,Cheetah Paw Safari Lodge,Lodge,Thornybush Game Reserve,4800.0,7179.0,2379.0,Luxury,Luxury,0.0,0.17,0.0
+26544.0,As Featured on Instagram Phelwana Game Lodge,Lodge,Thornybush Game Reserve,7150.0,7248.0,98.0,Luxury,Luxury,0.28,0.36,2.0
+79774.0,Tangala Safari Camp 21,Self Catering,Thornybush Game Reserve,12700.0,10699.0,-2001.0,Luxury,Luxury,0.14,0.25,1.0
+81766.0,As Featured on Instagram Umkumbe Bush Lodge Luxury Tented Camp,Lodge,Sabi Sand Game Reserve,12200.0,8647.0,-3553.0,Luxury,Luxury,0.0,0.12,0.0
+144916.0,Burchell's Bush Lodge - By Dream Resorts,Self Catering,Sabi Sand Game Reserve,3330.0,2971.0,-359.0,Luxury,Luxury,0.14,0.2,1.0
+81601.0,As Featured on Instagram Kruger Shalati - The Train on the Bridge and Garden Suites,Game Lodge,Sabi Sand Game Reserve,14960.0,13267.0,-1693.0,Luxury,Luxury,1.53,1.34,11.0
+141507.0,Aha Skukuza Safari Lodge,Lodge,Sabi Sand Game Reserve,3690.0,7450.0,3760.0,Luxury,Luxury,0.0,0.12,0.0
+59093.0,SANParks Skukuza Rest Camp,Self Catering,Sabi Sand Game Reserve,414.0,1336.0,922.0,Budget,Budget,7.41,9.77,100.0
+71992.0,Plains Camp,Self Catering,Sabi Sand Game Reserve,18200.0,776.0,-17424.0,Luxury,Luxury,0.0,0.12,0.0
+142293.0,Elephant Point,Resort,Sabi Sand Game Reserve,11400.0,11417.0,17.0,Luxury,Luxury,0.0,0.35,0.0
+82572.0,SleepOver Kruger Gate,Guest House,Sabi Sand Game Reserve,1178.0,1318.0,140.0,Mid-Range,Mid-Range,6.11,6.74,66.0
+12586.0,Isilwane Bush Camp,Self Catering,Dinokeng Game Reserve,1600.0,1621.0,21.0,Premium,Mid-Range,4.0,3.77,36.0
+32489.0,Thorn Tree Bush Camp - Tented Camps and Cabins,Self Catering,Dinokeng Game Reserve,1100.0,1324.0,224.0,Mid-Range,Mid-Range,7.78,8.51,84.0
+139480.0,Impala Game Ranch,Lodge,Dinokeng Game Reserve,420.0,1913.0,1493.0,Budget,Mid-Range,0.89,1.28,12.0
+88100.0,Kierieklapper Lodge,Game Lodge,Dinokeng Game Reserve,7000.0,4390.0,-2610.0,Luxury,Premium,6.25,4.91,45.0
+92781.0,Bushbabies Lodge Dinokeng,Game Lodge,Dinokeng Game Reserve,1090.0,2950.0,1860.0,Mid-Range,Mid-Range,8.7,9.86,94.0
+113841.0,Thorn Tree Bush Camp Camping Sites,Self Catering,Dinokeng Game Reserve,575.0,1631.0,1056.0,Budget,Mid-Range,2.37,3.49,32.0
+34529.0,Nyani Lodge,Game Lodge,Dinokeng Game Reserve,400.0,1917.0,1517.0,Budget,Budget,16.07,17.06,217.0
+87276.0,Horizon Savannah Tented Camp and Chalets,Self Catering,Dinokeng Game Reserve,1190.0,1370.0,180.0,Mid-Range,Mid-Range,7.13,7.71,77.0
+133095.0,Dinokeng Wildreservaat Ons Grond Cabin,Self Catering,Dinokeng Game Reserve,1395.0,1600.0,205.0,Premium,Premium,5.33,5.11,48.0
+38873.0,Abendruhe Lodge,Self Catering,Dinokeng Game Reserve,2235.0,1188.0,-1047.0,Premium,Budget,14.56,12.91,131.0
+78284.0,The Hidden Valley,Self Catering,Balule Nature Reserve,1500.0,2744.0,1244.0,Premium,Premium,7.0,6.85,63.0
+16684.0,Maninghi Lodge,Lodge,Balule Nature Reserve,5274.0,6269.0,995.0,Luxury,Luxury,1.11,1.02,8.0
+56898.0,Parsons Hilltop Safari Camp,Self Catering,Balule Nature Reserve,7850.0,3889.0,-3961.0,Luxury,Luxury,0.97,0.86,7.0
+15129.0,Blyde River Cabin,Self Catering,Balule Nature Reserve,2690.0,2826.0,136.0,Luxury,Luxury,4.58,3.7,33.0
+97933.0,As Featured on Instagram Ndlovu Bushvilla,Self Catering,Balule Nature Reserve,5000.0,3946.0,-1054.0,Luxury,Luxury,1.67,1.44,12.0
+126075.0,Shepherds Rest,Self Catering,Balule Nature Reserve,1450.0,3955.0,2505.0,Premium,Luxury,1.11,1.32,10.0
+135797.0,Ngoma Bush Lodge,Lodge,Balule Nature Reserve,3600.0,14260.0,10660.0,Luxury,Luxury,0.0,0.22,0.0
+110207.0,Chestnut Cottage,Self Catering,Balule Nature Reserve,3150.0,2992.0,-158.0,Luxury,Luxury,6.25,4.97,45.0
+3396.0,De Old Drift Guest Farm,Guest House,Addo Elephant Park,2100.0,1767.0,-333.0,Premium,Premium,5.44,5.29,49.0
+2891.0,Sundays Mouth Guesthouse,Self Catering,Addo Elephant Park,1985.0,1595.0,-390.0,Premium,Premium,2.56,2.5,23.0
+95590.0,Hopefield Guesthouse-Addo,Guest House,Addo Elephant Park,1302.0,1488.0,186.0,Premium,Premium,0.22,0.25,2.0
+33012.0,"Addo African Home, Restaurant and Safari",Lodge,Addo Elephant Park,2083.0,1823.0,-260.0,Premium,Premium,6.78,6.63,61.0
+23065.0,Avoca River Cabins,Self Catering,Addo Elephant Park,952.0,1188.0,236.0,Mid-Range,Premium,23.33,24.13,252.0
+49122.0,Settle Inn Self-catering Accommodation,Self Catering,Addo Elephant Park,1148.0,1552.0,404.0,Mid-Range,Mid-Range,3.61,4.25,39.0
+11107.0,Kududu Guest House,B&B,Addo Elephant Park,1773.0,983.0,-790.0,Premium,Premium,1.33,1.46,12.0
+129181.0,Suma's Rest,Self Catering,Addo Elephant Park,882.0,1660.0,778.0,Mid-Range,Luxury,1.02,1.33,11.0
+1133.0,Zuurberg Mountain Village,Hotel,Addo Elephant Park,2880.0,2085.0,-795.0,Luxury,Premium,2.5,2.04,18.0
+50526.0,Bietjie Rus,B&B,Addo Elephant Park,1400.0,2018.0,618.0,Premium,Premium,3.0,3.24,27.0
+44841.0,Mulberry Rest,Self Catering,Kalahari,1300.0,1488.0,188.0,Premium,Premium,3.78,3.64,34.0
+50704.0,Augrabies Falls Lodge & Camp,Lodge,Kalahari,419.0,887.0,468.0,Budget,Budget,43.56,44.22,588.0
+7932.0,Ou Skool Guest House,Guest House,Kalahari,1320.0,998.0,-322.0,Premium,Budget,23.67,22.42,213.0
+126726.0,Bezalel Wine & Brandy Estate,Lodge,Kalahari,765.0,1766.0,1001.0,Mid-Range,Premium,2.69,3.13,29.0
+18996.0,Green Kalahari Guesthouse,Guest House,Kalahari,1242.0,1370.0,128.0,Premium,Budget,8.78,8.72,79.0
+39240.0,DeVosRus Gastehuis,Guest House,Kalahari,1398.0,1370.0,-28.0,Premium,Budget,8.89,8.72,80.0
+8412.0,@ Belurana River Manor,Guest House,Kalahari,2000.0,1337.0,-663.0,Premium,Mid-Range,4.56,4.2,41.0
+13551.0,Belihante Lodge,Self Catering,Kalahari,850.0,1059.0,209.0,Mid-Range,Mid-Range,20.46,21.25,221.0
+3544.0,African Vineyard Boutique Hotel & Spa,Hotel,Kalahari,1990.0,1377.0,-613.0,Premium,Budget,11.0,9.65,99.0
+130926.0,Steenbok Selfsorg,Self Catering,Kalahari,1125.0,1541.0,416.0,Mid-Range,Mid-Range,4.35,4.99,47.0
+6720.0,The Fever Tree Guest House,Guest House,Hluhluwe,900.0,1379.0,479.0,Mid-Range,Mid-Range,3.89,4.31,42.0
+156421.0,First Light Serenity,Self Catering,Hluhluwe,2934.0,4048.0,1114.0,Luxury,Luxury,0.0,0.16,0.0
+889.0,Leopard Walk Lodge,Game Lodge,Hluhluwe,3780.0,3238.0,-542.0,Luxury,Budget,9.31,7.84,67.0
+67038.0,Bonamanzi Game Reserve - Rustic 2 Sleeper Tree Houses,Self Catering,Hluhluwe,1850.0,2590.0,740.0,Premium,Luxury,1.11,1.27,10.0
+3950.0,Emdoneni Lodge,Game Lodge,Hluhluwe,3310.0,4733.0,1423.0,Luxury,Luxury,0.97,0.9,7.0
+74792.0,Hluhluwe Bush Camp,Self Catering,Hluhluwe,2025.0,1649.0,-376.0,Premium,Luxury,1.78,1.73,16.0
+92433.0,As Featured on Instagram Tinswari Self-catering Chalets,Self Catering,Hluhluwe,5500.0,4048.0,-1452.0,Luxury,Luxury,0.0,0.16,0.0
+90555.0,Hluhluwe Bush Camp Glamping Village,Self Catering,Hluhluwe,950.0,1809.0,859.0,Mid-Range,Luxury,2.13,2.51,23.0
+12326.0,Bonamanzi Game Reserve - Lalapanzi,Game Lodge,Hluhluwe,2590.0,4117.0,1527.0,Luxury,Luxury,2.64,2.22,19.0
+105250.0,Thornwood,Self Catering,Hluhluwe,6700.0,4750.0,-1950.0,Luxury,Luxury,0.14,0.23,1.0
+127105.0,Cottonwood Cove,Self Catering,Midlands Meander,900.0,1717.0,817.0,Mid-Range,Premium,4.35,5.05,47.0
+23098.0,Hawklee Country House,Guest House,Midlands Meander,1690.0,1370.0,-320.0,Premium,Premium,3.78,3.55,34.0
+142035.0,Burnside Lodge,Self Catering,Midlands Meander,2560.0,3861.0,1301.0,Luxury,Luxury,0.28,0.28,2.0
+126086.0,Glen Eden Lodge,Guest House,Midlands Meander,1747.0,1419.0,-328.0,Premium,Premium,2.0,1.83,18.0
+115955.0,The Aloe Garden Cottage,Self Catering,Midlands Meander,1100.0,1840.0,740.0,Mid-Range,Premium,1.11,1.34,12.0
+121454.0,Fraser Retreat,Self Catering,Midlands Meander,2250.0,1786.0,-464.0,Premium,Premium,0.89,0.91,8.0
+15482.0,Glen Ormond Guest House,Guest House,Midlands Meander,1380.0,1253.0,-127.0,Premium,Mid-Range,12.78,12.42,115.0
+132495.0,Miracle Mountain Forest Cottage,Self Catering,Midlands Meander,2800.0,2669.0,-131.0,Luxury,Luxury,1.25,1.13,9.0
+43025.0,Otters Den Self-catering Cottages,Self Catering,Midlands Meander,1960.0,1440.0,-520.0,Premium,Premium,9.33,8.83,84.0
+18049.0,Art Gallery Guest House,Guest House,Magoebaskloof,1148.0,1109.0,-39.0,Mid-Range,Mid-Range,10.09,10.64,109.0
+98347.0,Verkijken Cottage,Self Catering,Magoebaskloof,1959.0,1348.0,-611.0,Premium,Premium,1.44,1.43,13.0
+37332.0,Pavetta Country House,Self Catering,Magoebaskloof,4000.0,1464.0,-2536.0,Luxury,Premium,9.86,7.41,71.0
+88510.0,Our Bush House,Self Catering,Magoebaskloof,2800.0,3090.0,290.0,Luxury,Luxury,0.28,0.27,2.0
+113973.0,Seloko Guest Cottage,Guest House,Magoebaskloof,1200.0,572.0,-628.0,Premium,Premium,0.78,0.66,7.0
+92017.0,Cussonia Cottage,Self Catering,Magoebaskloof,1959.0,2492.0,533.0,Premium,Luxury,0.56,0.63,5.0
+41220.0,House of Art,Guest House,Magoebaskloof,1150.0,1394.0,244.0,Mid-Range,Mid-Range,3.7,4.21,40.0
+28543.0,Boscobel Cottages,Self Catering,Magoebaskloof,1100.0,1443.0,343.0,Mid-Range,Mid-Range,5.93,6.65,64.0
+60119.0,Hardlines,Self Catering,Magoebaskloof,1800.0,1822.0,22.0,Premium,Premium,2.67,2.52,24.0
+2547.0,Tsitsikamma Village Inn,Hotel,Tsitsikamma,2320.0,1508.0,-812.0,Premium,Premium,11.89,11.35,107.0
+101337.0,Ocean Dome,Lodge,Tsitsikamma,3334.0,4126.0,792.0,Luxury,Luxury,0.28,0.36,2.0
+2009.0,As Featured on Instagram Misty Mountain Reserve,Lodge,Tsitsikamma,2867.0,1790.0,-1077.0,Luxury,Luxury,4.72,3.73,34.0
+133659.0,The Hive - Sunset,Lodge,Tsitsikamma,3334.0,4126.0,792.0,Luxury,Luxury,0.28,0.36,2.0
+101326.0,The Pyramid,Lodge,Tsitsikamma,3000.0,4288.0,1288.0,Luxury,Luxury,0.0,0.17,0.0
+126600.0,As Featured on Instagram The Cloud Hive,Lodge,Tsitsikamma,3334.0,4288.0,954.0,Luxury,Luxury,0.0,0.17,0.0
+146647.0,Tsitsikamma BnB & Self-Catering Studios,B&B,Tsitsikamma,1050.0,2245.0,1195.0,Mid-Range,Luxury,0.09,0.22,1.0
+83255.0,Beulahs House,Self Catering,Tsitsikamma,1890.0,2228.0,338.0,Premium,Premium,3.44,3.65,31.0
+123932.0,The Hive - Jungle,Lodge,Tsitsikamma,3000.0,4288.0,1288.0,Luxury,Luxury,0.0,0.17,0.0
+146839.0,Britannia Breeze,Self Catering,West Coast,714.0,1333.0,619.0,Mid-Range,Mid-Range,1.67,2.04,18.0
+38848.0,Duifieklip,Self Catering,West Coast,2640.0,1734.0,-906.0,Luxury,Luxury,11.11,9.51,80.0
+98741.0,BoHo,Self Catering,West Coast,1000.0,1566.0,566.0,Mid-Range,Mid-Range,2.87,3.66,31.0
+131703.0,Oseaan huisie,Self Catering,West Coast,1167.0,1065.0,-102.0,Mid-Range,Mid-Range,3.06,3.66,33.0
+91009.0,Casa Omi,Self Catering,Bojanala,560.0,1690.0,1130.0,Budget,Budget,3.33,4.59,45.0
+113245.0,Soetdoring 3,Guest House,Bojanala,700.0,1498.0,798.0,Mid-Range,Premium,2.96,3.37,32.0
+156849.0,Bushwillow Estate - Kudu Plaas,Self Catering,Bojanala,2450.0,4251.0,1801.0,Premium,Luxury,0.0,0.0,0.0
+15247.0,Bietjie Vrede,Self Catering,Bojanala,675.0,1269.0,594.0,Budget,Budget,8.3,10.58,112.0
+45881.0,Milorho Lodge,Lodge,Bojanala,1450.0,1302.0,-148.0,Premium,Budget,11.56,10.88,104.0
+46671.0,The Log Cabin,Lodge,Stellenbosch,1791.0,2093.0,302.0,Premium,Luxury,3.44,3.64,31.0
+95.0,5 Seasons Guest House,Guest House,Stellenbosch,3780.0,2107.0,-1673.0,Luxury,Luxury,3.89,3.13,28.0
+107300.0,Heaven's View Luxury Villa,Self Catering,Stellenbosch,4761.0,4291.0,-470.0,Luxury,Luxury,0.42,0.43,3.0
+13040.0,Stellenbosch Cottage,Self Catering,Stellenbosch,2600.0,1908.0,-692.0,Luxury,Luxury,5.42,4.47,39.0
+115029.0,As Featured on Instagram Serenity Luxury Villa,Self Catering,Stellenbosch,2093.0,3234.0,1141.0,Premium,Luxury,0.56,0.69,5.0
+7986.0,Groenvlei Guest Farm,Guest House,Stellenbosch,1450.0,1173.0,-277.0,Premium,Mid-Range,23.0,20.82,207.0
+54483.0,De Haas Living @ Die Laan 40,Guest House,Stellenbosch,1820.0,1561.0,-259.0,Premium,Premium,5.56,5.39,50.0
+3828.0,Evergreen Lodge,Lodge,Stellenbosch,1880.0,1586.0,-294.0,Premium,Premium,7.11,6.79,64.0
+126510.0,Maison la Bruyere,Self Catering,Franschhoek,10200.0,4855.0,-5345.0,Luxury,Luxury,1.25,1.09,9.0
+79025.0,As Featured on Instagram La Ferme,Self Catering,Franschhoek,1444.0,2190.0,746.0,Premium,Mid-Range,5.11,4.84,46.0
+123934.0,As Featured on Instagram Wildeberg Dam House Cottage,Self Catering,Franschhoek,4650.0,3888.0,-762.0,Luxury,Luxury,0.69,0.59,5.0
+5720.0,Centre-Ville Guest House,Guest House,Franschhoek,1530.0,1788.0,258.0,Premium,Budget,12.56,11.45,113.0
+85962.0,Artemis Cottages,Self Catering,Franschhoek,1530.0,2427.0,897.0,Premium,Mid-Range,2.0,1.88,18.0
+30135.0,Mont Martre Chalets & Venue,Self Catering,Franschhoek,3750.0,4855.0,1105.0,Luxury,Luxury,1.25,1.09,9.0
+121565.0,Farm Sanctuary SA,Self Catering,Franschhoek,1300.0,3068.0,1768.0,Premium,Luxury,1.22,1.24,11.0
+2095.0,La Galiniere Guest Cottages,Self Catering,Franschhoek,2300.0,2131.0,-169.0,Premium,Mid-Range,7.0,6.67,63.0
+155481.0,Once Upon a Dome Riverside Glass Cabin,Self Catering,Franschhoek,4000.0,3580.0,-420.0,Luxury,Luxury,0.0,0.07,0.0
+2526.0,Constantia Cottages,Self Catering,Constantia Cape Town,1538.0,1607.0,69.0,Premium,Premium,4.89,4.5,44.0
+116272.0,Camellia Cottage - Bay Room,Self Catering,Constantia Cape Town,845.0,1048.0,203.0,Mid-Range,Mid-Range,1.57,1.73,17.0
+117789.0,Casa Lola,Self Catering,Constantia Cape Town,750.0,1048.0,298.0,Mid-Range,Mid-Range,1.57,1.73,17.0
+110712.0,"Ballykeep Cottage, Constantia",Self Catering,Constantia Cape Town,1195.0,1811.0,616.0,Mid-Range,Mid-Range,0.37,0.43,4.0
+89828.0,Constantiaberg Eco Villa,Guest House,Constantia Cape Town,1050.0,1473.0,423.0,Mid-Range,Premium,4.54,5.0,49.0
+145439.0,Camellia Cottage - Pool Room.,Self Catering,Constantia Cape Town,845.0,1811.0,966.0,Mid-Range,Mid-Range,0.37,0.43,4.0
+136532.0,Uitsig - Branch and Vine,Self Catering,Constantia Cape Town,1500.0,3890.0,2390.0,Premium,Luxury,0.11,0.12,1.0
+105194.0,Camellia Cottage - Courtyard Room,Self Catering,Constantia Cape Town,750.0,1558.0,808.0,Mid-Range,Mid-Range,3.61,4.28,39.0
+16892.0,The Strawberry Lane,Guest House,Constantia Cape Town,1400.0,1375.0,-25.0,Premium,Premium,1.33,1.18,12.0
+49018.0,Camelot in Constantia,Guest House,Constantia Cape Town,1600.0,1552.0,-48.0,Premium,Premium,4.44,4.17,40.0
+140629.0,Protea Rus,Guest House,Wellington,765.0,1372.0,607.0,Mid-Range,Mid-Range,1.57,1.68,17.0
+98491.0,Grande Arvore Apartments,Self Catering,Wellington,1015.0,1681.0,666.0,Mid-Range,Luxury,5.65,6.53,61.0
+94810.0,77 On Church,Guest House,Wellington,950.0,1842.0,892.0,Mid-Range,Luxury,6.02,6.66,65.0
+2480.0,Val du Charron Wine & Leisure Estate,Guest House,Wellington,3050.0,1867.0,-1183.0,Luxury,Luxury,9.58,7.56,69.0
+64360.0,McBains,Lodge,Wellington,867.0,1674.0,807.0,Mid-Range,Mid-Range,2.78,3.29,30.0
+127878.0,62 on Burg,Self Catering,Wellington,4200.0,2559.0,-1641.0,Luxury,Luxury,0.56,0.46,4.0
+5363.0,Dunstone Estate,Guest House,Wellington,1600.0,1389.0,-211.0,Premium,Mid-Range,4.11,3.96,37.0
+29040.0,Wellington Country House Guesthouse,Guest House,Wellington,1440.0,1350.0,-90.0,Premium,Mid-Range,4.67,4.18,42.0
+115001.0,Meerkatgat,Self Catering,Wellington,950.0,1487.0,537.0,Mid-Range,Mid-Range,4.54,5.31,49.0
+115919.0,Lavita eBella,Self Catering,Wellington,842.0,1675.0,833.0,Mid-Range,Mid-Range,2.31,2.52,25.0
+22489.0,Lalapanzi Lodge,Lodge,Helderberg,3150.0,2699.0,-451.0,Luxury,Luxury,4.44,3.7,32.0
+104901.0,Palms 1,Self Catering,Helderberg,1688.0,2357.0,669.0,Premium,Luxury,4.33,4.43,39.0
+93012.0,Coastal Sandz Strand (No 2 Sandz),Self Catering,Helderberg,1348.0,1876.0,528.0,Premium,Mid-Range,7.0,6.8,63.0
+17563.0,185 on BEACH Boutique Suites and Apartments,Self Catering,Helderberg,2040.0,1670.0,-370.0,Premium,Mid-Range,13.22,12.46,119.0
+112250.0,Dai Heka Gastehuis,Guest House,Helderberg,990.0,1611.0,621.0,Mid-Range,Mid-Range,7.04,8.0,76.0
+48265.0,The Yard,Self Catering,Helderberg,1067.0,1901.0,834.0,Mid-Range,Mid-Range,5.19,5.83,56.0
+112322.0,Hibernian Towers 1203,Self Catering,Helderberg,2800.0,2391.0,-409.0,Luxury,Luxury,3.06,2.56,22.0
+21563.0,Fleurpark 6,Self Catering,Helderberg,2771.0,2397.0,-374.0,Luxury,Luxury,5.28,4.43,38.0
+117687.0,Piekfijn Robertson,Self Catering,Robertson,1116.0,1770.0,654.0,Mid-Range,Premium,3.61,4.41,39.0
+101983.0,Flute Cottage,Self Catering,Robertson,2841.0,3002.0,161.0,Luxury,Luxury,1.67,1.37,12.0
+144115.0,Winter Special! Winter Special! Parmant,Self Catering,Robertson,1050.0,1929.0,879.0,Mid-Range,Luxury,1.2,1.47,13.0
+8543.0,DuVon Farmhouse,Self Catering,Robertson,1250.0,1312.0,62.0,Premium,Budget,12.44,11.42,112.0
+126508.0,Patmos Stay,Self Catering,Robertson,1750.0,1872.0,122.0,Premium,Premium,1.56,1.53,14.0
+25796.0,Arnheim Guest Cottage,Self Catering,Robertson,1800.0,1428.0,-372.0,Premium,Premium,9.67,9.62,87.0
+75532.0,theLAB Robertson,B&B,Robertson,2180.0,1983.0,-197.0,Premium,Premium,6.22,5.74,56.0
+69136.0,Hayburg House,Self Catering,Robertson,1160.0,1442.0,282.0,Mid-Range,Mid-Range,6.67,7.45,72.0
+121105.0,Pepper Cottage,Self Catering,Robertson,3200.0,3297.0,97.0,Luxury,Luxury,1.39,1.25,10.0
+107965.0,Raisin Rest,Self Catering,Vredendal,1200.0,1540.0,340.0,Premium,Luxury,6.56,6.6,59.0
+34948.0,Voni's Cottage,Self Catering,Vredendal,900.0,1265.0,365.0,Mid-Range,Mid-Range,3.15,3.59,34.0
+90825.0,Hartland Gastehuis,Self Catering,Vredendal,2300.0,1502.0,-798.0,Premium,Premium,1.89,1.83,17.0
+10059.0,Melkboomsdrift Guest House & Conference Centre,Guest House,Vredendal,3220.0,1288.0,-1932.0,Luxury,Mid-Range,13.47,9.43,97.0
+113390.0,Eikenhof Plaas,Self Catering,Vredendal,1400.0,1837.0,437.0,Premium,Mid-Range,2.89,2.85,26.0
+106906.0,Herdershuisie,Self Catering,Vredendal,1600.0,1435.0,-165.0,Premium,Mid-Range,5.0,4.77,45.0
+146799.0,Voni's Cottage 2,Self Catering,Vredendal,1100.0,2680.0,1580.0,Mid-Range,Luxury,0.28,0.4,3.0
+146574.0,13 On Ash,B&B,Vredendal,1170.0,-2061.0,-3231.0,Mid-Range,Luxury,0.28,0.35,3.0
+107381.0,Nama-Nama Guest Rooms,B&B,Vredendal,810.0,867.0,57.0,Mid-Range,Mid-Range,8.8,9.73,95.0
+145572.0,Nama Qua Game Reserve,Self Catering,Vredendal,350.0,2050.0,1700.0,Budget,Luxury,0.89,1.35,12.0
+105242.0,As Featured on Instagram White House,Self Catering,Swartland,3200.0,1965.0,-1235.0,Luxury,Luxury,2.64,2.15,19.0
+7384.0,Dassenheuwel Farm Stay,Self Catering,Swartland,1155.0,1690.0,535.0,Mid-Range,Premium,7.69,8.85,83.0
+77331.0,L'Bloom Country House,Self Catering,Tulbagh,2934.0,1981.0,-953.0,Luxury,Luxury,3.06,2.55,22.0
+9059.0,Mont Rouge Cottages,Self Catering,Tulbagh,2040.0,1719.0,-321.0,Premium,Premium,7.22,6.61,65.0
+29513.0,Vindoux Guest Farm & Spa,Guest House,Tulbagh,844.0,1298.0,454.0,Mid-Range,Mid-Range,15.93,16.5,172.0
+77082.0,Duikersdrift Winelands Country Escape,Self Catering,Tulbagh,1670.0,1778.0,108.0,Premium,Premium,4.89,4.74,44.0
+25667.0,Saronsberg Vineyard Cottages,Self Catering,Tulbagh,1600.0,1381.0,-219.0,Premium,Mid-Range,20.11,18.34,181.0
+84065.0,Villa Tarentaal,Self Catering,Tulbagh,1190.0,1848.0,658.0,Mid-Range,Premium,5.19,5.86,56.0
+46124.0,Fisaasbos se Huis,Self Catering,Tulbagh,2800.0,2239.0,-561.0,Luxury,Premium,3.89,3.23,28.0
+123473.0,As Featured on Instagram Bergsicht Country Cottages - Southern Belle,Self Catering,Tulbagh,1900.0,2016.0,116.0,Premium,Luxury,2.56,2.55,23.0
+112120.0,As Featured on Instagram The Firemaster House,Self Catering,Tulbagh,4080.0,2573.0,-1507.0,Luxury,Luxury,1.11,0.99,8.0
+123475.0,Bergsicht Country Cottages - Laetitia,Self Catering,Tulbagh,1900.0,1823.0,-77.0,Premium,Premium,4.56,4.48,41.0
+100594.0,Dorpsig Cottage,Self Catering,Paarl,1683.0,1572.0,-111.0,Premium,Premium,2.33,2.22,21.0
+112380.0,Stirling Huis,Self Catering,Paarl,900.0,1596.0,696.0,Mid-Range,Premium,3.43,4.17,37.0
+122134.0,Sun Hill Cottage,Self Catering,Paarl,800.0,1387.0,587.0,Mid-Range,Premium,5.28,6.01,57.0
+6401.0,Skinkikofi,Guest House,Paarl,1350.0,1230.0,-120.0,Premium,Mid-Range,10.33,9.45,93.0
+35291.0,d'Olyfboom Guest House,B&B,Paarl,2900.0,1484.0,-1416.0,Luxury,Premium,7.5,5.63,54.0
+32798.0,Paarl Mountain Lodge,Lodge,Paarl,1620.0,1481.0,-139.0,Premium,Premium,5.33,5.17,48.0
+119721.0,Royal Beauty,Self Catering,Paarl,810.0,1442.0,632.0,Mid-Range,Budget,0.56,0.66,6.0
+146844.0,Swannie Creek,Self Catering,Elgin,2667.0,2197.0,-470.0,Luxury,Luxury,0.69,0.57,5.0
+117933.0,Annex at Pippins,Self Catering,Elgin,1850.0,1803.0,-47.0,Premium,Premium,1.56,1.45,14.0
+106953.0,Blissful Country Garden Cottage,Self Catering,Elgin,1158.0,1448.0,290.0,Mid-Range,Mid-Range,4.91,5.5,53.0
+66839.0,Galileo Farm,Self Catering,Elgin,1300.0,1508.0,208.0,Premium,Premium,4.67,4.28,42.0
+42029.0,Elgin Country Lodge,B&B,Elgin,1600.0,1500.0,-100.0,Premium,Premium,4.22,4.26,38.0
+26881.0,As Featured on Instagram Belfield Wines and Farm Cottages,Self Catering,Elgin,1147.0,1199.0,52.0,Mid-Range,Budget,9.35,9.66,101.0
+40378.0,As Featured on Instagram Cheverells Farm Cottages,Self Catering,Elgin,2100.0,1567.0,-533.0,Premium,Premium,1.44,1.39,13.0
+30350.0,Elgin Vintners Country House,Guest House,Elgin,2040.0,2127.0,87.0,Premium,Premium,3.0,3.01,27.0
+28679.0,Paul Wallace Wines and Guest Cottages,Self Catering,Elgin,1300.0,1449.0,149.0,Premium,Mid-Range,6.0,5.5,54.0
+148153.0,Acacia Country Garden Cottage,Self Catering,Elgin,1250.0,1825.0,575.0,Premium,Luxury,0.67,0.63,6.0
+16926.0,Astoni Guest Lodge Twins,Self Catering,Vanderbijlpark,968.0,1150.0,182.0,Mid-Range,Mid-Range,8.98,9.49,97.0
+138675.0,5 on Ash,Self Catering,Vanderbijlpark,900.0,3120.0,2220.0,Mid-Range,Luxury,0.37,0.44,4.0
+91023.0,LouwDownOnVaal,Self Catering,Vanderbijlpark,13000.0,9198.0,-3802.0,Luxury,Luxury,0.14,0.12,1.0
+131032.0,@Bijl Gastehuis,Self Catering,Vanderbijlpark,750.0,1474.0,724.0,Mid-Range,Mid-Range,1.39,1.45,15.0
+20740.0,La Vita Dreams Guesthouse,Guest House,Vanderbijlpark,882.0,1096.0,214.0,Mid-Range,Mid-Range,10.09,10.26,109.0
+80667.0,Teen die Water VakansieHuis,Self Catering,Vanderbijlpark,4000.0,3653.0,-347.0,Luxury,Luxury,0.69,0.57,5.0
+17824.0,Vaal River Guest House,Guest House,Vanderbijlpark,850.0,1422.0,572.0,Mid-Range,Mid-Range,6.39,7.16,69.0
+53679.0,4B on Delius,Guest House,Vanderbijlpark,1093.0,1202.0,109.0,Mid-Range,Mid-Range,3.15,3.46,34.0
+34996.0,Amadeus Guesthouse,Guest House,Vanderbijlpark,980.0,1118.0,138.0,Mid-Range,Mid-Range,9.54,10.55,103.0
+127296.0,Vaal River Boathouse Bungalow,Self Catering,Vanderbijlpark,2115.0,4253.0,2138.0,Premium,Luxury,0.22,0.23,2.0
+65367.0,Sage Cottage,Self Catering,Kenton On Sea,5440.0,2314.0,-3126.0,Luxury,Premium,3.75,3.13,27.0
+84711.0,Good Riddin's Beach Cottage,Self Catering,Kenton On Sea,1050.0,1499.0,449.0,Mid-Range,Mid-Range,4.54,5.16,49.0
+17160.0,Woodlands Cottages and Camping,Self Catering,Kenton On Sea,99.0,1366.0,1267.0,Budget,Budget,4.89,6.41,66.0
+103595.0,Dave's Dream,Self Catering,Kenton On Sea,4000.0,2581.0,-1419.0,Luxury,Luxury,0.69,0.61,5.0
+149758.0,No. 2 Eastbourne Road @ Kenton on Sea,Self Catering,Kenton On Sea,700.0,3267.0,2567.0,Mid-Range,Luxury,0.28,0.35,3.0
+103559.0,25 Vasco Da Gama,Self Catering,Kenton On Sea,900.0,1565.0,665.0,Mid-Range,Premium,1.67,1.9,18.0
+77012.0,Heaven Scent,Self Catering,Kenton On Sea,950.0,1948.0,998.0,Mid-Range,Premium,2.69,3.13,29.0
+114046.0,Oribi Haven Cottages,Self Catering,Kenton On Sea,860.0,1553.0,693.0,Mid-Range,Premium,1.48,1.65,16.0
+48215.0,Sky Blue Guest House,Guest House,Kenton On Sea,1400.0,1323.0,-77.0,Premium,Premium,1.78,1.56,16.0
+150221.0,Idylla,Self Catering,Kenton On Sea,800.0,2447.0,1647.0,Mid-Range,Luxury,0.0,0.08,0.0
+26155.0,Underhill Farm,Self Catering,Villiersdorp,1000.0,1378.0,378.0,Mid-Range,Mid-Range,7.59,8.4,82.0
+103689.0,Die Klein Galery,B&B,Villiersdorp,1100.0,975.0,-125.0,Mid-Range,Mid-Range,4.17,4.77,45.0
+111963.0,10 on Berg,Self Catering,Villiersdorp,1785.0,2738.0,953.0,Premium,Luxury,0.33,0.38,3.0
+157539.0,Olive Cottage,Self Catering,Villiersdorp,1870.0,2914.0,1044.0,Premium,Luxury,0.0,0.1,0.0
+122944.0,Villa Villiers,Self Catering,Villiersdorp,2640.0,3130.0,490.0,Luxury,Luxury,0.69,0.64,5.0
+118423.0,Fairway Corner,Self Catering,Villiersdorp,3100.0,1975.0,-1125.0,Luxury,Luxury,1.94,1.52,14.0
+48552.0,Dennehof Farm Guesthouse,Self Catering,Villiersdorp,900.0,1585.0,685.0,Mid-Range,Mid-Range,6.76,7.4,73.0
+140378.0,Southern Yurts Malachite,Self Catering,Villiersdorp,2500.0,2821.0,321.0,Luxury,Luxury,0.0,0.1,0.0
+34934.0,Theewaterskloof Country Estate,Self Catering,Villiersdorp,3000.0,1816.0,-1184.0,Luxury,Luxury,8.06,6.48,58.0
+110258.0,10th Hole on Theewaterskloof Golf Estate,Self Catering,Villiersdorp,2950.0,2169.0,-781.0,Luxury,Luxury,0.83,0.7,6.0
+16680.0,Alm-Ü,Self Catering,Dullstroom,2700.0,1286.0,-1414.0,Luxury,Budget,18.89,16.2,136.0
+117828.0,Rest Guesthouse,Self Catering,Dullstroom,1050.0,1425.0,375.0,Mid-Range,Budget,0.37,0.44,4.0
+105985.0,DullVino Apartment 8 Millers Cove,Self Catering,Dullstroom,1388.0,1682.0,294.0,Premium,Mid-Range,3.33,3.32,30.0
+106388.0,The Stables at Critchley,Self Catering,Dullstroom,1050.0,1262.0,212.0,Mid-Range,Mid-Range,9.35,9.7,101.0
+29797.0,The Beagle’s Nest,Self Catering,Dullstroom,1350.0,1363.0,13.0,Premium,Mid-Range,9.56,9.12,86.0
+130746.0,Idlewood 1,Self Catering,Dullstroom,3086.0,3000.0,-86.0,Luxury,Budget,0.28,0.23,2.0
+30880.0,A'Damsview,Self Catering,Gariep Dam,900.0,879.0,-21.0,Mid-Range,Mid-Range,75.28,75.4,813.0
+16722.0,Gariep Gardens,Self Catering,Gariep Dam,850.0,950.0,100.0,Mid-Range,Mid-Range,30.83,29.97,333.0
+16528.0,Angela's Lodge,Self Catering,Gariep Dam,850.0,962.0,112.0,Mid-Range,Mid-Range,23.52,23.73,254.0
+85725.0,Gariepview,Self Catering,Gariep Dam,797.0,879.0,82.0,Mid-Range,Mid-Range,81.67,81.6,882.0
+16526.0,Rose Cottage,Self Catering,Gariep Dam,850.0,938.0,88.0,Mid-Range,Mid-Range,40.0,40.95,432.0
+82951.0,Little Haven,Guest House,Gariep Dam,1100.0,904.0,-196.0,Mid-Range,Mid-Range,18.33,18.98,198.0
+18029.0,View Lodge,Guest House,Gariep Dam,940.0,789.0,-151.0,Mid-Range,Mid-Range,62.13,54.12,671.0
+3295.0,Stoneridge Guesthouse,Guest House,Gariep Dam,1300.0,928.0,-372.0,Premium,Mid-Range,19.56,18.03,176.0
+1831.0,Waschbank River Lodge,Lodge,Gariep Dam,1600.0,860.0,-740.0,Premium,Budget,69.11,53.02,622.0
+89049.0,Ruigtevallei Lodge,Guest House,Gariep Dam,1180.0,928.0,-252.0,Mid-Range,Mid-Range,16.57,16.7,179.0
+104221.0,As Featured on Instagram Kanaal Kooi,Self Catering,Upington,1650.0,2134.0,484.0,Premium,Premium,3.56,3.63,32.0
+79061.0,The Oasis Hotel,Hotel,Upington,1978.0,2225.0,247.0,Premium,Premium,2.78,2.7,25.0
+27875.0,Le Must River Residence,Guest House,Upington,1318.0,1584.0,266.0,Premium,Luxury,1.78,1.66,16.0
+9802.0,Riverbank Lodge,Guest House,Upington,1240.0,1319.0,79.0,Premium,Mid-Range,16.0,14.25,144.0
+15635.0,BeMyGuest,Guest House,Upington,1370.0,1451.0,81.0,Premium,Mid-Range,14.56,13.26,131.0
+11535.0,Sun River Kalahari Lodge,Lodge,Upington,1680.0,1624.0,-56.0,Premium,Premium,10.0,10.06,90.0
+4158.0,Tides River Lodge,Self Catering,Malgas,2480.0,1802.0,-678.0,Premium,Premium,5.22,5.05,47.0
+84637.0,Riverdance Cottage,Self Catering,Malgas,1500.0,1833.0,333.0,Premium,Premium,2.22,2.25,20.0
+119933.0,As Featured on Instagram Wooden House - Living the Breede,Self Catering,Malgas,5500.0,4090.0,-1410.0,Luxury,Luxury,0.0,0.1,0.0
+102630.0,Waterkant Cottage,Self Catering,Malgas,1400.0,1935.0,535.0,Premium,Premium,0.89,0.91,8.0
+102210.0,Lorigan House,Self Catering,Malgas,3200.0,3266.0,66.0,Luxury,Luxury,0.14,0.18,1.0
+4341.0,As Featured on Instagram Breede Getaway,Self Catering,Malgas,3800.0,1833.0,-1967.0,Luxury,Premium,2.92,2.25,21.0
+149544.0,Dad's House,Self Catering,Malgas,1575.0,3266.0,1691.0,Premium,Luxury,0.11,0.18,1.0
+20535.0,Malagas Hotel,Hotel,Malgas,2700.0,1731.0,-969.0,Luxury,Premium,8.19,6.46,59.0
+72721.0,Harvest Moon Sanctuary Houseboat 2,Self Catering,Malgas,3200.0,4090.0,890.0,Luxury,Luxury,0.0,0.1,0.0
+85612.0,Ossies Kloof,Self Catering,Malgas,4200.0,4633.0,433.0,Luxury,Luxury,0.0,0.1,0.0
+26817.0,La Belle Guesthouse Parys,Guest House,Parys,765.0,952.0,187.0,Mid-Range,Mid-Range,18.89,20.11,204.0
+15385.0,Mirabel Guesthouse,Guest House,Parys,990.0,1119.0,129.0,Mid-Range,Mid-Range,9.07,9.3,98.0
+53103.0,Boom69 Self-catering,Self Catering,Parys,799.0,1203.0,404.0,Mid-Range,Budget,9.07,9.48,98.0
+8549.0,Schilbach House,Self Catering,Parys,1500.0,994.0,-506.0,Premium,Budget,25.78,23.39,232.0
+27051.0,À la Maison Boutique Guesthouse,Guest House,Parys,1094.0,969.0,-125.0,Mid-Range,Mid-Range,15.46,15.78,167.0
+35395.0,Rambling Rapids,Self Catering,Parys,1000.0,1179.0,179.0,Mid-Range,Budget,10.28,10.57,111.0
+89942.0,Cottage @ 49,Self Catering,Parys,675.0,1279.0,604.0,Budget,Budget,6.07,8.2,82.0
+16681.0,Langfontein Farm Cottages,Self Catering,Graaff Reinet,1600.0,1443.0,-157.0,Premium,Premium,11.33,10.08,102.0
+69281.0,Victorian Square Guesthouse,Self Catering,Graaff Reinet,1700.0,1420.0,-280.0,Premium,Premium,12.89,12.44,116.0
+25482.0,Blaauwater Farm Garden Cottage,Self Catering,Graaff Reinet,2000.0,1762.0,-238.0,Premium,Premium,5.78,5.74,52.0
+98598.0,Die Dorpshuis,Self Catering,Graaff Reinet,1100.0,1457.0,357.0,Mid-Range,Mid-Range,12.5,13.13,135.0
+134267.0,Contemporary Karoo,Self Catering,Graaff Reinet,3500.0,2745.0,-755.0,Luxury,Luxury,1.39,1.31,10.0
+139125.0,Quaint Karoo,Self Catering,Graaff Reinet,1600.0,1864.0,264.0,Premium,Luxury,1.33,1.43,12.0
+91241.0,As Featured on Instagram River Bend Cottages,Self Catering,Graaff Reinet,1500.0,1575.0,75.0,Premium,Premium,7.67,7.49,69.0
+6605.0,Allendale Farm Guest Cottage,Self Catering,Graaff Reinet,1600.0,1659.0,59.0,Premium,Premium,6.11,5.79,55.0
+138366.0,Bij De Graaff,Self Catering,Graaff Reinet,1300.0,1467.0,167.0,Premium,Luxury,1.89,1.89,17.0
+64654.0,Spandau Manor,Guest House,Graaff Reinet,1550.0,1444.0,-106.0,Premium,Mid-Range,10.33,9.76,93.0
+106578.0,Oasis,Self Catering,Nieu Bethesda,2040.0,1551.0,-489.0,Premium,Premium,3.78,3.63,34.0
+38366.0,Meerkat,Self Catering,Nieu Bethesda,940.0,1026.0,86.0,Mid-Range,Budget,20.19,20.63,218.0
+60459.0,Compass View,Self Catering,Nieu Bethesda,3300.0,1346.0,-1954.0,Luxury,Premium,9.44,7.26,68.0
+35995.0,Country Cottages,Self Catering,Nieu Bethesda,680.0,1224.0,544.0,Budget,Budget,7.56,9.49,102.0
+76418.0,House No.1,Self Catering,Nieu Bethesda,1460.0,1885.0,425.0,Premium,Premium,3.56,3.53,32.0
+71941.0,The Bethesda,Guest House,Nieu Bethesda,975.0,1114.0,139.0,Mid-Range,Mid-Range,10.28,10.3,111.0
+143085.0,Mountain View Cottage en Backpackers,Self Catering,Nieu Bethesda,468.0,993.0,525.0,Budget,Budget,0.52,0.73,7.0
+7028.0,Donkin House,Guest House,Beaufort West,1140.0,1186.0,46.0,Mid-Range,Mid-Range,19.63,21.15,212.0
+13728.0,Olive Grove Guest Farm,Guest House,Beaufort West,1400.0,1224.0,-176.0,Premium,Premium,34.22,34.66,308.0
+15731.0,Bakgat Blyplek,Self Catering,Beaufort West,1700.0,1348.0,-352.0,Premium,Premium,51.33,51.32,462.0
+92567.0,Mitat Gastehuis,Guest House,Beaufort West,720.0,1176.0,456.0,Mid-Range,Mid-Range,17.59,17.71,190.0
+20731.0,Altyd Lekker,Self Catering,Beaufort West,1200.0,1348.0,148.0,Premium,Premium,47.22,47.1,425.0
+8418.0,Teri-Lemveli Lodge,Lodge,Beaufort West,1620.0,1266.0,-354.0,Premium,Premium,27.22,25.04,245.0
+57903.0,As Featured on Instagram Steynskraal Gasteplaas,Self Catering,Beaufort West,2500.0,1374.0,-1126.0,Luxury,Mid-Range,20.56,17.8,148.0
+37259.0,Dreams,Self Catering,Beaufort West,840.0,1352.0,512.0,Mid-Range,Premium,26.02,32.81,281.0
+105874.0,Little Miracle,Self Catering,Beaufort West,800.0,1471.0,671.0,Mid-Range,Mid-Range,6.76,7.45,73.0
+8386.0,Die Herehuis,Guest House,Beaufort West,1750.0,1220.0,-530.0,Premium,Premium,56.33,55.13,507.0
+137521.0,As Featured on Instagram Poplar Cottage Karoo Escape,Self Catering,Prince Albert,1450.0,1797.0,347.0,Premium,Premium,1.89,2.11,17.0
+138347.0,Willow Cottage Karoo Escape,Self Catering,Prince Albert,1250.0,2587.0,1337.0,Premium,Luxury,0.89,1.22,8.0
+13505.0,Swartberg Hotel,Hotel,Prince Albert,3000.0,1527.0,-1473.0,Luxury,Budget,26.81,23.67,193.0
+5265.0,Bid Huisie,Self Catering,Prince Albert,1400.0,1566.0,166.0,Premium,Budget,13.67,13.18,123.0
+50539.0,Casa Milorca,Guest House,Prince Albert,920.0,1258.0,338.0,Mid-Range,Budget,41.48,40.47,448.0
+70965.0,Karoo Masterclass Cottage,Self Catering,Prince Albert,3392.0,1806.0,-1586.0,Luxury,Premium,5.97,5.15,43.0
+16356.0,Ta Mala's Self-Catering Cottages,Self Catering,Prince Albert,1200.0,1445.0,245.0,Premium,Budget,23.44,22.55,211.0
+4056.0,Karoo Khaya,Guest House,Prince Albert,1180.0,1347.0,167.0,Mid-Range,Budget,23.89,25.43,258.0
+9707.0,Acacia Cottage,Self Catering,Prince Albert,2900.0,1703.0,-1197.0,Luxury,Budget,12.22,10.44,88.0
+118377.0,Karoo Rust,Self Catering,Victoria West,972.0,1565.0,593.0,Mid-Range,Mid-Range,2.04,2.49,22.0
+21007.0,Kingwill's Guest House,Guest House,Victoria West,810.0,885.0,75.0,Mid-Range,Budget,32.22,31.62,348.0
+83062.0,Victoria Oaks Guest House,Guest House,Victoria West,950.0,1279.0,329.0,Mid-Range,Mid-Range,7.96,9.11,86.0
+10007.0,Die Pophuis Hoekie,Self Catering,Victoria West,560.0,922.0,362.0,Budget,Budget,23.93,24.76,323.0
+32677.0,Merino Junction,Guest House,Victoria West,900.0,885.0,-15.0,Mid-Range,Budget,40.65,34.69,439.0
+6975.0,The Hudson Guesthouse & Suites,Self Catering,Victoria West,1100.0,1047.0,-53.0,Mid-Range,Budget,17.13,16.35,185.0
+20447.0,Moonlight Manor,Guest House,Victoria West,975.0,891.0,-84.0,Mid-Range,Budget,30.83,30.45,333.0
+22564.0,Marseilles Farm Guest House,Self Catering,Victoria West,3200.0,1764.0,-1436.0,Luxury,Luxury,7.08,5.89,51.0
+30523.0,Karoo Koelte Accommodation,Guest House,Victoria West,600.0,1008.0,408.0,Budget,Budget,14.0,16.04,189.0
+90777.0,Die Peperboom B&B,Self Catering,Victoria West,840.0,1210.0,370.0,Mid-Range,Budget,9.35,9.85,101.0
+64969.0,Soetdoring Selfsorg,Self Catering,Oudtshoorn,1300.0,1129.0,-171.0,Premium,Budget,16.44,15.73,148.0
+1484.0,Die Fonteine Country Guest House and Glamping,Guest House,Oudtshoorn,893.0,1013.0,120.0,Mid-Range,Mid-Range,13.33,13.47,144.0
+125816.0,D'oude Hoorn,Self Catering,Oudtshoorn,1020.0,1558.0,538.0,Mid-Range,Premium,1.2,1.41,13.0
+23608.0,Die Stal Cottage,Self Catering,Sutherland,2000.0,1477.0,-523.0,Premium,Premium,18.11,16.55,163.0
+80579.0,Settle Inn,Self Catering,Sutherland,1300.0,2380.0,1080.0,Premium,Premium,3.33,3.46,30.0
+23562.0,Skitterland Gastehuis,Guest House,Sutherland,1300.0,1378.0,78.0,Premium,Premium,19.67,18.01,177.0
+39050.0,Die Heks se Huis,Self Catering,Sutherland,1092.0,1323.0,231.0,Mid-Range,Mid-Range,42.78,39.26,462.0
+44098.0,Rogge Cloof,Lodge,Sutherland,2900.0,1826.0,-1074.0,Luxury,Premium,10.28,8.23,74.0
+136085.0,Die Koffiehuis,Self Catering,Sutherland,2040.0,2739.0,699.0,Premium,Luxury,1.11,1.29,10.0
+30075.0,Sterland Kampering,Self Catering,Sutherland,1200.0,1718.0,518.0,Premium,Premium,7.0,6.83,63.0
+74749.0,Jack of the Karoo,Self Catering,Sutherland,2420.0,1609.0,-811.0,Premium,Premium,15.11,16.0,136.0
+102213.0,Baroe House,Self Catering,Sutherland,3500.0,2543.0,-957.0,Luxury,Luxury,3.75,3.23,27.0
+96532.0,Raka,Self Catering,Sutherland,1650.0,1882.0,232.0,Premium,Premium,5.33,5.39,48.0
+102041.0,18 on Mark,Self Catering,Willowmore,750.0,853.0,103.0,Mid-Range,Budget,4.26,4.62,46.0
+27183.0,Finchley Farm Cottages,Self Catering,Willowmore,800.0,865.0,65.0,Mid-Range,Budget,13.61,13.04,147.0
+130539.0,Keurkloof Valley Farm,Self Catering,Willowmore,950.0,508.0,-442.0,Mid-Range,Mid-Range,1.67,1.74,18.0
+98060.0,Jakria,Guest House,Willowmore,750.0,747.0,-3.0,Mid-Range,Mid-Range,4.54,5.02,49.0
+22887.0,Verberg Herberg,Guest House,Willowmore,995.0,1027.0,32.0,Mid-Range,Budget,17.69,14.98,191.0
+60223.0,Uitspan Baviaanskloof,Self Catering,Willowmore,560.0,874.0,314.0,Budget,Budget,9.85,11.39,133.0
+47017.0,Royal Hotel Willowmore,Hotel,Willowmore,600.0,837.0,237.0,Budget,Budget,12.37,13.88,167.0
+12280.0,Lapidaria,Guest House,Willowmore,1000.0,799.0,-201.0,Mid-Range,Budget,12.22,12.13,132.0
+11828.0,Bhejane Game Reserve,Game Lodge,Willowmore,700.0,2777.0,2077.0,Mid-Range,Mid-Range,3.15,3.41,34.0
+6880.0,The Willow Historical Guest House,Guest House,Willowmore,1530.0,799.0,-731.0,Premium,Budget,14.44,12.81,130.0
+33725.0,Aandster Oornag Akkommodasie,Self Catering,Middelburg Karoo,800.0,1046.0,246.0,Mid-Range,Mid-Range,24.81,26.38,268.0
+36841.0,Starry Nights,Guest House,Middelburg Karoo,850.0,1230.0,380.0,Mid-Range,Mid-Range,9.44,9.88,102.0
+5822.0,Celtis Country Lodge & Restaurant,B&B,Middelburg Karoo,1280.0,1036.0,-244.0,Premium,Mid-Range,30.78,29.93,277.0
+99149.0,On Enslin Self-catering,Self Catering,Middelburg Karoo,1350.0,1639.0,289.0,Premium,Premium,3.78,3.66,34.0
+18028.0,Nguni Country Lodge,Guest House,Middelburg Karoo,1400.0,1380.0,-20.0,Premium,Premium,8.78,8.77,79.0
+79680.0,Aloes 1st on Camp,Guest House,Middelburg Karoo,840.0,1204.0,364.0,Mid-Range,Mid-Range,10.93,12.36,118.0
+42354.0,Halfway Rest,Self Catering,Middelburg Karoo,875.0,1018.0,143.0,Mid-Range,Budget,35.0,34.47,378.0
+124009.0,Botterblom 1,Self Catering,Middelburg Karoo,1700.0,1788.0,88.0,Premium,Premium,1.33,1.34,12.0
+145223.0,Karoo Enroute,Self Catering,Middelburg Karoo,810.0,2617.0,1807.0,Mid-Range,Luxury,0.83,1.13,9.0
+7487.0,Karoo Ouberg Guest Lodge,Guest House,Middelburg Karoo,840.0,1182.0,342.0,Mid-Range,Mid-Range,11.67,12.51,126.0
+73608.0,Over Karoo Inn,Guest House,Barrydale,950.0,1031.0,81.0,Mid-Range,Mid-Range,9.54,10.88,103.0
+122889.0,Nuns & Roses,Self Catering,Barrydale,1100.0,1157.0,57.0,Mid-Range,Mid-Range,6.85,8.04,74.0
+57837.0,As Featured on Instagram The Karoo Moon House & Cottage,Self Catering,Barrydale,1600.0,1200.0,-400.0,Premium,Mid-Range,8.78,9.16,79.0
+35038.0,Barrydale Karoo - Boutique Hotel,Hotel,Barrydale,1251.0,1431.0,180.0,Premium,Premium,4.11,4.33,37.0
+132960.0,The Far Side Wooden Cabin,Self Catering,Barrydale,750.0,1650.0,900.0,Mid-Range,Luxury,0.65,0.86,7.0
+142272.0,Fynbos Gypsy Caravan,Self Catering,Barrydale,580.0,1962.0,1382.0,Budget,Budget,0.15,0.39,2.0
+151355.0,Upstairs on Hellier,Self Catering,Barrydale,834.0,1962.0,1128.0,Mid-Range,Budget,0.19,0.39,2.0
+139818.0,Oewer Konyn Cottage,Self Catering,Barrydale,1350.0,1474.0,124.0,Premium,Luxury,2.22,2.38,20.0
+124019.0,Lavendale,Self Catering,Barrydale,2050.0,1814.0,-236.0,Premium,Luxury,0.67,0.79,6.0
+134629.0,Karoobossie,Self Catering,Ladismith,1000.0,1425.0,425.0,Mid-Range,Premium,0.65,0.76,7.0
+39003.0,Karoo Karos,Self Catering,Ladismith,980.0,1246.0,266.0,Mid-Range,Budget,17.69,18.39,191.0
+146827.0,The Old Posthouse,Guest House,Ladismith,800.0,6647.0,5847.0,Mid-Range,Luxury,0.0,0.02,0.0
+145751.0,Ladismith Kothuis,Self Catering,Ladismith,600.0,1867.0,1267.0,Budget,Luxury,0.44,0.69,6.0
+61678.0,Le Roux B&B,Guest House,Ladismith,1100.0,2158.0,1058.0,Mid-Range,Premium,2.41,2.79,26.0
+114634.0,Eagles Nest Accommodation,Self Catering,Ladismith,4200.0,1751.0,-2449.0,Luxury,Premium,2.08,1.5,15.0
+143467.0,Volstruis Paleis,Guest House,Ladismith,1725.0,718.0,-1007.0,Premium,Luxury,0.44,0.4,4.0
+17181.0,Ladismith Manor,Guest House,Ladismith,1150.0,1879.0,729.0,Mid-Range,Premium,2.31,2.52,25.0
+67298.0,Barnard B&B,Guest House,Ladismith,750.0,2346.0,1596.0,Mid-Range,Premium,0.74,0.82,8.0
+131042.0,Albert Manor Guest House,B&B,Ladismith,1395.0,2350.0,955.0,Premium,Premium,0.11,0.16,1.0
+63469.0,Linda se Dop,Guest House,Nieuwoudtville,1363.0,1235.0,-128.0,Premium,Premium,9.22,8.4,83.0
+32894.0,Papkuilsfontein Guest Farm,Guest House,Nieuwoudtville,2450.0,1310.0,-1140.0,Premium,Mid-Range,5.11,4.65,46.0
+91273.0,Wapad Gastehuis,Guest House,Nieuwoudtville,920.0,1235.0,315.0,Mid-Range,Premium,7.59,8.17,82.0
+9073.0,Willemsrivier Trekpad Guest Houses and Wild Camping,Self Catering,Nieuwoudtville,245.0,955.0,710.0,Budget,Budget,21.48,23.69,290.0
+103227.0,Die Wit Haas & Die Swart Haas,Self Catering,Nieuwoudtville,1600.0,1414.0,-186.0,Premium,Premium,6.0,5.56,54.0
+141054.0,Rulyn Cottage,Self Catering,Nieuwoudtville,1200.0,1551.0,351.0,Premium,Premium,1.44,1.41,13.0
+61241.0,Uncle Tony’s Cabin,Self Catering,Nieuwoudtville,1400.0,1346.0,-54.0,Premium,Premium,7.44,7.26,67.0
+82682.0,Oudeklip Gastehuis,Guest House,Nieuwoudtville,900.0,1343.0,443.0,Mid-Range,Mid-Range,4.54,4.97,49.0
+14027.0,Cecilia's Cottage,Self Catering,Nieuwoudtville,1250.0,1227.0,-23.0,Premium,Budget,11.78,10.78,106.0
+89362.0,Ulla Irene,Self Catering,Nieuwoudtville,1450.0,1520.0,70.0,Premium,Premium,1.67,1.47,15.0
+3239.0,Kagga Kamma Eco Lodge & Spa,Lodge,Tankwa Karoo,1330.0,1741.0,411.0,Premium,Premium,5.56,5.5,50.0
+15787.0,Kleinplasie Gastehuis,Guest House,Tankwa Karoo,756.0,1179.0,423.0,Mid-Range,Mid-Range,19.17,20.09,207.0
+124892.0,Gansogie,Self Catering,Tankwa Karoo,2150.0,2232.0,82.0,Premium,Premium,3.33,3.46,30.0
+114080.0,Tankwa River Lodge,Lodge,Tankwa Karoo,6680.0,5356.0,-1324.0,Luxury,Luxury,1.25,1.2,9.0
+83613.0,Die Skooltjie,Self Catering,Tankwa Karoo,990.0,1980.0,990.0,Mid-Range,Luxury,1.2,1.52,13.0
+23447.0,Klipwerf Gastehuis,Self Catering,Tankwa Karoo,990.0,1225.0,235.0,Mid-Range,Mid-Range,25.09,25.5,271.0
+7390.0,Calvinia Hotel,Hotel,Tankwa Karoo,1250.0,1432.0,182.0,Premium,Premium,14.56,13.38,131.0
+31610.0,Namaqua Lodge,Lodge,Vanrhynsdorp,648.0,852.0,204.0,Budget,Budget,19.26,20.85,260.0
+6794.0,Maskam Guest Farm,Self Catering,Vanrhynsdorp,1002.0,827.0,-175.0,Mid-Range,Budget,32.96,32.07,356.0
+109476.0,Lankverwacht Guest Farm & Camping,Self Catering,Vanrhynsdorp,250.0,1333.0,1083.0,Budget,Budget,4.74,6.47,64.0
+127269.0,Namaqua Lodge Self Catering,Self Catering,Vanrhynsdorp,1122.0,1636.0,514.0,Mid-Range,Luxury,0.74,0.86,8.0
+115939.0,Kokerboom House,Guest House,Vanrhynsdorp,1950.0,1377.0,-573.0,Premium,Premium,2.44,2.33,22.0
+87272.0,Special Offer! Special Offer! Mountain View Guesthouse,Self Catering,Vanrhynsdorp,1450.0,1415.0,-35.0,Premium,Premium,5.44,5.21,49.0
+34803.0,Botuin Cottages,Self Catering,Vanrhynsdorp,1100.0,891.0,-209.0,Mid-Range,Budget,23.8,20.88,257.0
+157113.0,Sentkannetjie,Self Catering,Vanrhynsdorp,1230.0,2829.0,1599.0,Premium,Luxury,0.0,0.04,0.0
+3949.0,Aant Dorpseind,Self Catering,Vanrhynsdorp,1190.0,982.0,-208.0,Mid-Range,Budget,14.26,14.9,154.0
+106657.0,La Gracia B&B,B&B,Vanrhynsdorp,800.0,937.0,137.0,Mid-Range,Mid-Range,6.85,7.9,74.0
+117082.0,Die Storiekamer,Self Catering,Kamieskroon,630.0,1573.0,943.0,Budget,Premium,1.7,2.45,23.0
+119749.0,Cara Family Home @ Kamieskroon Cosy Cottages,Self Catering,Kamieskroon,3010.0,1713.0,-1297.0,Luxury,Luxury,0.83,0.67,6.0
+6051.0,Verbe Farm - Letjie's House,Self Catering,Kamieskroon,1200.0,1254.0,54.0,Premium,Budget,15.33,15.62,138.0
+137791.0,Alexanderhaus,Guest House,Kamieskroon,1060.0,1055.0,-5.0,Mid-Range,Luxury,0.46,0.52,5.0
+28898.0,Kroon Lodge,Lodge,Kamieskroon,390.0,1076.0,686.0,Budget,Budget,14.37,17.27,194.0
+11504.0,Frances @ Kamieskroon Cosy Cottages,Self Catering,Kamieskroon,1550.0,1059.0,-491.0,Premium,Budget,29.11,26.26,262.0
+7525.0,Verbe Caravan Park,Self Catering,Kamieskroon,460.0,1469.0,1009.0,Budget,Premium,2.52,3.64,34.0
+119193.0,Verbe Farm - Gertjie Se Huis,Self Catering,Kamieskroon,1450.0,1750.0,300.0,Premium,Premium,0.89,0.9,8.0
+119747.0,Lucas Family Cottage @ Kamieskroon Cosy Cottages,Self Catering,Kamieskroon,2610.0,3139.0,529.0,Luxury,Luxury,0.42,0.35,3.0
+119742.0,Isabella @ Kamieskroon Cosy Cottages,Self Catering,Kamieskroon,1450.0,2133.0,683.0,Premium,Luxury,0.44,0.47,4.0
+4754.0,Hangnes @ Boskloof Swemgat,Self Catering,Clanwilliam,2584.0,1196.0,-1388.0,Luxury,Budget,56.39,54.67,406.0
+76710.0,Blommenberg Gastehuis,Guest House,Clanwilliam,1800.0,1517.0,-283.0,Premium,Premium,7.11,6.91,64.0
+119984.0,Langhuis @ Boskloof Swemgat,Self Catering,Clanwilliam,1553.0,3372.0,1819.0,Premium,Luxury,1.0,1.16,9.0
+36957.0,Clanwilliam Hills Dam House and Flat,Self Catering,Clanwilliam,800.0,1188.0,388.0,Mid-Range,Budget,31.39,34.22,339.0
+20628.0,Clanwilliam Hotel,Hotel,Clanwilliam,1995.0,1327.0,-668.0,Premium,Budget,12.89,12.3,116.0
+106459.0,A State of Grace,Guest House,Clanwilliam,1700.0,1229.0,-471.0,Premium,Premium,2.0,1.86,18.0
+119667.0,Van Zyl Huis,Self Catering,Clanwilliam,3600.0,2400.0,-1200.0,Luxury,Luxury,0.83,0.72,6.0
+135234.0,Merlot Cottage,Self Catering,Clanwilliam,1200.0,1507.0,307.0,Premium,Premium,3.11,3.19,28.0
+35430.0,Clanwilliam Accommodation,Self Catering,Clanwilliam,1380.0,1742.0,362.0,Premium,Premium,5.11,5.03,46.0
+119988.0,Nenna se Huis @ Boskloof Swemgat,Self Catering,Clanwilliam,2584.0,3953.0,1369.0,Luxury,Luxury,0.14,0.21,1.0
+122060.0,Namaqua Bliss,Self Catering,Springbok,1650.0,1803.0,153.0,Premium,Premium,2.67,2.59,24.0
+82501.0,Liefland Cottages,Self Catering,Springbok,1200.0,1220.0,20.0,Premium,Mid-Range,23.56,22.41,212.0
+96014.0,Old Mill Lodge,Lodge,Springbok,1050.0,1235.0,185.0,Mid-Range,Mid-Range,15.37,16.17,166.0
+121404.0,Aalwynsig,Self Catering,Springbok,1100.0,1987.0,887.0,Mid-Range,Premium,2.96,3.62,32.0
+149729.0,Uitzicht | 2 Bedroom Apartment,Self Catering,Springbok,1590.0,2065.0,475.0,Premium,Luxury,0.89,0.98,8.0
+155235.0,Springbok Guest Farm,Guest House,Springbok,1200.0,1242.0,42.0,Premium,Luxury,0.0,0.07,0.0
+123943.0,Grootfontein,Self Catering,Cederberg,1000.0,1782.0,782.0,Mid-Range,Mid-Range,2.5,3.23,27.0
+80725.0,Huilkrans Selfsorg Akkommodasie,Guest House,Cederberg,2700.0,1505.0,-1195.0,Luxury,Premium,8.89,6.95,64.0
+110983.0,Nardouw,Self Catering,Cederberg,1588.0,1308.0,-280.0,Premium,Mid-Range,2.33,2.32,21.0
+129058.0,Lambertshoek Farm Stay,Self Catering,Cederberg,882.0,1561.0,679.0,Mid-Range,Mid-Range,2.78,3.44,30.0
+98865.0,Little Eden at Buffelspad,Self Catering,Cederberg,2665.0,1604.0,-1061.0,Luxury,Luxury,5.14,4.27,37.0
+73976.0,Biedouw Vallei Wegbreek Standard Chalets,Self Catering,Cederberg,1250.0,1304.0,54.0,Premium,Budget,12.78,12.23,115.0
+139195.0,Petersfield Mountain Stonehaven Cottage,Self Catering,Cederberg,2000.0,2076.0,76.0,Premium,Luxury,0.89,0.98,8.0
+93758.0,Revive Guest House,Guest House,Darling,1400.0,1492.0,92.0,Premium,Premium,4.89,4.39,44.0
+124769.0,Die Dorphuis,Self Catering,Darling,900.0,1449.0,549.0,Mid-Range,Mid-Range,1.94,2.19,21.0
+140010.0,Bird Song,Self Catering,Darling,938.0,1946.0,1008.0,Mid-Range,Mid-Range,0.65,0.69,7.0
+53187.0,Darling Lodge Guest House,Guest House,Darling,1280.0,1160.0,-120.0,Premium,Mid-Range,11.0,9.31,99.0
+79058.0,Aloe Cottage,Self Catering,Darling,1500.0,1662.0,162.0,Premium,Mid-Range,4.22,4.28,38.0
+80869.0,Madhatters' Room,Self Catering,Darling,920.0,1553.0,633.0,Mid-Range,Mid-Range,1.3,1.44,14.0
+73259.0,Contreberg Country House,Self Catering,Darling,9500.0,4204.0,-5296.0,Luxury,Luxury,0.28,0.22,2.0
+11525.0,Elly's Place,B&B,Darling,1300.0,1792.0,492.0,Premium,Premium,5.0,4.74,45.0
+3522.0,Disa Lodge,B&B,Darling,1400.0,1222.0,-178.0,Premium,Premium,2.78,2.58,25.0
+101873.0,Yellowbird Cottage,Self Catering,Darling,4500.0,1822.0,-2678.0,Luxury,Mid-Range,1.53,1.22,11.0
+147622.0,Goose Valley Y15,Self Catering,Plettenberg Bay,1368.0,3225.0,1857.0,Premium,Luxury,0.33,0.34,3.0
+117591.0,Live Lekker Stylish Coastal Hideaway,Self Catering,Plettenberg Bay,1313.0,1276.0,-37.0,Premium,Budget,1.67,1.47,15.0
+76108.0,Kingfisher Cottage @ Boschrivier Farm,Self Catering,Plettenberg Bay,1350.0,1449.0,99.0,Premium,Premium,4.0,3.8,36.0
+35464.0,Robin4270 Accommodation,Self Catering,Plettenberg Bay,3321.0,2745.0,-576.0,Luxury,Luxury,0.28,0.26,2.0
+90289.0,Garden Courtyard,Guest House,Plettenberg Bay,880.0,1279.0,399.0,Mid-Range,Budget,6.2,7.27,67.0
+9158.0,Alkantmooi Private Nature Reserve Keursee,Self Catering,Plettenberg Bay,2200.0,1236.0,-964.0,Premium,Budget,10.56,9.68,95.0
+17206.0,As Featured on Instagram Moonshine on Whiskey Creek - Butterfly Garden Cottage,Self Catering,Plettenberg Bay,2250.0,1328.0,-922.0,Premium,Budget,6.22,5.64,56.0
+23284.0,Alkantmooi Private Nature Reserve Keurkloof Units,Self Catering,Plettenberg Bay,2800.0,1625.0,-1175.0,Luxury,Premium,5.42,4.3,39.0
+94612.0,The Warren,Self Catering,Plettenberg Bay,550.0,1680.0,1130.0,Budget,Budget,0.44,0.66,6.0
+5309.0,Amakaya Backpacker Travellers Accommodation,Backpacker,Plettenberg Bay,560.0,993.0,433.0,Budget,Budget,2.44,3.48,33.0
+15397.0,Pearly Gates,Self Catering,Pearly Beach,2000.0,1430.0,-570.0,Premium,Premium,6.44,6.23,58.0
+62179.0,Pearly Bay,Self Catering,Pearly Beach,1334.0,1871.0,537.0,Premium,Luxury,1.11,1.19,10.0
+62037.0,Storkereden,Self Catering,Pearly Beach,4300.0,1735.0,-2565.0,Luxury,Premium,5.56,4.3,40.0
+26223.0,Pearly Dunes,Self Catering,Pearly Beach,1334.0,1536.0,202.0,Premium,Premium,1.78,1.64,16.0
+67148.0,Pearly Waves,Self Catering,Pearly Beach,1600.0,1835.0,235.0,Premium,Premium,1.22,1.25,11.0
+47745.0,Pearly Tides,Self Catering,Pearly Beach,1875.0,1835.0,-40.0,Premium,Premium,1.22,1.25,11.0
+94631.0,Galjoen Gat Self-Catering Cottage,Self Catering,Pearly Beach,900.0,1616.0,716.0,Mid-Range,Premium,1.94,2.22,21.0
+48575.0,Sea Jewel,Self Catering,Pearly Beach,2845.0,1806.0,-1039.0,Luxury,Premium,5.28,4.3,38.0
+88631.0,Sandcastle,Self Catering,Pearly Beach,2950.0,1806.0,-1144.0,Luxury,Premium,5.28,4.3,38.0
+23843.0,Waterblom in Pringle,Self Catering,Pringle Bay,709.0,1848.0,1139.0,Mid-Range,Premium,5.74,6.72,62.0
+104084.0,Prinia on Peak,Self Catering,Pringle Bay,1540.0,2424.0,884.0,Premium,Premium,1.56,1.53,14.0
+54017.0,The Bay Cottage,Self Catering,Pringle Bay,1467.0,1903.0,436.0,Premium,Premium,5.56,5.38,50.0
+73954.0,Berard's Pringle Bay Beach House,Self Catering,Pringle Bay,1970.0,1925.0,-45.0,Premium,Premium,4.0,3.86,36.0
+60137.0,As Featured on Instagram Restio River House,Self Catering,Pringle Bay,12550.0,5458.0,-7092.0,Luxury,Luxury,0.42,0.4,3.0
+124386.0,Bona Vista,Self Catering,Pringle Bay,1934.0,4108.0,2174.0,Premium,Luxury,1.0,1.16,9.0
+54016.0,Sand Banks,Self Catering,Pringle Bay,6667.0,3566.0,-3101.0,Luxury,Luxury,1.67,1.37,12.0
+67758.0,O'Shaughnessy Cottage,Self Catering,Pringle Bay,4334.0,3566.0,-768.0,Luxury,Luxury,1.67,1.37,12.0
+140957.0,Upper Dunes Suites,Self Catering,Pringle Bay,1300.0,3772.0,2472.0,Premium,Luxury,0.22,0.32,2.0
+125636.0,Fynbossie - 812 Boundary Rd,Self Catering,Pringle Bay,1667.0,2867.0,1200.0,Premium,Luxury,0.11,0.21,1.0
+2873.0,Simon’s Town Quayside Lodge,Hotel,Simon S Town,1568.0,1283.0,-285.0,Premium,Budget,22.33,21.14,201.0
+52399.0,Dolphin Cottage,Self Catering,Simon S Town,4000.0,2547.0,-1453.0,Luxury,Luxury,1.67,1.39,12.0
+116196.0,Arc Guest House,Self Catering,Simon S Town,4550.0,3351.0,-1199.0,Luxury,Luxury,0.69,0.68,5.0
+6467.0,Boulders Beach Hotel and Restaurant,Hotel,Simon S Town,500.0,1118.0,618.0,Budget,Budget,13.48,16.39,182.0
+100656.0,Neptunes Seat,Self Catering,Simon S Town,3600.0,3066.0,-534.0,Luxury,Luxury,0.28,0.34,2.0
+48362.0,Porcupine Walk,Self Catering,Simon S Town,938.0,1650.0,712.0,Mid-Range,Budget,1.39,1.55,15.0
+2965.0,Mariner Guesthouse,Guest House,Simon S Town,1752.0,1467.0,-285.0,Premium,Premium,8.78,8.92,79.0
+153370.0,Seashore Villa 1,Self Catering,Simon S Town,1080.0,1950.0,870.0,Mid-Range,Luxury,0.0,0.0,0.0
+18818.0,Albatross Guest House,Self Catering,Simon S Town,1680.0,2033.0,353.0,Premium,Premium,3.11,3.2,28.0
+72773.0,Whalecome Guest Suite,Guest House,Betty S Bay,1250.0,1811.0,561.0,Premium,Premium,3.89,3.93,35.0
+79469.0,Kara Mia,Self Catering,Betty S Bay,900.0,1296.0,396.0,Mid-Range,Mid-Range,14.44,14.92,156.0
+20183.0,Heaven's Door,Self Catering,Betty S Bay,2000.0,1695.0,-305.0,Premium,Mid-Range,10.56,10.19,95.0
+126166.0,A Loft On Jocks,Self Catering,Betty S Bay,1900.0,2484.0,584.0,Premium,Luxury,1.33,1.53,12.0
+22226.0,Cyara,Self Catering,Betty S Bay,1200.0,1419.0,219.0,Premium,Budget,12.44,11.33,112.0
+91334.0,Seascape Cottage,Self Catering,Betty S Bay,3500.0,2185.0,-1315.0,Luxury,Luxury,6.11,4.85,44.0
+10858.0,Anne's Place,Self Catering,Betty S Bay,1150.0,1272.0,122.0,Mid-Range,Mid-Range,13.33,13.97,144.0
+75565.0,Listening Wind Self-catering,Self Catering,Betty S Bay,2600.0,2081.0,-519.0,Luxury,Luxury,7.22,5.98,52.0
+128248.0,Nautilus,Self Catering,Betty S Bay,3400.0,3024.0,-376.0,Luxury,Luxury,1.39,1.42,10.0
+97283.0,Wilderness Beachside Suite,Self Catering,Wilderness,560.0,998.0,438.0,Budget,Budget,3.11,3.86,42.0
+26393.0,Whales Way Ocean Retreat,B&B,Wilderness,1120.0,1280.0,160.0,Mid-Range,Mid-Range,7.04,8.53,76.0
+20815.0,Eagle's Nest,Resort,Wilderness,1690.0,1473.0,-217.0,Premium,Budget,13.11,12.75,118.0
+52098.0,Wilderness Beach Views,B&B,Wilderness,1400.0,847.0,-553.0,Premium,Mid-Range,4.33,4.24,39.0
+113728.0,Omi`s Place of Stay,Self Catering,Wilderness,975.0,1551.0,576.0,Mid-Range,Mid-Range,3.52,4.32,38.0
+42147.0,Friesland Cottage,Self Catering,Wilderness,2350.0,1947.0,-403.0,Premium,Luxury,1.56,1.49,14.0
+96281.0,Red Door Cottage,Self Catering,Wilderness,934.0,2086.0,1152.0,Mid-Range,Luxury,1.11,1.32,12.0
+20104.0,As Featured on Instagram Views Boutique Hotel and Spa,Hotel,Wilderness,3375.0,2323.0,-1052.0,Luxury,Luxury,1.67,1.33,12.0
+85646.0,Edge of Eden,Self Catering,Wilderness,2690.0,1915.0,-775.0,Luxury,Budget,8.61,7.02,62.0
+24824.0,Kleinmond Panorama Holidays,Self Catering,Kleinmond,638.0,1335.0,697.0,Budget,Budget,9.11,12.15,123.0
+101840.0,Footprints in Kleinmond,Self Catering,Kleinmond,1200.0,1521.0,321.0,Premium,Premium,6.33,6.02,57.0
+83526.0,Mond Kleine - Fynbos,Self Catering,Kleinmond,1520.0,1683.0,163.0,Premium,Premium,1.89,1.78,17.0
+125614.0,Mond Kleine - Ocean,Self Catering,Kleinmond,1440.0,1639.0,199.0,Premium,Premium,1.78,1.66,16.0
+103160.0,As Featured on Instagram Klein Paradys,Self Catering,Kleinmond,2200.0,2201.0,1.0,Premium,Premium,3.33,3.36,30.0
+58579.0,Betties Place,Self Catering,Kleinmond,700.0,1417.0,717.0,Mid-Range,Budget,9.44,9.9,102.0
+131229.0,C huisie,Self Catering,Kleinmond,2800.0,2224.0,-576.0,Luxury,Premium,4.31,3.56,31.0
+104448.0,As Featured on Instagram Efcharisto Seaside Cottage,Self Catering,Kleinmond,3594.0,2030.0,-1564.0,Luxury,Luxury,0.83,0.67,6.0
+9352.0,The Seagull Hermanus House,Self Catering,Hermanus,1625.0,1494.0,-131.0,Premium,Budget,9.33,8.65,84.0
+3378.0,Brown Jug Accommodation,Self Catering,Hermanus,800.0,1735.0,935.0,Mid-Range,Mid-Range,5.0,5.69,54.0
+43173.0,House 12 Beach Club,Self Catering,Hermanus,3500.0,1735.0,-1765.0,Luxury,Mid-Range,7.78,5.83,56.0
+56413.0,Troon Beach Cottage,Self Catering,Hermanus,6640.0,2617.0,-4023.0,Luxury,Luxury,1.94,1.6,14.0
+46461.0,Normandie On Sea,Self Catering,Hermanus,2640.0,2388.0,-252.0,Luxury,Luxury,4.31,3.71,31.0
+57616.0,The Whale on Main B&B,B&B,Hermanus,3438.0,73.0,-3365.0,Luxury,Premium,2.64,2.2,19.0
+89187.0,The Pool Cottage,Self Catering,Fish Hoek,1020.0,1437.0,417.0,Mid-Range,Mid-Range,3.06,3.52,33.0
+62162.0,Fisherman's Watch,Self Catering,Fish Hoek,1150.0,1459.0,309.0,Mid-Range,Mid-Range,3.24,3.77,35.0
+41587.0,Salop House,Self Catering,Fish Hoek,855.0,1040.0,185.0,Mid-Range,Budget,10.19,10.71,110.0
+116987.0,Sunrise Studio,Self Catering,Fish Hoek,850.0,1412.0,562.0,Mid-Range,Mid-Range,1.85,2.2,20.0
+100665.0,Fish Hoek Bay Apartments,Guest House,Fish Hoek,806.0,1137.0,331.0,Mid-Range,Mid-Range,4.17,4.6,45.0
+98658.0,The Deck,Self Catering,Fish Hoek,1100.0,1795.0,695.0,Mid-Range,Premium,0.19,0.23,2.0
+112655.0,Nin's Studio,Self Catering,Fish Hoek,760.0,1299.0,539.0,Mid-Range,Mid-Range,4.07,4.5,44.0
+140689.0,Ranger Views,Self Catering,Fish Hoek,1742.0,1795.0,53.0,Premium,Premium,0.22,0.23,2.0
+100012.0,The Sugarbush,Self Catering,Fish Hoek,1500.0,1795.0,295.0,Premium,Premium,0.22,0.23,2.0
+147208.0,Seaside 1,Self Catering,Fish Hoek,1700.0,2275.0,575.0,Premium,Luxury,0.11,0.13,1.0
+93237.0,Casa Balena: The Seafront Whale House Experience,Self Catering,Gansbaai,3360.0,2753.0,-607.0,Luxury,Luxury,1.53,1.24,11.0
+128651.0,Vooruitzicht,Self Catering,Gansbaai,1050.0,2061.0,1011.0,Mid-Range,Luxury,2.22,2.47,24.0
+51584.0,Benguela,Guest House,Gansbaai,1920.0,1878.0,-42.0,Premium,Premium,4.33,4.19,39.0
+69565.0,Guppy Huys Oceanfront Bungalow,Self Catering,Gansbaai,2890.0,2253.0,-637.0,Luxury,Luxury,3.06,2.43,22.0
+12099.0,Oom Piet Accommodation,Self Catering,Gansbaai,600.0,1023.0,423.0,Budget,Budget,28.15,30.56,380.0
+3686.0,Tourist Lodge Gansbaai,Self Catering,Gansbaai,600.0,1090.0,490.0,Budget,Budget,14.67,18.04,198.0
+26605.0,Ons C-huis,Self Catering,Gansbaai,3900.0,1856.0,-2044.0,Luxury,Mid-Range,7.92,6.07,57.0
+86935.0,'n Stukkie Hemel Cottage,Self Catering,Gansbaai,1530.0,1875.0,345.0,Premium,Mid-Range,5.11,4.84,46.0
+42011.0,Rus en Vrede,Self Catering,Gansbaai,1360.0,1875.0,515.0,Premium,Mid-Range,5.0,4.73,45.0
+117008.0,The Lazy Daisies Lofts,Self Catering,St Helena Bay,845.0,1663.0,818.0,Mid-Range,Mid-Range,3.24,3.89,35.0
+76166.0,Salty Sandals,Self Catering,St Helena Bay,4850.0,1608.0,-3242.0,Luxury,Mid-Range,6.25,4.94,45.0
+96873.0,One on Ray,Self Catering,St Helena Bay,1020.0,1481.0,461.0,Mid-Range,Mid-Range,6.57,7.56,71.0
+109837.0,The Daiquiri Shaq,Self Catering,St Helena Bay,795.0,1542.0,747.0,Mid-Range,Mid-Range,5.28,6.22,57.0
+72844.0,Forever Blue,Self Catering,St Helena Bay,984.0,1241.0,257.0,Mid-Range,Mid-Range,13.61,14.36,147.0
+147633.0,Cozy Cove @ St Helena,Self Catering,St Helena Bay,1680.0,3186.0,1506.0,Premium,Luxury,0.56,0.69,5.0
+26205.0,The Lazy Daisies,Self Catering,St Helena Bay,1310.0,1107.0,-203.0,Premium,Mid-Range,30.78,29.59,277.0
+58274.0,Strandfontein Holiday House,Self Catering,Strandfontein West Coast,1360.0,1634.0,274.0,Premium,Premium,8.44,8.12,76.0
+157571.0,Mi Casa Su Casa,Self Catering,Strandfontein West Coast,2950.0,2125.0,-825.0,Luxury,Luxury,0.0,0.17,0.0
+117314.0,Saldeseas Holiday Accommodation,Self Catering,Strandfontein West Coast,2100.0,1830.0,-270.0,Premium,Premium,1.89,1.88,17.0
+78358.0,WesKus PanDokkies,Self Catering,Strandfontein West Coast,1200.0,1634.0,434.0,Premium,Premium,8.67,9.1,78.0
+104071.0,Rest on Galjoen,Self Catering,Strandfontein West Coast,1900.0,1753.0,-147.0,Premium,Premium,4.78,4.53,43.0
+39906.0,Zeldagar Strandfontein Akkommodasie,Self Catering,Strandfontein West Coast,2950.0,1864.0,-1086.0,Luxury,Luxury,4.58,3.65,33.0
+16760.0,Strandfontein Apartment,Self Catering,Strandfontein West Coast,850.0,1476.0,626.0,Mid-Range,Mid-Range,9.81,11.36,106.0
+79854.0,Dikbek Se Plek,Self Catering,Strandfontein West Coast,2750.0,1794.0,-956.0,Luxury,Premium,6.81,5.37,49.0
+150961.0,Seashell,Self Catering,Strandfontein West Coast,2700.0,3422.0,722.0,Luxury,Luxury,0.28,0.36,2.0
+20324.0,Seetoe dot com,Self Catering,Strandfontein West Coast,1990.0,1738.0,-252.0,Premium,Premium,5.89,5.86,53.0
+13923.0,Hemel op Aarde Villa,Self Catering,Dwarskersbos,6000.0,2411.0,-3589.0,Luxury,Premium,3.61,2.83,26.0
+60927.0,Tumble-in,Self Catering,Dwarskersbos,1050.0,1803.0,753.0,Mid-Range,Premium,3.61,4.28,39.0
+91945.0,The Owl House,Self Catering,Dwarskersbos,2900.0,2158.0,-742.0,Luxury,Luxury,4.31,3.51,31.0
+55979.0,Kersbospark 14,Self Catering,Dwarskersbos,1700.0,1680.0,-20.0,Premium,Premium,4.56,4.28,41.0
+81724.0,T&T Thiart Fisherman's Cottage,Self Catering,Dwarskersbos,2250.0,3018.0,768.0,Premium,Luxury,0.11,0.13,1.0
+75863.0,Weskus-Beskus Beach House,Self Catering,Dwarskersbos,1595.0,1875.0,280.0,Premium,Luxury,3.78,3.6,34.0
+118388.0,Piekfyn,Self Catering,Dwarskersbos,842.0,1668.0,826.0,Mid-Range,Premium,4.35,4.93,47.0
+113829.0,Oppi Hoekie,Self Catering,Dwarskersbos,649.0,1533.0,884.0,Budget,Budget,0.3,0.44,4.0
+26147.0,Jubel n Juig Self-Catering,Self Catering,Dwarskersbos,2300.0,1631.0,-669.0,Premium,Premium,5.0,4.71,45.0
+58813.0,Lekke By Die See,Self Catering,Dwarskersbos,600.0,1206.0,606.0,Budget,Budget,9.63,12.56,130.0
+70032.0,96 Strand Beach House,Self Catering,Lamberts Bay,8100.0,2805.0,-5295.0,Luxury,Premium,4.44,3.56,32.0
+18744.0,Seester Accommodation,Self Catering,Lamberts Bay,1215.0,2099.0,884.0,Premium,Premium,5.33,5.23,48.0
+34448.0,Albatross No. 8,Self Catering,Lamberts Bay,3000.0,2838.0,-162.0,Luxury,Premium,3.61,2.88,26.0
+27620.0,Albatross No. 7,Self Catering,Lamberts Bay,2550.0,2040.0,-510.0,Luxury,Mid-Range,8.47,6.45,61.0
+36363.0,Albatross No. 2,Self Catering,Lamberts Bay,800.0,2019.0,1219.0,Mid-Range,Mid-Range,5.37,6.3,58.0
+144600.0,Pikkie,Self Catering,Lamberts Bay,900.0,4123.0,3223.0,Mid-Range,Luxury,0.28,0.37,3.0
+92198.0,Happi Stay,Self Catering,Lamberts Bay,1800.0,2371.0,571.0,Premium,Premium,2.33,2.25,21.0
+43682.0,Lazy Days Apartments: Lamberts Bay - 84 Voortrekker,Self Catering,Lamberts Bay,2500.0,2142.0,-358.0,Luxury,Premium,5.69,4.37,41.0
+151591.0,Grootvlei Gaste Plaas,Guest House,Lamberts Bay,1294.0,1409.0,115.0,Premium,Luxury,0.22,0.19,2.0
+27619.0,Albatross No. 4,Self Catering,Lamberts Bay,2063.0,2226.0,163.0,Premium,Premium,4.11,4.2,37.0
+98406.0,Milk Thistle Studio Apartment,Self Catering,Paternoster,834.0,1508.0,674.0,Mid-Range,Premium,1.94,2.22,21.0
+44312.0,Zula Beach Cottage,Self Catering,Paternoster,1800.0,1580.0,-220.0,Premium,Premium,2.56,2.44,23.0
+9946.0,Bokkoms Guest Flat,Self Catering,Paternoster,1296.0,1325.0,29.0,Premium,Premium,8.56,7.99,77.0
+98067.0,Sea Castle 6,Self Catering,Paternoster,1241.0,1771.0,530.0,Premium,Premium,3.11,3.12,28.0
+11926.0,Soli Deo Gloria - Penthouse,Self Catering,Paternoster,1960.0,1325.0,-635.0,Premium,Premium,8.11,7.34,73.0
+19574.0,Sea Castle 1,Self Catering,Paternoster,1071.0,1387.0,316.0,Mid-Range,Premium,4.91,5.64,53.0
+41074.0,LekkeBly Boutique Loft,Self Catering,Paternoster,1300.0,1325.0,25.0,Premium,Premium,8.11,7.34,73.0
+132439.0,5 on Sonkwas Cottage,Self Catering,Paternoster,1400.0,1438.0,38.0,Premium,Budget,0.67,0.66,6.0
+95008.0,Milk Thistle,Self Catering,Paternoster,900.0,1495.0,595.0,Mid-Range,Premium,3.33,3.8,36.0
+49799.0,Ciao,Self Catering,Paternoster,1350.0,1569.0,219.0,Premium,Premium,1.56,1.47,14.0
+77027.0,West Coast Shores,Guest House,Jacobs Bay,934.0,1595.0,661.0,Mid-Range,Mid-Range,4.07,4.39,44.0
+45796.0,Strandloper 20,Self Catering,Jacobs Bay,4500.0,1954.0,-2546.0,Luxury,Mid-Range,6.53,4.97,47.0
+108080.0,Jacobsbaai Serenity,Self Catering,Jacobs Bay,2550.0,2284.0,-266.0,Luxury,Luxury,4.31,3.59,31.0
+63039.0,Sea La Vie,Self Catering,Jacobs Bay,1200.0,1539.0,339.0,Premium,Budget,17.89,16.38,161.0
+9146.0,Beach Blessings Self-catering,Self Catering,Jacobs Bay,3500.0,1670.0,-1830.0,Luxury,Budget,19.31,16.97,139.0
+116031.0,Ocean- View Apartments,Self Catering,Jacobs Bay,1020.0,2126.0,1106.0,Mid-Range,Luxury,2.69,3.16,29.0
+19939.0,Weskushuis,Self Catering,Jacobs Bay,1000.0,1448.0,448.0,Mid-Range,Mid-Range,24.26,26.54,262.0
+6953.0,Abalone Guest House,Guest House,Jacobs Bay,1100.0,1299.0,199.0,Mid-Range,Mid-Range,19.54,20.82,211.0
+81355.0,Lavender @ C,Self Catering,Jacobs Bay,875.0,1514.0,639.0,Mid-Range,Mid-Range,17.13,18.21,185.0
+108667.0,C-Rock Holiday Home,Self Catering,Jacobs Bay,4000.0,2598.0,-1402.0,Luxury,Luxury,1.39,1.23,10.0
+147561.0,Seabatical,Self Catering,Elands Bay,1575.0,2209.0,634.0,Premium,Luxury,0.89,0.86,8.0
+32952.0,Ons Huisie,Self Catering,Elands Bay,1403.0,1227.0,-176.0,Premium,Budget,12.89,12.01,116.0
+99016.0,Oceanic,Self Catering,Elands Bay,2395.0,2124.0,-271.0,Premium,Premium,3.11,3.1,28.0
+141315.0,Low Tide,Self Catering,Elands Bay,1494.0,1715.0,221.0,Premium,Premium,0.78,0.7,7.0
+29995.0,Vensterklip,Self Catering,Elands Bay,360.0,1108.0,748.0,Budget,Budget,13.11,15.24,177.0
+122908.0,Point Garden Cottage,Self Catering,Elands Bay,1595.0,1719.0,124.0,Premium,Premium,1.44,1.39,13.0
+134372.0,As Featured on Instagram Huis Kaalvoet,Self Catering,Elands Bay,3396.0,1852.0,-1544.0,Luxury,Premium,2.78,2.2,20.0
+140987.0,As Featured on Instagram High Tide,Self Catering,Elands Bay,2684.0,2450.0,-234.0,Luxury,Luxury,0.28,0.23,2.0
+133173.0,The High Tide House,Self Catering,Elands Bay,4500.0,3629.0,-871.0,Luxury,Luxury,1.25,1.07,9.0
+151034.0,New Vasuki,Self Catering,Elands Bay,1500.0,2450.0,950.0,Premium,Luxury,0.22,0.23,2.0
+74690.0,Moonlight @ Port Marina,Self Catering,Velddrif,1600.0,1633.0,33.0,Premium,Premium,4.44,4.38,40.0
+43283.0,Harbour Lights,Self Catering,Velddrif,1700.0,1252.0,-448.0,Premium,Budget,11.22,9.85,101.0
+3322.0,Riverhouse-Velddrif,Self Catering,Velddrif,3000.0,1690.0,-1310.0,Luxury,Luxury,7.5,5.89,54.0
+95771.0,Berg River Living,Self Catering,Velddrif,2000.0,1518.0,-482.0,Premium,Premium,2.33,2.27,21.0
+130110.0,Marina Haven,Self Catering,Velddrif,1120.0,1518.0,398.0,Mid-Range,Premium,1.94,2.27,21.0
+85409.0,Riverview,Self Catering,Velddrif,750.0,1434.0,684.0,Mid-Range,Mid-Range,6.67,7.4,72.0
+108008.0,West Coast Harbour Views,Self Catering,Velddrif,1750.0,1906.0,156.0,Premium,Premium,2.78,2.62,25.0
+99500.0,The Boathouse,Self Catering,Velddrif,1368.0,1512.0,144.0,Premium,Premium,4.0,3.8,36.0
+121903.0,4 Hoep Hoep,Self Catering,Velddrif,1467.0,1797.0,330.0,Premium,Luxury,0.89,0.92,8.0
+40669.0,Saldanha Bay View - Parker Crescent,Self Catering,Saldanha,935.0,1298.0,363.0,Mid-Range,Premium,5.93,6.67,64.0
+5445.0,Blue Bay Lodge & Resort,Lodge,Saldanha,1746.0,1332.0,-414.0,Premium,Budget,11.11,9.74,100.0
+13114.0,Saldanha Bay View - Panorama Drive,Self Catering,Saldanha,935.0,1087.0,152.0,Mid-Range,Budget,12.96,14.13,140.0
+10582.0,Kyki-C,Self Catering,Saldanha,1350.0,1079.0,-271.0,Premium,Budget,17.11,15.74,154.0
+148438.0,Oupa Kriek 1,Self Catering,Saldanha,1000.0,680.0,-320.0,Mid-Range,Luxury,0.0,0.11,0.0
+130727.0,Horizon Guest Lodge,Self Catering,Saldanha,1980.0,3759.0,1779.0,Premium,Luxury,0.11,0.19,1.0
+19394.0,Hoedjiesbaai Hotel,Hotel,Saldanha,1300.0,1047.0,-253.0,Premium,Budget,27.89,23.27,251.0
+148599.0,Rondom Ons 2,Self Catering,Saldanha,750.0,2534.0,1784.0,Mid-Range,Luxury,0.19,0.3,2.0
+11223.0,12 on Beach,Guest House,Saldanha,650.0,844.0,194.0,Budget,Budget,34.07,35.21,460.0
+142286.0,The Cozy Cabin,Self Catering,Saldanha,1380.0,1489.0,109.0,Premium,Luxury,0.78,0.77,7.0
+48284.0,40B Guesthouse,Self Catering,Humansdorp,600.0,1530.0,930.0,Budget,Budget,3.93,5.55,53.0
+145160.0,Olive Tree @ Witels,Self Catering,Humansdorp,775.0,3278.0,2503.0,Mid-Range,Luxury,0.28,0.38,3.0
+153802.0,Boskloof Pet-Friendly Retreat,Self Catering,Humansdorp,698.0,3949.0,3251.0,Budget,Luxury,0.0,0.11,0.0
+86203.0,Eben Hauser,Self Catering,Humansdorp,5000.0,3278.0,-1722.0,Luxury,Luxury,0.42,0.38,3.0
+88737.0,Protea Cottage,Self Catering,Humansdorp,1300.0,2032.0,732.0,Premium,Luxury,3.44,3.59,31.0
+132683.0,Rondebosch Gardens,Guest House,Humansdorp,750.0,876.0,126.0,Mid-Range,Mid-Range,0.65,0.67,7.0
+130450.0,Junebob's Place,Self Catering,Humansdorp,3000.0,3202.0,202.0,Luxury,Luxury,0.0,0.11,0.0
+111116.0,Igmi's Place,Self Catering,Humansdorp,5200.0,3949.0,-1251.0,Luxury,Luxury,0.0,0.11,0.0
+54056.0,10 Keet Street,Self Catering,Humansdorp,1050.0,1922.0,872.0,Mid-Range,Luxury,1.11,1.35,12.0
+101480.0,18 Protea B&B,Self Catering,Humansdorp,1550.0,1707.0,157.0,Premium,Luxury,0.78,0.77,7.0
+137793.0,Carrington Cottage,Self Catering,Kimberley,1600.0,1426.0,-174.0,Premium,Budget,7.44,7.35,67.0
+118532.0,Hearts Cottage,Self Catering,Kimberley,790.0,1281.0,491.0,Mid-Range,Mid-Range,5.93,6.59,64.0
+120343.0,Rest @ Edna 55,B&B,Kimberley,750.0,1031.0,281.0,Mid-Range,Premium,3.8,4.24,41.0
+92592.0,El Toro Self-Catering,Self Catering,Kimberley,700.0,1355.0,655.0,Mid-Range,Mid-Range,5.37,6.24,58.0
+14858.0,Komrus,Guest House,Kimberley,850.0,1006.0,156.0,Mid-Range,Mid-Range,13.15,13.82,142.0
+106727.0,Butlersrail @ Butlershaven farm,Self Catering,Kimberley,1800.0,1426.0,-374.0,Premium,Budget,8.44,7.9,76.0
+29034.0,Hadida Guest House,Self Catering,Kimberley,800.0,941.0,141.0,Mid-Range,Budget,38.98,40.01,421.0
+13047.0,The Solomon,Guest House,Kimberley,850.0,1305.0,455.0,Mid-Range,Mid-Range,5.46,6.12,59.0
+34939.0,Padlangs,Self Catering,Kimberley,750.0,969.0,219.0,Mid-Range,Budget,28.24,28.58,305.0
+75110.0,@ Athens Gastekamers,Self Catering,Kimberley,950.0,1203.0,253.0,Mid-Range,Budget,11.2,12.2,121.0

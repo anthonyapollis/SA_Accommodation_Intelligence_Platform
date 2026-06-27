@@ -1,0 +1,23 @@
+{
+  "price_regression": {
+    "model": "GradientBoostingRegressor",
+    "mae_zar": 1066.66,
+    "r2": 0.1726,
+    "mape_pct": 73.48,
+    "cv_r2_mean": -0.6445,
+    "cv_r2_std": 0.8038
+  },
+  "tier_classifier": {
+    "model": "RandomForestClassifier",
+    "accuracy": 0.397,
+    "cv_acc_mean": 0.3106,
+    "cv_acc_std": 0.0338,
+    "f1_weighted": 0.4098
+  },
+  "demand_model": {
+    "model": "GradientBoostingRegressor",
+    "mae_score_pts": 0.9153,
+    "r2": 0.9606,
+    "cv_r2_mean": 0.9415
+  }
+}

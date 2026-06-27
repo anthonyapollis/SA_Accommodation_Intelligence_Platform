@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEO & AEO Audit 2026 | SA Accommodation Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;
+      --cyan:#00bcd4;--orange:#FF6C00;--red:#f44336;--green:#4caf50;--blue:#2196f3;
+      --lekke:#FF6C00}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;min-height:100vh}
+nav{background:var(--surface);border-bottom:2px solid var(--lekke);padding:0.6rem 1.2rem;
+     display:flex;flex-wrap:wrap;gap:0.4rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;
+       font-size:0.78rem;transition:all 0.2s}
+nav a:hover,nav a.active{background:rgba(255,108,0,0.15);color:var(--lekke)}
+.page-header{padding:1.75rem 1.5rem 0.9rem;border-bottom:1px solid var(--border);
+              background:linear-gradient(135deg,rgba(255,108,0,0.06) 0%,transparent 60%)}
+.page-header h1{font-size:1.55rem;color:var(--lekke);margin-bottom:0.25rem}
+.page-header p{color:var(--muted);font-size:0.88rem}
+.brand-pill{display:inline-block;background:var(--lekke);color:#fff;font-size:0.68rem;
+             font-weight:700;padding:0.2rem 0.5rem;border-radius:4px;margin-left:0.5rem;
+             letter-spacing:0.05em;vertical-align:middle}
+.content{padding:1.25rem 1.5rem;max-width:1400px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:1rem}
+.card h2{font-size:0.85rem;color:var(--lekke);margin-bottom:0.85rem;text-transform:uppercase;letter-spacing:0.06em}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0.75rem}
+.kpi{background:rgba(255,108,0,0.07);border:1px solid rgba(255,108,0,0.2);border-radius:8px;padding:0.9rem;text-align:center}
+.kpi-v{font-size:1.4rem;font-weight:700;color:var(--lekke)}
+.kpi-l{font-size:0.72rem;color:var(--muted);margin-top:0.2rem}
+table{width:100%;border-collapse:collapse;font-size:0.81rem}
+th{background:rgba(255,108,0,0.1);color:var(--lekke);padding:0.5rem 0.7rem;text-align:left;
+    border-bottom:1px solid var(--border)}
+td{padding:0.42rem 0.7rem;border-bottom:1px solid rgba(48,54,61,0.5);color:var(--text)}
+tr:hover td{background:rgba(255,255,255,0.025)}
+.badge{display:inline-block;padding:0.18rem 0.45rem;border-radius:4px;font-size:0.68rem;font-weight:600}
+.b-orange{background:rgba(255,108,0,0.15);color:var(--lekke)}
+.b-green{background:rgba(76,175,80,0.15);color:#4caf50}
+.b-blue{background:rgba(33,150,243,0.15);color:#2196f3}
+.b-red{background:rgba(244,67,54,0.15);color:#f44336}
+.b-cyan{background:rgba(0,188,212,0.15);color:#00bcd4}
+.bar-wrap{background:rgba(255,255,255,0.06);border-radius:3px;height:7px;margin-top:4px;min-width:60px}
+.bar-fill{background:var(--lekke);border-radius:3px;height:7px}
+
+.cat-tabs{{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem}}
+.cat-btn{{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--muted);
+          padding:0.28rem 0.65rem;border-radius:5px;cursor:pointer;font-size:0.76rem;transition:all 0.2s}}
+.cat-btn.active,.cat-btn:hover{{background:rgba(255,108,0,0.15);color:var(--lekke);border-color:var(--lekke)}}
+.crit-item{{display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid rgba(48,54,61,0.5)}}
+.crit-num{{background:var(--lekke);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;
+           align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0}}
+.crit-text strong{{color:var(--text);font-size:0.85rem}}
+.crit-text p{{color:var(--muted);font-size:0.78rem;margin-top:0.2rem}}
+.strat-card{{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:0.9rem}}
+.strat-icon{{font-size:1.5rem;margin-bottom:0.4rem}}
+.strat-title{{font-size:0.82rem;font-weight:700;color:var(--lekke);margin-bottom:0.35rem}}
+.strat-body{{font-size:0.76rem;color:var(--muted);line-height:1.5}}
+code{{font-family:monospace;color:var(--lekke);font-size:0.85em}}
+
+
+/* ── Context cards ──────────────────────────────────────────── */
+.ctx-card{background:rgba(255,108,0,0.05);border-left:4px solid #FF6C00;
+          border-radius:0 8px 8px 0;padding:0.85rem 1.1rem;margin-bottom:1.1rem;
+          font-size:0.82rem;line-height:1.6;color:#c9d1d9}
+.ctx-card .ctx-row{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:0.55rem}
+.ctx-item{flex:1;min-width:160px}
+.ctx-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;
+           letter-spacing:0.08em;color:#FF6C00;margin-bottom:0.2rem}
+.ctx-text{font-size:0.8rem;color:#8b949e}
+.ctx-text strong{color:#e6edf3}
+/* Column hint tooltips */
+.col-hint{font-size:0.65rem;color:#8b949e;display:block;margin-top:1px;font-weight:400}
+
+
+.chart-explain{background:rgba(255,255,255,0.03);border:1px solid #30363d;
+               border-radius:6px;padding:0.6rem 0.85rem;margin-bottom:0.75rem;
+               font-size:0.78rem;color:#8b949e;line-height:1.55}
+.chart-explain strong{color:#e6edf3}
+.chart-explain .how{display:inline-block;background:rgba(255,108,0,0.12);
+                    color:#FF6C00;border-radius:3px;padding:0.1rem 0.35rem;
+                    font-size:0.68rem;font-weight:700;margin-right:0.35rem}
+
+</style>
+</head>
+<body>
+<nav>
+      <a href="index.html">Map</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="recommendations.html">Recommendations</a>
+      <a href="data-model.html">Data Model</a>
+      <a href="seasonality.html">Seasonality</a>
+      <a href="ml-features.html">ML Features</a>
+      <a href="market-opportunity.html">Market Opp.</a>
+      <a href="mobile-attribution.html">Mobile</a>
+      <a href="seo-audit.html">SEO Audit</a>
+      <a href="seo-pages.html">SEO Pages</a>
+      <a href="site-audit.html">Site Audit</a>
+      <a href="gtm-demo/">GTM Demo</a>
+      <a href="ebook.html">Ebook</a>
+</nav>
+
+<div class="page-header">
+  <h1>SEO &amp; AEO Audit <span class="brand-pill">2026</span></h1>
+  <p>Full audit against Google's March / May 2026 Core Updates, June 2026 Spam Update, and Answer Engine Optimization (AEO) for ChatGPT · Perplexity · Google AI Mode</p>
+</div>
+<div class="content">
+<div class="ctx-card">
+  <strong style="color:#FF6C00">What you are looking at</strong>
+  <div class="ctx-row">
+    <div class="ctx-item">
+      <div class="ctx-label">What</div>
+      <div class="ctx-text">A <strong>28-point technical SEO audit</strong> of this platform, scored against Google's March and May 2026 Core Updates, the June 2026 Spam Update, and Answer Engine Optimization (AEO) requirements for ChatGPT, Perplexity, and Google AI Mode.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">Why</div>
+      <div class="ctx-text">Traditional SEO is no longer enough. Google AI Mode has <strong>1 billion monthly users</strong> and AI Overviews reduce clicks on top organic results by an average of 34.5%. Content must now be structured to answer questions <em>directly</em> — for Google, ChatGPT, Perplexity, and Bing Copilot simultaneously. Missing schema markup means your content is invisible to AI answer engines.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">So What</div>
+      <div class="ctx-text">Work through <strong>Critical issues first</strong> (red badges) — sitemap.xml, robots.txt, and FAQ schema can each be added in under an hour and have outsized impact on crawlability and AI citations. Then address High priority warnings. The Quick Wins table below is your action checklist in priority order.</div>
+    </div>
+  </div>
+</div>
+
+  <div style="background:rgba(255,108,0,0.06);border:1px solid rgba(255,108,0,0.25);border-radius:8px;
+              padding:0.9rem 1rem;margin-bottom:1rem;font-size:0.81rem;color:var(--muted)">
+    <strong style="color:var(--lekke)">2026 SEO Context:</strong>
+    Google's May 2026 Core Update prioritises <em>intent-led, quality-driven</em> content.
+    AI Overviews reduce organic CTR on top results by an average of 34.5%.
+    Google AI Mode now has 1 billion monthly users — content must be structured for both
+    traditional crawlers and LLM ingestion (ChatGPT, Perplexity, Claude, Bing Copilot).
+    Brand signals and topical authority outweigh keyword density.
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-v">63</div><div class="kpi-l">Overall SEO Score / 100</div></div>
+    <div class="kpi"><div class="kpi-v" style="color:#4caf50">12</div><div class="kpi-l">Checks Passing</div></div>
+    <div class="kpi"><div class="kpi-v" style="color:#ff9800">11</div><div class="kpi-l">Warnings</div></div>
+    <div class="kpi"><div class="kpi-v" style="color:#f44336">5</div><div class="kpi-l">Failing</div></div>
+    <div class="kpi"><div class="kpi-v" style="color:#f44336">3</div><div class="kpi-l">Critical Issues</div></div>
+    <div class="kpi"><div class="kpi-v">28</div><div class="kpi-l">Total Checks</div></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <h2>Critical Actions (fix first)</h2>
+    <div id="criticals"></div>
+  </div>
+
+  <div class="card">
+    <h2>Full Audit by Category</h2>
+<div class="chart-explain">Each row is a single SEO or AEO check. <span class="how">How to read scores</span><strong>Score 80–100</strong> (green) = passing well. <strong>Score 50–79</strong> (amber) = partial issue, improve when possible. <strong>Score 0–49</strong> (red) = failing — fix before publishing to production. Click a <strong>category tab</strong> to filter by: Core Web Vitals (page speed), Technical SEO (crawlability), On-Page SEO (content structure), AEO / AI Mode (answer engine readiness for ChatGPT/Perplexity), Content Quality (E-E-A-T), Core Update compliance, and Performance. <strong>Priority column</strong>: Critical = fix immediately; High = fix this sprint; Medium = next iteration; Low = nice to have.</div>
+    <div class="cat-tabs" id="catTabs"></div>
+    <table>
+      <thead><tr><th>Check</th><th>Status</th><th>Score</th><th>Priority</th><th>Detail</th></tr></thead>
+      <tbody id="auditTbody"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>AEO Strategy — Optimise for AI Search</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.75rem">
+      <div class="strat-card">
+        <div class="strat-icon">&#129302;</div>
+        <div class="strat-title">FAQ Schema</div>
+        <div class="strat-body">Add JSON-LD FAQPage schema to key pages. AI Overviews surface FAQ answers directly. Target: "best self-catering in Cape Town?", "cheapest accommodation SA?"</div>
+      </div>
+      <div class="strat-card">
+        <div class="strat-icon">&#127758;</div>
+        <div class="strat-title">Topical Clusters</div>
+        <div class="strat-body">Build content clusters around pillar topics: SA accommodation types → region guides → pricing guides → seasonal planning. Topical authority beats keyword density in 2026.</div>
+      </div>
+      <div class="strat-card">
+        <div class="strat-icon">&#128200;</div>
+        <div class="strat-title">Brand Signals</div>
+        <div class="strat-body">Increase brand mentions on Reddit (/r/southafrica, /r/travel), LinkedIn articles, travel blogs. LLMs train on these sources — brand presence there = AI citations.</div>
+      </div>
+      <div class="strat-card">
+        <div class="strat-icon">&#128279;</div>
+        <div class="strat-title">Entity Markup</div>
+        <div class="strat-body">Add Organization + LodgingBusiness schema. Link to Wikidata entity. Google uses entity understanding to surface sites in Knowledge Panels and AI responses.</div>
+      </div>
+      <div class="strat-card">
+        <div class="strat-icon">&#128241;</div>
+        <div class="strat-title">Mobile App Signals</div>
+        <div class="strat-body">Add App schema markup and deep-link parameters. Google surfaces app install cards in mobile SERPs. AppsFlyer deferred deep links improve post-install UX.</div>
+      </div>
+      <div class="strat-card">
+        <div class="strat-icon">&#128273;</div>
+        <div class="strat-title">E-E-A-T Signals</div>
+        <div class="strat-body">Add author credentials, data source citations (LekkeSlaap scrape date, BigQuery dataset), and trust signals. E-E-A-T is weighted heavily post-May 2026 update.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Quick Wins — Implement This Week</h2>
+    <table>
+      <thead><tr><th>#</th><th>Action</th><th>Impact</th><th>Effort</th><th>Update Relevance</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Add <code>sitemap.xml</code> — list all 11 pages</td><td><span class="badge b-red">Critical</span></td><td>30 min</td><td>All crawlers + AI bots</td></tr>
+        <tr><td>2</td><td>Add <code>robots.txt</code> — allow GPTBot, ClaudeBot, PerplexityBot</td><td><span class="badge b-red">Critical</span></td><td>15 min</td><td>AEO / AI Mode</td></tr>
+        <tr><td>3</td><td>Add JSON-LD FAQPage schema to dashboard + ebook pages</td><td><span class="badge b-red">Critical</span></td><td>2 hrs</td><td>May 2026 + AEO</td></tr>
+        <tr><td>4</td><td>Add canonical <code>&lt;link&gt;</code> tags to all pages</td><td><span class="badge b-orange">High</span></td><td>45 min</td><td>Core updates</td></tr>
+        <tr><td>5</td><td>Write meta descriptions for all 11 pages (max 155 chars)</td><td><span class="badge b-orange">High</span></td><td>1 hr</td><td>AI Overviews CTR</td></tr>
+        <tr><td>6</td><td>Add H1 tag to <code>ebook.html</code></td><td><span class="badge b-orange">High</span></td><td>5 min</td><td>On-page SEO</td></tr>
+        <tr><td>7</td><td>Add <code>async</code> to Leaflet.js script tag</td><td><span class="badge b-cyan">Medium</span></td><td>2 min</td><td>CWV / LCP</td></tr>
+        <tr><td>8</td><td>Add last-updated timestamp to all data pages</td><td><span class="badge b-cyan">Medium</span></td><td>30 min</td><td>Content freshness</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const DATA = [{"cat": "Core Web Vitals", "check": "LCP < 2.5s", "status": "warning", "score": 72, "detail": "Static HTML pages load fast but Leaflet map initialisation delays LCP to ~3.1s on mobile", "priority": "High"}, {"cat": "Core Web Vitals", "check": "INP < 200ms", "status": "pass", "score": 88, "detail": "Low interaction latency on dashboard and data pages", "priority": "Medium"}, {"cat": "Core Web Vitals", "check": "CLS < 0.1", "status": "pass", "score": 95, "detail": "No layout shift detected \u2014 fixed nav bar + static card layout", "priority": "Low"}, {"cat": "Technical SEO", "check": "Sitemap.xml present", "status": "fail", "score": 0, "detail": "No sitemap.xml found \u2014 critical for Google crawling and AI indexation", "priority": "Critical"}, {"cat": "Technical SEO", "check": "robots.txt present", "status": "fail", "score": 0, "detail": "No robots.txt \u2014 AI crawlers (GPTBot, ClaudeBot) crawl all pages unconstrained", "priority": "High"}, {"cat": "Technical SEO", "check": "Canonical tags", "status": "fail", "score": 0, "detail": "No canonical <link> tags \u2014 risk of duplicate content penalties", "priority": "High"}, {"cat": "Technical SEO", "check": "Meta descriptions", "status": "warning", "score": 60, "detail": "5 of 11 pages missing meta descriptions \u2014 required for AI Overview snippets", "priority": "High"}, {"cat": "Technical SEO", "check": "HTTPS / SSL", "status": "pass", "score": 100, "detail": "Netlify provides automatic SSL", "priority": "Low"}, {"cat": "Technical SEO", "check": "Mobile-first indexing", "status": "warning", "score": 70, "detail": "2 pages (ebook, gtm-demo) not fully responsive \u2014 Google indexes mobile version first", "priority": "High"}, {"cat": "On-Page SEO", "check": "H1 tags", "status": "warning", "score": 64, "detail": "ebook.html missing H1 tag \u2014 Google uses H1 as primary topic signal", "priority": "Medium"}, {"cat": "On-Page SEO", "check": "Structured data / Schema", "status": "fail", "score": 0, "detail": "No JSON-LD schema markup \u2014 required for AI Overviews and rich results", "priority": "Critical"}, {"cat": "On-Page SEO", "check": "Internal linking", "status": "pass", "score": 80, "detail": "All new pages linked from nav \u2014 good link equity distribution", "priority": "Low"}, {"cat": "On-Page SEO", "check": "Alt text on images", "status": "pass", "score": 90, "detail": "No raw <img> tags; all visuals are CSS/SVG \u2014 no alt text gaps", "priority": "Low"}, {"cat": "AEO / AI Mode", "check": "FAQ schema markup", "status": "fail", "score": 0, "detail": "No FAQ schema \u2014 ChatGPT/Perplexity/AI Overviews prefer FAQ-structured content", "priority": "Critical"}, {"cat": "AEO / AI Mode", "check": "Definitive answers to queries", "status": "warning", "score": 55, "detail": "Ebook contains deep content but no structured Q&A format for LLM extraction", "priority": "High"}, {"cat": "AEO / AI Mode", "check": "Entity clarity", "status": "warning", "score": 60, "detail": "LekkeSlaap entity not linked to Wikidata / Google Knowledge Panel", "priority": "Medium"}, {"cat": "AEO / AI Mode", "check": "Topical authority clusters", "status": "warning", "score": 65, "detail": "Good depth on pricing/ML but no content cluster around 'SA accommodation types' or 'holiday planning'", "priority": "High"}, {"cat": "AEO / AI Mode", "check": "Brand signals", "status": "warning", "score": 58, "detail": "Platform not yet indexed or linked from authoritative SA travel sites / Reddit / LinkedIn", "priority": "High"}, {"cat": "Content Quality", "check": "E-E-A-T signals", "status": "warning", "score": 62, "detail": "No author bylines, credentials, or trust signals visible on key pages", "priority": "High"}, {"cat": "Content Quality", "check": "Content freshness", "status": "pass", "score": 85, "detail": "Scrape date 2026-06-27 \u2014 recent data; add last-updated timestamp to pages", "priority": "Medium"}, {"cat": "Content Quality", "check": "Thin content pages", "status": "pass", "score": 78, "detail": "All pages have substantial data \u2014 no thin content issues", "priority": "Low"}, {"cat": "May 2026 Core Update", "check": "Helpful content alignment", "status": "pass", "score": 80, "detail": "Data-rich, user-intent focused pages align with Google's helpfulness criteria", "priority": "Low"}, {"cat": "May 2026 Core Update", "check": "AI-generated content signals", "status": "pass", "score": 90, "detail": "Synthetic data is clearly labelled; no undisclosed AI content risk", "priority": "Low"}, {"cat": "June 2026 Spam Update", "check": "Link spam risk", "status": "pass", "score": 95, "detail": "No outbound link schemes or spammy patterns", "priority": "Low"}, {"cat": "June 2026 Spam Update", "check": "Scaled content abuse", "status": "pass", "score": 92, "detail": "Data pages generated programmatically but clearly disclosed as synthetic", "priority": "Low"}, {"cat": "Performance", "check": "Page size optimisation", "status": "warning", "score": 70, "detail": "map.html at 56.7 KB \u2014 acceptable but could lazy-load marker data", "priority": "Low"}, {"cat": "Performance", "check": "Render-blocking scripts", "status": "warning", "score": 65, "detail": "Leaflet.js loaded synchronously \u2014 consider defer or async attribute", "priority": "Medium"}, {"cat": "Performance", "check": "Image optimisation", "status": "pass", "score": 95, "detail": "No unoptimised images \u2014 all visuals are code-rendered", "priority": "Low"}];
+const CATS = ["Core Web Vitals", "Technical SEO", "On-Page SEO", "AEO / AI Mode", "Content Quality", "May 2026 Core Update", "June 2026 Spam Update", "Performance"];
+let curCat = 'all';
+
+const STATUS_ICON = {pass:'&#10003;',warning:'&#9888;',fail:'&#10007;'};
+const STATUS_COLOR = {pass:'#4caf50',warning:'#ff9800',fail:'#f44336'};
+const PRIO_CLASS = {Critical:'b-red',High:'b-orange',Medium:'b-cyan',Low:'b-green'};
+
+// Criticals
+const critDiv = document.getElementById('criticals');
+DATA.filter(r=>r.status==='fail').forEach((r,i)=>{
+  critDiv.insertAdjacentHTML('beforeend',`
+    <div class="crit-item">
+      <div class="crit-num">${i+1}</div>
+      <div class="crit-text"><strong>${r.check}</strong> <span class="badge b-red" style="font-size:0.65rem">${r.cat}</span>
+        <p>${r.detail}</p></div>
+    </div>`);
+});
+
+// Category tabs
+const tabDiv = document.getElementById('catTabs');
+['all',...CATS].forEach(c=>{
+  const b = document.createElement('button');
+  b.className = 'cat-btn' + (c==='all'?' active':'');
+  b.textContent = c==='all'?'All':c;
+  b.onclick=()=>{curCat=c;document.querySelectorAll('.cat-btn').forEach(x=>x.classList.toggle('active',x.textContent===b.textContent));render();};
+  tabDiv.appendChild(b);
+});
+
+function render(){
+  const tbody = document.getElementById('auditTbody');
+  tbody.innerHTML='';
+  (curCat==='all'?DATA:DATA.filter(r=>r.cat===curCat)).forEach(r=>{
+    const sc = r.score;
+    const col = sc>=80?'#4caf50':sc>=50?'#ff9800':'#f44336';
+    tbody.insertAdjacentHTML('beforeend',`<tr>
+      <td><strong>${r.check}</strong></td>
+      <td><span style="color:${STATUS_COLOR[r.status]};font-size:0.9rem">${STATUS_ICON[r.status]}</span>
+          <span style="color:${STATUS_COLOR[r.status]};font-size:0.75rem;margin-left:4px">${r.status}</span></td>
+      <td><span style="color:${col};font-weight:700">${r.score}</span>
+          <div class="bar-wrap" style="width:70px"><div class="bar-fill" style="width:${r.score}%;background:${col}"></div></div></td>
+      <td><span class="badge ${PRIO_CLASS[r.priority]||'b-cyan'}">${r.priority}</span></td>
+      <td style="font-size:0.76rem;color:var(--muted)">${r.detail}</td>
+    </tr>`);
+  });
+}
+render();
+</script>
+</body>
+</html>

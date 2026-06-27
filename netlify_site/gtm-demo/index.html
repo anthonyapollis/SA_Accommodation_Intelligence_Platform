@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="af-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LekkeSlaap GTM Demo | SA Accommodation Intelligence Platform</title>
+<link rel="stylesheet" href="styles.css">
+<script src="config.js"></script>
+<script src="catalog-data.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "site_boot",
+    site: { name:"LekkeSlaap GTM Demo", environment:"netlify_demo", country:"ZA", currency:"ZAR", language:"af-ZA" }
+  });
+  (function(w,d,s,l){
+    var id=(w.LEKKESLAAP_GTM_CONFIG&&w.LEKKESLAAP_GTM_CONFIG.gtmId)||"";
+    if(!id||id==="GTM-XXXXXXX")return;
+    w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=="dataLayer"?"&l="+l:"";
+    j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+id+dl;
+    f.parentNode.insertBefore(j,f);
+  })(window,document,"script","dataLayer");
+</script>
+</head>
+<body>
+<noscript><iframe id="gtm-noscript" title="Google Tag Manager" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header class="topbar">
+  <a class="brand" href="#" aria-label="LekkeSlaap GTM demo home">Lekke<span>Slaap</span></a>
+  <nav aria-label="Primary">
+    <a href="#tags">Tags</a>
+    <a href="#properties">Properties</a>
+    <a href="#booking">Booking</a>
+    <a href="#events">dataLayer</a>
+  </nav>
+  <button class="login-btn" type="button" data-action="login">Sign in</button>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">LekkeSlaap.co.za / GTM Demo / SA Accommodation Intelligence Platform</p>
+      <h1>Real listings.<br><em>Live dataLayer.</em></h1>
+      <p>Fire GA4 accommodation events from 1,011 real LekkeSlaap properties. Test all 28 GTM tags in GTM Preview Mode, Tag Assistant, and GA4 DebugView.</p>
+    </div>
+    <div class="hero-panel" aria-label="GTM status">
+      <span>GTM container</span>
+      <strong id="gtmStatus">Loading…</strong>
+      <small id="catalogSource">Catalog loading…</small>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="catalog-stats" id="catalog"></section>
+
+  <!-- TAG INVENTORY -->
+  <section class="tag-inventory" id="tags">
+    <h2>GTM Tag Inventory — LekkeSlaap</h2>
+    <div class="tag-count-badge">28 tags total</div>
+    <div class="tag-grid">
+
+      <!-- GA4 CONFIG -->
+      <div class="tag-card">
+        <div class="tag-num num-ga4">1</div>
+        <div class="tag-info">
+          <div class="tag-name">GA4 Configuration</div>
+          <div class="tag-desc">Base GA4 tag — fires on all pages. Sets measurement ID, user properties, POPIA consent defaults.</div>
+          <span class="tag-badge ga4">GA4</span>
+        </div>
+      </div>
+
+      <!-- PAGE VIEW -->
+      <div class="tag-card">
+        <div class="tag-num num-ga4">2</div>
+        <div class="tag-info">
+          <div class="tag-name">page_view</div>
+          <div class="tag-desc">Fires on every page load. Captures page_title, page_location, page_type (home/search/detail/booking).</div>
+          <span class="tag-badge ga4">GA4 Event</span>
+        </div>
+      </div>
+
+      <!-- VIEW ITEM LIST -->
+      <div class="tag-card">
+        <div class="tag-num num-ga4">3</div>
+        <div class="tag-info">
+          <div class="tag-name">view_item_list</div>
+          <div class="tag-desc">Fires when search results render. Sends item_list_id, region, price tier filter, and all visible properties.</div>
+          <span class="tag-badge ga4">GA4 Ecommerce</span>
+        </div>
+      </div>
+
+      <!-- SELECT ITEM -->
+      <div class="tag-card">
+        <div class="tag-num num-ga4">4</div>
+        <div class="tag-info">
+          <div class="tag-name">select_item</div>
+          <div class="tag-desc">Fires when user clicks a listing card. Sends property_id, price_tier, region, listing_type, index position.</div>
+          <span class="tag-badge ga4">GA4 Ecommerce</span>
+        </div>
+      </div>
+
+      <!-- VIEW ITEM -->
+      <div class="tag-card">
+        <div class="tag-num num-ga4">5</div>
+        <div class="tag-info">
+          <div class="tag-name">view_item</div>
+          <div class="tag-desc">Fires on property detail page. Sends full item schema: price, region, type, review_count, promo flag.</div>
+          <span class="tag-badge ga4">GA4 Ecommerce</span>
+        </div>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="tag-card">
+        <div class="tag-num num-ga4">6</div>
+        <div class="tag-info">
+          <div class="tag-name">search</div>
+          <div class="tag-desc">Fires on destination search. Sends search_term (region), check_in, check_out, guest count.</div>
+          <span class="tag-badge ga4">GA4 Event</span>
+        </div>
+      </div>
+
+      <!-- BEGIN CHECKOUT -->
+      <div class="tag-card">
+        <div class="tag-num num-ga4">7</div>
+        <div class="tag-info">
+          <div class="tag-name">begin_checkout</div>
+          <div class="tag-desc">Step 1 of booking funnel. Sends property, price, dates, currency=ZAR.</div>
+          <span class="tag-badge ga4">GA4 Ecommerce</span>
+        </div>
+      </div>
+
+      <!-- ADD PAYMENT INFO -->
+      <div class="tag-card">
+        <div class="tag-num num-ga4">8</div>
+        <div class="tag-info">
+          <div class="tag-name">add_payment_info</div>
+          <div class="tag-desc">Fires when guest enters payment. Sends payment_type (card/EFT), value, property details.</div>
+          <span class="tag-badge ga4">GA4 Ecommerce</span>
+        </div>
+      </div>
+
+      <!-- PURCHASE -->
+      <div class="tag-card">
+        <div class="tag-num num-ga4">9</div>
+        <div class="tag-info">
+          <div class="tag-name">purchase (booking confirmed)</div>
+          <div class="tag-desc">Fires on booking confirmation. Sends transaction_id, value, tax (15% VAT), property, region, tier.</div>
+          <span class="tag-badge ga4">GA4 Ecommerce</span>
+        </div>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="tag-card">
+        <div class="tag-num num-ga4">10</div>
+        <div class="tag-info">
+          <div class="tag-name">login</div>
+          <div class="tag-desc">Fires on sign-in. Sends method (email/social), login_status, POPIA consent state, customer type.</div>
+          <span class="tag-badge ga4">GA4 Event</span>
+        </div>
+      </div>
+
+      <!-- CONSENT UPDATE -->
+      <div class="tag-card">
+        <div class="tag-num num-consent">11</div>
+        <div class="tag-info">
+          <div class="tag-name">consent_update (POPIA)</div>
+          <div class="tag-desc">POPIA-compliant consent mode. Sets analytics_storage, ad_storage, functionality_storage per user choice.</div>
+          <span class="tag-badge consent">POPIA Consent</span>
+        </div>
+      </div>
+
+      <!-- FILTER APPLY -->
+      <div class="tag-card">
+        <div class="tag-num num-engage">12</div>
+        <div class="tag-info">
+          <div class="tag-name">filter_apply</div>
+          <div class="tag-desc">Fires on listing type, region, or price tier filter. Sends filter key-value and current item_list_id.</div>
+          <span class="tag-badge engage">Engagement</span>
+        </div>
+      </div>
+
+      <!-- DATE AVAILABILITY -->
+      <div class="tag-card">
+        <div class="tag-num num-engage">13</div>
+        <div class="tag-info">
+          <div class="tag-name">date_availability_check</div>
+          <div class="tag-desc">Fires when user picks dates on a property. Sends check_in, check_out, guest count, property_id.</div>
+          <span class="tag-badge engage">Engagement</span>
+        </div>
+      </div>
+
+      <!-- CONTACT HOST -->
+      <div class="tag-card">
+        <div class="tag-num num-engage">14</div>
+        <div class="tag-info">
+          <div class="tag-name">contact_host</div>
+          <div class="tag-desc">Fires when user submits enquiry form. Sends property_id, region, contact_method, listing_type.</div>
+          <span class="tag-badge engage">Engagement</span>
+        </div>
+      </div>
+
+      <!-- WISHLIST ADD -->
+      <div class="tag-card">
+        <div class="tag-num num-engage">15</div>
+        <div class="tag-info">
+          <div class="tag-name">wishlist_add</div>
+          <div class="tag-desc">Fires on save/heart click. Sends property_id, price_tier, region — used for remarketing audiences.</div>
+          <span class="tag-badge engage">Engagement</span>
+        </div>
+      </div>
+
+      <!-- PHONE REVEAL -->
+      <div class="tag-card">
+        <div class="tag-num num-engage">16</div>
+        <div class="tag-info">
+          <div class="tag-name">phone_number_reveal</div>
+          <div class="tag-desc">Fires when user clicks "Show number". Indicates high-intent lead; triggers Google Ads conversion.</div>
+          <span class="tag-badge engage">Engagement</span>
+        </div>
+      </div>
+
+      <!-- MAP VIEW -->
+      <div class="tag-card">
+        <div class="tag-num num-engage">17</div>
+        <div class="tag-info">
+          <div class="tag-name">map_view_toggle</div>
+          <div class="tag-desc">Fires when user switches to map view. Sends current region and zoom level for geo analysis.</div>
+          <span class="tag-badge engage">Engagement</span>
+        </div>
+      </div>
+
+      <!-- SHARE -->
+      <div class="tag-card">
+        <div class="tag-num num-engage">18</div>
+        <div class="tag-info">
+          <div class="tag-name">share</div>
+          <div class="tag-desc">Fires on share button. Sends method (WhatsApp/copy link), content_type=property, item_id.</div>
+          <span class="tag-badge engage">Engagement</span>
+        </div>
+      </div>
+
+      <!-- SCROLL DEPTH -->
+      <div class="tag-card">
+        <div class="tag-num num-engage">19</div>
+        <div class="tag-info">
+          <div class="tag-name">scroll_depth</div>
+          <div class="tag-desc">Triggers at 25/50/75/90% scroll on search and property pages. Measures engagement depth.</div>
+          <span class="tag-badge engage">Engagement</span>
+        </div>
+      </div>
+
+      <!-- OUTBOUND CLICK -->
+      <div class="tag-card">
+        <div class="tag-num num-engage">20</div>
+        <div class="tag-info">
+          <div class="tag-name">outbound_link_click</div>
+          <div class="tag-desc">Fires on clicks leaving to third-party sites (payment gateway, Google Maps, partner sites).</div>
+          <span class="tag-badge engage">Engagement</span>
+        </div>
+      </div>
+
+      <!-- GOOGLE ADS CONVERSION -->
+      <div class="tag-card">
+        <div class="tag-num num-ads">21</div>
+        <div class="tag-info">
+          <div class="tag-name">Google Ads — Booking Conversion</div>
+          <div class="tag-desc">Fires on purchase event. Sends conversion value (ZAR), transaction_id, currency for ROAS reporting.</div>
+          <span class="tag-badge ads">Google Ads</span>
+        </div>
+      </div>
+
+      <!-- GOOGLE ADS REMARKETING -->
+      <div class="tag-card">
+        <div class="tag-num num-ads">22</div>
+        <div class="tag-info">
+          <div class="tag-name">Google Ads — Remarketing</div>
+          <div class="tag-desc">Fires on view_item. Adds visitor to "property viewers" audience for Display/Search retargeting.</div>
+          <span class="tag-badge ads">Google Ads</span>
+        </div>
+      </div>
+
+      <!-- GOOGLE ADS DYNAMIC -->
+      <div class="tag-card">
+        <div class="tag-num num-ads">23</div>
+        <div class="tag-info">
+          <div class="tag-name">Google Ads — Dynamic Remarketing</div>
+          <div class="tag-desc">Passes property_id, price, region to Google's feed for personalised "you viewed this lodge" ads.</div>
+          <span class="tag-badge ads">Google Ads</span>
+        </div>
+      </div>
+
+      <!-- GOOGLE ADS LEAD -->
+      <div class="tag-card">
+        <div class="tag-num num-ads">24</div>
+        <div class="tag-info">
+          <div class="tag-name">Google Ads — Lead (phone reveal)</div>
+          <div class="tag-desc">Fires on phone_number_reveal as a secondary conversion. Tracks high-intent offline-to-online leads.</div>
+          <span class="tag-badge ads">Google Ads</span>
+        </div>
+      </div>
+
+      <!-- META PAGE VIEW -->
+      <div class="tag-card">
+        <div class="tag-num num-meta">25</div>
+        <div class="tag-info">
+          <div class="tag-name">Meta Pixel — PageView</div>
+          <div class="tag-desc">Base Meta Pixel fires on all pages. Enables Facebook/Instagram audience building and attribution.</div>
+          <span class="tag-badge meta">Meta Pixel</span>
+        </div>
+      </div>
+
+      <!-- META VIEW CONTENT -->
+      <div class="tag-card">
+        <div class="tag-num num-meta">26</div>
+        <div class="tag-info">
+          <div class="tag-name">Meta Pixel — ViewContent</div>
+          <div class="tag-desc">Fires on view_item. Sends content_ids (property_id), content_type, value, currency for Advantage+.</div>
+          <span class="tag-badge meta">Meta Pixel</span>
+        </div>
+      </div>
+
+      <!-- META INITIATE CHECKOUT -->
+      <div class="tag-card">
+        <div class="tag-num num-meta">27</div>
+        <div class="tag-info">
+          <div class="tag-name">Meta Pixel — InitiateCheckout</div>
+          <div class="tag-desc">Fires on begin_checkout. Enables abandoned-booking retargeting on Facebook and Instagram feeds.</div>
+          <span class="tag-badge meta">Meta Pixel</span>
+        </div>
+      </div>
+
+      <!-- META PURCHASE -->
+      <div class="tag-card">
+        <div class="tag-num num-meta">28</div>
+        <div class="tag-info">
+          <div class="tag-name">Meta Pixel — Purchase</div>
+          <div class="tag-desc">Fires on purchase/booking confirmed. Sends value, currency, content_ids for Meta ROAS attribution.</div>
+          <span class="tag-badge meta">Meta Pixel</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROPERTY GRID -->
+  <section class="layout" id="properties">
+    <aside class="filters" aria-label="Listing filters">
+      <h2>Filters</h2>
+      <button type="button" data-action="search">Search: Cape Town</button>
+      <button type="button" data-action="map-view">Map view</button>
+      <div class="filter-group" id="filterButtons"></div>
+      <button type="button" data-action="scroll">Scroll depth (75%)</button>
+    </aside>
+    <section class="products" aria-label="Property listings">
+      <div class="section-heading">
+        <h2>LekkeSlaap listings</h2>
+        <span id="productCount">Loading…</span>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+  </section>
+
+  <!-- BOOKING FUNNEL -->
+  <section class="checkout" id="booking">
+    <div>
+      <p class="eyebrow">Booking funnel simulation</p>
+      <h2>Fire booking events</h2>
+      <div class="funnel-step">
+        <span>search</span><span class="funnel-arrow">→</span>
+        <span>view_item_list</span><span class="funnel-arrow">→</span>
+        <span>select_item</span><span class="funnel-arrow">→</span>
+        <span>view_item</span><span class="funnel-arrow">→</span>
+        <span>date check</span><span class="funnel-arrow">→</span>
+        <span>contact_host</span><span class="funnel-arrow">→</span>
+        <span>begin_checkout</span><span class="funnel-arrow">→</span>
+        <span>add_payment_info</span><span class="funnel-arrow">→</span>
+        <span style="color:#FF6600;font-weight:700;">purchase</span>
+      </div>
+    </div>
+    <div class="checkout-actions">
+      <button type="button" data-action="date-check">Check availability</button>
+      <button type="button" data-action="contact-host">Contact host</button>
+      <button type="button" data-action="phone-reveal">Reveal phone</button>
+      <button type="button" data-action="share">Share (WhatsApp)</button>
+      <button type="button" data-action="begin-checkout">Begin checkout</button>
+      <button type="button" data-action="payment">Add payment info</button>
+      <button class="primary" type="button" data-action="purchase">Confirm booking</button>
+      <button type="button" data-action="consent">POPIA consent</button>
+    </div>
+  </section>
+
+  <!-- DEPLOY PANEL -->
+  <section class="deploy-panel" id="deploy">
+    <div>
+      <p class="eyebrow">Deployment</p>
+      <h2>Connect to GTM Preview</h2>
+      <p>Deploy this folder to Netlify, then use the live URL in GTM Preview Mode and GA4 DebugView to validate all 28 tags.</p>
+    </div>
+    <div class="deploy-steps" aria-label="Steps">
+      <span>1. Add your GTM container ID in <code>config.js</code></span>
+      <span>2. Drag <code>gtm-demo/</code> folder to Netlify drop zone</span>
+      <span>3. Open GTM → Preview → paste Netlify URL</span>
+      <span>4. Fire events — verify in Tag Assistant &amp; GA4 DebugView</span>
+    </div>
+  </section>
+
+  <!-- DATALAYER CONSOLE -->
+  <section class="event-console" id="events">
+    <div class="section-heading">
+      <h2>dataLayer console</h2>
+      <button type="button" data-action="clear-log">Clear</button>
+    </div>
+    <pre id="eventLog" aria-live="polite"></pre>
+  </section>
+
+</main>
+
+<footer>
+  <strong>LekkeSlaap</strong>
+  <span>GTM Demo · SA Accommodation Intelligence Platform · Anthony Apollis · 2026 · 28 tags · 1,011 properties · africa-south1 BigQuery</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seasonality | SA Accommodation Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;
+      --cyan:#00bcd4;--lekke:#FF6C00;--orange:#ff9800;--red:#f44336;--green:#4caf50;--blue:#2196f3}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;min-height:100vh}
+nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0.75rem 1.5rem;
+     display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:0.35rem 0.75rem;border-radius:6px;
+       font-size:0.8rem;transition:all 0.2s}
+nav a:hover,nav a.active{background:rgba(0,188,212,0.15);color:var(--cyan)}
+.page-header{padding:2rem 1.5rem 1rem;border-bottom:1px solid var(--border)}
+.page-header h1{font-size:1.6rem;color:var(--cyan);margin-bottom:0.3rem}
+.page-header p{color:var(--muted);font-size:0.9rem}
+.content{padding:1.5rem;max-width:1400px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1rem}
+.card h2{font-size:1rem;color:var(--cyan);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em}
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{background:rgba(0,188,212,0.1);color:var(--cyan);padding:0.5rem 0.75rem;text-align:left;
+    border-bottom:1px solid var(--border)}
+td{padding:0.45rem 0.75rem;border-bottom:1px solid rgba(48,54,61,0.5);color:var(--text)}
+tr:hover td{background:rgba(255,255,255,0.03)}
+.badge{display:inline-block;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.7rem;font-weight:600}
+.badge-cyan{background:rgba(0,188,212,0.15);color:var(--cyan)}
+.badge-green{background:rgba(76,175,80,0.15);color:var(--green)}
+.badge-orange{background:rgba(255,152,0,0.15);color:var(--orange)}
+.badge-red{background:rgba(244,67,54,0.15);color:var(--red)}
+.badge-blue{background:rgba(33,150,243,0.15);color:var(--blue)}
+
+.season-bars{display:flex;flex-direction:column;gap:0.75rem}
+.season-bar{background:rgba(255,255,255,0.04);border-radius:6px;padding:0.6rem 0.8rem;position:relative;overflow:hidden}
+.season-fill{position:absolute;top:0;left:0;height:100%;opacity:0.15;border-radius:6px}
+.season-bar.summer .season-fill{background:#ff4444}
+.season-bar.winter .season-fill{background:#2196f3}
+.season-bar.autumn .season-fill{background:#ff9800}
+.season-bar.spring .season-fill{background:#4caf50}
+.season-label{position:relative;color:var(--text);font-size:0.9rem}
+.summer-col{color:#ff4444}
+.winter-col{color:#2196f3}
+.autumn-col{color:#ff9800}
+.spring-col{color:#4caf50}
+.mult-card{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:0.75rem;text-align:center}
+.mult-val{font-size:1.4rem;font-weight:700;margin-bottom:0.3rem}
+.mult-lbl{font-size:0.75rem;color:var(--muted)}
+
+
+/* ── Context cards ──────────────────────────────────────────── */
+.ctx-card{background:rgba(255,108,0,0.05);border-left:4px solid #FF6C00;
+          border-radius:0 8px 8px 0;padding:0.85rem 1.1rem;margin-bottom:1.1rem;
+          font-size:0.82rem;line-height:1.6;color:#c9d1d9}
+.ctx-card .ctx-row{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:0.55rem}
+.ctx-item{flex:1;min-width:160px}
+.ctx-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;
+           letter-spacing:0.08em;color:#FF6C00;margin-bottom:0.2rem}
+.ctx-text{font-size:0.8rem;color:#8b949e}
+.ctx-text strong{color:#e6edf3}
+/* Column hint tooltips */
+.col-hint{font-size:0.65rem;color:#8b949e;display:block;margin-top:1px;font-weight:400}
+
+
+.chart-explain{background:rgba(255,255,255,0.03);border:1px solid #30363d;
+               border-radius:6px;padding:0.6rem 0.85rem;margin-bottom:0.75rem;
+               font-size:0.78rem;color:#8b949e;line-height:1.55}
+.chart-explain strong{color:#e6edf3}
+.chart-explain .how{display:inline-block;background:rgba(255,108,0,0.12);
+                    color:#FF6C00;border-radius:3px;padding:0.1rem 0.35rem;
+                    font-size:0.68rem;font-weight:700;margin-right:0.35rem}
+
+</style>
+</head>
+<body>
+<nav>
+      <a href="index.html">Map</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="recommendations.html">Recommendations</a>
+      <a href="data-model.html">Data Model</a>
+      <a href="seasonality.html">Seasonality</a>
+      <a href="ml-features.html">ML Features</a>
+      <a href="market-opportunity.html">Market Opp.</a>
+      <a href="mobile-attribution.html">Mobile</a>
+      <a href="seo-audit.html">SEO Audit</a>
+      <a href="seo-pages.html">SEO Pages</a>
+      <a href="site-audit.html">Site Audit</a>
+      <a href="gtm-demo/">GTM Demo</a>
+      <a href="ebook.html">Ebook</a>
+</nav>
+
+<div class="page-header">
+  <h1>Seasonality Analysis</h1>
+  <p>SA booking demand by season — derived from 28,628 synthetic GA4 booking events</p>
+</div>
+<div class="content">
+<div class="ctx-card">
+  <strong style="color:#FF6C00">What you are looking at</strong>
+  <div class="ctx-row">
+    <div class="ctx-item">
+      <div class="ctx-label">What</div>
+      <div class="ctx-text">Booking demand distributed across South Africa's <strong>four meteorological seasons</strong>
+        (Summer Dec–Feb, Autumn Mar–May, Winter Jun–Aug, Spring Sep–Nov) — derived from
+        <strong>28,628 synthetic GA4 booking events</strong> across 9 provinces.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">Why</div>
+      <div class="ctx-text">Accommodation demand in SA is highly seasonal — Cape Town peaks in Summer while Kruger
+        peaks in Winter (dry season, better game viewing). Knowing the seasonal pattern per province helps
+        <strong>set dynamic pricing</strong>, time campaigns correctly, and <strong>avoid stock-outs
+        during peak periods</strong>.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">So What</div>
+      <div class="ctx-text">Check which season is dominant for your target province. Demand multipliers
+        (e.g. 1.62× at Christmas) tell you how much above average demand rises — use these to
+        <strong>set premium pricing</strong> and justify higher ad spend in the lead-up window.</div>
+    </div>
+  </div>
+</div>
+  <div class="card">
+    <h2>SA-Wide Seasonal Demand</h2>
+    <div class="season-bars">
+      <div class="season-bar summer">
+        <div class="season-fill" style="width:32.4%"></div>
+        <div class="season-label">Summer (Dec–Feb) &nbsp;<strong>32.4%</strong></div>
+      </div>
+      <div class="season-bar winter">
+        <div class="season-fill" style="width:17.0%"></div>
+        <div class="season-label">Winter (Jun–Aug) &nbsp;<strong>17.0%</strong></div>
+      </div>
+      <div class="season-bar autumn">
+        <div class="season-fill" style="width:50.5%"></div>
+        <div class="season-label">Autumn (Mar–May) &nbsp;<strong>50.5%</strong></div>
+      </div>
+      <div class="season-bar spring">
+        <div class="season-fill" style="width:0%"></div>
+        <div class="season-label">Spring (Sep–Nov) &nbsp;<strong>0%</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Province Seasonal Breakdown</h2>
+<div class="chart-explain">Each row shows what <strong>% of that province's annual bookings</strong> fall in each season. The four columns sum to 100% per row. <span class="how">How to read it</span>A province with 45% Summer and 15% Winter is <strong>highly seasonal</strong> — pricing and stock management must account for a very quiet winter period. A province with relatively even splits (28/26/24/22) is <strong>year-round</strong> — more stable revenue but less premium pricing power in peak season. The <strong>Top Season</strong> column highlights where each province's single biggest demand window falls — use this to prioritise campaign budgets.</div>
+    <table id="provTable">
+      <thead><tr><th>Province</th><th>Summer</th><th>Autumn</th><th>Winter</th><th>Spring</th><th>Top Season</th></tr></thead>
+      <tbody id="provTbody"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Demand Multipliers (2026–2027)</h2>
+<div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:7px;padding:0.7rem 0.9rem;margin-bottom:0.9rem;font-size:0.79rem;color:var(--muted)"><strong style="color:var(--text)">How to read these:</strong> A multiplier of <strong style="color:#ff4444">1.62×</strong> means demand is 62% above the annual average during that period — so a property that normally charges R1,000/night could justifiably charge <strong>R1,620/night</strong>. School holidays (+20%) and public holidays (+15%) compound on top of the seasonal baseline. Baseline 1.0 = average nightly demand across the full year.</div>
+    <p style="color:var(--muted);margin-bottom:1rem;font-size:0.85rem">
+      Historical demand index vs baseline (1.0 = average). School holidays add +20%, public holidays +15%.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.75rem">
+      <div class="mult-card"><div class="mult-val summer-col">1.62×</div><div class="mult-lbl">Christmas / NY (Dec 25–Jan 1)</div></div>
+      <div class="mult-card"><div class="mult-val winter-col">1.50×</div><div class="mult-lbl">Winter school hols (Jun–Jul)</div></div>
+      <div class="mult-card"><div class="mult-val autumn-col">1.32×</div><div class="mult-lbl">Easter long weekend</div></div>
+      <div class="mult-card"><div class="mult-val spring-col">1.26×</div><div class="mult-lbl">Heritage Day (Sep 24)</div></div>
+      <div class="mult-card"><div class="mult-val summer-col">1.35×</div><div class="mult-lbl">Summer baseline</div></div>
+      <div class="mult-card"><div class="mult-val" style="color:var(--muted)">1.05×</div><div class="mult-lbl">Spring baseline</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PROV = [{"province": "Eastern Cape", "Summer": 33.2, "Autumn": 51.9, "Winter": 14.9, "Spring": 0.0}, {"province": "Free State", "Summer": 32.9, "Autumn": 50.7, "Winter": 16.4, "Spring": 0.0}, {"province": "Gauteng", "Summer": 31.6, "Autumn": 50.5, "Winter": 17.9, "Spring": 0.0}, {"province": "KwaZulu-Natal", "Summer": 30.8, "Autumn": 51.8, "Winter": 17.4, "Spring": 0.0}, {"province": "Limpopo", "Summer": 32.9, "Autumn": 49.8, "Winter": 17.3, "Spring": 0.0}, {"province": "Mpumalanga", "Summer": 34.6, "Autumn": 48.3, "Winter": 17.1, "Spring": 0.0}, {"province": "North West", "Summer": 32.3, "Autumn": 51.5, "Winter": 16.1, "Spring": 0.0}, {"province": "Northern Cape", "Summer": 37.0, "Autumn": 46.4, "Winter": 16.6, "Spring": 0.0}, {"province": "Western Cape", "Summer": 32.8, "Autumn": 50.1, "Winter": 17.0, "Spring": 0.0}];
+const SEASON_COLOR = {Summer:'#ff4444',Autumn:'#ff9800',Winter:'#2196f3',Spring:'#4caf50'};
+function topSeason(r){
+  const ss=['Summer','Autumn','Winter','Spring'];
+  return ss.reduce((a,b)=>r[a]>r[b]?a:b);
+}
+const tbody = document.getElementById('provTbody');
+PROV.forEach(r=>{
+  const top = topSeason(r);
+  const tr = `<tr>
+    <td><strong>${r.province}</strong></td>
+    <td style="color:#ff4444">${r.Summer.toFixed(1)}%</td>
+    <td style="color:#ff9800">${r.Autumn.toFixed(1)}%</td>
+    <td style="color:#2196f3">${r.Winter.toFixed(1)}%</td>
+    <td style="color:#4caf50">${r.Spring.toFixed(1)}%</td>
+    <td><span class="badge" style="background:${SEASON_COLOR[top]}22;color:${SEASON_COLOR[top]}">${top}</span></td>
+  </tr>`;
+  tbody.insertAdjacentHTML('beforeend',tr);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SA Accommodation ML Geomap | Intelligence Platform</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#1A1A2E;color:#fff;}
+#top-bar{background:#16213E;padding:10px 18px;display:flex;align-items:center;gap:14px;border-bottom:2px solid #00BCD4;flex-wrap:wrap;position:sticky;top:0;z-index:900;}
+.logo{font-size:.85rem;font-weight:700;color:#00BCD4;white-space:nowrap;}
+.logo span{color:#aab3cc;font-weight:400;}
+.kpi{text-align:center;padding:3px 12px;border-left:1px solid #2a3a5e;}
+.kpi-n{font-size:1rem;font-weight:700;color:#00BCD4;}
+.kpi-l{font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:#7a8aa0;}
+.nav-links{margin-left:auto;display:flex;gap:6px;}
+.nav-links a{color:#aab3cc;font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:6px;text-decoration:none;background:rgba(255,255,255,.06);}
+.nav-links a:hover{background:rgba(0,188,212,.15);color:#00BCD4;}
+#map{width:100%;height:calc(100vh - 58px);}
+
+/* ── controls panel ───────────────────────────────────────── */
+#ctrl-panel{position:absolute;top:70px;right:12px;z-index:1000;background:#16213E;border:1px solid #2a3a5e;border-radius:10px;padding:10px 14px;min-width:200px;max-width:230px;font-size:.72rem;}
+#ctrl-panel h4{color:#00BCD4;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+.ctrl-section{margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #2a3a5e;}
+.ctrl-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ctrl-label{color:#aab3cc;font-size:.65rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
+.ctrl-row{display:flex;align-items:center;gap:7px;margin-bottom:4px;color:#ccd2e0;}
+.ctrl-row:last-child{margin-bottom:0;}
+.ctrl-row input[type=radio]{accent-color:#00BCD4;}
+.size-note{font-size:.6rem;color:#5a6a80;margin-top:5px;}
+.season-btn{display:block;width:100%;text-align:left;background:none;border:1px solid #2a3a5e;border-radius:5px;padding:4px 8px;color:#aab3cc;font-size:.67rem;cursor:pointer;margin-bottom:3px;transition:.15s;}
+.season-btn:hover,.season-btn.active{background:rgba(0,188,212,.12);border-color:#00BCD4;color:#00BCD4;}
+
+/* ── ML insights panel ────────────────────────────────────── */
+#ml-panel{position:absolute;bottom:30px;left:12px;z-index:1000;background:#16213E;border:1px solid #2a3a5e;border-radius:10px;padding:12px 14px;min-width:260px;max-width:300px;font-size:.71rem;}
+#ml-panel h4{color:#00BCD4;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+.cluster-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.cl-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
+.cl-info{flex:1;}
+.cl-name{font-size:.68rem;font-weight:700;color:#e0e6f0;}
+.cl-sub{font-size:.6rem;color:#7a8aa0;}
+.cl-stats{font-size:.6rem;color:#00BCD4;white-space:nowrap;}
+.corr-bar{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.corr-track{flex:1;height:5px;background:#2a3a5e;border-radius:3px;overflow:hidden;}
+.corr-fill{height:100%;border-radius:3px;}
+.corr-val{font-size:.6rem;color:#aab3cc;min-width:34px;text-align:right;}
+.season-heat{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:6px;}
+.sh-cell{text-align:center;padding:4px 2px;border-radius:4px;font-size:.6rem;}
+.sh-lbl{color:#7a8aa0;font-size:.58rem;}
+
+/* ── Leaflet overrides ────────────────────────────────────── */
+.leaflet-popup-content-wrapper{background:#16213E;color:#fff;border:1px solid #00BCD4;border-radius:10px;min-width:220px;}
+.leaflet-popup-tip{background:#00BCD4;}
+.pop-title{font-size:.85rem;font-weight:700;color:#00BCD4;margin-bottom:6px;}
+.pop-row{display:flex;justify-content:space-between;gap:10px;font-size:.72rem;padding:3px 0;border-bottom:1px solid #2a3a5e;}
+.pop-row:last-child{border-bottom:none;}
+.pop-lbl{color:#7a8aa0;}
+.pop-val{color:#fff;font-weight:600;}
+.tier-badge,.cl-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.62rem;font-weight:700;}
+.sea-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:6px;}
+.sea-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.sea-bar-bg{width:20px;height:40px;background:#2a3a5e;border-radius:3px;display:flex;align-items:flex-end;}
+.sea-bar{width:100%;border-radius:3px;transition:.3s;}
+.sea-lbl{font-size:.55rem;color:#7a8aa0;}
+
+.legend{background:#16213E;padding:10px 14px;border-radius:8px;border:1px solid #2a3a5e;min-width:140px;}
+.legend h4{font-size:.68rem;color:#00BCD4;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+.leg-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:.7rem;color:#aab3cc;}
+.leg-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
+</style>
+</head>
+<body>
+
+<div id="top-bar">
+  <div class="logo">SA Accommodation <span>Intelligence Platform</span></div>
+  <div class="kpi"><div class="kpi-n">114</div><div class="kpi-l">Regions</div></div>
+  <div class="kpi"><div class="kpi-n">1,010</div><div class="kpi-l">Listings</div></div>
+  <div class="kpi"><div class="kpi-n">R2,146</div><div class="kpi-l">Avg Price/Night</div></div>
+  <div class="kpi"><div class="kpi-n">r=-0.279</div><div class="kpi-l">Price↔Demand r</div></div>
+  <div class="nav-links">
+    <a href="index.html">Map</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="data-model.html">Data Model</a>
+    <a href="seasonality.html">Seasonality</a>
+    <a href="ml-features.html">ML Features</a>
+    <a href="market-opportunity.html">Market Opp.</a>
+    <a href="seo-pages.html">SEO Pages</a>
+    <a href="mobile-attribution.html">Mobile</a>
+    <a href="seo-audit.html">SEO Audit</a>
+    <a href="site-audit.html">Site Audit</a>
+    <a href="gtm-demo/">GTM Demo</a>
+    <a href="ebook.html">Ebook</a>
+  </div>
+</div>
+
+<div id="map"></div>
+
+<!-- ── Controls ── -->
+<div id="ctrl-panel">
+  <h4>Map Controls</h4>
+
+  <div class="ctrl-section">
+    <div class="ctrl-label">Circle Size Mode</div>
+    <div class="ctrl-row"><input type="radio" name="mode" value="count" checked> Listing count</div>
+    <div class="ctrl-row"><input type="radio" name="mode" value="price"> Avg price</div>
+    <div class="ctrl-row"><input type="radio" name="mode" value="demand"> Demand score</div>
+    <div class="size-note">Circle area = relative volume</div>
+  </div>
+
+  <div class="ctrl-section">
+    <div class="ctrl-label">Colour Mode</div>
+    <div class="ctrl-row"><input type="radio" name="cmode" value="tier" checked> Price tier</div>
+    <div class="ctrl-row"><input type="radio" name="cmode" value="cluster"> ML cluster</div>
+    <div class="ctrl-row"><input type="radio" name="cmode" value="season"> Seasonal heat</div>
+  </div>
+
+  <div class="ctrl-section" id="season-btns" style="display:none;">
+    <div class="ctrl-label">Season (SA)</div>
+    <button class="season-btn active" data-s="Summer">☀️ Summer (Dec–Feb)</button>
+    <button class="season-btn" data-s="Autumn">🍂 Autumn (Mar–May)</button>
+    <button class="season-btn" data-s="Winter">❄️ Winter (Jun–Aug)</button>
+    <button class="season-btn" data-s="Spring">🌸 Spring (Sep–Nov)</button>
+  </div>
+</div>
+
+<!-- ── ML Insights Panel ── -->
+<div id="ml-panel">
+  <h4>ML Insights</h4>
+  <div id="cluster-legend"></div>
+  <div style="margin-top:10px;">
+    <div class="ctrl-label" style="margin-bottom:6px;">Price ↔ Demand Correlation by Cluster</div>
+    <div id="corr-bars"></div>
+  </div>
+  <div style="margin-top:10px;">
+    <div class="ctrl-label" style="margin-bottom:6px;">Seasonal Demand — SA Average</div>
+    <div class="season-heat" id="season-avg"></div>
+  </div>
+</div>
+
+<script>
+const MARKERS = [{"lat": -33.5, "lng": 25.8, "region": "Addo Elephant Park", "count": 10, "avg": 1650, "demand": 4.979, "reviews": 49.4, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -29.539, "lng": 31.2133, "region": "Ballito", "count": 10, "avg": 1762, "demand": 5.246, "reviews": 50.1, "tier": "Premium", "type": "Self Catering", "promos": 1, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.308, "Autumn": 0.518, "Winter": 0.174, "Spring": 0.0}, "vol": 0.758, "province": "KwaZulu-Natal"}, {"lat": -24.3, "lng": 31.5, "region": "Balule Nature Reserve", "count": 8, "avg": 3814, "demand": 2.836, "reviews": 22.2, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 9, "cluster": 2, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -33.9025, "lng": 20.7436, "region": "Barrydale", "count": 9, "avg": 1163, "demand": 3.684, "reviews": 36.7, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -32.3595, "lng": 22.5816, "region": "Beaufort West", "count": 10, "avg": 1367, "demand": 30.688, "reviews": 285.1, "tier": "Premium", "type": "Self Catering", "promos": 1, "color": "#FF9800", "radius": 11, "cluster": 0, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -24.8833, "lng": 28.3167, "region": "Bela Bela", "count": 10, "avg": 2842, "demand": 12.742, "reviews": 150.1, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -34.3599, "lng": 18.9208, "region": "Betty S Bay", "count": 9, "avg": 1989, "demand": 7.857, "reviews": 73.3, "tier": "Premium", "type": "Self Catering", "promos": 1, "color": "#FF9800", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -25.1, "lng": 27.5, "region": "Bojanala", "count": 5, "avg": 1167, "demand": 5.23, "reviews": 58.6, "tier": "Budget", "type": "Self Catering", "promos": 0, "color": "#4CAF50", "radius": 7, "cluster": 1, "seasonal": {"Summer": 0.323, "Autumn": 0.515, "Winter": 0.161, "Spring": 0.0}, "vol": 0.765, "province": "North West"}, {"lat": -33.7022, "lng": 21.6814, "region": "Cape Route 62", "count": 1, "avg": 2550, "demand": 6.67, "reviews": 48.0, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 6, "cluster": 1, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.9249, "lng": 18.4241, "region": "Cape Town", "count": 10, "avg": 1626, "demand": 5.781, "reviews": 56.9, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.8878, "lng": 18.8645, "region": "Cape Winelands", "count": 9, "avg": 1225, "demand": 7.162, "reviews": 74.3, "tier": "Mid-Range", "type": "Self Catering", "promos": 1, "color": "#2196F3", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -32.5, "lng": 19.0, "region": "Cederberg", "count": 7, "avg": 1726, "demand": 5.044, "reviews": 43.1, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 9, "cluster": 1, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -32.1775, "lng": 18.8924, "region": "Clanwilliam", "count": 10, "avg": 1920, "demand": 11.997, "reviews": 103.3, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -28.5203, "lng": 28.4284, "region": "Clarens", "count": 10, "avg": 1179, "demand": 18.575, "reviews": 187.7, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 0, "seasonal": {"Summer": 0.329, "Autumn": 0.507, "Winter": 0.164, "Spring": 0.0}, "vol": 0.754, "province": "Free State"}, {"lat": -34.0187, "lng": 18.4461, "region": "Constantia Cape Town", "count": 10, "avg": 1147, "demand": 2.28, "reviews": 22.7, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.375, "lng": 18.3731, "region": "Darling", "count": 10, "avg": 2364, "demand": 3.359, "reviews": 30.6, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -25.5, "lng": 28.4, "region": "Dinokeng Game Reserve", "count": 10, "avg": 1700, "demand": 7.308, "reviews": 77.6, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.316, "Autumn": 0.505, "Winter": 0.179, "Spring": 0.0}, "vol": 0.74, "province": "Gauteng"}, {"lat": -25.42, "lng": 30.1167, "region": "Dullstroom", "count": 6, "avg": 1771, "demand": 6.963, "reviews": 59.8, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 8, "cluster": 1, "seasonal": {"Summer": 0.346, "Autumn": 0.483, "Winter": 0.171, "Spring": 0.0}, "vol": 0.727, "province": "Mpumalanga"}, {"lat": -29.8587, "lng": 31.0218, "region": "Durban", "count": 10, "avg": 1122, "demand": 3.119, "reviews": 30.8, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.308, "Autumn": 0.518, "Winter": 0.174, "Spring": 0.0}, "vol": 0.758, "province": "KwaZulu-Natal"}, {"lat": -32.7033, "lng": 18.0947, "region": "Dwarskersbos", "count": 10, "avg": 1989, "demand": 3.926, "reviews": 39.8, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -32.3083, "lng": 18.3419, "region": "Elands Bay", "count": 10, "avg": 2090, "demand": 3.675, "reviews": 38.2, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -34.1549, "lng": 19.0439, "region": "Elgin", "count": 10, "avg": 1641, "demand": 3.651, "reviews": 35.3, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -34.1, "lng": 19.0, "region": "Escape From Cape Town", "count": 4, "avg": 1448, "demand": 11.418, "reviews": 106.8, "tier": "Budget", "type": "Self Catering", "promos": 1, "color": "#4CAF50", "radius": 7, "cluster": 1, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -29.5, "lng": 30.5, "region": "Escape From Durban", "count": 8, "avg": 1324, "demand": 3.281, "reviews": 31.4, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 9, "cluster": 2, "seasonal": {"Summer": 0.308, "Autumn": 0.518, "Winter": 0.174, "Spring": 0.0}, "vol": 0.758, "province": "KwaZulu-Natal"}, {"lat": -26.5, "lng": 28.5, "region": "Escape From Johannesburg", "count": 8, "avg": 1062, "demand": 9.448, "reviews": 104.0, "tier": "Mid-Range", "type": "Guest House", "promos": 0, "color": "#2196F3", "radius": 9, "cluster": 2, "seasonal": {"Summer": 0.316, "Autumn": 0.505, "Winter": 0.179, "Spring": 0.0}, "vol": 0.74, "province": "Gauteng"}, {"lat": -34.1358, "lng": 18.4289, "region": "Fish Hoek", "count": 10, "avg": 1148, "demand": 2.732, "reviews": 29.4, "tier": "Mid-Range", "type": "Self Catering", "promos": 1, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.9137, "lng": 19.125, "region": "Franschhoek", "count": 9, "avg": 3412, "demand": 3.453, "reviews": 30.4, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -34.5787, "lng": 19.3508, "region": "Gansbaai", "count": 9, "avg": 1912, "demand": 7.999, "reviews": 91.3, "tier": "Luxury", "type": "Self Catering", "promos": 1, "color": "#9C27B0", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.9808, "lng": 22.4556, "region": "Garden Route", "count": 10, "avg": 1003, "demand": 21.853, "reviews": 227.7, "tier": "Mid-Range", "type": "Self Catering", "promos": 1, "color": "#2196F3", "radius": 11, "cluster": 0, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -30.5789, "lng": 25.5059, "region": "Gariep Dam", "count": 10, "avg": 1037, "demand": 43.7, "reviews": 456.0, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 0, "seasonal": {"Summer": 0.329, "Autumn": 0.507, "Winter": 0.164, "Spring": 0.0}, "vol": 0.754, "province": "Free State"}, {"lat": -33.9608, "lng": 25.6022, "region": "Gqeberha Port Elizabeth", "count": 10, "avg": 1094, "demand": 4.317, "reviews": 45.2, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -32.2522, "lng": 24.5408, "region": "Graaff Reinet", "count": 10, "avg": 1745, "demand": 7.122, "reviews": 66.1, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -25.7481, "lng": 27.9049, "region": "Hartbeespoort", "count": 10, "avg": 2027, "demand": 10.418, "reviews": 98.7, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.316, "Autumn": 0.505, "Winter": 0.179, "Spring": 0.0}, "vol": 0.74, "province": "Gauteng"}, {"lat": -24.9167, "lng": 31.1, "region": "Hazyview", "count": 9, "avg": 2414, "demand": 3.986, "reviews": 34.1, "tier": "Luxury", "type": "Self Catering", "promos": 1, "color": "#9C27B0", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -34.0711, "lng": 18.842, "region": "Helderberg", "count": 8, "avg": 1982, "demand": 6.195, "reviews": 55.6, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 9, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -34.4187, "lng": 19.2345, "region": "Hermanus", "count": 6, "avg": 3107, "demand": 5.167, "reviews": 43.0, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 8, "cluster": 1, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -28.0263, "lng": 32.2808, "region": "Hluhluwe", "count": 10, "avg": 3054, "demand": 2.197, "reviews": 18.5, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.308, "Autumn": 0.518, "Winter": 0.174, "Spring": 0.0}, "vol": 0.758, "province": "KwaZulu-Natal"}, {"lat": -24.3667, "lng": 31.05, "region": "Hoedspruit", "count": 10, "avg": 2410, "demand": 4.426, "reviews": 39.7, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -33.9249, "lng": 18.4241, "region": "Homepage", "count": 0, "avg": 0, "demand": 0.0, "reviews": 0.0, "tier": "Unknown", "type": "Guest House", "promos": 0, "color": "#9E9E9E", "radius": 6, "cluster": 1, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -34.0364, "lng": 24.7669, "region": "Humansdorp", "count": 10, "avg": 1992, "demand": 1.061, "reviews": 11.6, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -33.0, "lng": 17.9, "region": "Jacobs Bay", "count": 10, "avg": 2068, "demand": 11.712, "reviews": 111.9, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -34.0505, "lng": 24.9222, "region": "Jeffreys Bay", "count": 7, "avg": 1426, "demand": 4.324, "reviews": 44.9, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 9, "cluster": 1, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -26.2041, "lng": 28.0473, "region": "Johannesburg", "count": 10, "avg": 1228, "demand": 3.62, "reviews": 38.1, "tier": "Premium", "type": "Guest House", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.316, "Autumn": 0.505, "Winter": 0.179, "Spring": 0.0}, "vol": 0.74, "province": "Gauteng"}, {"lat": -26.7, "lng": 21.5, "region": "Kalahari", "count": 10, "avg": 1241, "demand": 13.174, "reviews": 143.1, "tier": "Premium", "type": "Guest House", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.37, "Autumn": 0.464, "Winter": 0.166, "Spring": 0.0}, "vol": 0.72, "province": "Northern Cape"}, {"lat": -30.1756, "lng": 17.9439, "region": "Kamieskroon", "count": 10, "avg": 1381, "demand": 6.607, "reviews": 67.7, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.37, "Autumn": 0.464, "Winter": 0.166, "Spring": 0.0}, "vol": 0.72, "province": "Northern Cape"}, {"lat": -32.2949, "lng": 24.5368, "region": "Karoo", "count": 6, "avg": 1575, "demand": 9.738, "reviews": 88.0, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 8, "cluster": 1, "seasonal": {"Summer": 0.25, "Autumn": 0.25, "Winter": 0.25, "Spring": 0.25}, "vol": 0.0, "province": ""}, {"lat": -33.6773, "lng": 26.6769, "region": "Kenton On Sea", "count": 10, "avg": 1620, "demand": 2.177, "reviews": 22.9, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -28.7381, "lng": 24.7653, "region": "Kimberley", "count": 10, "avg": 984, "demand": 12.801, "reviews": 135.4, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.37, "Autumn": 0.464, "Winter": 0.166, "Spring": 0.0}, "vol": 0.72, "province": "Northern Cape"}, {"lat": -34.3489, "lng": 19.0472, "region": "Kleinmond", "count": 8, "avg": 1762, "demand": 4.627, "reviews": 47.8, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 9, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -24.0028, "lng": 31.4855, "region": "Kruger National Park", "count": 10, "avg": 9613, "demand": 0.524, "reviews": 3.9, "tier": "Luxury", "type": "Lodge", "promos": 0, "color": "#9C27B0", "radius": 11, "cluster": 3, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -33.4981, "lng": 21.2592, "region": "Ladismith", "count": 10, "avg": 1370, "demand": 2.687, "reviews": 28.3, "tier": "Mid-Range", "type": "Guest House", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -32.0823, "lng": 18.3044, "region": "Lamberts Bay", "count": 10, "avg": 2422, "demand": 3.985, "reviews": 32.9, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.0971, "lng": 18.034, "region": "Langebaan", "count": 9, "avg": 1352, "demand": 5.747, "reviews": 53.6, "tier": "Premium", "type": "Self Catering", "promos": 2, "color": "#FF9800", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.25, "Autumn": 0.25, "Winter": 0.25, "Spring": 0.25}, "vol": 0.0, "province": ""}, {"lat": -23.9, "lng": 29.9, "region": "Magoebaskloof", "count": 9, "avg": 1902, "demand": 3.923, "reviews": 37.2, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -34.3576, "lng": 20.6027, "region": "Malgas", "count": 10, "avg": 2956, "demand": 1.969, "reviews": 15.7, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -25.005, "lng": 31.6667, "region": "Marloth Park", "count": 10, "avg": 2077, "demand": 7.666, "reviews": 70.0, "tier": "Premium", "type": "Self Catering", "promos": 1, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -31.5014, "lng": 25.0011, "region": "Middelburg Karoo", "count": 10, "avg": 1074, "demand": 13.735, "reviews": 140.3, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -29.5, "lng": 29.9, "region": "Midlands Meander", "count": 9, "avg": 1821, "demand": 3.974, "reviews": 36.6, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.308, "Autumn": 0.518, "Winter": 0.174, "Spring": 0.0}, "vol": 0.758, "province": "KwaZulu-Natal"}, {"lat": -24.5167, "lng": 28.7833, "region": "Mookgopong", "count": 10, "avg": 2377, "demand": 7.212, "reviews": 79.3, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -34.1833, "lng": 22.1453, "region": "Mossel Bay", "count": 9, "avg": 1571, "demand": 7.037, "reviews": 64.0, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -29.6635, "lng": 17.9264, "region": "Namaqualand", "count": 10, "avg": 1553, "demand": 18.263, "reviews": 188.2, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 0, "seasonal": {"Summer": 0.37, "Autumn": 0.464, "Winter": 0.166, "Spring": 0.0}, "vol": 0.72, "province": "Northern Cape"}, {"lat": -22.5594, "lng": 17.0832, "region": "Namibia", "count": 10, "avg": 1712, "demand": 3.149, "reviews": 28.5, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.25, "Autumn": 0.25, "Winter": 0.25, "Spring": 0.25}, "vol": 0.0, "province": "Namibia"}, {"lat": -31.8618, "lng": 24.5545, "region": "Nieu Bethesda", "count": 7, "avg": 1409, "demand": 7.904, "reviews": 81.7, "tier": "Premium", "type": "Self Catering", "promos": 3, "color": "#FF9800", "radius": 9, "cluster": 1, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -31.3814, "lng": 19.1169, "region": "Nieuwoudtville", "count": 10, "avg": 1278, "demand": 7.627, "reviews": 80.5, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -34.4107, "lng": 19.1892, "region": "Onrus", "count": 10, "avg": 2094, "demand": 4.024, "reviews": 39.1, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.5875, "lng": 22.2068, "region": "Oudtshoorn", "count": 3, "avg": 1071, "demand": 10.323, "reviews": 101.7, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 6, "cluster": 1, "seasonal": {"Summer": 0.25, "Autumn": 0.25, "Winter": 0.25, "Spring": 0.25}, "vol": 0.0, "province": ""}, {"lat": -34.3591, "lng": 19.2368, "region": "Overberg", "count": 10, "avg": 1560, "demand": 5.587, "reviews": 53.1, "tier": "Premium", "type": "Self Catering", "promos": 2, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.7177, "lng": 18.958, "region": "Paarl", "count": 7, "avg": 1438, "demand": 4.966, "reviews": 45.1, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 9, "cluster": 1, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -24.867, "lng": 30.8015, "region": "Panorama Route", "count": 10, "avg": 1790, "demand": 6.01, "reviews": 58.0, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.346, "Autumn": 0.483, "Winter": 0.171, "Spring": 0.0}, "vol": 0.727, "province": "Mpumalanga"}, {"lat": -26.9057, "lng": 27.4577, "region": "Parys", "count": 7, "avg": 975, "demand": 13.517, "reviews": 141.7, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 9, "cluster": 1, "seasonal": {"Summer": 0.329, "Autumn": 0.507, "Winter": 0.164, "Spring": 0.0}, "vol": 0.754, "province": "Free State"}, {"lat": -32.9699, "lng": 17.8893, "region": "Paternoster", "count": 10, "avg": 1315, "demand": 4.286, "reviews": 40.4, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -34.6611, "lng": 19.5094, "region": "Pearly Beach", "count": 9, "avg": 2126, "demand": 3.314, "reviews": 27.0, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -25.25, "lng": 27.0833, "region": "Pilanesberg National Park", "count": 10, "avg": 7348, "demand": 1.511, "reviews": 13.1, "tier": "Luxury", "type": "Game Lodge", "promos": 0, "color": "#9C27B0", "radius": 11, "cluster": 3, "seasonal": {"Summer": 0.323, "Autumn": 0.515, "Winter": 0.161, "Spring": 0.0}, "vol": 0.765, "province": "North West"}, {"lat": -34.052, "lng": 23.3681, "region": "Plettenberg Bay", "count": 10, "avg": 1659, "demand": 3.756, "reviews": 35.2, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.5926, "lng": 26.8901, "region": "Port Alfred", "count": 9, "avg": 1373, "demand": 3.553, "reviews": 36.0, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -31.053, "lng": 30.235, "region": "Port Edward", "count": 10, "avg": 1416, "demand": 1.411, "reviews": 15.6, "tier": "Mid-Range", "type": "Self Catering", "promos": 1, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.308, "Autumn": 0.518, "Winter": 0.174, "Spring": 0.0}, "vol": 0.758, "province": "KwaZulu-Natal"}, {"lat": -25.7479, "lng": 28.2293, "region": "Pretoria", "count": 10, "avg": 1021, "demand": 5.387, "reviews": 56.7, "tier": "Mid-Range", "type": "Guest House", "promos": 1, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.316, "Autumn": 0.505, "Winter": 0.179, "Spring": 0.0}, "vol": 0.74, "province": "Gauteng"}, {"lat": -33.2209, "lng": 22.026, "region": "Prince Albert", "count": 9, "avg": 1855, "demand": 16.696, "reviews": 154.3, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 10, "cluster": 0, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -34.3669, "lng": 18.8278, "region": "Pringle Bay", "count": 10, "avg": 3414, "demand": 2.195, "reviews": 20.1, "tier": "Premium", "type": "Self Catering", "promos": 1, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.7949, "lng": 19.8832, "region": "Robertson", "count": 9, "avg": 1816, "demand": 4.937, "reviews": 46.1, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -24.9, "lng": 31.5, "region": "Sabi Sand Game Reserve", "count": 9, "avg": 8172, "demand": 1.688, "reviews": 19.8, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 10, "cluster": 3, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -33.013, "lng": 17.9363, "region": "Saldanha", "count": 10, "avg": 1203, "demand": 11.015, "reviews": 117.9, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.0, "lng": 26.0, "region": "Sarah Baartman District", "count": 8, "avg": 1582, "demand": 3.595, "reviews": 34.9, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 9, "cluster": 2, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -34.1924, "lng": 18.4374, "region": "Simon S Town", "count": 9, "avg": 2185, "demand": 5.748, "reviews": 58.2, "tier": "Premium", "type": "Self Catering", "promos": 1, "color": "#FF9800", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -25.7667, "lng": 27.7167, "region": "Skeerpoort", "count": 10, "avg": 1687, "demand": 9.558, "reviews": 90.7, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.316, "Autumn": 0.505, "Winter": 0.179, "Spring": 0.0}, "vol": 0.74, "province": "Gauteng"}, {"lat": -29.6635, "lng": 17.8864, "region": "Springbok", "count": 6, "avg": 1298, "demand": 7.575, "reviews": 73.7, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 8, "cluster": 1, "seasonal": {"Summer": 0.37, "Autumn": 0.464, "Winter": 0.166, "Spring": 0.0}, "vol": 0.72, "province": "Northern Cape"}, {"lat": -34.1793, "lng": 24.8468, "region": "St Francis", "count": 10, "avg": 2339, "demand": 2.814, "reviews": 26.4, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -32.7503, "lng": 18.0269, "region": "St Helena Bay", "count": 7, "avg": 1641, "demand": 9.47, "reviews": 91.0, "tier": "Mid-Range", "type": "Self Catering", "promos": 1, "color": "#2196F3", "radius": 9, "cluster": 1, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.9321, "lng": 18.8602, "region": "Stellenbosch", "count": 8, "avg": 2522, "demand": 6.175, "reviews": 53.4, "tier": "Premium", "type": "Guest House", "promos": 0, "color": "#FF9800", "radius": 9, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -34.3616, "lng": 21.4266, "region": "Still Bay", "count": 10, "avg": 1565, "demand": 7.781, "reviews": 80.2, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.25, "Autumn": 0.25, "Winter": 0.25, "Spring": 0.25}, "vol": 0.0, "province": ""}, {"lat": -31.0, "lng": 17.5, "region": "Strandfontein West Coast", "count": 10, "avg": 2075, "demand": 5.115, "reviews": 45.7, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -32.4069, "lng": 20.6592, "region": "Sutherland", "count": 10, "avg": 1940, "demand": 12.647, "reviews": 119.0, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.37, "Autumn": 0.464, "Winter": 0.166, "Spring": 0.0}, "vol": 0.72, "province": "Northern Cape"}, {"lat": -33.5, "lng": 18.7, "region": "Swartland", "count": 2, "avg": 2178, "demand": 5.165, "reviews": 51.0, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 6, "cluster": 1, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -32.5, "lng": 19.5, "region": "Tankwa Karoo", "count": 7, "avg": 2021, "demand": 10.023, "reviews": 101.6, "tier": "Premium", "type": "Self Catering", "promos": 1, "color": "#FF9800", "radius": 9, "cluster": 1, "seasonal": {"Summer": 0.37, "Autumn": 0.464, "Winter": 0.166, "Spring": 0.0}, "vol": 0.72, "province": "Northern Cape"}, {"lat": -24.5889, "lng": 27.4069, "region": "Thabazimbi", "count": 10, "avg": 1906, "demand": 2.046, "reviews": 18.8, "tier": "Mid-Range", "type": "Self Catering", "promos": 1, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -24.5, "lng": 31.0, "region": "Thornybush Game Reserve", "count": 8, "avg": 6946, "demand": 0.469, "reviews": 3.4, "tier": "Luxury", "type": "Lodge", "promos": 0, "color": "#9C27B0", "radius": 9, "cluster": 3, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -24.6, "lng": 31.2, "region": "Timbavati Private Nature Reserve", "count": 9, "avg": 16691, "demand": 0.047, "reviews": 0.8, "tier": "Unknown", "type": "Game Lodge", "promos": 0, "color": "#9E9E9E", "radius": 10, "cluster": 3, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -34.0, "lng": 23.9, "region": "Tsitsikamma", "count": 9, "avg": 2681, "demand": 2.3, "reviews": 19.7, "tier": "Luxury", "type": "Lodge", "promos": 0, "color": "#9C27B0", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.2861, "lng": 19.1408, "region": "Tulbagh", "count": 10, "avg": 2096, "demand": 6.852, "reviews": 64.0, "tier": "Premium", "type": "Self Catering", "promos": 1, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -23.8328, "lng": 30.1638, "region": "Tzaneen", "count": 10, "avg": 1354, "demand": 5.541, "reviews": 57.8, "tier": "Mid-Range", "type": "Self Catering", "promos": 1, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -29.7258, "lng": 31.0726, "region": "Umhlanga", "count": 9, "avg": 2429, "demand": 3.993, "reviews": 32.8, "tier": "Luxury", "type": "Self Catering", "promos": 1, "color": "#9C27B0", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.308, "Autumn": 0.518, "Winter": 0.174, "Spring": 0.0}, "vol": 0.758, "province": "KwaZulu-Natal"}, {"lat": -28.4515, "lng": 21.2561, "region": "Upington", "count": 6, "avg": 1539, "demand": 8.113, "reviews": 73.0, "tier": "Premium", "type": "Guest House", "promos": 0, "color": "#FF9800", "radius": 8, "cluster": 1, "seasonal": {"Summer": 0.37, "Autumn": 0.464, "Winter": 0.166, "Spring": 0.0}, "vol": 0.72, "province": "Northern Cape"}, {"lat": -24.3, "lng": 28.0667, "region": "Vaalwater", "count": 10, "avg": 3452, "demand": 6.127, "reviews": 61.3, "tier": "Premium", "type": "Self Catering", "promos": 1, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.329, "Autumn": 0.498, "Winter": 0.173, "Spring": 0.0}, "vol": 0.738, "province": "Limpopo"}, {"lat": -26.7019, "lng": 27.836, "region": "Vanderbijlpark", "count": 10, "avg": 2554, "demand": 4.096, "reviews": 43.9, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.316, "Autumn": 0.505, "Winter": 0.179, "Spring": 0.0}, "vol": 0.74, "province": "Gauteng"}, {"lat": -31.615, "lng": 18.7378, "region": "Vanrhynsdorp", "count": 10, "avg": 1074, "demand": 11.049, "reviews": 124.4, "tier": "Mid-Range", "type": "Self Catering", "promos": 2, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -32.7761, "lng": 18.1589, "region": "Velddrif", "count": 9, "avg": 1639, "demand": 4.641, "reviews": 42.0, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -31.4082, "lng": 23.1287, "region": "Victoria West", "count": 10, "avg": 1091, "demand": 18.519, "reviews": 207.7, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 0, "seasonal": {"Summer": 0.37, "Autumn": 0.464, "Winter": 0.166, "Spring": 0.0}, "vol": 0.72, "province": "Northern Cape"}, {"lat": -33.9918, "lng": 19.2936, "region": "Villiersdorp", "count": 10, "avg": 2084, "demand": 3.037, "reviews": 28.6, "tier": "Luxury", "type": "Self Catering", "promos": 0, "color": "#9C27B0", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -31.6719, "lng": 18.5014, "region": "Vredendal", "count": 10, "avg": 1405, "demand": 4.321, "reviews": 39.1, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.6443, "lng": 19.0114, "region": "Wellington", "count": 10, "avg": 1568, "demand": 4.179, "reviews": 39.9, "tier": "Mid-Range", "type": "Guest House", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.0, "lng": 18.0, "region": "West Coast", "count": 4, "avg": 1380, "demand": 4.677, "reviews": 40.5, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 7, "cluster": 1, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.996, "lng": 22.5955, "region": "Wilderness", "count": 9, "avg": 1677, "demand": 4.896, "reviews": 45.9, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}, {"lat": -33.2877, "lng": 23.4922, "region": "Willowmore", "count": 10, "avg": 864, "demand": 9.38, "reviews": 104.7, "tier": "Mid-Range", "type": "Self Catering", "promos": 0, "color": "#2196F3", "radius": 11, "cluster": 2, "seasonal": {"Summer": 0.332, "Autumn": 0.519, "Winter": 0.149, "Spring": 0.0}, "vol": 0.779, "province": "Eastern Cape"}, {"lat": -33.356, "lng": 18.1583, "region": "Yzerfontein", "count": 9, "avg": 2416, "demand": 7.103, "reviews": 58.4, "tier": "Premium", "type": "Self Catering", "promos": 0, "color": "#FF9800", "radius": 10, "cluster": 2, "seasonal": {"Summer": 0.328, "Autumn": 0.501, "Winter": 0.17, "Spring": 0.0}, "vol": 0.744, "province": "Western Cape"}];
+const CLUSTER_SUMMARY = [{"idx": 0, "n": 7, "avg_price": 1297, "avg_demand": 24.04, "corr": -0.42}, {"idx": 1, "n": 19, "avg_price": 1651, "avg_demand": 7.17, "corr": 0.094}, {"idx": 2, "n": 83, "avg_price": 1851, "avg_demand": 5.64, "corr": -0.238}, {"idx": 3, "n": 5, "avg_price": 9754, "avg_demand": 0.85, "corr": -0.644}];
+const CLUSTER_META = [{"name": "High-Demand Hotspot", "color": "#FF4444", "desc": "High traffic, top demand scores"}, {"name": "Established Premium", "color": "#FF9800", "desc": "Strong reviews, premium pricing"}, {"name": "Value Volume Leader", "color": "#2196F3", "desc": "High listing count, accessible price"}, {"name": "Emerging Gem", "color": "#4CAF50", "desc": "Lower volume, growth potential"}];
+const GLOBAL_R = -0.279;
+
+const TIER_COLOR = {
+  "Budget":"#4CAF50","Mid-Range":"#2196F3","Premium":"#FF9800","Luxury":"#9C27B0","Unknown":"#9E9E9E"
+};
+
+const map = L.map('map',{center:[-29.0,25.0],zoom:6,zoomControl:true});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+  attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19,
+}).addTo(map);
+
+let circles=[], currentMode='count', currentCmode='tier', currentSeason='Summer';
+
+// ── sizing ─────────────────────────────────────────────────────────────────
+function radiusFor(m, mode) {
+  if (mode==='price')  return Math.max(6,Math.min(42,Math.sqrt(m.avg/80)*2.5));
+  if (mode==='demand') return Math.max(6,Math.min(42,m.demand*6+4));
+  return m.radius;
+}
+
+// ── coloring ───────────────────────────────────────────────────────────────
+function colorFor(m, cmode, season) {
+  if (cmode==='cluster') return CLUSTER_META[m.cluster]?.color || '#9E9E9E';
+  if (cmode==='season') {
+    const idx = m.seasonal[season] || 0.25;
+    // heat: low=blue(#2196F3), mid=orange(#FF9800), high=red(#FF1744)
+    if (idx > 0.35) return '#FF1744';
+    if (idx > 0.28) return '#FF6D00';
+    if (idx > 0.22) return '#FF9800';
+    if (idx > 0.16) return '#2196F3';
+    return '#37474F';
+  }
+  return TIER_COLOR[m.tier] || '#9E9E9E';
+}
+
+// ── opacity based on seasonal demand ──────────────────────────────────────
+function opacityFor(m, cmode, season) {
+  if (cmode==='season') {
+    const idx = m.seasonal[season] || 0.25;
+    return Math.max(0.35, Math.min(0.92, idx * 3.0));
+  }
+  return 0.78;
+}
+
+// ── popup content ──────────────────────────────────────────────────────────
+function popupHtml(m) {
+  const clMeta = CLUSTER_META[m.cluster] || {};
+  const tierBg = {"Budget":"#1B5E20","Mid-Range":"#0D47A1","Premium":"#E65100","Luxury":"#4A148C","Unknown":"#424242"};
+  const bg = tierBg[m.tier]||'#424242';
+
+  const seaBars = ['Summer','Autumn','Winter','Spring'].map(s=>{
+    const v = m.seasonal[s]||0.25;
+    const h = Math.round(v*160);
+    const col = v>0.35?'#FF1744':v>0.28?'#FF6D00':v>0.22?'#FF9800':'#2196F3';
+    return `<div class="sea-bar-wrap">
+      <div class="sea-bar-bg"><div class="sea-bar" style="height:${h}px;background:${col};"></div></div>
+      <div class="sea-lbl">${s.slice(0,3)}</div>
+    </div>`;
+  }).join('');
+
+  return `<div class="pop-title">${m.region}</div>
+    <div class="pop-row"><span class="pop-lbl">Province</span><span class="pop-val">${m.province||'—'}</span></div>
+    <div class="pop-row"><span class="pop-lbl">Listings</span><span class="pop-val">${m.count}</span></div>
+    <div class="pop-row"><span class="pop-lbl">Avg price/night</span><span class="pop-val">R${m.avg.toLocaleString()}</span></div>
+    <div class="pop-row"><span class="pop-lbl">Demand score</span><span class="pop-val">${m.demand.toFixed(2)}</span></div>
+    <div class="pop-row"><span class="pop-lbl">Avg reviews</span><span class="pop-val">${m.reviews.toFixed(0)}</span></div>
+    <div class="pop-row"><span class="pop-lbl">Top type</span><span class="pop-val">${m.type}</span></div>
+    <div class="pop-row"><span class="pop-lbl">Tier</span><span class="pop-val"><span class="tier-badge" style="background:${bg};color:#fff;">${m.tier}</span></span></div>
+    <div class="pop-row"><span class="pop-lbl">ML Cluster</span><span class="pop-val"><span class="cl-badge" style="background:${clMeta.color};color:#fff;">${clMeta.name||'—'}</span></span></div>
+    <div class="pop-row"><span class="pop-lbl">Seasonality vol.</span><span class="pop-val">${(m.vol*100).toFixed(0)}%</span></div>
+    <div class="pop-row"><span class="pop-lbl">Promo listings</span><span class="pop-val">${m.promos}</span></div>
+    <div style="margin-top:8px;font-size:.62rem;color:#7a8aa0;margin-bottom:4px;">Seasonal demand distribution</div>
+    <div class="sea-mini">${seaBars}</div>`;
+}
+
+// ── draw ───────────────────────────────────────────────────────────────────
+function drawMarkers() {
+  circles.forEach(c=>map.removeLayer(c));
+  circles=[];
+  MARKERS.forEach(m=>{
+    const r  = radiusFor(m, currentMode);
+    const fc = colorFor(m, currentCmode, currentSeason);
+    const op = opacityFor(m, currentCmode, currentSeason);
+    const c = L.circleMarker([m.lat,m.lng],{
+      radius:r, fillColor:fc, color:'rgba(255,255,255,0.5)',
+      weight:1, opacity:.9, fillOpacity:op,
+    }).addTo(map);
+    c.bindPopup(popupHtml(m),{maxWidth:280});
+    circles.push(c);
+  });
+  updateLegend();
+}
+
+// ── legend ─────────────────────────────────────────────────────────────────
+let legendControl = null;
+function updateLegend() {
+  if (legendControl) map.removeControl(legendControl);
+  legendControl = L.control({position:'bottomright'});
+  legendControl.onAdd = () => {
+    const d = L.DomUtil.create('div','legend');
+    if (currentCmode==='cluster') {
+      d.innerHTML='<h4>ML Cluster</h4>'+CLUSTER_META.map(c=>
+        `<div class="leg-row"><div class="leg-dot" style="background:${c.color}"></div>${c.name}</div>`
+      ).join('');
+    } else if (currentCmode==='season') {
+      d.innerHTML=`<h4>Demand Heat</h4>
+        <div class="leg-row"><div class="leg-dot" style="background:#FF1744"></div>Very High (>35%)</div>
+        <div class="leg-row"><div class="leg-dot" style="background:#FF6D00"></div>High (28–35%)</div>
+        <div class="leg-row"><div class="leg-dot" style="background:#FF9800"></div>Medium (22–28%)</div>
+        <div class="leg-row"><div class="leg-dot" style="background:#2196F3"></div>Lower (&lt;22%)</div>`;
+    } else {
+      d.innerHTML='<h4>Price Tier</h4>'+[
+        ['#4CAF50','Budget'],['#2196F3','Mid-Range'],['#FF9800','Premium'],['#9C27B0','Luxury']
+      ].map(([c,n])=>`<div class="leg-row"><div class="leg-dot" style="background:${c}"></div>${n}</div>`).join('');
+    }
+    return d;
+  };
+  legendControl.addTo(map);
+}
+
+// ── ML insights panel ──────────────────────────────────────────────────────
+function buildMlPanel() {
+  // Cluster legend
+  const clLeg = document.getElementById('cluster-legend');
+  clLeg.innerHTML = CLUSTER_META.map((c,i)=>{
+    const s = CLUSTER_SUMMARY[i]||{};
+    return `<div class="cluster-row">
+      <div class="cl-dot" style="background:${c.color}"></div>
+      <div class="cl-info">
+        <div class="cl-name">${c.name}</div>
+        <div class="cl-sub">${c.desc}</div>
+      </div>
+      <div class="cl-stats">${s.n||0} regions</div>
+    </div>`;
+  }).join('');
+
+  // Correlation bars
+  const corrEl = document.getElementById('corr-bars');
+  corrEl.innerHTML = CLUSTER_META.map((c,i)=>{
+    const r = CLUSTER_SUMMARY[i]?.corr||0;
+    const pct = Math.abs(r)*100;
+    const col = r>0?'#00BCD4':'#FF6D00';
+    const label = r>0.5?'Strong +':r>0.2?'Moderate +':r<-0.5?'Strong −':r<-0.2?'Moderate −':'Weak';
+    return `<div class="corr-bar">
+      <div style="font-size:.6rem;color:#aab3cc;min-width:70px;">${c.name.split(' ').slice(0,2).join(' ')}</div>
+      <div class="corr-track"><div class="corr-fill" style="width:${pct}%;background:${col};"></div></div>
+      <div class="corr-val">${r>=0?'+':''}${r.toFixed(2)} ${label}</div>
+    </div>`;
+  }).join('');
+
+  // Season avg across all regions
+  const seasons=['Summer','Autumn','Winter','Spring'];
+  const avgSea = seasons.map(s=>{
+    const vals = MARKERS.map(m=>m.seasonal[s]||0.25);
+    return vals.reduce((a,b)=>a+b,0)/vals.length;
+  });
+  const maxSea = Math.max(...avgSea);
+  const seaEl = document.getElementById('season-avg');
+  seaEl.innerHTML = seasons.map((s,i)=>{
+    const pct = Math.round(avgSea[i]/maxSea*100);
+    const col = avgSea[i]>0.28?'#FF4444':avgSea[i]>0.25?'#FF9800':'#2196F3';
+    const emojis = ['☀️','🍂','❄️','🌸'];
+    return `<div class="sh-cell" style="background:${col}22;border:1px solid ${col}44;">
+      <div style="font-size:.8rem;">${emojis[i]}</div>
+      <div style="color:${col};font-weight:700;font-size:.65rem;">${(avgSea[i]*100).toFixed(0)}%</div>
+      <div class="sh-lbl">${s}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── Event listeners ────────────────────────────────────────────────────────
+document.querySelectorAll('input[name="mode"]').forEach(r=>{
+  r.addEventListener('change',()=>{ currentMode=r.value; drawMarkers(); });
+});
+document.querySelectorAll('input[name="cmode"]').forEach(r=>{
+  r.addEventListener('change',()=>{
+    currentCmode=r.value;
+    document.getElementById('season-btns').style.display=r.value==='season'?'block':'none';
+    drawMarkers();
+  });
+});
+document.querySelectorAll('.season-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.season-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    currentSeason=b.dataset.s;
+    drawMarkers();
+  });
+});
+
+// ── Init ───────────────────────────────────────────────────────────────────
+buildMlPanel();
+drawMarkers();
+</script>
+</body>
+</html>

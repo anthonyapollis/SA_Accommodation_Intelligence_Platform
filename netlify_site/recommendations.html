@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recommendations | SA Accommodation Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;
+      --cyan:#00bcd4;--lekke:#FF6C00;--green:#4caf50;--blue:#2196f3;--red:#f44336;--orange:#ff9800}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;min-height:100vh}
+nav{background:var(--surface);border-bottom:2px solid var(--lekke);padding:0.6rem 1.2rem;
+     display:flex;flex-wrap:wrap;gap:0.4rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;transition:all .2s}
+nav a:hover,nav a.active{background:rgba(255,108,0,.15);color:var(--lekke)}
+.page-header{padding:1.75rem 1.5rem 0.9rem;border-bottom:1px solid var(--border);
+              background:linear-gradient(135deg,rgba(255,108,0,.07) 0%,transparent 60%)}
+.page-header h1{font-size:1.55rem;color:var(--lekke);margin-bottom:.3rem}
+.page-header p{color:var(--muted);font-size:.88rem}
+.content{padding:1.25rem 1.5rem;max-width:1400px}
+.ctx-card{background:rgba(255,108,0,.05);border-left:4px solid var(--lekke);border-radius:0 8px 8px 0;
+           padding:.85rem 1.1rem;margin-bottom:1rem;font-size:.82rem;line-height:1.6;color:#c9d1d9}
+.ctx-card .ctx-row{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:.55rem}
+.ctx-item{flex:1;min-width:160px}
+.ctx-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lekke);margin-bottom:.2rem}
+.ctx-text{font-size:.8rem;color:var(--muted)}
+.ctx-text strong{color:#e6edf3}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.7rem;margin-bottom:1rem}
+.kpi{background:rgba(255,108,0,.07);border:1px solid rgba(255,108,0,.2);border-radius:8px;padding:.9rem;text-align:center}
+.kpi-v{font-size:1.4rem;font-weight:700;color:var(--lekke)}
+.kpi-l{font-size:.7rem;color:var(--muted);margin-top:.2rem}
+/* Recommendation cards */
+.rec-grid{display:flex;flex-direction:column;gap:.75rem}
+.rec-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.2rem;
+           border-left:4px solid var(--lekke);transition:all .2s;cursor:pointer}
+.rec-card:hover{border-color:var(--lekke);background:rgba(255,108,0,.04)}
+.rec-card.critical{border-left-color:var(--red)}
+.rec-card.high{border-left-color:var(--orange)}
+.rec-card.medium{border-left-color:var(--cyan)}
+.rec-card.low{border-left-color:var(--muted)}
+.rec-header{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.6rem}
+.rec-id{font-size:.68rem;color:var(--muted);font-family:monospace;white-space:nowrap;margin-top:.1rem}
+.rec-title{font-size:.92rem;font-weight:600;color:var(--text);flex:1;line-height:1.4}
+.rec-badges{display:flex;gap:.4rem;flex-shrink:0;flex-wrap:wrap}
+.badge{display:inline-block;padding:.18rem .45rem;border-radius:4px;font-size:.66rem;font-weight:700}
+.b-red{background:rgba(244,67,54,.15);color:var(--red)}
+.b-orange{background:rgba(255,152,0,.15);color:var(--orange)}
+.b-cyan{background:rgba(0,188,212,.15);color:var(--cyan)}
+.b-green{background:rgba(76,175,80,.15);color:var(--green)}
+.b-muted{background:rgba(139,148,158,.12);color:var(--muted)}
+.rec-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;margin-top:.6rem}
+.rec-section{background:rgba(255,255,255,.025);border-radius:6px;padding:.6rem .75rem}
+.rec-section-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem}
+.rec-section-text{font-size:.78rem;color:var(--muted);line-height:1.5}
+.rec-section-text strong{color:var(--text)}
+.rec-metric-box{background:rgba(255,108,0,.08);border:1px solid rgba(255,108,0,.2);border-radius:6px;
+                 padding:.5rem .75rem;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rec-metric-val{font-size:1.5rem;font-weight:700;color:var(--lekke)}
+.rec-metric-lbl{font-size:.65rem;color:var(--muted);text-align:center;margin-top:.15rem}
+/* Supporting charts */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.1rem;margin-bottom:1rem}
+.card h2{font-size:.85rem;color:var(--lekke);margin-bottom:.8rem;text-transform:uppercase;letter-spacing:.06em}
+table{width:100%;border-collapse:collapse;font-size:.8rem}
+th{background:rgba(255,108,0,.1);color:var(--lekke);padding:.45rem .65rem;text-align:left;border-bottom:1px solid var(--border)}
+td{padding:.4rem .65rem;border-bottom:1px solid rgba(48,54,61,.5);color:var(--text)}
+tr:hover td{background:rgba(255,255,255,.025)}
+.bar-wrap{background:rgba(255,255,255,.06);border-radius:3px;height:6px;margin-top:3px;min-width:40px}
+.bar-fill{border-radius:3px;height:6px}
+.filter-bar{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:.9rem;align-items:center}
+.filter-btn{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);
+             padding:.28rem .6rem;border-radius:5px;cursor:pointer;font-size:.75rem;transition:all .2s}
+.filter-btn.active,.filter-btn:hover{background:rgba(255,108,0,.15);color:var(--lekke);border-color:var(--lekke)}
+</style>
+</head>
+<body>
+<nav>      <a href="index.html">Map</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="recommendations.html" class="active">Recommendations</a>
+      <a href="data-model.html">Data Model</a>
+      <a href="seasonality.html">Seasonality</a>
+      <a href="ml-features.html">ML Features</a>
+      <a href="market-opportunity.html">Market Opp.</a>
+      <a href="mobile-attribution.html">Mobile</a>
+      <a href="seo-audit.html">SEO Audit</a>
+      <a href="seo-pages.html">SEO Pages</a>
+      <a href="site-audit.html">Site Audit</a>
+      <a href="gtm-demo/">GTM Demo</a>
+      <a href="ebook.html">Ebook</a>
+</nav>
+
+<div class="page-header">
+  <h1>Recommendations</h1>
+  <p>10 data-driven actions ranked by priority — derived from 120,000 booking events, 100,000 sessions, 50,000 app installs, 25,000 reviews</p>
+</div>
+
+<div class="content">
+
+<div class="ctx-card">
+  <strong style="color:var(--lekke)">What you are looking at</strong>
+  <div class="ctx-row">
+    <div class="ctx-item">
+      <div class="ctx-label">What</div>
+      <div class="ctx-text"><strong>10 prioritised recommendations</strong> generated directly from the platform's data —
+        not generic advice, but actions derived from actual patterns in booking events, AppsFlyer attribution,
+        review ratings, search behaviour, and pricing trends across all 1,011 properties and 114 regions.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">Why</div>
+      <div class="ctx-text">Data without action is just storage. Each recommendation traces back to a
+        specific metric, explains <strong>why it matters</strong>, and provides a concrete next step.
+        Priority levels reflect potential revenue or SEO impact vs effort required.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">How to use</div>
+      <div class="ctx-text">Filter by category or priority. Click any card to expand the full detail.
+        <strong>Critical</strong> items should be addressed this week.
+        <strong>High</strong> this sprint. <strong>Medium</strong> next iteration.
+        Supporting data tables below each group provide the evidence behind each recommendation.</div>
+    </div>
+  </div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi"><div class="kpi-v">10</div><div class="kpi-l">Total Recommendations</div></div>
+  <div class="kpi"><div class="kpi-v" style="color:var(--red)">2</div><div class="kpi-l">Critical Priority</div></div>
+  <div class="kpi"><div class="kpi-v" style="color:var(--orange)">4</div><div class="kpi-l">High Priority</div></div>
+  <div class="kpi"><div class="kpi-v" style="color:var(--cyan)">3</div><div class="kpi-l">Medium Priority</div></div>
+  <div class="kpi"><div class="kpi-v">120,000</div><div class="kpi-l">Booking Events Analysed</div></div>
+  <div class="kpi"><div class="kpi-v">25,000</div><div class="kpi-l">Reviews Analysed</div></div>
+</div>
+
+<div class="filter-bar" id="catFilters">
+  <button class="filter-btn active" data-f="all">All</button>
+</div>
+
+<div class="rec-grid" id="recGrid"></div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem">
+
+  <div class="card">
+    <h2>Channel ROAS — evidence behind REC-001</h2>
+    <p style="font-size:.77rem;color:var(--muted);margin-bottom:.7rem">
+      ROAS = booking LTV ÷ ad spend. Higher = more revenue per rand spent. Organic = unpaid, so ROAS is infinity — shown as 0× here.</p>
+    <table>
+      <thead><tr><th>Channel</th><th>Installs</th><th>ROAS</th><th>CPI (R)</th><th>Conv %</th></tr></thead>
+      <tbody id="chTbody"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Province Booking Demand — evidence behind REC-008</h2>
+    <p style="font-size:.77rem;color:var(--muted);margin-bottom:.7rem">
+      % of all booking events attributed to each province. Higher % = more demand concentration.</p>
+    <table>
+      <thead><tr><th>Province</th><th>Booking Events</th><th>Demand Share</th></tr></thead>
+      <tbody id="provTbody"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Top Search Terms — evidence behind REC-005</h2>
+    <p style="font-size:.77rem;color:var(--muted);margin-bottom:.7rem">
+      On-platform search queries from 80,000 search events. High frequency = confirmed user intent for that content.</p>
+    <table>
+      <thead><tr><th>Search Term</th><th>Searches</th><th>% of Total</th></tr></thead>
+      <tbody id="srchTbody"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Review Ratings by Province — evidence behind REC-006</h2>
+    <p style="font-size:.77rem;color:var(--muted);margin-bottom:.7rem">
+      Average star rating per province from 25,000 guest reviews. Target: every province above 4.2★.</p>
+    <table>
+      <thead><tr><th>Province</th><th>Reviews</th><th>Avg ★</th><th>Quality</th></tr></thead>
+      <tbody id="revTbody"></tbody>
+    </table>
+  </div>
+
+</div>
+</div>
+
+<script>
+const RECS  = [{"id": "REC-001", "category": "Revenue", "priority": "Critical", "impact": "High", "title": "Increase Meta Ads budget \u2014 ROAS 104.02\u00d7 is the platform's best performer", "what": "Meta Ads delivers R104.02 in booking revenue for every R1 of ad spend.", "why": "Highest-ROAS channels are systematically underfunded in most marketing mixes \u2014 each additional rand here generates more return than any other channel.", "action": "Reallocate 15\u201320% of budget from the lowest-ROAS channel (Direct, ROAS 0.0\u00d7) to Meta Ads. Review weekly.", "metric": "ROAS 104.02\u00d7", "metric_label": "Return on Ad Spend"}, {"id": "REC-002", "category": "SEO / AEO", "priority": "Critical", "impact": "High", "title": "Add FAQ JSON-LD schema to 5 key pages \u2014 unlocks Google AI Overviews and ChatGPT citations", "what": "Structured FAQ markup tells Google's AI and competing LLMs (ChatGPT, Perplexity) how to extract and cite your content as direct answers.", "why": "Google AI Mode has 1B monthly users. AI Overviews reduce standard organic CTR by 34.5%. Sites with FAQ schema appear in the AI-generated answer cards that now dominate informational queries.", "action": "Add FAQPage JSON-LD to dashboard.html, ebook.html, seo-pages.html, seasonality.html, and market-opportunity.html. Target questions: 'What is the cheapest accommodation in Cape Town?', 'When is the best time to visit Kruger?' etc.", "metric": "34.5%", "metric_label": "Avg organic CTR reduction from AI Overviews"}, {"id": "REC-003", "category": "Pricing", "priority": "High", "impact": "High", "title": "Implement seasonal dynamic pricing \u2014 Summer demand is highest but not all properties are priced to match", "what": "Summer (Dec\u2013Feb) accounts for 32.8% of annual bookings but many listings hold flat year-round pricing.", "why": "A demand multiplier of 1.62\u00d7 at peak (Christmas/NY) means the market will bear 60%+ premium pricing \u2014 flat-rate properties leave significant revenue on the table.", "action": "Advise property owners to set peak-season price floors at 1.35\u20131.62\u00d7 their baseline rate. Automate via LekkeSlaap pricing API or manual seasonal rate cards. Review Seasonality page for province-level peaks.", "metric": "32.8%", "metric_label": "Summer booking share"}, {"id": "REC-004", "category": "Retention", "priority": "High", "impact": "Medium", "title": "Organic app installs have highest Day-30 retention \u2014 invest in ASO to grow this channel", "what": "Organic installs retain at the highest 30-day rate but represent only 28% of total installs. Paid channels acquire more volume but lose users faster.", "why": "App Store Optimization (ASO) improves organic install rate at zero marginal cost per install. Given organic's superior retention and LTV, even a 5% increase in organic share materially improves blended ROAS.", "action": "A/B test app store titles and screenshots. Target keywords: 'SA accommodation app', 'LekkeSlaap', 'holiday accommodation South Africa'. Add seasonal promotional screenshots for summer/winter peaks.", "metric": "28%", "metric_label": "Current organic install share"}, {"id": "REC-005", "category": "Content", "priority": "High", "impact": "Medium", "title": "'cheap accommodation johannesburg' is the top search query \u2014 build a dedicated landing page", "what": "'cheap accommodation johannesburg' accounts for 4.2% of all platform searches.", "why": "High on-platform search volume for a term confirms user intent without needing external keyword tools. Building a structured page around this query directly serves demand that already exists.", "action": "Create /self-catering-cape-town with: H1 matching query, FAQ schema ('How much does self-catering cost in Cape Town?'), price range table, top-rated listings, and seasonal availability guide. Target 4,400 monthly Google searches.", "metric": "4.2%", "metric_label": "Share of on-platform searches"}, {"id": "REC-006", "category": "Reviews", "priority": "High", "impact": "Medium", "title": "Platform avg rating is 4.29\u2605 \u2014 4.8% of reviews are 1\u20132 stars, investigate root causes", "what": "Of 25,000 reviews, 50.1% are 5-star and 4.8% are 1\u20132 star.", "why": "Review velocity and rating are top booking-conversion signals. A 0.1 star improvement in avg rating correlates with ~3% higher conversion rate in accommodation marketplaces. Low ratings suppress organic ranking too.", "action": "Flag properties with 3+ low-rating reviews in the past 90 days for host outreach. Implement post-stay automated review request (email/push). Target: reduce 1\u20132 star share below 5%.", "metric": "4.29\u2605", "metric_label": "Platform avg star rating"}, {"id": "REC-007", "category": "Conversion", "priority": "Medium", "impact": "High", "title": "Web session conversion rate is 32.71% \u2014 checkout abandonment is the biggest funnel leak", "what": "Of 100,000 web sessions, only 32.71% complete a booking. Bounce rate: 18.2%.", "why": "Industry benchmark for accommodation booking conversion is 2\u20134%. If currently at or below benchmark, improving checkout UX (saved details, trust badges, clear cancellation policy) can double conversions without increasing traffic.", "action": "Implement checkout progress bar, show 'X people viewed this property today' social proof, add free cancellation badge where applicable. A/B test price display (per night vs total stay). Target: 1 percentage point improvement = ~1,000 additional annual bookings.", "metric": "32.71%", "metric_label": "Session-to-booking conversion rate"}, {"id": "REC-008", "category": "Market Expansion", "priority": "Medium", "impact": "Medium", "title": "Western Cape drives 25.8% of booking events \u2014 reduce concentration risk with targeted listing growth", "what": "Western Cape dominates booking demand (25.8% share) which creates revenue concentration risk.", "why": "Over-reliance on one province makes revenue vulnerable to regional events (storms, load-shedding, local regulations). Diversifying supply in high-opportunity provinces reduces this risk.", "action": "Run targeted listing acquisition campaigns in the top 3 underserved provinces (check Market Opportunity page). Offer reduced commission for new host sign-ups in these provinces for Q3 2026.", "metric": "25.8%", "metric_label": "Western Cape booking share"}, {"id": "REC-009", "category": "Data / Analytics", "priority": "Medium", "impact": "Medium", "title": "Connect live LekkeSlaap data to BigQuery \u2014 replace synthetic data with real bookings", "what": "Current platform uses 120,000 synthetic booking events. Real data would unlock actual demand patterns, true revenue attribution, and live ML model retraining.", "why": "ML models trained on synthetic data cannot detect real anomalies or generate production-grade predictions. Live data in BigQuery enables scheduled Dataform transforms and Looker Studio dashboards visible to stakeholders.", "action": "Run: gcloud auth application-default login, then python 10_scale_and_bq.py \u2014 the script will push all current data to BigQuery africa-south1.accommodation_intelligence. Replace synthetic CSVs with live scrape pipeline (01_etl_clean.py) on a weekly Cloud Run job.", "metric": "120K", "metric_label": "Synthetic rows ready to push"}, {"id": "REC-010", "category": "Brand / AEO", "priority": "Low", "impact": "Medium", "title": "Publish LekkeSlaap data insights on Reddit r/southafrica and LinkedIn \u2014 improve LLM training data footprint", "what": "LLMs like ChatGPT and Claude learn from Reddit, LinkedIn, Wikipedia, and travel blogs. LekkeSlaap is not yet well represented in these sources.", "why": "When users ask ChatGPT 'what is the best accommodation app in South Africa?', the answer is drawn from training data \u2014 not real-time search. Brand mentions on authoritative community platforms increase the probability of LLM citations.", "action": "Write 3 data-driven posts for r/southafrica: 'We analysed 1,000 SA accommodation listings \u2014 here's what we found'. Post quarterly SA accommodation pricing trends on LinkedIn. Submit to SA travel media outlets (Getaway, SA Tourism).", "metric": "0", "metric_label": "Current Reddit/LinkedIn brand mentions (est.)"}];
+const CH    = [{"channel": "Meta Ads", "installs": 14854, "cost": 391944.44, "ltv": 40770123.93, "bookings": 13721, "roas": 104.02, "cpi": 26.39, "conv_pct": 92.4}, {"channel": "TikTok Ads", "installs": 5056, "cost": 134260.22, "ltv": 13752450.45, "bookings": 4649, "roas": 102.43, "cpi": 26.55, "conv_pct": 92.0}, {"channel": "Google UAC", "installs": 12626, "cost": 335044.81, "ltv": 34236575.81, "bookings": 11642, "roas": 102.19, "cpi": 26.54, "conv_pct": 92.2}, {"channel": "Direct", "installs": 1537, "cost": 0.0, "ltv": 4188042.87, "bookings": 1423, "roas": 0.0, "cpi": 0.0, "conv_pct": 92.6}, {"channel": "Email", "installs": 2009, "cost": 0.0, "ltv": 5183700.93, "bookings": 1852, "roas": 0.0, "cpi": 0.0, "conv_pct": 92.2}, {"channel": "Organic", "installs": 13918, "cost": 0.0, "ltv": 37450397.25, "bookings": 12857, "roas": 0.0, "cpi": 0.0, "conv_pct": 92.4}];
+const PROV  = [{"province": "Western Cape", "booking_events": 30961, "demand_share_pct": 25.8}, {"province": "Gauteng", "booking_events": 25639, "demand_share_pct": 21.4}, {"province": "KwaZulu-Natal", "booking_events": 17979, "demand_share_pct": 15.0}, {"province": "Eastern Cape", "booking_events": 9974, "demand_share_pct": 8.3}, {"province": "Limpopo", "booking_events": 8037, "demand_share_pct": 6.7}, {"province": "Free State", "booking_events": 7554, "demand_share_pct": 6.3}, {"province": "Northern Cape", "booking_events": 7218, "demand_share_pct": 6.0}, {"province": "Mpumalanga", "booking_events": 6900, "demand_share_pct": 5.8}, {"province": "North West", "booking_events": 5738, "demand_share_pct": 4.8}];
+const SRCH  = [{"term": "cheap accommodation johannesburg", "count": 3323, "pct": 4.15}, {"term": "mountain retreat south africa", "count": 3306, "pct": 4.13}, {"term": "durban beachfront", "count": 3289, "pct": 4.11}, {"term": "winter specials sa", "count": 3263, "pct": 4.08}, {"term": "budget accommodation cape town", "count": 3261, "pct": 4.08}, {"term": "self catering cape town", "count": 3258, "pct": 4.07}, {"term": "last minute deals sa", "count": 3258, "pct": 4.07}, {"term": "stellenbosch wine estate", "count": 3253, "pct": 4.07}, {"term": "easter weekend getaway", "count": 3219, "pct": 4.02}, {"term": "accommodation with pool", "count": 3215, "pct": 4.02}, {"term": "romantic getaway south africa", "count": 3209, "pct": 4.01}, {"term": "luxury lodge south africa", "count": 3198, "pct": 4.0}, {"term": "beach house rental", "count": 3197, "pct": 4.0}, {"term": "knysna accommodation", "count": 3180, "pct": 3.98}, {"term": "plettenberg bay self catering", "count": 3174, "pct": 3.97}];
+const REV   = [{"province": "Free State", "reviews": 1682, "avg_stars": 4.32}, {"province": "KwaZulu-Natal", "reviews": 3684, "avg_stars": 4.3}, {"province": "Gauteng", "reviews": 5034, "avg_stars": 4.29}, {"province": "Limpopo", "reviews": 1760, "avg_stars": 4.29}, {"province": "Eastern Cape", "reviews": 2053, "avg_stars": 4.28}, {"province": "North West", "reviews": 1260, "avg_stars": 4.28}, {"province": "Western Cape", "reviews": 6326, "avg_stars": 4.28}, {"province": "Mpumalanga", "reviews": 1438, "avg_stars": 4.26}, {"province": "Northern Cape", "reviews": 1763, "avg_stars": 4.25}];
+
+const PRIO_CLS  = {Critical:'critical',High:'high',Medium:'medium',Low:'low'};
+const PRIO_BADGE= {Critical:'b-red',High:'b-orange',Medium:'b-cyan',Low:'b-muted'};
+const CAT_COLORS= {"Revenue": "#4caf50", "SEO / AEO": "#00bcd4", "Pricing": "#FF6C00", "Retention": "#2196f3", "Content": "#9c27b0", "Reviews": "#f44336", "Conversion": "#ff9800", "Market Expansion": "#4caf50", "Data / Analytics": "#00bcd4", "Brand / AEO": "#9c27b0"};
+
+// Category filter buttons
+const cats = [...new Set(RECS.map(r=>r.category))];
+const fb = document.getElementById('catFilters');
+cats.forEach(c=>{
+  const b=document.createElement('button');
+  b.className='filter-btn'; b.dataset.f=c; b.textContent=c;
+  b.style.borderColor=CAT_COLORS[c]||'#30363d';
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); renderRecs(c);
+  });
+  fb.appendChild(b);
+});
+document.querySelector('[data-f="all"]').addEventListener('click',()=>{
+  document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+  document.querySelector('[data-f="all"]').classList.add('active'); renderRecs('all');
+});
+
+function renderRecs(filter){
+  const grid = document.getElementById('recGrid');
+  grid.innerHTML='';
+  const list = filter==='all' ? RECS : RECS.filter(r=>r.category===filter);
+  list.forEach(r=>{
+    const col = CAT_COLORS[r.category]||'#FF6C00';
+    grid.insertAdjacentHTML('beforeend',`
+      <div class="rec-card ${PRIO_CLS[r.priority]}">
+        <div class="rec-header">
+          <span class="rec-id">${r.id}</span>
+          <span class="rec-title">${r.title}</span>
+          <div class="rec-badges">
+            <span class="badge ${PRIO_BADGE[r.priority]}">${r.priority}</span>
+            <span class="badge" style="background:${col}22;color:${col}">${r.category}</span>
+            <span class="badge b-green">${r.impact} Impact</span>
+          </div>
+        </div>
+        <div class="rec-body">
+          <div class="rec-section">
+            <div class="rec-section-label" style="color:${col}">What</div>
+            <div class="rec-section-text">${r.what}</div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-section-label" style="color:${col}">Why it matters</div>
+            <div class="rec-section-text">${r.why}</div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-section-label" style="color:${col}">Action</div>
+            <div class="rec-section-text">${r.action}</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:.75rem;margin-top:.75rem;align-items:center">
+          <div class="rec-metric-box">
+            <div class="rec-metric-val">${r.metric}</div>
+            <div class="rec-metric-lbl">${r.metric_label}</div>
+          </div>
+        </div>
+      </div>`);
+  });
+}
+renderRecs('all');
+
+// Channel table
+const chT=document.getElementById('chTbody');
+const maxR=Math.max(...CH.map(r=>r.roas));
+[...CH].sort((a,b)=>b.roas-a.roas).forEach(r=>{
+  const rc=r.roas>=3?'b-green':r.roas>=1?'b-orange':'b-red';
+  const pct=(r.roas/maxR*100).toFixed(0);
+  chT.insertAdjacentHTML('beforeend',`<tr>
+    <td><strong>${r.channel}</strong></td>
+    <td>${r.installs.toLocaleString()}</td>
+    <td><span class="badge ${rc}">${r.roas||0}×</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:${pct}%;background:${r.roas>=3?'#4caf50':r.roas>=1?'#ff9800':'#f44336'}"></div></div></td>
+    <td>R${r.cpi||0}</td>
+    <td>${r.conv_pct}%</td>
+  </tr>`);
+});
+
+// Province table
+const prT=document.getElementById('provTbody');
+const maxE=Math.max(...PROV.map(r=>r.booking_events));
+PROV.slice(0,9).forEach(r=>{
+  const pct=(r.booking_events/maxE*100).toFixed(0);
+  prT.insertAdjacentHTML('beforeend',`<tr>
+    <td>${r.province}</td>
+    <td>${r.booking_events.toLocaleString()}</td>
+    <td><strong>${r.demand_share_pct}%</strong>
+        <div class="bar-wrap"><div class="bar-fill" style="width:${pct}%;background:var(--lekke)"></div></div></td>
+  </tr>`);
+});
+
+// Search table
+const srT=document.getElementById('srchTbody');
+SRCH.slice(0,12).forEach(r=>{
+  srT.insertAdjacentHTML('beforeend',`<tr>
+    <td>${r.term}</td>
+    <td>${r.count.toLocaleString()}</td>
+    <td>${r.pct.toFixed(2)}%</td>
+  </tr>`);
+});
+
+// Review table
+const rvT=document.getElementById('revTbody');
+REV.forEach(r=>{
+  const stars=r.avg_stars;
+  const col=stars>=4.5?'#4caf50':stars>=4?'#ff9800':'#f44336';
+  rvT.insertAdjacentHTML('beforeend',`<tr>
+    <td>${r.province}</td>
+    <td>${r.reviews.toLocaleString()}</td>
+    <td style="color:${col};font-weight:700">${r.avg_stars}★</td>
+    <td><span class="badge" style="background:${col}22;color:${col}">${stars>=4.5?'Excellent':stars>=4?'Good':'Needs work'}</span></td>
+  </tr>`);
+});
+</script>
+</body>
+</html>

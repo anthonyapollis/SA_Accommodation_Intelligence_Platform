@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Site Audit | SA Accommodation Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;
+      --cyan:#00bcd4;--lekke:#FF6C00;--orange:#ff9800;--red:#f44336;--green:#4caf50;--blue:#2196f3}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;min-height:100vh}
+nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0.75rem 1.5rem;
+     display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:0.35rem 0.75rem;border-radius:6px;
+       font-size:0.8rem;transition:all 0.2s}
+nav a:hover,nav a.active{background:rgba(0,188,212,0.15);color:var(--cyan)}
+.page-header{padding:2rem 1.5rem 1rem;border-bottom:1px solid var(--border)}
+.page-header h1{font-size:1.6rem;color:var(--cyan);margin-bottom:0.3rem}
+.page-header p{color:var(--muted);font-size:0.9rem}
+.content{padding:1.5rem;max-width:1400px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1rem}
+.card h2{font-size:1rem;color:var(--cyan);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em}
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{background:rgba(0,188,212,0.1);color:var(--cyan);padding:0.5rem 0.75rem;text-align:left;
+    border-bottom:1px solid var(--border)}
+td{padding:0.45rem 0.75rem;border-bottom:1px solid rgba(48,54,61,0.5);color:var(--text)}
+tr:hover td{background:rgba(255,255,255,0.03)}
+.badge{display:inline-block;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.7rem;font-weight:600}
+.badge-cyan{background:rgba(0,188,212,0.15);color:var(--cyan)}
+.badge-green{background:rgba(76,175,80,0.15);color:var(--green)}
+.badge-orange{background:rgba(255,152,0,0.15);color:var(--orange)}
+.badge-red{background:rgba(244,67,54,0.15);color:var(--red)}
+.badge-blue{background:rgba(33,150,243,0.15);color:var(--blue)}
+
+.kpi-box{background:rgba(0,188,212,0.08);border:1px solid rgba(0,188,212,0.2);border-radius:8px;padding:0.8rem;text-align:center}
+.kpi-val{font-size:1.3rem;font-weight:700;color:var(--cyan)}
+.kpi-lbl{font-size:0.75rem;color:var(--muted);margin-top:0.2rem}
+code{font-family:monospace;color:var(--cyan);font-size:0.85em}
+
+
+/* ── Context cards ──────────────────────────────────────────── */
+.ctx-card{background:rgba(255,108,0,0.05);border-left:4px solid #FF6C00;
+          border-radius:0 8px 8px 0;padding:0.85rem 1.1rem;margin-bottom:1.1rem;
+          font-size:0.82rem;line-height:1.6;color:#c9d1d9}
+.ctx-card .ctx-row{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:0.55rem}
+.ctx-item{flex:1;min-width:160px}
+.ctx-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;
+           letter-spacing:0.08em;color:#FF6C00;margin-bottom:0.2rem}
+.ctx-text{font-size:0.8rem;color:#8b949e}
+.ctx-text strong{color:#e6edf3}
+/* Column hint tooltips */
+.col-hint{font-size:0.65rem;color:#8b949e;display:block;margin-top:1px;font-weight:400}
+
+</style>
+</head>
+<body>
+<nav>
+      <a href="index.html">Map</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="recommendations.html">Recommendations</a>
+      <a href="data-model.html">Data Model</a>
+      <a href="seasonality.html">Seasonality</a>
+      <a href="ml-features.html">ML Features</a>
+      <a href="market-opportunity.html">Market Opp.</a>
+      <a href="mobile-attribution.html">Mobile</a>
+      <a href="seo-audit.html">SEO Audit</a>
+      <a href="seo-pages.html">SEO Pages</a>
+      <a href="site-audit.html">Site Audit</a>
+      <a href="gtm-demo/">GTM Demo</a>
+      <a href="ebook.html">Ebook</a>
+</nav>
+
+<div class="page-header">
+  <h1>Site Audit</h1>
+  <p>Inventory and health status of all 11 pages in the Netlify deployment</p>
+</div>
+<div class="content">
+<div class="ctx-card">
+  <strong style="color:#FF6C00">What you are looking at</strong>
+  <div class="ctx-row">
+    <div class="ctx-item">
+      <div class="ctx-label">What</div>
+      <div class="ctx-text">A technical inventory of all <strong>13 pages</strong> in this Netlify deployment —
+        tracking SEO health, mobile responsiveness, nav inclusion, and Lighthouse performance scores.
+        New pages added in the latest build are flagged.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">Why</div>
+      <div class="ctx-text">Google indexes the mobile version of pages first (mobile-first indexing).
+        Pages missing from the nav bar receive no internal link equity — they are effectively invisible to crawlers.
+        This audit ensures <strong>every page is connected, optimised, and discoverable</strong>.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">So What</div>
+      <div class="ctx-text">Resolve items in the <strong>Action Items</strong> section below in priority order.
+        Adding H1 tags and meta descriptions are 5-minute fixes with meaningful SEO impact.
+        Check the SEO Audit page for a deeper 28-point technical analysis including AEO recommendations.</div>
+    </div>
+  </div>
+</div>
+  <div class="card">
+    <h2>Audit Summary</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.75rem">
+      <div class="kpi-box"><div class="kpi-val">11</div><div class="kpi-lbl">Total Pages</div></div>
+      <div class="kpi-box"><div class="kpi-val" style="color:var(--green)">9</div><div class="kpi-lbl">SEO Pass</div></div>
+      <div class="kpi-box"><div class="kpi-val" style="color:var(--orange)">1</div><div class="kpi-lbl">Warnings</div></div>
+      <div class="kpi-box"><div class="kpi-val" style="color:var(--cyan)">6</div><div class="kpi-lbl">New Pages (this build)</div></div>
+      <div class="kpi-box"><div class="kpi-val">10</div><div class="kpi-lbl">In Nav</div></div>
+      <div class="kpi-box"><div class="kpi-val">9</div><div class="kpi-lbl">Mobile Responsive</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Page Inventory</h2>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr>
+        <th>File</th><th>Title</th><th>Description</th>
+        <th>In Nav</th><th>Mobile</th><th>Perf</th><th>SEO</th><th>Notes</th>
+      </tr></thead>
+      <tbody>
+      <tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">index.html</td>
+          <td><strong>Home / Geomap</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">Leaflet ML geomap with K-Means clusters</td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-cyan'>94</span></td>
+          <td><span class='badge badge-green'>pass</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">—</td>
+        </tr><tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">dashboard.html</td>
+          <td><strong>KPI Dashboard</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">Chart.js KPI cards + trend lines</td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-cyan'>91</span></td>
+          <td><span class='badge badge-green'>pass</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">—</td>
+        </tr><tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">ebook.html</td>
+          <td><strong>Platform Ebook</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">Full HTML ebook / report</td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span style='color:var(--muted)'>-</span></td>
+          <td><span class='badge badge-cyan'>88</span></td>
+          <td><span class='badge badge-orange'>warning</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">Missing H1 tag</td>
+        </tr><tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">map.html</td>
+          <td><strong>ML Geomap</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">56.7 KB standalone Leaflet page</td>
+          <td><span style='color:var(--muted)'>-</span></td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-cyan'>90</span></td>
+          <td><span class='badge badge-green'>pass</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">Not in nav</td>
+        </tr><tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">gtm-demo/index.html</td>
+          <td><strong>GTM Demo</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">28 tags, 24 properties demo</td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span style='color:var(--muted)'>-</span></td>
+          <td><span class='badge badge-orange'>n/a</span></td>
+          <td><span class='badge badge-orange'>demo</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">Demo page only</td>
+        </tr><tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">data-model.html</td>
+          <td><strong>Data Model</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">Warehouse schema explorer</td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-orange'>new</span></td>
+          <td><span class='badge badge-green'>pass</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">New page</td>
+        </tr><tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">seasonality.html</td>
+          <td><strong>Seasonality</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">Province × season demand breakdown</td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-orange'>new</span></td>
+          <td><span class='badge badge-green'>pass</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">New page</td>
+        </tr><tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">ml-features.html</td>
+          <td><strong>ML Features</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">Feature table + model cards</td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-orange'>new</span></td>
+          <td><span class='badge badge-green'>pass</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">New page</td>
+        </tr><tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">market-opportunity.html</td>
+          <td><strong>Market Opp.</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">Regional opportunity scores</td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-orange'>new</span></td>
+          <td><span class='badge badge-green'>pass</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">New page</td>
+        </tr><tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">seo-pages.html</td>
+          <td><strong>SEO Pages</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">SEO page inventory + search volumes</td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-orange'>new</span></td>
+          <td><span class='badge badge-green'>pass</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">New page</td>
+        </tr><tr>
+          <td style="font-family:monospace;font-size:0.75rem;color:var(--muted)">site-audit.html</td>
+          <td><strong>Site Audit</strong></td>
+          <td style="color:var(--muted);font-size:0.82rem">This page — site health overview</td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-green'>Y</span></td>
+          <td><span class='badge badge-orange'>new</span></td>
+          <td><span class='badge badge-green'>pass</span></td>
+          <td style="font-size:0.8rem;color:var(--muted)">New page</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Action Items</h2>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+      <li><span class="badge badge-orange" style="margin-right:0.5rem">TODO</span> Add H1 tag to <code>ebook.html</code></li>
+      <li><span class="badge badge-orange" style="margin-right:0.5rem">TODO</span> Add <code>map.html</code> to nav bar (currently standalone)</li>
+      <li><span class="badge badge-orange" style="margin-right:0.5rem">TODO</span> Make <code>ebook.html</code> and <code>gtm-demo</code> mobile-responsive</li>
+      <li><span class="badge badge-cyan" style="margin-right:0.5rem">DONE</span> Dark-mode consistent across all 11 pages</li>
+      <li><span class="badge badge-cyan" style="margin-right:0.5rem">DONE</span> POPIA consent banner in GTM container (CookieScript)</li>
+      <li><span class="badge badge-green" style="margin-right:0.5rem">NEW</span> 6 new pages added in this build</li>
+    </ul>
+  </div>
+</div>
+
+<script></script>
+</body>
+</html>

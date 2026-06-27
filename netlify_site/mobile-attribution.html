@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mobile Attribution | SA Accommodation Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;
+      --cyan:#00bcd4;--orange:#FF6C00;--red:#f44336;--green:#4caf50;--blue:#2196f3;
+      --lekke:#FF6C00}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;min-height:100vh}
+nav{background:var(--surface);border-bottom:2px solid var(--lekke);padding:0.6rem 1.2rem;
+     display:flex;flex-wrap:wrap;gap:0.4rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;
+       font-size:0.78rem;transition:all 0.2s}
+nav a:hover,nav a.active{background:rgba(255,108,0,0.15);color:var(--lekke)}
+.page-header{padding:1.75rem 1.5rem 0.9rem;border-bottom:1px solid var(--border);
+              background:linear-gradient(135deg,rgba(255,108,0,0.06) 0%,transparent 60%)}
+.page-header h1{font-size:1.55rem;color:var(--lekke);margin-bottom:0.25rem}
+.page-header p{color:var(--muted);font-size:0.88rem}
+.brand-pill{display:inline-block;background:var(--lekke);color:#fff;font-size:0.68rem;
+             font-weight:700;padding:0.2rem 0.5rem;border-radius:4px;margin-left:0.5rem;
+             letter-spacing:0.05em;vertical-align:middle}
+.content{padding:1.25rem 1.5rem;max-width:1400px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:1rem}
+.card h2{font-size:0.85rem;color:var(--lekke);margin-bottom:0.85rem;text-transform:uppercase;letter-spacing:0.06em}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0.75rem}
+.kpi{background:rgba(255,108,0,0.07);border:1px solid rgba(255,108,0,0.2);border-radius:8px;padding:0.9rem;text-align:center}
+.kpi-v{font-size:1.4rem;font-weight:700;color:var(--lekke)}
+.kpi-l{font-size:0.72rem;color:var(--muted);margin-top:0.2rem}
+table{width:100%;border-collapse:collapse;font-size:0.81rem}
+th{background:rgba(255,108,0,0.1);color:var(--lekke);padding:0.5rem 0.7rem;text-align:left;
+    border-bottom:1px solid var(--border)}
+td{padding:0.42rem 0.7rem;border-bottom:1px solid rgba(48,54,61,0.5);color:var(--text)}
+tr:hover td{background:rgba(255,255,255,0.025)}
+.badge{display:inline-block;padding:0.18rem 0.45rem;border-radius:4px;font-size:0.68rem;font-weight:600}
+.b-orange{background:rgba(255,108,0,0.15);color:var(--lekke)}
+.b-green{background:rgba(76,175,80,0.15);color:#4caf50}
+.b-blue{background:rgba(33,150,243,0.15);color:#2196f3}
+.b-red{background:rgba(244,67,54,0.15);color:#f44336}
+.b-cyan{background:rgba(0,188,212,0.15);color:#00bcd4}
+.bar-wrap{background:rgba(255,255,255,0.06);border-radius:3px;height:7px;margin-top:4px;min-width:60px}
+.bar-fill{background:var(--lekke);border-radius:3px;height:7px}
+
+.arch-box{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;
+          padding:0.7rem 1rem;text-align:center;font-size:0.8rem;min-width:110px}
+.arch-box.orange-box{background:rgba(255,108,0,0.1);border-color:rgba(255,108,0,0.4);color:var(--lekke)}
+.arch-box small{display:block;color:var(--muted);font-size:0.7rem;margin-top:0.2rem}
+.arch-arrow{color:var(--lekke);font-size:1.3rem;align-self:center}
+.int-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:7px;padding:0.7rem}
+.int-title{font-size:0.75rem;font-weight:700;color:var(--lekke);margin-bottom:0.3rem}
+.int-desc{font-size:0.75rem;color:var(--muted)}
+
+
+/* ── Context cards ──────────────────────────────────────────── */
+.ctx-card{background:rgba(255,108,0,0.05);border-left:4px solid #FF6C00;
+          border-radius:0 8px 8px 0;padding:0.85rem 1.1rem;margin-bottom:1.1rem;
+          font-size:0.82rem;line-height:1.6;color:#c9d1d9}
+.ctx-card .ctx-row{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:0.55rem}
+.ctx-item{flex:1;min-width:160px}
+.ctx-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;
+           letter-spacing:0.08em;color:#FF6C00;margin-bottom:0.2rem}
+.ctx-text{font-size:0.8rem;color:#8b949e}
+.ctx-text strong{color:#e6edf3}
+/* Column hint tooltips */
+.col-hint{font-size:0.65rem;color:#8b949e;display:block;margin-top:1px;font-weight:400}
+
+
+.chart-explain{background:rgba(255,255,255,0.03);border:1px solid #30363d;
+               border-radius:6px;padding:0.6rem 0.85rem;margin-bottom:0.75rem;
+               font-size:0.78rem;color:#8b949e;line-height:1.55}
+.chart-explain strong{color:#e6edf3}
+.chart-explain .how{display:inline-block;background:rgba(255,108,0,0.12);
+                    color:#FF6C00;border-radius:3px;padding:0.1rem 0.35rem;
+                    font-size:0.68rem;font-weight:700;margin-right:0.35rem}
+
+</style>
+</head>
+<body>
+<nav>
+      <a href="index.html">Map</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="recommendations.html">Recommendations</a>
+      <a href="data-model.html">Data Model</a>
+      <a href="seasonality.html">Seasonality</a>
+      <a href="ml-features.html">ML Features</a>
+      <a href="market-opportunity.html">Market Opp.</a>
+      <a href="mobile-attribution.html">Mobile</a>
+      <a href="seo-audit.html">SEO Audit</a>
+      <a href="seo-pages.html">SEO Pages</a>
+      <a href="site-audit.html">Site Audit</a>
+      <a href="gtm-demo/">GTM Demo</a>
+      <a href="ebook.html">Ebook</a>
+</nav>
+
+<div class="page-header">
+  <h1>Mobile Attribution <span class="brand-pill">AppsFlyer</span></h1>
+  <p>Synthetic mobile attribution data — 5,000 app installs, 6 channels, iOS + Android · Powered by AppsFlyer SDK events</p>
+</div>
+<div class="content">
+<div class="ctx-card">
+  <strong style="color:#FF6C00">What you are looking at</strong>
+  <div class="ctx-row">
+    <div class="ctx-item">
+      <div class="ctx-label">What</div>
+      <div class="ctx-text">Mobile app attribution data from <strong>AppsFlyer</strong> — 5,000 synthetic installs across 6 acquisition channels (Meta Ads, Google UAC, TikTok, Organic, Email, Direct). Shows where app installs come from, which channels convert to bookings, and how much revenue each channel generates (LTV, ROAS).</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">Why</div>
+      <div class="ctx-text">LekkeSlaap is primarily a <strong>mobile app</strong> — most bookings happen on iOS or Android. AppsFlyer tracks which paid channel (Meta, Google) or organic source drove each install, then attributes downstream bookings back to that source. Without this, you cannot calculate true <strong>return on ad spend (ROAS)</strong> per channel.</div>
+    </div>
+    <div class="ctx-item">
+      <div class="ctx-label">So What</div>
+      <div class="ctx-text">Channels with ROAS &gt; 3× are profitable — <strong>increase budget there</strong>. Channels below 1× are losing money — pause or restructure. Day-30 retention shows which channel acquires <em>loyal</em> users vs one-time installers. Organic installs cost nothing but have the highest retention — investing in ASO and brand pays long-term dividends.</div>
+    </div>
+  </div>
+</div>
+
+  <div style="background:rgba(255,108,0,0.06);border:1px solid rgba(255,108,0,0.25);border-radius:8px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.82rem;color:var(--muted)">
+    <strong style="color:var(--lekke)">Data note:</strong> This dataset is <em>synthetic</em> — generated to mirror real AppsFlyer attribution patterns
+    for the LekkeSlaap app (iOS + Android). It models install attribution, in-app events, ROAS by channel, and cohort retention
+    across 6 acquisition channels for Jan–Jun 2026. Real data would be pulled via the AppsFlyer Pull API or BigQuery export.
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-v">5,000</div><div class="kpi-l">Total App Installs</div></div>
+    <div class="kpi"><div class="kpi-v">27.9%</div><div class="kpi-l">Organic Install Share</div></div>
+    <div class="kpi"><div class="kpi-v">4,634</div><div class="kpi-l">Bookings (30-day)</div></div>
+    <div class="kpi"><div class="kpi-v">R85,368</div><div class="kpi-l">Total UA Spend (ZAR)</div></div>
+    <div class="kpi"><div class="kpi-v">159.2×</div><div class="kpi-l">Overall ROAS</div></div>
+    <div class="kpi"><div class="kpi-v">R13,590,264</div><div class="kpi-l">Total LTV Generated</div></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <h2>Channel Performance</h2>
+<div class="chart-explain">This table shows <strong>how each acquisition channel performs from install to booking</strong>. <span class="how">Key metrics</span><strong>CPI (Cost Per Install)</strong> = total spend ÷ installs — lower is better. <strong>Conv %</strong> = % of installs that completed a booking within 30 days — higher is better. <strong>LTV</strong> = total booking revenue attributable to installs from this channel. <strong>ROAS</strong> = LTV ÷ cost — ROAS of 3× means R3 earned per R1 spent. ROAS below 1× = losing money. Organic shows R0 cost because it is unpaid — its "cost" is brand investment and SEO effort, not direct ad spend.</div>
+    <table>
+      <thead><tr><th>Channel</th><th>Installs</th><th>Cost (R)</th><th>CPI (R)</th>
+                 <th>Bookings</th><th>Conv %</th><th>LTV (R)</th><th>ROAS</th></tr></thead>
+      <tbody id="chTbody"></tbody>
+    </table>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+    <div class="card">
+      <h2>Cohort Retention by Channel</h2>
+<div class="chart-explain"><strong>Cohort retention</strong> measures what % of users who installed the app are still active after Day 1, Day 7, and Day 30. <span class="how">How to read it</span>Day-1 retention = % who returned the day after installing. Day-30 = loyal users. A channel with high installs but low Day-30 retention is acquiring <strong>low-quality users</strong> who try the app once and leave — high CPI for little long-term value. Organic users typically have the highest retention because they sought the app out intentionally.</div>
+      <table>
+        <thead><tr><th>Channel</th><th>Installs</th><th>Day 1</th><th>Day 7</th><th>Day 30</th></tr></thead>
+        <tbody id="cohortTbody"></tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Installs by Province</h2>
+      <table>
+        <thead><tr><th>Province</th><th>Installs</th><th>Bookings</th><th>LTV (R)</th></tr></thead>
+        <tbody id="provTbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Campaign Detail</h2>
+    <table>
+      <thead><tr><th>Channel</th><th>Campaign</th><th>Installs</th><th>Cost (R)</th>
+                 <th>CPI (R)</th><th>ROAS</th><th>Conv %</th></tr></thead>
+      <tbody id="campTbody"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>AppsFlyer Integration Architecture</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center;padding:0.5rem 0">
+      <div class="arch-box orange-box">Mobile App<br><small>(iOS / Android)</small></div>
+      <div class="arch-arrow">&#8594;</div>
+      <div class="arch-box">AppsFlyer SDK<br><small>Event capture</small></div>
+      <div class="arch-arrow">&#8594;</div>
+      <div class="arch-box">Pull API / BQ Export<br><small>Raw attribution data</small></div>
+      <div class="arch-arrow">&#8594;</div>
+      <div class="arch-box">BigQuery<br><small>africa-south1</small></div>
+      <div class="arch-arrow">&#8594;</div>
+      <div class="arch-box orange-box">This Dashboard<br><small>Intelligence layer</small></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.6rem;margin-top:1rem">
+      <div class="int-card"><div class="int-title">Events Tracked</div>
+        <div class="int-desc">app_open, search, view_listing, add_to_wishlist, checkout_start, booking_complete</div></div>
+      <div class="int-card"><div class="int-title">Attribution Window</div>
+        <div class="int-desc">Click: 7 days · View-through: 1 day · Re-engagement: 30 days</div></div>
+      <div class="int-card"><div class="int-title">Privacy</div>
+        <div class="int-desc">SKAdNetwork (iOS 14.5+) · Android Privacy Sandbox · POPIA compliant</div></div>
+      <div class="int-card"><div class="int-title">Partners Connected</div>
+        <div class="int-desc">Meta Ads · Google UAC · TikTok for Business · Email (Klaviyo)</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const CH   = [{"channel": "Direct", "installs": 151, "cost_zar": 0.0, "ltv_zar": 414739.99, "bookings": 140, "roas": 0.0, "cpi": 0.0, "conv": 92.7}, {"channel": "Email", "installs": 201, "cost_zar": 0.0, "ltv_zar": 504856.15, "bookings": 187, "roas": 0.0, "cpi": 0.0, "conv": 93.0}, {"channel": "Google UAC", "installs": 1254, "cost_zar": 33306.17, "ltv_zar": 3544879.09, "bookings": 1159, "roas": 106.43, "cpi": 26.56, "conv": 92.4}, {"channel": "Meta Ads", "installs": 1473, "cost_zar": 38494.8, "ltv_zar": 4037757.83, "bookings": 1358, "roas": 104.89, "cpi": 26.13, "conv": 92.2}, {"channel": "Organic", "installs": 1395, "cost_zar": 0.0, "ltv_zar": 3683562.49, "bookings": 1296, "roas": 0.0, "cpi": 0.0, "conv": 92.9}, {"channel": "TikTok Ads", "installs": 526, "cost_zar": 13567.01, "ltv_zar": 1404468.01, "bookings": 494, "roas": 103.52, "cpi": 25.79, "conv": 93.9}];
+const CAMP = [{"channel": "Direct", "campaign": "direct", "installs": 151, "cost": 0.0, "ltv": 414739.99, "bookings": 140, "cpi_zar": 0.0, "roas": 0.0, "conv_rate": 92.7}, {"channel": "Email", "campaign": "email_newsletter", "installs": 201, "cost": 0.0, "ltv": 504856.15, "bookings": 187, "cpi_zar": 0.0, "roas": 0.0, "conv_rate": 93.0}, {"channel": "Google UAC", "campaign": "LS_UAC_App_SA_All", "installs": 630, "cost": 16845.65, "ltv": 1868900.24, "bookings": 596, "cpi_zar": 26.74, "roas": 110.94, "conv_rate": 94.6}, {"channel": "Google UAC", "campaign": "LS_UAC_Remarketing", "installs": 624, "cost": 16460.52, "ltv": 1675978.85, "bookings": 563, "cpi_zar": 26.38, "roas": 101.82, "conv_rate": 90.2}, {"channel": "Meta Ads", "campaign": "LS_META_Brand_SA", "installs": 455, "cost": 12030.48, "ltv": 1222857.22, "bookings": 416, "cpi_zar": 26.44, "roas": 101.65, "conv_rate": 91.4}, {"channel": "Meta Ads", "campaign": "LS_META_Promo_Winter", "installs": 533, "cost": 13559.0, "ltv": 1449257.45, "bookings": 493, "cpi_zar": 25.44, "roas": 106.89, "conv_rate": 92.5}, {"channel": "Meta Ads", "campaign": "LS_META_Retarget_Cape", "installs": 485, "cost": 12905.32, "ltv": 1365643.16, "bookings": 449, "cpi_zar": 26.61, "roas": 105.82, "conv_rate": 92.6}, {"channel": "Organic", "campaign": "organic", "installs": 1395, "cost": 0.0, "ltv": 3683562.49, "bookings": 1296, "cpi_zar": 0.0, "roas": 0.0, "conv_rate": 92.9}, {"channel": "TikTok Ads", "campaign": "LS_TIKTOK_GenZ_Getaway", "installs": 526, "cost": 13567.01, "ltv": 1404468.01, "bookings": 494, "cpi_zar": 25.79, "roas": 103.52, "conv_rate": 93.9}];
+const COH  = [{"channel": "Meta Ads", "installs": 1500, "day1_ret_pct": 25.0, "day7_ret_pct": 13.8, "day30_ret_pct": 7.0, "avg_sessions_30d": 6.7}, {"channel": "Google UAC", "installs": 1250, "day1_ret_pct": 29.0, "day7_ret_pct": 16.0, "day30_ret_pct": 8.1, "avg_sessions_30d": 7.7}, {"channel": "Organic", "installs": 1400, "day1_ret_pct": 38.0, "day7_ret_pct": 20.9, "day30_ret_pct": 10.6, "avg_sessions_30d": 10.1}, {"channel": "TikTok Ads", "installs": 500, "day1_ret_pct": 20.0, "day7_ret_pct": 11.0, "day30_ret_pct": 5.6, "avg_sessions_30d": 5.3}, {"channel": "Email", "installs": 200, "day1_ret_pct": 34.0, "day7_ret_pct": 18.7, "day30_ret_pct": 9.5, "avg_sessions_30d": 9.1}, {"channel": "Direct", "installs": 150, "day1_ret_pct": 32.0, "day7_ret_pct": 17.6, "day30_ret_pct": 9.0, "avg_sessions_30d": 8.5}];
+const PROV = [{"province": "Northern Cape", "installs": 588, "bookings": 552, "ltv": 1639834.72}, {"province": "Gauteng", "installs": 565, "bookings": 519, "ltv": 1552868.09}, {"province": "Eastern Cape", "installs": 562, "bookings": 522, "ltv": 1541560.13}, {"province": "Free State", "installs": 559, "bookings": 503, "ltv": 1485100.59}, {"province": "North West", "installs": 554, "bookings": 522, "ltv": 1509666.94}, {"province": "Western Cape", "installs": 554, "bookings": 507, "ltv": 1395294.56}, {"province": "Mpumalanga", "installs": 553, "bookings": 517, "ltv": 1588060.31}, {"province": "KwaZulu-Natal", "installs": 536, "bookings": 504, "ltv": 1432332.16}, {"province": "Limpopo", "installs": 529, "bookings": 488, "ltv": 1445546.06}];
+const CH_COLOR = {"Meta Ads":"#1877F2","Google UAC":"#4285F4","Organic":"#4caf50",
+                   "TikTok Ads":"#010101","Email":"#00bcd4","Direct":"#ff9800"};
+
+// Channel table
+const chT = document.getElementById('chTbody');
+const maxI = Math.max(...CH.map(r=>r.installs));
+CH.sort((a,b)=>b.installs-a.installs).forEach(r=>{
+  const pct = (r.installs/maxI*100).toFixed(0);
+  const roasCol = r.roas>=3?'b-green':r.roas>=1.5?'b-orange':'b-red';
+  chT.insertAdjacentHTML('beforeend',`<tr>
+    <td><strong style="color:${CH_COLOR[r.channel]||'#ccc'}">${r.channel}</strong>
+        <div class="bar-wrap"><div class="bar-fill" style="width:${pct}%;background:${CH_COLOR[r.channel]||'var(--lekke)'}"></div></div></td>
+    <td>${r.installs.toLocaleString()}</td>
+    <td>${r.cost_zar?'R'+Math.round(r.cost_zar).toLocaleString():'—'}</td>
+    <td>${r.cpi?'R'+r.cpi:'—'}</td>
+    <td>${r.bookings}</td>
+    <td>${r.conv}%</td>
+    <td>R${Math.round(r.ltv_zar).toLocaleString()}</td>
+    <td><span class="badge ${roasCol}">${r.roas||'—'}×</span></td>
+  </tr>`);
+});
+
+// Cohort
+const cohT = document.getElementById('cohortTbody');
+COH.sort((a,b)=>b.day30_ret_pct-a.day30_ret_pct).forEach(r=>{
+  cohT.insertAdjacentHTML('beforeend',`<tr>
+    <td style="color:${CH_COLOR[r.channel]||'#ccc'}">${r.channel}</td>
+    <td>${r.installs.toLocaleString()}</td>
+    <td>${r.day1_ret_pct}%</td>
+    <td>${r.day7_ret_pct}%</td>
+    <td><strong style="color:var(--lekke)">${r.day30_ret_pct}%</strong></td>
+  </tr>`);
+});
+
+// Province
+const provT = document.getElementById('provTbody');
+PROV.forEach(r=>{
+  provT.insertAdjacentHTML('beforeend',`<tr>
+    <td>${r.province}</td>
+    <td>${r.installs.toLocaleString()}</td>
+    <td>${r.bookings}</td>
+    <td>R${Math.round(r.ltv).toLocaleString()}</td>
+  </tr>`);
+});
+
+// Campaign
+const campT = document.getElementById('campTbody');
+CAMP.sort((a,b)=>b.installs-a.installs).forEach(r=>{
+  campT.insertAdjacentHTML('beforeend',`<tr>
+    <td style="color:${CH_COLOR[r.channel]||'#ccc'}">${r.channel}</td>
+    <td style="font-size:0.75rem;color:var(--muted)">${r.campaign}</td>
+    <td>${r.installs.toLocaleString()}</td>
+    <td>${r.cost?'R'+Math.round(r.cost).toLocaleString():'—'}</td>
+    <td>${r.cpi_zar||'—'}</td>
+    <td><span class="badge ${r.roas>=3?'b-green':r.roas>=1?'b-orange':'b-red'}">${r.roas||'—'}×</span></td>
+    <td>${r.conv_rate}%</td>
+  </tr>`);
+});
+</script>
+</body>
+</html>

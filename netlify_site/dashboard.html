@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SA Accommodation Intelligence Platform — Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --blue:    #4285F4;
+    --green:   #0F9D58;
+    --orange:  #FF6D00;
+    --yellow:  #F4B400;
+    --red:     #DB4437;
+    --teal:    #00BCD4;
+    --purple:  #673AB7;
+    --dark:    #1A1A2E;
+    --bg:      #F4F6FB;
+    --card-bg: #FFFFFF;
+    --border:  #E0E6F0;
+    --text:    #333344;
+    --sub:     #6B7A99;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--text); }
+  header {
+    background:var(--dark); color:#fff; padding:18px 32px;
+    display:flex; align-items:center; gap:16px;
+    box-shadow:0 2px 8px rgba(0,0,0,.3);
+  }
+  header .logo { font-size:1.6rem; font-weight:700; color:var(--teal); }
+  header .subtitle { font-size:.85rem; color:#aab3cc; }
+  .badge {
+    background:var(--teal); color:var(--dark);
+    font-size:.7rem; font-weight:700; padding:3px 10px;
+    border-radius:12px; letter-spacing:.05em; margin-left:auto;
+  }
+  main { padding:24px 32px; }
+  section { margin-bottom:32px; }
+  h2 { font-size:1.05rem; font-weight:700; color:var(--dark);
+        border-left:4px solid var(--teal); padding-left:10px; margin-bottom:16px; }
+  .kpi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; }
+  .kpi {
+    background:var(--card-bg); border-radius:10px; padding:18px 16px;
+    box-shadow:0 1px 4px rgba(0,0,0,.08); border-top:3px solid var(--blue);
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .kpi .val { font-size:1.7rem; font-weight:700; color:var(--dark); }
+  .kpi .lbl { font-size:.75rem; color:var(--sub); text-transform:uppercase; letter-spacing:.06em; }
+  .kpi.green { border-top-color:var(--green); } .kpi.green .val { color:var(--green); }
+  .kpi.orange { border-top-color:var(--orange); } .kpi.orange .val { color:var(--orange); }
+  .kpi.yellow { border-top-color:var(--yellow); } .kpi.yellow .val { color:var(--yellow); }
+  .kpi.teal { border-top-color:var(--teal); } .kpi.teal .val { color:var(--teal); }
+  .kpi.purple{ border-top-color:var(--purple); } .kpi.purple .val { color:var(--purple); }
+  .kpi.red   { border-top-color:var(--red); }  .kpi.red .val   { color:var(--red); }
+  .chart-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(400px,1fr)); gap:20px; }
+  .chart-card {
+    background:var(--card-bg); border-radius:10px; padding:20px;
+    box-shadow:0 1px 4px rgba(0,0,0,.08);
+  }
+  .chart-card h3 { font-size:.9rem; color:var(--sub); margin-bottom:14px; font-weight:600; }
+  .chart-wrap { position:relative; height:240px; }
+  .ml-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .ml-card {
+    background:var(--card-bg); border-radius:10px; padding:18px;
+    box-shadow:0 1px 4px rgba(0,0,0,.08); text-align:center;
+    border-top:3px solid var(--purple);
+  }
+  .ml-card .model { font-size:.75rem; color:var(--sub); margin-bottom:6px; }
+  .ml-card .metric { font-size:1.5rem; font-weight:700; color:var(--purple); }
+  .ml-card .desc { font-size:.72rem; color:var(--sub); margin-top:4px; }
+  .dirty-table { width:100%; border-collapse:collapse; }
+  .dirty-table th { background:var(--red); color:#fff; padding:8px 12px; font-size:.8rem; text-align:left; }
+  .dirty-table td { padding:7px 12px; border-bottom:1px solid var(--border); font-size:.8rem; }
+  .dirty-table tr:nth-child(even) td { background:#FFF3E0; }
+  footer { text-align:center; padding:20px; color:var(--sub); font-size:.75rem; }
+  @media(max-width:600px){
+    main{padding:12px;} .chart-grid{grid-template-columns:1fr;} .ml-grid{grid-template-columns:1fr;}
+  }
+
+.chart-explain{background:rgba(255,255,255,0.03);border:1px solid #30363d;
+               border-radius:6px;padding:0.6rem 0.85rem;margin-bottom:0.75rem;
+               font-size:0.78rem;color:#8b949e;line-height:1.55}
+.chart-explain strong{color:#e6edf3}
+.chart-explain .how{display:inline-block;background:rgba(255,108,0,0.12);
+                    color:#FF6C00;border-radius:3px;padding:0.1rem 0.35rem;
+                    font-size:0.68rem;font-weight:700;margin-right:0.35rem}
+
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="logo">SA Accommodation Intelligence Platform</div>
+    <div class="subtitle">LekkeSlaap Market Analysis · BigQuery · GA4 · Machine Learning · 2026</div>
+  </div>
+  <div class="badge">BIGQUERY + GA4</div>
+</header>
+<nav style="background:#161b22;border-bottom:2px solid #FF6C00;padding:0.6rem 1.2rem;display:flex;flex-wrap:wrap;gap:0.4rem">
+  <a href="index.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">Map</a>
+  <a href="dashboard.html" style="color:#00bcd4;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(0,188,212,0.15)">Dashboard</a>
+  <a href="recommendations.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">Recommendations</a>
+  <a href="data-model.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">Data Model</a>
+  <a href="seasonality.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">Seasonality</a>
+  <a href="ml-features.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">ML Features</a>
+  <a href="market-opportunity.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">Market Opp.</a>
+  <a href="seo-pages.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">SEO Pages</a>
+  <a href="mobile-attribution.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">Mobile</a>
+  <a href="seo-audit.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">SEO Audit</a>
+  <a href="site-audit.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">Site Audit</a>
+  <a href="gtm-demo/" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">GTM Demo</a>
+  <a href="ebook.html" style="color:#8b949e;text-decoration:none;padding:0.3rem 0.65rem;border-radius:5px;font-size:0.78rem;background:rgba(255,255,255,0.04)">Ebook</a>
+</nav>
+
+<main>
+
+<!-- KPIs -->
+<section>
+  <h2>Platform KPIs</h2>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <span class="val">1,011</span>
+      <span class="lbl">Properties Scraped</span>
+    </div>
+    <div class="kpi green">
+      <span class="val">R2,002</span>
+      <span class="lbl">Avg Nightly Price (ZAR)</span>
+    </div>
+    <div class="kpi orange">
+      <span class="val">R1,380</span>
+      <span class="lbl">Median Nightly Price</span>
+    </div>
+    <div class="kpi teal">
+      <span class="val">30,000</span>
+      <span class="lbl">GA4 Sessions</span>
+    </div>
+    <div class="kpi yellow">
+      <span class="val">107</span>
+      <span class="lbl">Confirmed Bookings</span>
+    </div>
+    <div class="kpi purple">
+      <span class="val">0.36%</span>
+      <span class="lbl">Booking Conversion Rate</span>
+    </div>
+    <div class="kpi red">
+      <span class="val">41.8%</span>
+      <span class="lbl">Bounce Rate</span>
+    </div>
+    <div class="kpi teal">
+      <span class="val">80s</span>
+      <span class="lbl">Avg Engagement Time</span>
+    </div>
+    <div class="kpi green">
+      <span class="val">78.6%</span>
+      <span class="lbl">POPIA Consent Rate</span>
+    </div>
+  </div>
+</section>
+
+<!-- ML Models -->
+<section>
+  <h2>ML Model Performance</h2>
+<div class="chart-explain">This <strong>grouped bar chart</strong> compares model performance metrics side by side. <span class='how'>How to read it</span><strong>R²</strong> (regression): 1.0 = perfect, 0 = no better than guessing the mean. <strong>F1</strong> (classification): 1.0 = perfect recall and precision. <strong>AUC</strong> (binary): 0.5 = random chance, 1.0 = perfect ranking. All models trained on synthetic data — treat metrics as directional, not production benchmarks.</div>
+  <div class="ml-grid">
+    <div class="ml-card">
+      <div class="model">Model 1: Price Regression (GBR)</div>
+      <div class="metric">R² = 0.1726</div>
+      <div class="desc">Gradient Boosting · Features: Listing Type, Region, City, Reviews<br>MAE = R1066.66 per night</div>
+    </div>
+    <div class="ml-card">
+      <div class="model">Model 2: Tier Classifier (RF)</div>
+      <div class="metric">Acc = 0.397</div>
+      <div class="desc">Random Forest · 4 Classes: Budget / Mid-Range / Premium / Luxury<br>5-fold cross-validated</div>
+    </div>
+    <div class="ml-card">
+      <div class="model">Model 3: Demand Scorer (GBR)</div>
+      <div class="metric">R² = 0.9606</div>
+      <div class="desc">Composite demand score (0–100) · normalised review_count × tier weight<br>Used for featured-listing ranking</div>
+    </div>
+  </div>
+</section>
+
+<!-- Charts -->
+<section>
+  <h2>Market Intelligence</h2>
+  <div class="chart-grid">
+
+    <div class="chart-card">
+      <h3>Price Tier Distribution</h3>
+      <div class="chart-wrap"><canvas id="tierChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Listings by Accommodation Type</h3>
+      <div class="chart-wrap"><canvas id="typeChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Top Regions by Listing Count</h3>
+      <div class="chart-wrap"><canvas id="regionChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <h3>GA4 Sessions by Traffic Source</h3>
+      <div class="chart-wrap"><canvas id="trafficChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Booking Conversion Funnel</h3>
+      <div class="chart-wrap"><canvas id="funnelChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Confirmed Bookings by Province</h3>
+      <div class="chart-wrap"><canvas id="provinceChart"></canvas></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Dirty Data Audit -->
+<section>
+  <h2>Dirty Data Audit — Issues Found & Fixed</h2>
+  <table class="dirty-table">
+    <tr><th>Issue</th><th>Count</th><th>Fix Applied</th></tr>
+    <tr><td>Promotional noise in property names (Flash Deal X% off!)</td><td>~15</td><td>Regex removed promo prefix; original name preserved</td></tr>
+    <tr><td>Prices formatted as 'R1 700' (space in thousands)</td><td>~600+</td><td>Stripped spaces after 'R'; converted to numeric float</td></tr>
+    <tr><td>Location with duplicated suburb ('X, X City')</td><td>~500+</td><td>Regex collapsed 'Suburb, Suburb City' → 'Suburb, City'</td></tr>
+    <tr><td>Non-standard listing types (LodgingBusiness)</td><td>3</td><td>Mapped to Guest House / Self Catering</td></tr>
+    <tr><td>Rating field 99.7% empty</td><td>1,010</td><td>Excluded from ML; documented as data gap in ebook</td></tr>
+    <tr><td>Price outliers > R20,000 per night</td><td>~3</td><td>Nulled + flagged price_outlier_flag=TRUE</td></tr>
+    <tr><td>Duplicate property_id records</td><td>~50</td><td>Deduplicated on property_id; kept first occurrence</td></tr>
+    <tr><td>Reviewer names leaked into location field</td><td>2</td><td>Detected '- Reviewer Name' pattern; set location to NULL</td></tr>
+  </table>
+</section>
+
+<!-- BigQuery ETL Info -->
+<section>
+  <h2>BigQuery ETL Architecture (Free Tier)</h2>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h3>Free ETL Options in BigQuery</h3>
+      <ul style="font-size:.82rem;line-height:1.9;padding-left:16px;">
+        <li><b>bq load</b> — Free CSV/JSON/Parquet loading from local or GCS</li>
+        <li><b>GA4 → BigQuery Export</b> — Free daily automatic export (enable in GA4 Admin)</li>
+        <li><b>Data Transfer Service</b> — Free for BQ↔BQ and supported connectors</li>
+        <li><b>Scheduled Queries</b> — Free within 1 TB/month on-demand query quota</li>
+        <li><b>Dataform</b> — Free SQL-based ELT transformations inside BigQuery (dbt-like)</li>
+        <li><b>BigQuery Omni</b> — Query data across AWS S3 / Azure Blob without moving it</li>
+        <li><b>Storage Write API</b> — Free for DML; pay only for storage (R0.0165/GB/month SA)</li>
+      </ul>
+    </div>
+    <div class="chart-card">
+      <h3>Star Schema: accommodation_intelligence dataset</h3>
+      <ul style="font-size:.82rem;line-height:1.9;padding-left:16px;">
+        <li><b>dim_property</b> — 1,013 unique listings · Clustered: listing_type, price_tier</li>
+        <li><b>dim_region</b> — 18 SA regions + Namibia</li>
+        <li><b>fact_listings</b> — Scraped snapshot · Partitioned: scraped_date</li>
+        <li><b>fact_web_sessions</b> — 30,000 GA4-schema sessions · Partitioned: event_date</li>
+        <li><b>fact_booking_events</b> — Booking funnel events · Partitioned: event_date</li>
+        <li><b>ml_predictions</b> — Price + tier + demand predictions from 3 ML models</li>
+        <li><b>Location</b>: africa-south1 (Johannesburg) — lowest latency for SA users</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>SA Accommodation Intelligence Platform · Anthony Apollis · 2026-06-27 · Data: LekkeSlaap.co.za</footer>
+
+<script>
+const COLORS = ['#4285F4','#0F9D58','#FF6D00','#F4B400','#DB4437','#00BCD4','#673AB7','#9C27B0','#FF5722'];
+const TIER_C = {'Budget':'#0F9D58','Mid-Range':'#4285F4','Premium':'#FF6D00','Luxury':'#F4B400','Unknown':'#999'};
+
+function mkChart(id, type, labels, data, colors, opts={}) {
+  return new Chart(document.getElementById(id), {
+    type, data: { labels, datasets:[{ data, backgroundColor: colors || COLORS,
+      borderColor: colors ? colors.map(c=>c+'dd'):[],
+      borderWidth: type==='bar'?0:0, borderRadius: type==='bar'?4:0 }] },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'right', labels:{font:{size:11}}}}, ...opts }
+  });
+}
+
+const tierD  = {"labels": ["Premium", "Mid-Range", "Luxury", "Budget", "Unknown"], "data": [389, 329, 219, 58, 16]};
+mkChart('tierChart','doughnut', tierD.labels, tierD.data,
+  tierD.labels.map(l => TIER_C[l]||'#999'), {plugins:{legend:{position:'right'}}});
+
+const typeD  = {"labels": ["Self Catering", "Guest House", "Lodge", "B&B", "Game Lodge", "Hotel", "Resort", "Backpacker"], "data": [699, 163, 61, 35, 30, 19, 3, 1]};
+mkChart('typeChart','bar', typeD.labels, typeD.data, COLORS,
+  {plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}}});
+
+const regD   = {"labels": ["Namibia", "Cape Town", "Garden Route", "Overberg", "Johannesburg", "Ballito", "Pretoria", "Panorama Route"], "data": [10, 10, 10, 10, 10, 10, 10, 10]};
+mkChart('regionChart','bar', regD.labels, regD.data, COLORS,
+  {plugins:{legend:{display:false}}, indexAxis:'y', scales:{x:{beginAtZero:true}}});
+
+const trafficD = {"labels": ["(other)", "direct", "email", "facebook", "google", "instagram"], "data": [1439, 6261, 1474, 3592, 15110, 2124]};
+mkChart('trafficChart','doughnut', trafficD.labels, trafficD.data, COLORS,
+  {plugins:{legend:{position:'right'}}});
+
+const funnelD = {"labels": ["Listing View", "Search Nearby", "Contact Host", "Booking Init", "Confirmed"], "data": [16026, 8801, 3035, 659, 107]};
+mkChart('funnelChart','bar', funnelD.labels, funnelD.data,
+  ['#4285F4','#0F9D58','#FF6D00','#F4B400','#DB4437'],
+  {plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}}});
+
+const provD = {"labels": ["Gauteng", "Western Cape", "Eastern Cape", "KwaZulu-Natal", "North West", "Northern Cape", "Free State", "Mpumalanga", "Limpopo"], "data": [32, 22, 15, 15, 7, 5, 4, 4, 3]};
+mkChart('provinceChart','bar', provD.labels, provD.data, COLORS.slice().reverse(),
+  {plugins:{legend:{display:false}}, indexAxis:'y', scales:{x:{beginAtZero:true}}});
+</script>
+
+<!-- Metric glossary -->
+<div style="background:#161b22;border-top:1px solid #30363d;padding:1.5rem;margin-top:2rem;font-size:0.78rem;color:#8b949e">
+  <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#FF6C00;margin-bottom:0.85rem">Metric Glossary</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.6rem">
+    <div><strong style="color:#e6edf3">Demand Score</strong> — Composite 0–100: booking-event frequency (40%) + review count (30%) + promo activity (30%). Platform average ≈ 6.</div>
+    <div><strong style="color:#e6edf3">Price per Night</strong> — Nightly rate in South African Rand (ZAR / R) as listed on LekkeSlaap.co.za at time of scrape (June 2026).</div>
+    <div><strong style="color:#e6edf3">Price Tier</strong> — Budget = under R800. Mid-Range = R800–R1,500. Premium = R1,500–R3,000. Luxury = above R3,000.</div>
+    <div><strong style="color:#e6edf3">GA4 Sessions</strong> — Synthetic web sessions generated to mirror real LekkeSlaap traffic patterns. Not live data.</div>
+    <div><strong style="color:#e6edf3">ML Cluster</strong> — K-Means group (k=4) based on price, demand, reviews, listing count. Used to segment regions for targeting.</div>
+    <div><strong style="color:#e6edf3">ROAS</strong> — Return on Ad Spend. ROAS of 3× means every R1 spent on ads generates R3 in bookings. Break-even = 1×.</div>
+    <div><strong style="color:#e6edf3">Price–Demand r</strong> — Pearson correlation coefficient. Global r = -0.279 means cheaper properties tend to get more bookings (weak negative relationship).</div>
+    <div><strong style="color:#e6edf3">Pearson r range</strong> — r near 0 = no relationship. r = -1 = perfect inverse. r = +1 = perfect positive. Magnitude matters more than direction.</div>
+  </div>
+</div>
+
+</body>
+</html>
