@@ -1,0 +1,4 @@
+metric,ctrl_rate,var_rate,uplift_pct,z_score,p_value,significant,winner,test_id,test_name,ctrl_label,var_label,ctrl_n,var_n,ctrl_revenue_zar,var_revenue_zar,revenue_uplift_pct,ctrl_ret_d30,var_ret_d30
+Booking conversion rate,3.65,5.46,49.5,8.659,0.0,True,B,AB-001,Listing Page Layout,Image-first,Price-first + urgency,20000,20000,98.78,142.81,44.6,,
+Checkout completion rate,41.23,55.63,34.9,15.782,0.0,True,B,AB-002,Checkout UX,Standard checkout,Progress bar + trust badges,6000,6000,1144.96,1535.06,34.1,,
+Cost Per Install (CPI),24.53,19.13,-22.0,95.858,0.0,True,B (lower CPI),AB-003,App Install Creative,Generic CTA,Price-anchor CTA,10000,10000,1790.8,2209.95,23.4,18.0,23.0
